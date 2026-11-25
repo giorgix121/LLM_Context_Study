@@ -1,4 +1,4 @@
-# Context level vs. LLM change-risk prediction (small balanced pilot)
+# Context level vs. LLM change-risk prediction
 
 **RQ1:** How do different context strategies affect prediction quality?
 **RQ2:** Which context level offers the best prediction–cost trade-off?
