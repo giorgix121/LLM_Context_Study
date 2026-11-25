@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "get_next_link",
+      "path": "src/sentry/integrations/github/utils.py",
+      "start": 32,
+      "end": 47,
+      "code": "def get_next_link(response: Response) -> str | None:\n    link_option: str | None = response.headers.get(\"link\")\n    if link_option is None:\n        return None\n\n    # Should be a comma separated string of links\n    links = link_option.split(\",\")\n\n    for link in links:\n        # If there is a 'next' link return the URL between the angle brackets, or None\n        if 'rel=\"next\"' in link:\n            start = link.find(\"<\") + 1\n            end = link.find(\">\")\n            return link[start:end]\n\n    return None",
+      "called_by": "GitHubClientMixin.get_with_pagination"
+    },
+    {
+      "name": "BaseApiClient.get",
+      "path": "src/sentry/shared_integrations/client/base.py",
+      "start": 185,
+      "end": 186,
+      "code": "    def get(self, *args: Any, **kwargs: Any) -> BaseApiResponseX:\n        return self.request(\"GET\", *args, **kwargs)",
+      "called_by": "GitHubClientMixin.get_with_pagination"
+    }
+  ]
+}

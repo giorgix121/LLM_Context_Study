@@ -1,0 +1,65 @@
+{
+  "cache_key": "4787d33d9f34f98ace7d638623e7e91b2cde616e7e09ae1bb1837607dc4ae8f4",
+  "sample_id": "case070",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "If any item in `metric_meta` lacks a 'unit' key, this change will raise a `KeyError` at runtime, breaking the endpoint for all callers.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"If any item in `metric_meta` lacks a 'unit' key, this change will raise a `KeyError` at runtime, breaking the endpoint for all callers.\"}",
+  "response_id": "gen-1795191371-TPEcMDkqCXRUTnYRc6Wv",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 285,
+  "completion_tokens": 53,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00165,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 285,
+    "completion_tokens": 53,
+    "total_tokens": 338,
+    "cost": 0.00165,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00165,
+      "upstream_inference_prompt_cost": 0.000855,
+      "upstream_inference_completions_cost": 0.000795
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.83,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:16:13+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

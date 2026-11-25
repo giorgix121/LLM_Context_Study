@@ -1,0 +1,15 @@
+[
+  {
+    "name": "CloudVideoIntelligenceHook.get_conn",
+    "before": {
+      "start": 65,
+      "end": 75,
+      "code": "    def get_conn(self) -> VideoIntelligenceServiceClient:\n        \"\"\"\n        Returns Gcp Video Intelligence Service client\n\n        :rtype: google.cloud.videointelligence_v1.VideoIntelligenceServiceClient\n        \"\"\"\n        if not self._conn:\n            self._conn = VideoIntelligenceServiceClient(\n                credentials=self._get_credentials(), client_info=CLIENT_INFO\n            )\n        return self._conn"
+    },
+    "after": {
+      "start": 65,
+      "end": 75,
+      "code": "    def get_conn(self) -> VideoIntelligenceServiceClient:\n        \"\"\"\n        Returns Gcp Video Intelligence Service client\n\n        :rtype: google.cloud.videointelligence_v1.VideoIntelligenceServiceClient\n        \"\"\"\n        if not self._conn:\n            self._conn = VideoIntelligenceServiceClient(\n                credentials=self.get_credentials(), client_info=CLIENT_INFO\n            )\n        return self._conn"
+    }
+  }
+]

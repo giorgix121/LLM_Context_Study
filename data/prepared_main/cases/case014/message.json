@@ -1,0 +1,5 @@
+{
+  "commit": "1c73540aaf8d3e8088fa0cb038440e72f65be66b",
+  "chars": 53,
+  "text": "fix(vitals-alert): don't limit to just pageload event"
+}

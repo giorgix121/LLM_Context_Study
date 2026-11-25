@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1790920220-URenh8DMDHqtP93bvupg",
+    "object": "chat.completion",
+    "created": 1790920220,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change replaces manual string quoting with `enclose_param()` function, which is already used for `self.pattern` in the same method, ensuring consistent and proper parameter escaping for S3 keys in the Snowflake COPY command.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1106,
+      "completion_tokens": 85,
+      "total_tokens": 1191,
+      "cost": 0.001531,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.001531,
+        "upstream_inference_prompt_cost": 0.001106,
+        "upstream_inference_completions_cost": 0.000425
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

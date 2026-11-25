@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564049-S8AkP95lFVME5RJMGuwg",
+    "object": "chat.completion",
+    "created": 1795564049,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change correctly extends the existing Outback configuration to include the Legacy model, which shares similar physical parameters and control logic as evidenced by the accompanying updates to values, carstate, and test routes.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3232,
+      "completion_tokens": 54,
+      "total_tokens": 3286,
+      "cost": 0.00051018,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00051018,
+        "upstream_inference_prompt_cost": 0.0004848,
+        "upstream_inference_completions_cost": 2.538e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "sample_id": "case026",
+  "path": "src/sentry/ratelimits/redis.py"
+}

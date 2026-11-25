@@ -1,0 +1,38 @@
+{
+  "found": 4,
+  "included": 4,
+  "functions": [
+    {
+      "name": "BaseTIDep._failing_status",
+      "path": "airflow/ti_deps/deps/base_ti_dep.py",
+      "start": 125,
+      "end": 126,
+      "code": "    def _failing_status(self, reason=''):\n        return TIDepStatus(self.name, False, reason)",
+      "called_by": "ReadyToRescheduleDep._get_dep_statuses"
+    },
+    {
+      "name": "BaseTIDep._passing_status",
+      "path": "airflow/ti_deps/deps/base_ti_dep.py",
+      "start": 128,
+      "end": 129,
+      "code": "    def _passing_status(self, reason=''):\n        return TIDepStatus(self.name, True, reason)",
+      "called_by": "ReadyToRescheduleDep._get_dep_statuses"
+    },
+    {
+      "name": "TaskReschedule.query_for_task_instance",
+      "path": "airflow/models/taskreschedule.py",
+      "start": 95,
+      "end": 121,
+      "code": "    @staticmethod\n    @provide_session\n    def query_for_task_instance(task_instance, descending=False, session=None, try_number=None):\n        \"\"\"\n        Returns query for task reschedules for a given the task instance.\n\n        :param session: the database session object\n        :param task_instance: the task instance to find task reschedules for\n        :param descending: If True then records are returned in descending order\n        :param try_number: Look for TaskReschedule of the given try_number. Default is None which\n            looks for the same try_number of the given task_instance.\n        \"\"\"\n        if try_number is None:\n            try_number = task_instance.try_number\n\n        TR = TaskReschedule\n        qry = session.query(TR).filter(\n            TR.dag_id == task_instance.dag_id,\n            TR.task_id == task_instance.task_id,\n            TR.run_id == task_instance.run_id,\n            TR.map_index == task_instance.map_index,\n            TR.try_number == try_number,\n        )\n        if descending:\n            return qry.order_by(desc(TR.id))\n        else:\n            return qry.order_by(asc(TR.id))",
+      "called_by": "ReadyToRescheduleDep._get_dep_statuses"
+    },
+    {
+      "name": "utcnow",
+      "path": "airflow/utils/timezone.py",
+      "start": 54,
+      "end": 66,
+      "code": "def utcnow() -> dt.datetime:\n    \"\"\"\n    Get the current date and time in UTC\n\n    :return:\n    \"\"\"\n    # pendulum utcnow() is not used as that sets a TimezoneInfo object\n    # instead of a Timezone. This is not picklable and also creates issues\n    # when using replace()\n    result = dt.datetime.utcnow()\n    result = result.replace(tzinfo=utc)\n\n    return result",
+      "called_by": "ReadyToRescheduleDep._get_dep_statuses"
+    }
+  ]
+}

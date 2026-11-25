@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565056-wx0LtwVctIhTK66p9TUp",
+    "object": "chat.completion",
+    "created": 1795565056,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The refactor unifies batch size assignment by moving `bs = len(dataset)` outside the if/else block; since `LoadImages.__len__` returns 1 for single-image/video sources, the behavior is functionally equivalent to the previous hardcoded `bs = 1`.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 726,
+      "completion_tokens": 82,
+      "total_tokens": 808,
+      "cost": 0.003408,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003408,
+        "upstream_inference_prompt_cost": 0.002178,
+        "upstream_inference_completions_cost": 0.00123
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

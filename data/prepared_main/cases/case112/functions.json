@@ -1,0 +1,15 @@
+[
+  {
+    "name": "ConfigFlow.async_step_user",
+    "before": {
+      "start": 104,
+      "end": 133,
+      "code": "    async def async_step_user(\n        self, user_input: dict[str, Any] | None = None\n    ) -> FlowResult:\n        \"\"\"Handle the initial step.\"\"\"\n        if user_input is None:\n            return self.async_show_form(\n                step_id=\"user\", data_schema=STEP_USER_DATA_SCHEMA\n            )\n\n        errors = {}\n\n        try:\n            info = await validate_input(self.hass, user_input)\n        except FieldError as exception:\n            LOGGER.exception(\"Validation error\")\n            errors[exception.field] = exception.error\n        except Exception:  # pylint: disable=broad-except\n            LOGGER.exception(\"Unexpected exception\")\n            errors[\"base\"] = \"unknown\"\n        else:\n            data = {\n                **user_input,\n                CONF_WORD_SWAP: info[CONF_WORD_SWAP],\n                CONF_CONNECTION_TYPE: CONF_CONNECTION_TYPE_NIBEGW,\n            }\n            return self.async_create_entry(title=info[\"title\"], data=data)\n\n        return self.async_show_form(\n            step_id=\"user\", data_schema=STEP_USER_DATA_SCHEMA, errors=errors\n        )"
+    },
+    "after": {
+      "start": 104,
+      "end": 133,
+      "code": "    async def async_step_user(\n        self, user_input: dict[str, Any] | None = None\n    ) -> FlowResult:\n        \"\"\"Handle the initial step.\"\"\"\n        if user_input is None:\n            return self.async_show_form(\n                step_id=\"user\", data_schema=STEP_USER_DATA_SCHEMA\n            )\n\n        errors = {}\n\n        try:\n            info = await validate_input(self.hass, user_input)\n        except FieldError as exception:\n            LOGGER.debug(\"Validation error %s\", exception)\n            errors[exception.field] = exception.error\n        except Exception:  # pylint: disable=broad-except\n            LOGGER.exception(\"Unexpected exception\")\n            errors[\"base\"] = \"unknown\"\n        else:\n            data = {\n                **user_input,\n                CONF_WORD_SWAP: info[CONF_WORD_SWAP],\n                CONF_CONNECTION_TYPE: CONF_CONNECTION_TYPE_NIBEGW,\n            }\n            return self.async_create_entry(title=info[\"title\"], data=data)\n\n        return self.async_show_form(\n            step_id=\"user\", data_schema=STEP_USER_DATA_SCHEMA, errors=errors\n        )"
+    }
+  }
+]

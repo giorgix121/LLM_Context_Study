@@ -1,0 +1,5 @@
+{
+  "commit": "30de03dae139fc3b1b7c08b6939e6b694e95d820",
+  "chars": 249,
+  "text": "feat(metric-layer): Add metric_layer option to timeseries (#40546)\n\n- Need to update the snql query\n- Removed the sumif function\n- Updated sum to have the correct type resolver\n- Needed to add transaction as a filterable key to the query transformer"
+}

@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "ProtectMediaPlayer.__init__",
+      "path": "homeassistant/components/unifiprotect/media_player.py",
+      "start": 79,
+      "end": 94,
+      "code": "    def __init__(\n        self,\n        data: ProtectData,\n        camera: Camera,\n    ) -> None:\n        \"\"\"Initialize an UniFi speaker.\"\"\"\n        super().__init__(\n            data,\n            camera,\n            MediaPlayerEntityDescription(\n                key=\"speaker\", device_class=MediaPlayerDeviceClass.SPEAKER\n            ),\n        )\n\n        self._attr_name = f\"{self.device.display_name} Speaker\"\n        self._attr_media_content_type = MEDIA_TYPE_MUSIC",
+      "called_by": "async_setup_entry"
+    },
+    {
+      "name": "async_dispatch_id",
+      "path": "homeassistant/components/unifiprotect/utils.py",
+      "start": 104,
+      "end": 108,
+      "code": "@callback\ndef async_dispatch_id(entry: ConfigEntry, dispatch: str) -> str:\n    \"\"\"Generate entry specific dispatch ID.\"\"\"\n\n    return f\"{DOMAIN}.{entry.entry_id}.{dispatch}\"",
+      "called_by": "async_setup_entry"
+    },
+    {
+      "name": "async_dispatcher_connect",
+      "path": "homeassistant/helpers/dispatcher.py",
+      "start": 33,
+      "end": 69,
+      "code": "@callback\n@bind_hass\ndef async_dispatcher_connect(\n    hass: HomeAssistant, signal: str, target: Callable[..., Any]\n) -> Callable[[], None]:\n    \"\"\"Connect a callable function to a signal.\n\n    This method must be run in the event loop.\n    \"\"\"\n    if DATA_DISPATCHER not in hass.data:\n        hass.data[DATA_DISPATCHER] = {}\n\n    job = HassJob(\n        catch_log_exception(\n            target,\n            lambda *args: \"Exception in {} when dispatching '{}': {}\".format(\n                # Functions wrapped in partial do not have a __name__\n                getattr(target, \"__name__\", None) or str(target),\n                signal,\n                args,\n            ),\n        )\n    )\n\n    hass.data[DATA_DISPATCHER].setdefault(signal, []).append(job)\n\n    @callback\n    def async_remove_dispatcher() -> None:\n        \"\"\"Remove signal listener.\"\"\"\n        try:\n            hass.data[DATA_DISPATCHER][signal].remove(job)\n        except (KeyError, ValueError):\n            # KeyError is key target listener did not exist\n            # ValueError if listener did not exist within signal\n            _LOGGER.warning(\"Unable to remove unknown dispatcher %s\", target)\n\n    return async_remove_dispatcher",
+      "called_by": "async_setup_entry"
+    }
+  ]
+}

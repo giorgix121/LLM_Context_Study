@@ -1,0 +1,104 @@
+[run] model anthropic/claude-haiku-4.5 via OpenRouter, provider {'only': ['anthropic'], 'allow_fallbacks': False, 'require_parameters': True}, settings {'temperature': 0, 'max_tokens': 256, 'stream': False, 'reasoning': {'enabled': False}}
+[run] provider endpoint: Anthropic (anthropic/claude-4.5-haiku-20251001), status=0, price $1.00/M input, $5.00/M output
+[run] pre-run cost estimate (chars/3 tokens + 100 output tokens; worst case chars/2 + 256 output):
+strategy  requests  mean_prompt_chars  est_input_tokens_total  est_cost_usd  worst_case_usd
+      S0        30               1338                   13392        0.0284          0.0585
+      S1        30               5140                   51406        0.0664          0.1155
+      S2        30              13252                  132533        0.1475          0.2372
+[run] estimated total $0.2423; worst case $0.4112 (x4 with all retries: $1.6447); budget $3.00
+[run] 90 predictions planned; 0 cached; 90 pending
+[run] key accepted; account usage before run: 1245.389389038 credits; limit_remaining: None
+[run] preflight ok: provider=Anthropic model=anthropic/claude-haiku-4.5 reasoning_tokens=0 cost=$0.000038
+  [ 1/90] case20/S1: ok             label=NON-RISKY in=2849 out=81 cost=$0.003254 1.683s
+  [ 2/90] case04/S1: ok             label=NON-RISKY in=805 out=60 cost=$0.001105 1.054s
+  [ 3/90] case15/S0: ok             label=RISKY in=647 out=61 cost=$0.000952 0.92s
+  [ 4/90] case01/S1: ok             label=RISKY in=1413 out=79 cost=$0.001808 1.29s
+  [ 5/90] case25/S0: ok             label=RISKY in=331 out=65 cost=$0.000656 1.081s
+  [ 6/90] case23/S0: ok             label=NON-RISKY in=309 out=54 cost=$0.000579 0.967s
+  [ 7/90] case06/S0: ok             label=RISKY in=651 out=87 cost=$0.001086 1.443s
+  [ 8/90] case09/S2: ok             label=RISKY in=4535 out=92 cost=$0.004995 1.619s
+  [ 9/90] case14/S1: ok             label=RISKY in=958 out=62 cost=$0.001268 1.051s
+  [10/90] case11/S2: ok             label=RISKY in=3510 out=70 cost=$0.003860 1.529s
+  [11/90] case16/S0: ok             label=RISKY in=757 out=85 cost=$0.001182 1.392s
+  [12/90] case16/S2: ok             label=RISKY in=4473 out=74 cost=$0.004843 1.444s
+  [13/90] case23/S1: ok             label=NON-RISKY in=1697 out=77 cost=$0.002082 1.193s
+  [14/90] case07/S1: ok             label=NON-RISKY in=429 out=48 cost=$0.000669 1.041s
+  [15/90] case20/S2: ok             label=NON-RISKY in=4265 out=80 cost=$0.004665 1.517s
+  [16/90] case19/S1: ok             label=RISKY in=469 out=70 cost=$0.000819 1.022s
+  [17/90] case21/S2: ok             label=RISKY in=341 out=74 cost=$0.000711 2.674s
+  [18/90] case24/S1: ok             label=NON-RISKY in=299 out=49 cost=$0.000544 2.143s
+  [19/90] case18/S0: ok             label=NON-RISKY in=328 out=69 cost=$0.000673 1.181s
+  [20/90] case19/S2: ok             label=RISKY in=4899 out=66 cost=$0.005229 1.383s
+  [21/90] case17/S1: ok             label=NON-RISKY in=1106 out=85 cost=$0.001531 1.661s
+  [22/90] case29/S1: ok             label=RISKY in=1155 out=78 cost=$0.001545 1.384s
+  [23/90] case27/S1: ok             label=RISKY in=1653 out=72 cost=$0.002013 1.248s
+  [24/90] case22/S0: ok             label=RISKY in=622 out=90 cost=$0.001072 1.311s
+  [25/90] case12/S0: ok             label=RISKY in=1109 out=57 cost=$0.001394 1.432s
+  [26/90] case03/S2: ok             label=NON-RISKY in=3615 out=66 cost=$0.003945 1.468s
+  [27/90] case13/S1: ok             label=RISKY in=916 out=100 cost=$0.001416 1.492s
+  [28/90] case24/S2: ok             label=NON-RISKY in=301 out=49 cost=$0.000546 0.914s
+  [29/90] case11/S0: ok             label=RISKY in=266 out=58 cost=$0.000556 1.124s
+  [30/90] case15/S1: ok             label=RISKY in=1356 out=63 cost=$0.001671 1.169s
+  [31/90] case21/S1: ok             label=RISKY in=335 out=74 cost=$0.000705 1.159s
+  [32/90] case14/S2: ok             label=RISKY in=3714 out=76 cost=$0.004094 1.476s
+  [33/90] case14/S0: ok             label=RISKY in=268 out=65 cost=$0.000593 1.192s
+  [34/90] case30/S1: ok             label=NON-RISKY in=2133 out=83 cost=$0.002548 1.431s
+  [35/90] case16/S1: ok             label=RISKY in=2405 out=79 cost=$0.002800 1.37s
+  [36/90] case26/S2: ok             label=RISKY in=3474 out=89 cost=$0.003919 1.65s
+  [37/90] case05/S0: ok             label=RISKY in=296 out=70 cost=$0.000646 1.215s
+  [38/90] case13/S0: ok             label=RISKY in=392 out=104 cost=$0.000912 1.765s
+  [39/90] case08/S2: ok             label=RISKY in=2701 out=60 cost=$0.003001 1.164s
+  [40/90] case07/S0: ok             label=NON-RISKY in=240 out=48 cost=$0.000480 1.089s
+  [41/90] case22/S2: ok             label=RISKY in=2298 out=100 cost=$0.002798 1.444s
+  [42/90] case23/S2: ok             label=NON-RISKY in=3401 out=71 cost=$0.003756 1.412s
+  [43/90] case18/S1: ok             label=NON-RISKY in=590 out=82 cost=$0.001000 1.339s
+  [44/90] case03/S1: ok             label=NON-RISKY in=801 out=66 cost=$0.001131 1.127s
+  [45/90] case12/S1: ok             label=RISKY in=3229 out=58 cost=$0.003519 1.118s
+  [46/90] case25/S1: ok             label=RISKY in=864 out=64 cost=$0.001184 1.109s
+  [47/90] case01/S2: ok             label=RISKY in=5213 out=83 cost=$0.005628 1.448s
+  [48/90] case06/S1: ok             label=RISKY in=3505 out=88 cost=$0.003945 1.442s
+  [49/90] case13/S2: ok             label=NON-RISKY in=5390 out=67 cost=$0.005725 1.417s
+  [50/90] case17/S2: ok             label=RISKY in=3442 out=85 cost=$0.003867 1.386s
+  [51/90] case08/S1: ok             label=RISKY in=683 out=63 cost=$0.000998 1.026s
+  [52/90] case27/S0: ok             label=NON-RISKY in=299 out=64 cost=$0.000619 1.139s
+  [53/90] case09/S0: ok             label=RISKY in=348 out=79 cost=$0.000743 1.123s
+  [54/90] case02/S2: ok             label=RISKY in=5070 out=70 cost=$0.005420 1.633s
+  [55/90] case03/S0: ok             label=NON-RISKY in=264 out=68 cost=$0.000604 1.104s
+  [56/90] case21/S0: ok             label=RISKY in=197 out=71 cost=$0.000552 1.557s
+  [57/90] case17/S0: ok             label=RISKY in=288 out=84 cost=$0.000708 1.194s
+  [58/90] case28/S1: ok             label=NON-RISKY in=427 out=76 cost=$0.000807 1.319s
+  [59/90] case04/S0: ok             label=RISKY in=220 out=68 cost=$0.000560 1.214s
+  [60/90] case28/S2: ok             label=NON-RISKY in=4245 out=87 cost=$0.004680 1.313s
+  [61/90] case08/S0: ok             label=RISKY in=319 out=62 cost=$0.000629 1.385s
+  [62/90] case25/S2: ok             label=RISKY in=4884 out=64 cost=$0.005204 1.243s
+  [63/90] case15/S2: ok             label=RISKY in=4726 out=65 cost=$0.005051 1.461s
+  [64/90] case07/S2: ok             label=NON-RISKY in=753 out=49 cost=$0.000998 0.938s
+  [65/90] case01/S0: ok             label=RISKY in=694 out=95 cost=$0.001169 1.393s
+  [66/90] case29/S2: ok             label=RISKY in=3179 out=81 cost=$0.003584 1.463s
+  [67/90] case20/S0: ok             label=NON-RISKY in=333 out=62 cost=$0.000643 1.102s
+  [68/90] case29/S0: ok             label=RISKY in=334 out=99 cost=$0.000829 1.485s
+  [69/90] case18/S2: ok             label=RISKY in=1142 out=80 cost=$0.001542 1.257s
+  [70/90] case30/S2: ok             label=RISKY in=6345 out=76 cost=$0.006725 1.499s
+  [71/90] case09/S1: ok             label=RISKY in=3639 out=69 cost=$0.003984 1.202s
+  [72/90] case26/S1: ok             label=RISKY in=1754 out=77 cost=$0.002139 1.512s
+  [73/90] case22/S1: ok             label=RISKY in=1648 out=86 cost=$0.002078 1.362s
+  [74/90] case10/S2: ok             label=RISKY in=1411 out=67 cost=$0.001746 1.266s
+  [75/90] case10/S0: ok             label=RISKY in=296 out=67 cost=$0.000631 1.062s
+  [76/90] case27/S2: ok             label=RISKY in=4165 out=74 cost=$0.004535 1.232s
+  [77/90] case30/S0: ok             label=NON-RISKY in=480 out=75 cost=$0.000855 1.164s
+  [78/90] case02/S1: ok             label=NON-RISKY in=3588 out=93 cost=$0.004053 1.419s
+  [79/90] case19/S0: ok             label=RISKY in=244 out=80 cost=$0.000644 1.56s
+  [80/90] case26/S0: ok             label=RISKY in=271 out=75 cost=$0.000646 1.147s
+  [81/90] case04/S2: ok             label=RISKY in=5661 out=73 cost=$0.006026 1.403s
+  [82/90] case24/S0: ok             label=NON-RISKY in=190 out=54 cost=$0.000460 0.944s
+  [83/90] case05/S1: ok             label=RISKY in=920 out=67 cost=$0.001255 1.135s
+  [84/90] case06/S2: ok             label=RISKY in=4375 out=93 cost=$0.004840 1.747s
+  [85/90] case10/S1: ok             label=RISKY in=1005 out=86 cost=$0.001435 1.434s
+  [86/90] case11/S1: ok             label=NON-RISKY in=1316 out=68 cost=$0.001656 1.217s
+  [87/90] case12/S2: ok             label=NON-RISKY in=10019 out=98 cost=$0.010509 1.736s
+  [88/90] case02/S0: ok             label=NON-RISKY in=616 out=66 cost=$0.000946 1.02s
+  [89/90] case05/S2: ok             label=RISKY in=3810 out=71 cost=$0.004165 1.297s
+  [90/90] case28/S0: ok             label=NON-RISKY in=285 out=81 cost=$0.000690 1.032s
+[run] completed 90, failed 0, attempts 91; charged (sum of usage.cost) $0.204316; key usage delta 0.13048200000002907
+[run] WARNING: per-request charges do not match the key-level usage change (counter lag, concurrent use of this key, or unaccounted charges). Check openrouter.ai/activity.
+exit=3

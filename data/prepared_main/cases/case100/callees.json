@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "JiraServerClient.get_projects_list",
+      "path": "src/sentry/integrations/jira_server/client.py",
+      "start": 118,
+      "end": 119,
+      "code": "    def get_projects_list(self):\n        return self.get_cached(self.PROJECT_URL)",
+      "called_by": "JiraServerClient.get_project_key_for_id"
+    }
+  ]
+}

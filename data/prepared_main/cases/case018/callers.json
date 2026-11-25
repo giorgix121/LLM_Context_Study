@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "ActionConnectorPipeline.from_state",
+      "path": "rllib/connectors/action/pipeline.py",
+      "start": 28,
+      "end": 34,
+      "code": "    @staticmethod\n    def from_state(ctx: ConnectorContext, params: List[Any]):\n        assert (\n            type(params) == list\n        ), \"ActionConnectorPipeline takes a list of connector params.\"\n        connectors = [get_connector(ctx, name, subparams) for name, subparams in params]\n        return ActionConnectorPipeline(ctx, connectors)",
+      "calls": "ActionConnectorPipeline.__init__"
+    }
+  ]
+}

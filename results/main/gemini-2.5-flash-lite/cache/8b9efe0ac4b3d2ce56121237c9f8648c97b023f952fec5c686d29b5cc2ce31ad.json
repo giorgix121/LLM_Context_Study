@@ -1,0 +1,66 @@
+{
+  "cache_key": "8b9efe0ac4b3d2ce56121237c9f8648c97b023f952fec5c686d29b5cc2ce31ad",
+  "sample_id": "case09",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a new optional parameter 'options' to the ProjectSummarySerializer, which is conditionally added to the 'expand' set if present in the request, without altering existing functionality.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds a new optional parameter 'options' to the ProjectSummarySerializer, which is conditionally added to the 'expand' set if present in the request, without altering existing functionality.\"}",
+  "response_id": "gen-1790923284-7f5Az5DEiyeSS6ChzaiV",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 3384,
+  "completion_tokens": 51,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0003588,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3384,
+    "completion_tokens": 51,
+    "total_tokens": 3435,
+    "cost": 0.0003588,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003588,
+      "upstream_inference_prompt_cost": 0.0003384,
+      "upstream_inference_completions_cost": 2.04e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.82,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T06:41:25+00:00",
+  "run_id": "20261002T063748Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  },
+  "reused_from": "results/gemini-2.5-flash-lite/cache/8b9efe0ac4b3d2ce56121237c9f8648c97b023f952fec5c686d29b5cc2ce31ad.json"
+}

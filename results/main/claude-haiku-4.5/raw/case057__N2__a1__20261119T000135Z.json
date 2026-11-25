@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795046590-bhR6kicTyh0bPc69XHlB",
+    "object": "chat.completion",
+    "created": 1795046590,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at the diff provided for `src/pytorch_lightning/core/datamodule.py`, I need to analyze whether the changes introduce any functional defects.\n\nThe changes are:\n1. Adding documentation/docstring content to the `add_argparse_args` method with an example\n2. Moving the example code from `from_argparse_args` method's docstring to `add_argparse_args` method's docstring\n3. Removing the example code from `from_argparse_args` method's docstring\n\nThese are purely **documentation changes**:\n- The actual function implementations remain unchanged (`return add_argparse_args(cls, parent_parser, **kwargs)` and `return from_argparse_args(cls, args, **kwargs)`)\n- No logic is modified\n- No behavior is altered\n- The example is simply moved from one docstring to another, which is more semantically appropriate since the example shows how to use `add_argparse_args`\n\nThe changes improve documentation clarity by placing the example in the correct method's docstring where it's actually being demonstrated.\n\n{\"label\": \"NON-RISKY\", \"explanation\":",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5935,
+      "completion_tokens": 256,
+      "total_tokens": 6191,
+      "cost": 0.007215,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007215,
+        "upstream_inference_prompt_cost": 0.005935,
+        "upstream_inference_completions_cost": 0.00128
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

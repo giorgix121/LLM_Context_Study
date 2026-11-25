@@ -1,0 +1,65 @@
+{
+  "cache_key": "db7d77ce5eb56a312cf791cbaabf96ee3fd5f08be1df3510090b4f4417d07b50",
+  "sample_id": "case069",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a docstring link to the Pydantic model, which is a documentation improvement and does not alter the function's behavior.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds a docstring link to the Pydantic model, which is a documentation improvement and does not alter the function's behavior.\"}",
+  "response_id": "gen-1790928355-0LOxCtDwCQF64Sa0Kqkd",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 2078,
+  "completion_tokens": 43,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000225,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2078,
+    "completion_tokens": 43,
+    "total_tokens": 2121,
+    "cost": 0.000225,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000225,
+      "upstream_inference_prompt_cost": 0.0002078,
+      "upstream_inference_completions_cost": 1.72e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.525,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T08:05:55+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564034-z5zsUUCur6ecLtD7B1Th",
+    "object": "chat.completion",
+    "created": 1795564034,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The commit removes specific PID lateral tuning parameters for Mazda vehicles and relies on a generic torque tune configuration, which may alter steering behavior unexpectedly if the new method does not provide equivalent control characteristics.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 973,
+      "completion_tokens": 51,
+      "total_tokens": 1024,
+      "cost": 0.00016992,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00016992,
+        "upstream_inference_prompt_cost": 0.00014595,
+        "upstream_inference_completions_cost": 2.397e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

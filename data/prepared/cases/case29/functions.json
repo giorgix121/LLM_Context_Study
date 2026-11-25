@@ -1,0 +1,28 @@
+[
+  {
+    "name": "dispatch_post_process_group_task",
+    "before": {
+      "start": 65,
+      "end": 89,
+      "code": "def dispatch_post_process_group_task(\n    event_id: str,\n    project_id: int,\n    group_id: Optional[int],\n    is_new: bool,\n    is_regression: bool,\n    is_new_group_environment: bool,\n    primary_hash: Optional[str],\n    skip_consume: bool = False,\n    group_states: Optional[GroupStates] = None,\n) -> None:\n    if skip_consume:\n        logger.info(\"post_process.skip.raw_event\", extra={\"event_id\": event_id})\n    else:\n        cache_key = cache_key_for_event({\"project\": project_id, \"event_id\": event_id})\n\n        post_process_group.delay(\n            is_new=is_new,\n            is_regression=is_regression,\n            is_new_group_environment=is_new_group_environment,\n            primary_hash=primary_hash,\n            cache_key=cache_key,\n            group_id=group_id,\n            group_states=group_states,\n        )"
+    },
+    "after": {
+      "start": 65,
+      "end": 89,
+      "code": "def dispatch_post_process_group_task(\n    event_id: str,\n    project_id: int,\n    group_id: Optional[int],\n    is_new: bool,\n    is_regression: Optional[bool],\n    is_new_group_environment: bool,\n    primary_hash: Optional[str],\n    skip_consume: bool = False,\n    group_states: Optional[GroupStates] = None,\n) -> None:\n    if skip_consume:\n        logger.info(\"post_process.skip.raw_event\", extra={\"event_id\": event_id})\n    else:\n        cache_key = cache_key_for_event({\"project\": project_id, \"event_id\": event_id})\n\n        post_process_group.delay(\n            is_new=is_new,\n            is_regression=is_regression,\n            is_new_group_environment=is_new_group_environment,\n            primary_hash=primary_hash,\n            cache_key=cache_key,\n            group_id=group_id,\n            group_states=group_states,\n        )"
+    }
+  },
+  {
+    "name": "_get_task_kwargs_and_dispatch",
+    "before": {
+      "start": 92,
+      "end": 98,
+      "code": "def _get_task_kwargs_and_dispatch(message: Message):\n    task_kwargs = _get_task_kwargs(message)\n    if not task_kwargs:\n        return None\n\n    _record_metrics(message.partition(), task_kwargs)\n    dispatch_post_process_group_task(**task_kwargs)"
+    },
+    "after": {
+      "start": 92,
+      "end": 98,
+      "code": "def _get_task_kwargs_and_dispatch(message: Message) -> None:\n    task_kwargs = _get_task_kwargs(message)\n    if not task_kwargs:\n        return None\n\n    _record_metrics(message.partition(), task_kwargs)\n    dispatch_post_process_group_task(**task_kwargs)"
+    }
+  }
+]

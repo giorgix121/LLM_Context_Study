@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192694-fxMbRxk3zSSpD0clocW9",
+    "object": "chat.completion",
+    "created": 1795192694,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"When `_resolve_last_org` returns `None` due to `Organization.DoesNotExist` (the `pass` branch at the end), `last_org` is `None` but the code only calls `_delete_activeorg` when `last_org is None`, which is correct — however, `features.has('organizations:customer-domains', None)` is called with `None` as the organization, which may unexpectedly evaluate to `True` depending on the feature flag implementation, potentially enabling the customer-domains feature for all users regardless of their organization.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4014,
+      "completion_tokens": 141,
+      "total_tokens": 4155,
+      "cost": 0.014157,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.014157,
+        "upstream_inference_prompt_cost": 0.012042,
+        "upstream_inference_completions_cost": 0.002115
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

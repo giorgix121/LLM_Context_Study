@@ -1,0 +1,65 @@
+{
+  "cache_key": "56fc6b6d8969e92e8916409af3c1609ec6dc1c71ee8356afc9f95252503d9b19",
+  "sample_id": "case072",
+  "strategy": "S1",
+  "status": "invalid_output",
+  "predicted_label": null,
+  "explanation": null,
+  "validation_error": "not valid JSON (Expecting ',' delimiter)",
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The new `_using_sql` method has a logic error: the condition `if new_internal_type == \"ArrayField\" and new_internal_type == old_internal_type` will never be true since it checks if a single variable equals two different values simultaneously, breaking the ArrayField comparison logic that was previously working.\"\n}\n```",
+  "response_id": "gen-1795046753-407JftIjqsANdTxEVqKW",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 2931,
+  "completion_tokens": 96,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.003411,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2931,
+    "completion_tokens": 96,
+    "total_tokens": 3027,
+    "cost": 0.003411,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003411,
+      "upstream_inference_prompt_cost": 0.002931,
+      "upstream_inference_completions_cost": 0.00048
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.611,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:05:54+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

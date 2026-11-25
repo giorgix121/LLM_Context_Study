@@ -1,0 +1,65 @@
+{
+  "cache_key": "864aeee0a803b94cb58e2ae095fb53242e8c4664f323229d93ca30f84ac8096c",
+  "sample_id": "case129",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The changes add container options for fragmented keyframes and minimum fragment duration, which are improvements for streaming and recording efficiency without altering core recording logic.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\"label\": \"NON-RISKY\", \"explanation\": \"The changes add container options for fragmented keyframes and minimum fragment duration, which are improvements for streaming and recording efficiency without altering core recording logic.\"}\n```",
+  "response_id": "gen-1795048099-P5UB1zGWXy4m6raHx1se",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 3446,
+  "completion_tokens": 47,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0003634,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3446,
+    "completion_tokens": 47,
+    "total_tokens": 3493,
+    "cost": 0.0003634,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003634,
+      "upstream_inference_prompt_cost": 0.0003446,
+      "upstream_inference_completions_cost": 1.88e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.449,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:28:19+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

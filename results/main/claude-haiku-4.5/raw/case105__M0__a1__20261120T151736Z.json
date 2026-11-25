@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795187935-ko6UO0I04Kr5H3PAky75",
+    "object": "chat.completion",
+    "created": 1795187935,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"Adding `copy=True` to the `block.slice()` call changes memory semantics by forcing data duplication instead of creating views, which could significantly impact performance and memory usage in shuffle operations on large datasets.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 422,
+      "completion_tokens": 71,
+      "total_tokens": 493,
+      "cost": 0.000777,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000777,
+        "upstream_inference_prompt_cost": 0.000422,
+        "upstream_inference_completions_cost": 0.000355
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

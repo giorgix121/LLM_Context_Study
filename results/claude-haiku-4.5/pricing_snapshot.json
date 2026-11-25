@@ -1,0 +1,26 @@
+{
+  "retrieved_at": "2026-10-02T05:49:51+00:00",
+  "source": "https://openrouter.ai/api/v1/models/anthropic/claude-haiku-4.5/endpoints",
+  "model": "anthropic/claude-haiku-4.5",
+  "provider": "Anthropic",
+  "provider_tag": "anthropic",
+  "endpoint_model": "anthropic/claude-4.5-haiku-20251001",
+  "status": 0,
+  "uptime_last_30m": 99.98628257887518,
+  "price_prompt_per_token": 1e-06,
+  "price_completion_per_token": 5e-06,
+  "price_cache_read_per_token": 1e-07,
+  "supported_parameters": [
+    "max_tokens",
+    "top_p",
+    "temperature",
+    "stop",
+    "reasoning",
+    "include_reasoning",
+    "tools",
+    "tool_choice",
+    "top_k",
+    "structured_outputs",
+    "response_format"
+  ]
+}

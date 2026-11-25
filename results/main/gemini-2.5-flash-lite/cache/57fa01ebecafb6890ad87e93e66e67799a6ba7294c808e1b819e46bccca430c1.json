@@ -1,0 +1,65 @@
+{
+  "cache_key": "57fa01ebecafb6890ad87e93e66e67799a6ba7294c808e1b819e46bccca430c1",
+  "sample_id": "case118",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change swaps the source of the model and name for the Plugwise device registry entry, using the API's model and name directly instead of constructing the model string, which is a safe refactoring.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change swaps the source of the model and name for the Plugwise device registry entry, using the API's model and name directly instead of constructing the model string, which is a safe refactoring.\"\n}\n```",
+  "response_id": "gen-1790928379-vdADiAJh4cTIi05aA2AX",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 2752,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0003016,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2752,
+    "completion_tokens": 66,
+    "total_tokens": 2818,
+    "cost": 0.0003016,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003016,
+      "upstream_inference_prompt_cost": 0.0002752,
+      "upstream_inference_completions_cost": 2.64e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.654,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T08:06:19+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

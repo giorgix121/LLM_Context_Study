@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795194580-TitYal0B9Fa27JEKMUux",
+    "object": "chat.completion",
+    "created": 1795194580,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new `has_metrics` key is passed to both `dataset.timeseries_query` and `metrics_enhanced_performance.timeseries_query` via `**query_details`, but if either function's signature does not accept a `has_metrics` parameter it will raise a TypeError at runtime.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6633,
+      "completion_tokens": 82,
+      "total_tokens": 6715,
+      "cost": 0.021129,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.021129,
+        "upstream_inference_prompt_cost": 0.019899,
+        "upstream_inference_completions_cost": 0.00123
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

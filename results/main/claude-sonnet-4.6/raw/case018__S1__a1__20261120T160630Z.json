@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192665-fnlB3araTxeAKZtrKk7s",
+    "object": "chat.completion",
+    "created": 1795192665,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The `is_training` method is removed from `ActionConnectorPipeline` under the assumption that the parent `ConnectorPipeline.__init__` now accepts `connectors` and handles `is_training` propagation, but if the parent class doesn't implement equivalent `is_training` logic, child connectors will no longer have their training state updated.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 591,
+      "completion_tokens": 94,
+      "total_tokens": 685,
+      "cost": 0.003183,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003183,
+        "upstream_inference_prompt_cost": 0.001773,
+        "upstream_inference_completions_cost": 0.00141
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

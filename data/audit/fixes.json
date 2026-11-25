@@ -1,0 +1,926 @@
+{
+ "case010": {
+  "checked": 3,
+  "fixes": []
+ },
+ "case011": {
+  "checked": 7,
+  "fixes": []
+ },
+ "case013": {
+  "checked": 8,
+  "fixes": [
+   {
+    "sha": "6a72a15a62bfa1d1836ba94c41b47aae68e27401",
+    "date": "2022-10-20T19:02:13Z",
+    "message": "[App] Automate missing requirements installation for CLI (#15198)\n\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* wording\r\n\r\nCo-authored-by: Mansy <ahmed.mansy156@gmail.com>\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\nCo-authored-by: Jirka Borovec <Borda@users.noreply.github.com>\r\nCo-authored-by: Mansy <ahmed.mansy156@gmail.com>",
+    "matched": [
+     "\"description\": command.DESCRIPTION,",
+     "if not self.DESCRIPTION:",
+     "self.DESCRIPTION = self.method.__doc__ or \"\""
+    ]
+   }
+  ]
+ },
+ "case016": {
+  "checked": 8,
+  "fixes": [
+   {
+    "sha": "9f8043e16f2e0befd665fc78fce1dd3439a58c09",
+    "date": "2023-01-31T16:24:58Z",
+    "message": "Cascade SIGTERM to subprocesses (#16525)",
+    "matched": [
+     "def slurm_sigusr_handler_fn(self, signum: _SIGNUM, frame: FrameType) -> None:",
+     "rank_zero_info(\"handling auto-requeue signal\")",
+     "sigusr_handlers.append(self.slurm_sigusr_handler_fn)"
+    ]
+   }
+  ]
+ },
+ "case033": {
+  "checked": 2,
+  "fixes": [
+   {
+    "sha": "9e96ee69c81dcaf0563359f79c553c690081e9fe",
+    "date": "2023-06-20T21:32:03Z",
+    "message": "ref: fix unnecessary casts hiding type errors (#51289)\n\n<!-- Describe your PR here. -->",
+    "matched": [
+     "decode_str(header_data[\"queue\"])",
+     "else \"post_process_errors\"",
+     "if \"queue\" in header_data"
+    ]
+   }
+  ]
+ },
+ "case040": {
+  "checked": 1,
+  "fixes": [
+   {
+    "sha": "d0a0770808c7eb3bb79680ce8d331c9942135e85",
+    "date": "2022-10-27T11:20:55Z",
+    "message": "refactor lpm plugin mechanism (#7063)",
+    "matched": [
+     "@packages()"
+    ]
+   }
+  ]
+ },
+ "case047": {
+  "checked": 1,
+  "fixes": []
+ },
+ "case063": {
+  "checked": 16,
+  "fixes": [
+   {
+    "sha": "2f5060963aebed5c08f21e5dec1f9a5bab3536ad",
+    "date": "2022-10-20T10:56:44Z",
+    "message": "[LAI] Rename instances of \"lightning_app\" and \"pytorch_lightning\" (#15208)\n\n* rename instances of lightning_app and pytorch_lightning\r\n* solve failing azure tests\r\n* wrong runif import\r\n* lit_app\r\n\r\nCo-authored-by: Jirka <jirka.borovec@seznam.cz>",
+    "matched": [
+     "list_lightningapps = client.lightningapp_instance_service_list_lightningapp_instances(",
+     "project_id=project.project_id"
+    ]
+   }
+  ]
+ },
+ "case082": {
+  "checked": 0,
+  "fixes": []
+ },
+ "case083": {
+  "checked": 13,
+  "fixes": []
+ },
+ "case084": {
+  "checked": 8,
+  "fixes": [
+   {
+    "sha": "9b5c5938ceb7d53e7e4997298317a358cee6683b",
+    "date": "2022-12-12T23:51:10Z",
+    "message": "Remove get_device call in switchbot (#83881)",
+    "matched": [
+     ") or await switchbot.get_device(address)"
+    ]
+   }
+  ]
+ },
+ "case085": {
+  "checked": 5,
+  "fixes": []
+ },
+ "case086": {
+  "checked": 3,
+  "fixes": [
+   {
+    "sha": "60b3d6816b0a24a3a5043ff09cb311dba0b8a436",
+    "date": "2022-10-21T01:37:20Z",
+    "message": "Replace custom OpenUV data object with coordinators (#80705)\n\n* Replace custom OpenUV data object with coordinators\r\n\r\n* Typing\r\n\r\n* Code review",
+    "matched": [
+     "\"\"\"Update the entity.",
+     "Only used by the generic entity update service.",
+     "async def async_update(self) -> None:",
+     "await self.openuv.async_update_uv_index_data()",
+     "self.async_update_state()"
+    ]
+   }
+  ]
+ },
+ "case087": {
+  "checked": 9,
+  "fixes": [
+   {
+    "sha": "c86a9a318e4fbaa8a2d05bce6b160b7bac30be67",
+    "date": "2023-02-15T18:43:01Z",
+    "message": "ref(post-process-forwarder): Use RunTaskInThreads strategy from Arroyo (#44636)\n\nUse Arroyo's built in RunTaskInThreads strategy to reduce boilerplate in\r\nthe post process forwarder. Also deletes some unused code.",
+    "matched": [
+     "def _get_task_kwargs_and_dispatch(message: Message) -> None:",
+     "is_regression: Optional[bool],"
+    ]
+   }
+  ]
+ },
+ "case088": {
+  "checked": 10,
+  "fixes": [
+   {
+    "sha": "9dd9147343acdf8b3707257de45053af1ec194e3",
+    "date": "2022-10-05T08:24:52Z",
+    "message": "Use HA `uuid` as `client_id` in BraviaTV (#79618)\n\n* Use uuid as clientid/nickname\r\n\r\n* Fixes after rebase\r\n\r\n* Move gen_instance_ids() to utils\r\n\r\n* Store client_id and nickname in config_entry\r\n\r\n* Update tests\r\n\r\n* Clean names\r\n\r\n* Rename consts",
+    "matched": [
+     "pin=self.pin, clientid=CLIENTID_PREFIX, nickname=NICKNAME",
+     "self.use_psk = use_psk",
+     "use_psk: bool,"
+    ]
+   },
+   {
+    "sha": "8acc114cd9ce809b279ac8d84eba9c22fcbd0b9b",
+    "date": "2022-11-30T20:08:15Z",
+    "message": "Fix BraviaTV fake reauthentication (#82986)",
+    "matched": [
+     "await self.client.connect(",
+     "await self.client.connect(psk=self.pin)",
+     "else:",
+     "if self.use_psk:"
+    ]
+   },
+   {
+    "sha": "02e973026d0bd11d867bac68035f76c77a54abe3",
+    "date": "2023-01-24T13:31:09Z",
+    "message": "Add browse media and play media support in Bravia TV (#85288)\n\n* Add media browsing and play media support in Bravia TV\r\n\r\n* Add fix invalid Bravia Content-Type header for icons\r\n\r\n* Avoid duplicates in source_list\r\n\r\n* Small cleanup\r\n\r\n* Edit comment\r\n\r\n* Revert en.json",
+    "matched": [
+     "else:"
+    ]
+   }
+  ]
+ },
+ "case089": {
+  "checked": 6,
+  "fixes": [
+   {
+    "sha": "bd658441bd01207ad3d85b1528158e908cae11de",
+    "date": "2022-10-25T13:24:20Z",
+    "message": "[App] testing `lightning` in `lightning-app` package (#15286)\n\n* hot fix\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* cmd\r\n\r\n* pkg\r\n\r\n* update\r\n\r\n* Apply suggestions from code review\r\n\r\n* update\r\n\r\n* update\r\n\r\n* Apply suggestions from code review\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* cleaning\r\n\r\n* Apply suggestions from code review\r\n\r\n* update\r\n\r\n* update\r\n\r\nCo-authored-by: Jirka <jirka.borovec@seznam.cz>\r\nCo-authored-by: Jirka Borovec <Borda@users.noreply.github.com>",
+    "matched": [
+     "logger.info(f\"Packaged Lightning Cloud with your application. Version: {cloud_version}\")",
+     "logger.info(f\"Packaged Lightning Launcher with your application. Version: {launcher_version}\")",
+     "logger.info(f\"Packaged Lightning with your application. Version: {version}\")"
+    ]
+   }
+  ]
+ },
+ "case090": {
+  "checked": 2,
+  "fixes": []
+ },
+ "case091": {
+  "checked": 1,
+  "fixes": [
+   {
+    "sha": "92df1c10173af1f6bce4089d58f0707dde5d954d",
+    "date": "2022-10-07T16:11:30Z",
+    "message": "[Datasets] read_csv not filter out files by default (#29032)\n\nCurrently read_csv filters out files without .csv extension when reading. This behavior seems to be surprising to users, and reported to be bad user experience in 3+ user reports (#26605). We should change to NOT filter files by default.\r\n\r\nVerified Arrow (https://arrow.apache.org/docs/python/csv.html) and Spark (https://spark.apache.org/docs/latest/sql-data-sources-csv.html) does not filter out CSV files by default. I don't see a strong reason why we want to do it in a different way in Ray.\r\n\r\nAdded documentation in case users want to use partition_filter to filter out files, and gave an example to filter out files with .csv extension.\r\n\r\nAlso improve the error message when reading CSV file",
+    "matched": [
+     "f, read_options=read_options, parse_options=parse_options, **reader_args",
+     "reader = csv.open_csv("
+    ]
+   }
+  ]
+ },
+ "case092": {
+  "checked": 7,
+  "fixes": [
+   {
+    "sha": "052145fabd497758117b064b9b741034820eed83",
+    "date": "2023-01-23T14:45:08Z",
+    "message": "Fix grammar in some hassio docstrings (#86458)",
+    "matched": [
+     "This method return a coroutine."
+    ]
+   }
+  ]
+ },
+ "case093": {
+  "checked": 1,
+  "fixes": [
+   {
+    "sha": "b6d87b8144f2ea3fe92c3ab29e6fd0248377b79d",
+    "date": "2022-09-27T17:52:49Z",
+    "message": "fix(hybrid): Tag some models as available on all silos (#38785)",
+    "matched": [
+     "return ((c.__module__, c.__name__) for c in classes if not hasattr(c._meta, \"silo_limit\"))"
+    ]
+   }
+  ]
+ },
+ "case094": {
+  "checked": 57,
+  "fixes": []
+ },
+ "case095": {
+  "checked": 5,
+  "fixes": [
+   {
+    "sha": "b8eaabe3c983559ecddc434ea45a040024903a08",
+    "date": "2023-01-25T13:48:27Z",
+    "message": "[App] Add interruptible work (#16399)\n\nCo-authored-by: thomas <thomas@thomass-MacBook-Pro.local>\r\nCo-authored-by: Your Name <you@example.com>\r\nCo-authored-by: pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>",
+    "matched": [
+     "# Internal arguments for now.",
+     "self.preemptible = False"
+    ]
+   }
+  ]
+ },
+ "case096": {
+  "checked": 1,
+  "fixes": []
+ },
+ "case097": {
+  "checked": 2,
+  "fixes": []
+ },
+ "case098": {
+  "checked": 2,
+  "fixes": []
+ },
+ "case099": {
+  "checked": 8,
+  "fixes": [
+   {
+    "sha": "40596f05dd94c83034fc9c5e684a8e7382642bbe",
+    "date": "2022-12-13T08:52:59Z",
+    "message": "Merge DDPStrategy and DDPSpawnStrategy in Lite (#14952)\n\n\r\nCo-authored-by: Jirka Borovec <Borda@users.noreply.github.com>\r\nCo-authored-by: Carlos Mochol\u00ed <carlossmocholi@gmail.com>",
+    "matched": [
+     "def _set_world_ranks(self) -> None:"
+    ]
+   }
+  ]
+ },
+ "case100": {
+  "checked": 3,
+  "fixes": []
+ },
+ "case101": {
+  "checked": 3,
+  "fixes": [
+   {
+    "sha": "10d2a71073a23b0b8c9fae0de5a79fb4f3ac1935",
+    "date": "2022-11-01T11:56:01Z",
+    "message": "Remove --force option of breeze self-upgrade from docs (#27438)\n\nThe option was removed some time ago but there were some docs remaining.\r\n\r\nFix: #27429",
+    "matched": [
+     "f\"     {NAME} setup self-upgrade --force --use-current-airflow-sources\\n\"",
+     "f\"    {NAME} setup self-upgrade --force\\n\""
+    ]
+   }
+  ]
+ },
+ "case102": {
+  "checked": 3,
+  "fixes": [
+   {
+    "sha": "a2fbca050e0c4411f9002c7a895ed63b454e940f",
+    "date": "2022-11-07T03:29:01Z",
+    "message": "ref(hybrid-cloud): OrganizationService expansion for access (#41002)\n\nThis expands on the OgranizationService interface by adding methods that\r\nwill be necessary for access in the silo world.\r\n\r\nCo-authored-by: Ryan Skonnord <ryan.skonnord@sentry.io>",
+    "matched": [
+     "redirect_uri = get_client_state_redirect_uri(self.active_organization.slug, None)"
+    ]
+   },
+   {
+    "sha": "e2950026e8a3324808f93c2d825d23d7a140f59a",
+    "date": "2023-05-09T09:48:12Z",
+    "message": "ref(onboarding): Remove client-state from backend (#48629)",
+    "matched": [
+     "if self.active_organization:"
+    ]
+   }
+  ]
+ },
+ "case103": {
+  "checked": 16,
+  "fixes": [
+   {
+    "sha": "cd8fced369d47b62147b54cd64ad67d3d5f844f8",
+    "date": "2022-11-03T16:25:04Z",
+    "message": "fix(hybrid-cloud): Propagate organizations:customer-domains feature if a customer domain is used (#40950)",
+    "matched": [
+     "if hasattr(request, \"subdomain\") and request.subdomain:"
+    ]
+   }
+  ]
+ },
+ "case104": {
+  "checked": 3,
+  "fixes": []
+ },
+ "case105": {
+  "checked": 3,
+  "fixes": [
+   {
+    "sha": "75b206e419f88d25e5e08777b2548600287e2120",
+    "date": "2022-11-08T03:34:30Z",
+    "message": "[Datasets] [Arrow 7+ Support] [2/N] Add support for Arrow 7 by fixing Arrow serialization bug. (#29993)\n\nThis PR adds support for Arrow 7 in Ray, and is the second PR in a set of stacked PRs making up this mono-PR for Arrow 7+ support: #29161, and is stacked on top of a PR fixing task cancellation in Ray Core: #29984.\r\n\r\nThis PR:\r\n- fixes a serialization bug in Arrow with a custom serializer for Arrow data ([Datasets] Arrow data buffers aren't truncated when pickling zero-copy slice views, leading to huge serialization bloat #29814)\r\n- removes a bunch of defensive copying of Arrow data, which was a workaround for the aforementioned Arrow serialization bug\r\n- adds a CI job for Arrow 7\r\n- bumps the pyarrow upper bound to 8.0.0",
+    "matched": [
+     "slices.append(block.slice(i * slice_sz, (i + 1) * slice_sz, copy=True))"
+    ]
+   }
+  ]
+ },
+ "case106": {
+  "checked": 2,
+  "fixes": [
+   {
+    "sha": "b6d87b8144f2ea3fe92c3ab29e6fd0248377b79d",
+    "date": "2022-09-27T17:52:49Z",
+    "message": "fix(hybrid): Tag some models as available on all silos (#38785)",
+    "matched": [
+     "filtered_names(region_classes),"
+    ]
+   }
+  ]
+ },
+ "case107": {
+  "checked": 8,
+  "fixes": [
+   {
+    "sha": "b731e8841558ee4caaba766c83f34ea9c7004f8b",
+    "date": "2021-12-28T21:18:17Z",
+    "message": "Fixed #31335 -- Fixed removing composed composed Meta constraints/indexes on foreign keys on MySQL.",
+    "matched": [
+     "[first_field.column],",
+     "index=True,",
+     "model,"
+    ]
+   }
+  ]
+ },
+ "case108": {
+  "checked": 2,
+  "fixes": [
+   {
+    "sha": "bf1323d138f68e129315b67132412b0bedfa6064",
+    "date": "2022-10-25T11:39:42Z",
+    "message": "fix(appconnect): Redirect app_id to app_id_str column (#40325)\n\nThis is step 4 in the effort to change the type of\r\n`AppConnectBuild.app_id` from an integer to a string.\r\n\r\nIt effectively removes the old `app_id` field and renames the new\r\n`app_id_str` field to `app_id`.",
+    "matched": [
+     "app_id_str=build.app_id,"
+    ]
+   }
+  ]
+ },
+ "case109": {
+  "checked": 2,
+  "fixes": [
+   {
+    "sha": "aae800d988bcb6ce8c49dfa9c4f9f61d265dd937",
+    "date": "2022-11-01T22:51:56Z",
+    "message": "DEPR: internals (#49392)\n\n* DEPR: internals\r\n\r\n* bump fastparquet minimum",
+    "matched": [
+     "stacklevel=find_stack_level(),"
+    ]
+   }
+  ]
+ },
+ "case110": {
+  "checked": 3,
+  "fixes": [
+   {
+    "sha": "9c20cad40e4142f8a5e945fe26e919e598f2bd56",
+    "date": "2022-11-03T02:14:15Z",
+    "message": "Fix srun detection causing permission error on non-SLURM platforms (#15485)\n\n* improve srun detection\r\n* changelog\r\n* try catch is obsolete\r\n\r\nCo-authored-by: pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>",
+    "matched": [
+     "except FileNotFoundError:",
+     "srun_exists = False",
+     "srun_exists = subprocess.call([\"command\", \"-v\", \"srun\"]) == 0",
+     "try:"
+    ]
+   }
+  ]
+ },
+ "case111": {
+  "checked": 7,
+  "fixes": [
+   {
+    "sha": "8f1269283f3ae8365d746b335a47c2766180b933",
+    "date": "2023-01-13T13:09:44Z",
+    "message": "Add CSVLogger for Lightning Lite (#16346)\n\nCo-authored-by: Jirka Borovec <6035284+Borda@users.noreply.github.com>",
+    "matched": [
+     "# When using multiprocessing, finalize() should be a no-op on the main process, as no experiment has been",
+     "# initialized there",
+     "if self._experiment is None:",
+     "return"
+    ]
+   }
+  ]
+ },
+ "case112": {
+  "checked": 7,
+  "fixes": []
+ },
+ "case113": {
+  "checked": 0,
+  "fixes": []
+ },
+ "case114": {
+  "checked": 3,
+  "fixes": []
+ },
+ "case115": {
+  "checked": 5,
+  "fixes": []
+ },
+ "case116": {
+  "checked": 14,
+  "fixes": [
+   {
+    "sha": "e522a12d177fe5d3a733b67c44d2a558a18aa116",
+    "date": "2022-12-14T17:09:30Z",
+    "message": "[App] Improve lightning connect experience (#16035)",
+    "matched": [
+     "connect(app_name_or_id, yes)"
+    ]
+   }
+  ]
+ },
+ "case117": {
+  "checked": 2,
+  "fixes": [
+   {
+    "sha": "fe07466a1449a5ae60526528ce7bf9399b59b47d",
+    "date": "2022-10-21T19:56:10Z",
+    "message": "chore(hybrid-cloud): Extract region to control silo into service abstraction (#40353)\n\n1. Use the `silo_mode_delegator` to make the silo conditional sensitive\r\nlogic of region to control processing like other services that need to\r\nbe conditional based on deployment.\r\n2. Leverage the lifecycle management offered by the\r\n`DelegatedBySiloMode` to stop arroyo kafka producer between tests or\r\nafter test failures (rather than requiring explicit test fixture clean\r\nup, it's now 'implicit' to the lifecycle of the mocks introduced at the\r\ntop level).\r\n3. Add default mocks for the region to control kafka producer so that\r\nmost tests do not require kafka running (also improves performance\r\nsignificantly). There is still the integration test that uses the real\r\nproducer.\r\n4. *Attempt* to fix ModuleDeadlock error with more granular importing. I\r\ncould not reproduce this issue locally, unfortunately, so this is a best\r\neffort attempt to reduce any circular import possibilities.\r\n\r\nCo-authored-by: getsantry[bot] <66042841+getsantry[bot]@users.noreply.github.com>",
+    "matched": [
+     "_publisher.close()",
+     "if _publisher is not None:",
+     "return mode == SiloMode.REGION"
+    ]
+   }
+  ]
+ },
+ "case118": {
+  "checked": 5,
+  "fixes": [
+   {
+    "sha": "13458dc72218b849920b20d3b45a08816de3243f",
+    "date": "2022-11-25T14:56:58Z",
+    "message": "Centralize exception handling in Plugwise (#82694)",
+    "matched": [
+     "model=api.smile_model,",
+     "name=api.smile_name,"
+    ]
+   }
+  ]
+ },
+ "case119": {
+  "checked": 14,
+  "fixes": [
+   {
+    "sha": "320bca95dd5bab8759b5db853d0d652059ad83a8",
+    "date": "2022-10-20T17:45:03Z",
+    "message": "[App] Enable help without running application (#15196)",
+    "matched": [
+     "if app.id == app_id_or_name_or_url or app.name == app_id_or_name_or_url:",
+     "return app.status.url, _extract_command_from_openapi(resp.json()), app.id"
+    ]
+   },
+   {
+    "sha": "5da74847e2c821e67b566385f655885a56e22d3b",
+    "date": "2022-10-27T09:05:48Z",
+    "message": "[App] Show logs command to be standalone and re-usable (#15343)",
+    "matched": [
+     "raise Exception(f\"Provide an application name, id or url with --app_id=X. Found {app_names}\")"
+    ]
+   }
+  ]
+ },
+ "case120": {
+  "checked": 3,
+  "fixes": []
+ },
+ "case121": {
+  "checked": 5,
+  "fixes": []
+ },
+ "case122": {
+  "checked": 5,
+  "fixes": []
+ },
+ "case123": {
+  "checked": 1,
+  "fixes": [
+   {
+    "sha": "30493fe4de537a45b96aa82491591921c942457a",
+    "date": "2023-02-13T22:41:21Z",
+    "message": "ref(commit-context): fix iterating over None. add type-checking for commit_context mixin (#44538)\n\nFix a bug where we're iterating over None. Also added some typing which\r\nthrew the error.\r\n\r\nFixes SENTRY-YEQ",
+    "matched": [
+     ") -> str | None:"
+    ]
+   }
+  ]
+ },
+ "case124": {
+  "checked": 5,
+  "fixes": [
+   {
+    "sha": "bd658441bd01207ad3d85b1528158e908cae11de",
+    "date": "2022-10-25T13:24:20Z",
+    "message": "[App] testing `lightning` in `lightning-app` package (#15286)\n\n* hot fix\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* cmd\r\n\r\n* pkg\r\n\r\n* update\r\n\r\n* Apply suggestions from code review\r\n\r\n* update\r\n\r\n* update\r\n\r\n* Apply suggestions from code review\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* update\r\n\r\n* cleaning\r\n\r\n* Apply suggestions from code review\r\n\r\n* update\r\n\r\n* update\r\n\r\nCo-authored-by: Jirka <jirka.borovec@seznam.cz>\r\nCo-authored-by: Jirka Borovec <Borda@users.noreply.github.com>",
+    "matched": [
+     "if not get_dist_path_if_editable_install(\"lightning-app\"):",
+     "is_lightning = git_dir_name and git_dir_name == \"lightning_app\""
+    ]
+   }
+  ]
+ },
+ "case125": {
+  "checked": 1,
+  "fixes": [
+   {
+    "sha": "e58531f118a0f49db747c2011341d8004ebae8d0",
+    "date": "2022-09-20T17:40:06Z",
+    "message": "Add MqttData helper to mqtt (#78825)\n\n* Add MqttData helper to mqtt\r\n\r\n* Adjust client for circular dependencies\r\n\r\n* Move MqttData to models.py\r\n\r\n* Move get_mqtt_data to util.py",
+    "matched": [
+     "mqtt_instance: MQTT = hass.data[DATA_MQTT].client"
+    ]
+   }
+  ]
+ },
+ "case126": {
+  "checked": 58,
+  "fixes": [
+   {
+    "sha": "6b737509be8c510fa425d6995be0e0f77d84e3e3",
+    "date": "2022-09-29T17:13:44Z",
+    "message": "fix(commit-context): Update GitHub fetch blame query (#39438)",
+    "matched": [
+     ".get(\"blame\", [])",
+     "blame(path: {path}) {{",
+     "ref(qualifiedName: {ref}) {{",
+     "repository(name: {name}, owner: {owner}) {{"
+    ]
+   },
+   {
+    "sha": "d6bcead1be02914e9734ab23f5e476b3d6f3f2cb",
+    "date": "2022-10-11T16:30:54Z",
+    "message": "fix(github): Add pagination when fetching repositories (#39750)\n\nWe are not using pagination for Github's repositories endpoint. This means we were getting up to a maximum of 100 repositories.\r\n\r\nI do not know how no one hit any issues in the past.\r\n\r\nThis is work to support WOR-2234 and creating automatic code mappings.",
+    "matched": [
+     "return results"
+    ]
+   },
+   {
+    "sha": "35bd28dd4409689dc99106474cf045a8c9023fd6",
+    "date": "2022-10-14T18:20:21Z",
+    "message": "feat(commit-context): Support GitLab (#39381)\n\n## Objective:\r\nAdd Commit Context feature to the GitLab integration.",
+    "matched": [
+     "self, repo: Repository, path: str, ref: str"
+    ]
+   },
+   {
+    "sha": "ae7a8e49dca4b915bc5acbe4c73031ce67d2d3d2",
+    "date": "2022-10-31T12:41:20Z",
+    "message": "feat(commit-context): Handle AttributeError while still capturing (#40659)\n\nFixes\r\n[SENTRY-W4Z](https://sentry.io/organizations/sentry/issues/3635082165/)",
+    "matched": [
+     ".get(\"ref\", {})",
+     ".get(\"repository\", {})",
+     ".get(\"target\", {})",
+     "contents.get(\"data\", {})",
+     "results: Sequence[Mapping[str, Any]] = (",
+     "return results"
+    ]
+   }
+  ]
+ },
+ "case127": {
+  "checked": 4,
+  "fixes": [
+   {
+    "sha": "1294b193f0d00d53e160398803977287211ed180",
+    "date": "2022-10-24T18:05:58Z",
+    "message": "BUG: groupby reorders categorical categories (#49131)\n\n* BUG: groupby reorders categorical categories\r\n\r\n* Tests and whatsnew\r\n\r\n* type-ignore\r\n\r\n* GH#\r\n\r\n* Add test\r\n\r\n* Add TODO\r\n\r\n* GH#\r\n\r\n* fixups\r\n\r\n* Revert test change; catch warnings",
+    "matched": [
+     "all_codes = np.arange(c.categories.nunique(), dtype=np.int8)"
+    ]
+   },
+   {
+    "sha": "eea9e751619b3ebdbd10e5f3b2da1669cef08831",
+    "date": "2022-11-07T18:28:24Z",
+    "message": "BUG: groupby with CategoricalIndex doesn't include unobserved categories (#49373)\n\n* BUG: groupby with CategoricalIndex doesn't include unobserved categories\r\n\r\n* Test fixup\r\n\r\n* cleanup\r\n\r\n* Remove TODO\r\n\r\n* Add GH reference\r\n\r\n* Add GH reference",
+    "matched": [
+     "if c.ordered:"
+    ]
+   },
+   {
+    "sha": "9c059187893a6a45bf0d5430af5e4fe7f9a3ccb3",
+    "date": "2022-11-10T20:34:48Z",
+    "message": "BUG: groupby with sort=False still sorts an ordered categorical (#49613)\n\n* BUG: groupby with sort=False still sorts an ordered categorical\r\n\r\n* Add versionchanged",
+    "matched": [
+     "if c.ordered:"
+    ]
+   }
+  ]
+ },
+ "case128": {
+  "checked": 11,
+  "fixes": [
+   {
+    "sha": "bc218e712b267fa4f398b94ba2a6611282c8e453",
+    "date": "2022-10-05T17:21:33Z",
+    "message": "fix(profiling): Fix attribute name for brotli compression (#39676)\n\nThis is what I should have been looking at\r\nhttps://github.com/google/brotli/blob/9801a2c5d6c67c467ffad676ac301379bb877fc3/python/brotli.py#L25",
+    "matched": [
+     "json.dumps(json_data).encode(\"utf-8\"), quality=6, mode=brotli.BrotliEncoderMode.TEXT"
+    ]
+   },
+   {
+    "sha": "f04afe044a9b486137d798646660ad9826a1af71",
+    "date": "2023-03-23T15:43:35Z",
+    "message": "chore(profiling): Add profile payload size (#46254)\n\nHaving the payload size is handy to help us understand the size of the\r\ndata we're dealing with for the various platforms.",
+    "matched": [
+     "kwargs[\"body\"] = brotli.compress("
+    ]
+   }
+  ]
+ },
+ "case129": {
+  "checked": 3,
+  "fixes": [
+   {
+    "sha": "3b78df07dec8d59674a4bf9052830dbd08565012",
+    "date": "2022-10-21T14:34:03Z",
+    "message": "Use empty_moov in stream recorder (#80726)",
+    "matched": [
+     "\"movflags\": \"frag_keyframe\","
+    ]
+   }
+  ]
+ },
+ "case130": {
+  "checked": 1,
+  "fixes": []
+ },
+ "case131": {
+  "checked": 3,
+  "fixes": [
+   {
+    "sha": "3d422d72159418ca23105fb6ea38f86af62af23f",
+    "date": "2022-09-19T09:15:45Z",
+    "message": "hoists args out of else block",
+    "matched": [
+     "args = None",
+     "else:"
+    ]
+   }
+  ]
+ },
+ "case132": {
+  "checked": 4,
+  "fixes": []
+ },
+ "case133": {
+  "checked": 6,
+  "fixes": [
+   {
+    "sha": "6842cdcb65c64649d22b1db16b1ee57b00eef273",
+    "date": "2023-04-25T23:51:39Z",
+    "message": "Clean up default ZHA entity names (#91841)\n\n* Always use `Light` for lights, including subclasses\r\n\r\n* Clean up other platforms\r\n\r\n* Add a unit test to ensure all future entity classes have names\r\n\r\n* Remove stale `_name`\r\n\r\n* Address review feedback and rename `Open` to `Opening`",
+    "matched": [
+     "if hasattr(self, \"_attr_name\") and self._attr_name is not None:",
+     "return self._attr_name"
+    ]
+   }
+  ]
+ },
+ "case134": {
+  "checked": 11,
+  "fixes": []
+ },
+ "case135": {
+  "checked": 17,
+  "fixes": [
+   {
+    "sha": "ed9c040be9c4eeef99186d140bc30ed3a7e93277",
+    "date": "2022-10-25T07:12:49Z",
+    "message": "GM: reduce LKAS faults while inactive (#26196)\n\n* send at 10hz when inactive\n\n* try to make it fine to switch rates\n\n* fix rate\n\n* todododo\n\n* fine if we skip, we usually send too early\n\n* clean up\n\n* this may be required, 50Hz is not really needed to sync/initialize\n\n* preserves previous behavior (not sure if this makes sense)\n\n* Revert \"preserves previous behavior (not sure if this makes sense)\"\n\nThis reverts commit 3b297bca72307b5cba09bec4e2cd8e0f2761af42.\n\n* Revert \"this may be required, 50Hz is not really needed to sync/initialize\"\n\nThis reverts commit a6b4693814214d3f508db922f3b371c402a13995.\n\n* rm com\n\n* Update ref_commit\n\n* gate behind GM Cam\n\n* common logic\n\n* bet\n\n* update refs\nold-commit-hash: 27e315e58f5273da79803ad95737fc15483fef21",
+    "matched": [
+     "# Initialize ASCMLKASteeringCmd counter using the camera",
+     "if not self.sent_lka_steering_cmd and self.CP.networkLocation == NetworkLocation.fwdCamera:"
+    ]
+   },
+   {
+    "sha": "2e954e7473be29bb37759150fd3a474a40662a12",
+    "date": "2023-01-31T09:09:36Z",
+    "message": "GM camera ACC: reliable relay open init (#27163)\n\nReliable relay open\nold-commit-hash: 09cd0b4900d8aff1c9484c8848c9b5f7ff269594",
+    "matched": [
+     "self.lka_steering_cmd_counter = CS.camera_lka_steering_cmd_counter + 1"
+    ]
+   },
+   {
+    "sha": "8d0277a2edde7302bad3a2b49c94389817bf2270",
+    "date": "2023-02-20T23:33:15Z",
+    "message": "GM: remove redundant CarController class variable (#27280)\n\n* clean up\n\n* fix check\n\n* only set ts_nanos on update\nold-commit-hash: 14d44e444418e1b6bd23afe5a371db886e8273e2",
+    "matched": [
+     "if CS.loopback_lka_steering_cmd_updated:",
+     "self.lka_steering_cmd_counter += 1",
+     "self.sent_lka_steering_cmd = False",
+     "self.sent_lka_steering_cmd = True"
+    ]
+   }
+  ]
+ },
+ "case136": {
+  "checked": 19,
+  "fixes": [
+   {
+    "sha": "e4b34ce84ab42a0798753adf829a42c7d9940790",
+    "date": "2022-10-24T20:06:19Z",
+    "message": "fix(replays): change sentry sdk calling to be more helpful (#40456)\n\n- remove configure_scope call from `submit` function, as because of our\r\nthreading this gets weird and wasn't working correctly\r\n- add replayid/projectid tagging to the dupe segments block\r\n- change `capture_message` to `capture_exception` so hopefully we get\r\nmore breadcrumbs",
+    "matched": [
+     "sentry_sdk.capture_message(\"Recording segment was already processed.\")"
+    ]
+   },
+   {
+    "sha": "6d5b1f3fa37dbe131da69b5d06daf9beb19c9319",
+    "date": "2022-10-25T20:45:30Z",
+    "message": "feat(Replays): Add try catch block for duplicate recording segment processing attempts (#39557)\n\ncloses https://github.com/getsentry/replay-backend/issues/143",
+    "matched": [
+     "project_id=message_dict[\"project_id\"],",
+     "replay_id=message_dict[\"replay_id\"],",
+     "segment_id=headers[\"segment_id\"],"
+    ]
+   },
+   {
+    "sha": "aa5f1595243d99e5ba48d5e1cbcaac25abd58f47",
+    "date": "2022-11-16T20:37:00Z",
+    "message": "metrics(replays): add more timing metrics to recording consumer (#41462)\n\n- adds a bunch of metrics for us to help tune the performance of our\r\nrecording consumer",
+    "matched": [
+     ").count()",
+     "count_existing_segments = ReplayRecordingSegment.objects.filter(",
+     "parts.drop()",
+     "project_id=message_dict[\"project_id\"],",
+     "replay_id=message_dict[\"replay_id\"],",
+     "segment_id=headers[\"segment_id\"],"
+    ]
+   },
+   {
+    "sha": "79ac2462114cf1b54a9105af51b630c9666cb264",
+    "date": "2022-11-18T14:35:41Z",
+    "message": "feat(replays): Split out recording ingest behavior from recording consumer implementation (#41518)\n\ncloses: https://github.com/getsentry/replay-backend/issues/209\r\n\r\nNo behavioral changes.  Just moving code from one place to another.",
+    "matched": [
+     ").count()",
+     "count_existing_segments = ReplayRecordingSegment.objects.filter(",
+     "if count_existing_segments > 0:",
+     "parts.drop()",
+     "project_id=message_dict[\"project_id\"],",
+     "replay_id=message_dict[\"replay_id\"],",
+     "return",
+     "scope.add_attachment(bytes=recording_segment, filename=\"dup_replay_segment\")",
+     "scope.level = \"warning\"",
+     "segment_id=headers[\"segment_id\"],",
+     "with sentry_sdk.push_scope() as scope:"
+    ]
+   }
+  ]
+ },
+ "case137": {
+  "checked": 2,
+  "fixes": []
+ },
+ "case138": {
+  "checked": 19,
+  "fixes": [
+   {
+    "sha": "5878cd013145fd407964f073fed8688214fc10bf",
+    "date": "2022-10-27T16:41:51Z",
+    "message": "fix(tests): Validate params when patching sentry features check (#40202)\n\nValidate params when patching sentry features check",
+    "matched": [
+     "if features.has(\"organizations:customer-domains\", last_org):"
+    ]
+   },
+   {
+    "sha": "f2609389d3125ef4895fdbce616d1f320bc3c294",
+    "date": "2022-11-22T15:51:31Z",
+    "message": "feature(hybrid-cloud): get_client_config is silo compatible (#41592)\n\nGets the react context builder `get_client_config` passing in all silos,\r\nvalidating itself against the existing implementation. Necessary for\r\nmany endpoint tests.",
+    "matched": [
+     "return last_org"
+    ]
+   }
+  ]
+ },
+ "case139": {
+  "checked": 3,
+  "fixes": [
+   {
+    "sha": "bf1323d138f68e129315b67132412b0bedfa6064",
+    "date": "2022-10-25T11:39:42Z",
+    "message": "fix(appconnect): Redirect app_id to app_id_str column (#40325)\n\nThis is step 4 in the effort to change the type of\r\n`AppConnectBuild.app_id` from an integer to a string.\r\n\r\nIt effectively removes the old `app_id` field and renames the new\r\n`app_id_str` field to `app_id`.",
+    "matched": [
+     "app_id_str=build.app_id,"
+    ]
+   }
+  ]
+ },
+ "case140": {
+  "checked": 3,
+  "fixes": [
+   {
+    "sha": "01b1c6512c15fcb5406820036bc8536cfe8fbcad",
+    "date": "2023-01-10T09:48:07Z",
+    "message": "ref(dynamic-sampling): Remove multiplexer (#42938)",
+    "matched": [
+     "@classmethod",
+     "def get_enabled_user_biases(cls, user_set_biases: Optional[List[Bias]]) -> Set[str]:",
+     "return {bias[\"id\"] for bias in users_biases if bias[\"active\"]}",
+     "users_biases = cls.get_user_biases(user_set_biases)"
+    ]
+   }
+  ]
+ },
+ "case141": {
+  "checked": 3,
+  "fixes": []
+ },
+ "case142": {
+  "checked": 5,
+  "fixes": [
+   {
+    "sha": "76f9a1487c2b33bc1c6bd1e5abeb5efc9d80848a",
+    "date": "2022-10-12T01:55:10Z",
+    "message": "GPS test station first unittests (#25950)\n\n* init gps test\n\n* gps test v1\n\n* add static signal gen script\n\n* update readme\n\n* remove LD_PRELOAD by using rpath, update values after testing\n\n* remove LD_PRELOAD\n\n* update fuzzy testing\n\n* address comments\n\n* cleanup\n\nCo-authored-by: Kurt Nistelberger <kurt.nistelberger@gmail.com>\nold-commit-hash: 54d667aa155a795ff3ee4953ce508d64945fdac3",
+    "matched": [
+     "Params().put_bool(\"UbloxAvailable\", r)",
+     "r = initialize_pigeon(pigeon)"
+    ]
+   },
+   {
+    "sha": "cd2756da234517d4b85962861d196a8031681bf8",
+    "date": "2023-01-15T07:06:09Z",
+    "message": "don't run ublox procs without ublox (#26965)\n\n* pigeond: don't run if ublox missing\n\n* same for ubloxd\n\nCo-authored-by: Comma Device <device@comma.ai>\nold-commit-hash: 6861c9999195a9791bdb31675a4ed07dbd562b9c",
+    "matched": [
+     "Params().put_bool(\"UbloxAvailable\", r)",
+     "r = initialize_pigeon(pigeon)"
+    ]
+   }
+  ]
+ },
+ "case143": {
+  "checked": 8,
+  "fixes": [
+   {
+    "sha": "30a70ee7ba040a92724d793f8f80dda0204c0dba",
+    "date": "2022-11-02T19:39:59Z",
+    "message": "fix(MEP): Search by transformed transaction (#40656)\n\n- This fixes a bug where we weren't using the transformed transaction\r\nfor filtering which meant that transaction:<< unparameterized >> would\r\nreturn nothing if the only bad transactions were null\r\n\r\nCo-authored-by: getsantry[bot] <66042841+getsantry[bot]@users.noreply.github.com>",
+    "matched": [
+     "elif condition.lhs.name == \"tags[environment]\":"
+    ]
+   }
+  ]
+ },
+ "case144": {
+  "checked": 2,
+  "fixes": [
+   {
+    "sha": "38bee5babc36f39edc6e824268ea31fab11d09d8",
+    "date": "2022-11-01T23:05:09Z",
+    "message": "fix(backend): session replay banner setting (#40847)\n\nRemove saas flag",
+    "matched": [
+     "def is_saas():",
+     "from django.conf import settings",
+     "return settings.SENTRY_IS_SAAS"
+    ]
+   }
+  ]
+ },
+ "case145": {
+  "checked": 10,
+  "fixes": [
+   {
+    "sha": "966b0e09f0a5261e555c2a137af2ef9d58cc9779",
+    "date": "2022-09-25T14:21:26Z",
+    "message": "TensorRT detect.py inference fix (#9581)\n\n* Update\r\n\r\n* Update ci-testing.yml\r\n\r\nSigned-off-by: Glenn Jocher <glenn.jocher@ultralytics.com>\r\n\r\n* Update ci-testing.yml\r\n\r\nSigned-off-by: Glenn Jocher <glenn.jocher@ultralytics.com>\r\n\r\n* Segment fix\r\n\r\n* Segment fix\r\n\r\nSigned-off-by: Glenn Jocher <glenn.jocher@ultralytics.com>",
+    "matched": [
+     "bs = len(dataset)  # batch_size"
+    ]
+   }
+  ]
+ },
+ "case146": {
+  "checked": 1,
+  "fixes": []
+ }
+}

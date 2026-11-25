@@ -1,0 +1,65 @@
+{
+  "cache_key": "91e69cb7666b1d63eacc6e159e348b2b39f02d22e12bf625db819aadcab746b7",
+  "sample_id": "case10",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "This change removes the `unique_id` from a configuration entry, which is a backward-incompatible change intended to fix a previous issue and is unlikely to introduce new functional defects.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"This change removes the `unique_id` from a configuration entry, which is a backward-incompatible change intended to fix a previous issue and is unlikely to introduce new functional defects.\"}",
+  "response_id": "gen-1790923260-pdAZU2z0mPoq5UhYMUXY",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 265,
+  "completion_tokens": 51,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 4.69e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 265,
+    "completion_tokens": 51,
+    "total_tokens": 316,
+    "cost": 4.69e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.69e-05,
+      "upstream_inference_prompt_cost": 2.65e-05,
+      "upstream_inference_completions_cost": 2.04e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.544,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T06:41:00+00:00",
+  "run_id": "20261002T063748Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

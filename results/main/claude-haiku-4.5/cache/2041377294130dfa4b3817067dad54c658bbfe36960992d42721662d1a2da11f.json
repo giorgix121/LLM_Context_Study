@@ -1,0 +1,65 @@
+{
+  "cache_key": "2041377294130dfa4b3817067dad54c658bbfe36960992d42721662d1a2da11f",
+  "sample_id": "case028",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The commit adds support for Subaru Legacy 2020-22 by reusing the same DBC, harness, and tuning parameters as the Outback (which shares the same generation), and correctly classifies it as GLOBAL_GEN2 with appropriate steering threshold logic.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The commit adds support for Subaru Legacy 2020-22 by reusing the same DBC, harness, and tuning parameters as the Outback (which shares the same generation), and correctly classifies it as GLOBAL_GEN2 with appropriate steering threshold logic.\"\n}\n```",
+  "response_id": "gen-1795564381-qFskdKWgsXJpkUJhjvan",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 3623,
+  "completion_tokens": 91,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.004078,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3623,
+    "completion_tokens": 91,
+    "total_tokens": 3714,
+    "cost": 0.004078,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.004078,
+      "upstream_inference_prompt_cost": 0.003623,
+      "upstream_inference_completions_cost": 0.000455
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.617,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:53:02+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

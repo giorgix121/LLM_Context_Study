@@ -1,0 +1,5 @@
+{
+  "commit": "7b063776de68bbb373c6cc115307e7646de741f3",
+  "chars": 180,
+  "text": "ref(api): add options to ProjectSerializer\n\nAdds to the expand query param to allow for querying for non-sensitive project options when listing an org's projects\n\nAddresses ER-1198"
+}

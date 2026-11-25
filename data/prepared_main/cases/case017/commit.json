@@ -1,0 +1,17 @@
+{
+  "commit": "8a34d25049a060a035d4db4a49cd4a0d0b07fb0b",
+  "files_in_commit": 2,
+  "target_index": 0,
+  "target_status": "modified",
+  "chars": 1201,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "tests/providers/snowflake/transfers/test_s3_to_snowflake.py",
+      "status": "modified",
+      "additions": 23,
+      "deletions": 0,
+      "patch": "@@ -69,3 +69,26 @@ def test_execute(self, mock_run, schema, prefix, s3_keys, columns_array, pattern\n \n         mock_run.assert_called_once()\n         assert mock_run.call_args[0][0] == copy_query\n+\n+    @pytest.mark.parametrize(\"pattern\", [None, '.*[.]csv'])\n+    @pytest.mark.parametrize(\"files\", [None, [\"foo.csv\", \"bar.json\", \"spam.parquet\", \"egg.xml\"]])\n+    @mock.patch(\"airflow.providers.snowflake.transfers.s3_to_snowflake.enclose_param\")\n+    def test_escaping_in_operator(self, mock_enclose_fn, files, pattern):\n+        mock_enclose_fn.return_value = \"mock\"\n+        with mock.patch(\"airflow.providers.snowflake.hooks.snowflake.SnowflakeHook.run\"):\n+            S3ToSnowflakeOperator(\n+                s3_keys=files,\n+                table=\"mock\",\n+                stage=\"mock\",\n+                prefix=\"mock\",\n+                file_format=\"mock\",\n+                pattern=pattern,\n+                task_id=\"task_id\",\n+                dag=None,\n+            ).execute(None)\n+\n+            for file in files or []:\n+                assert mock.call(file) in mock_enclose_fn.call_args_list\n+\n+            if pattern:\n+                assert mock.call(pattern) in mock_enclose_fn.call_args_list"
+    }
+  ]
+}

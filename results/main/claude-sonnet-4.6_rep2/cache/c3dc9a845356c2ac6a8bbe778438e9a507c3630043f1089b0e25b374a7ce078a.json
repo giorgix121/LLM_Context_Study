@@ -1,0 +1,65 @@
+{
+  "cache_key": "c3dc9a845356c2ac6a8bbe778438e9a507c3630043f1089b0e25b374a7ce078a",
+  "sample_id": "case026",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Calling `connection_pool.disconnect()` after a successful ping during validation will forcibly close all pooled connections, potentially disrupting concurrent requests that are actively using those connections.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Calling `connection_pool.disconnect()` after a successful ping during validation will forcibly close all pooled connections, potentially disrupting concurrent requests that are actively using those connections.\"}",
+  "response_id": "gen-1795194195-7Q1fD1UDbPFeKExEeEyt",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 213,
+  "completion_tokens": 53,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001434,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 213,
+    "completion_tokens": 53,
+    "total_tokens": 266,
+    "cost": 0.001434,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001434,
+      "upstream_inference_prompt_cost": 0.000639,
+      "upstream_inference_completions_cost": 0.000795
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.923,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T17:03:16+00:00",
+  "run_id": "20261120T165651Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

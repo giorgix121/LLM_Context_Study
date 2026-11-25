@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565208-H6Yub2GDpuhdQSqUdfnQ",
+    "object": "chat.completion",
+    "created": 1795565208,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"This commit renames internal private attributes (`__silo_limit`/`_ModelSiloLimit__silo_limit`) to a public `silo_limit` name and extracts a reusable `get_model_if_available` helper, which is a straightforward refactor with consistent updates across all call sites and corresponding tests.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3701,
+      "completion_tokens": 93,
+      "total_tokens": 3794,
+      "cost": 0.012498,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.012498,
+        "upstream_inference_prompt_cost": 0.011103,
+        "upstream_inference_completions_cost": 0.001395
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

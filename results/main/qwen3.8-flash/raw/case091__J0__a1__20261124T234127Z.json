@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563844-wViY3QrGkX4BeXerSn48",
+    "object": "chat.completion",
+    "created": 1795563844,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The commit introduces a workaround for an Arrow bug by re-assigning `parse_options.invalid_row_handler` to itself, which is a no-op in Python and likely fails to actually reset the internal C++ state required to fix the issue, potentially leaving the bug unfixed or causing unexpected behavior.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 756,
+      "completion_tokens": 73,
+      "total_tokens": 829,
+      "cost": 0.00014771,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00014771,
+        "upstream_inference_prompt_cost": 0.0001134,
+        "upstream_inference_completions_cost": 3.431e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

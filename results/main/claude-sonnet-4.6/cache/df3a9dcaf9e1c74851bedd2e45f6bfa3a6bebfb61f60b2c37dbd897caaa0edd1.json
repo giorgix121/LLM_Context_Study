@@ -1,0 +1,65 @@
+{
+  "cache_key": "df3a9dcaf9e1c74851bedd2e45f6bfa3a6bebfb61f60b2c37dbd897caaa0edd1",
+  "sample_id": "case125",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change accesses `hass.data[DATA_MQTT].client` instead of `hass.data[DATA_MQTT]` directly, but then calls `mqtt_instance.conf` on the result — if the `client` object doesn't have a `conf` attribute (or if `client` is None/uninitialized), this will raise an AttributeError at runtime.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change accesses `hass.data[DATA_MQTT].client` instead of `hass.data[DATA_MQTT]` directly, but then calls `mqtt_instance.conf` on the result — if the `client` object doesn't have a `conf` attribute (or if `client` is None/uninitialized), this will raise an AttributeError at runtime.\"}",
+  "response_id": "gen-1795192705-x0nC7d9Ox5MNHxkunKOP",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 493,
+  "completion_tokens": 101,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.002994,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 493,
+    "completion_tokens": 101,
+    "total_tokens": 594,
+    "cost": 0.002994,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.002994,
+      "upstream_inference_prompt_cost": 0.001479,
+      "upstream_inference_completions_cost": 0.001515
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.683,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:38:28+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

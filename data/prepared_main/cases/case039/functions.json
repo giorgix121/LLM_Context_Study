@@ -1,0 +1,50 @@
+[
+  {
+    "name": "U2fInterface.start_enrollment",
+    "before": {
+      "start": 93,
+      "end": 116,
+      "code": "    def start_enrollment(self, user):\n        credentials = []\n        # there are 2 types of registered keys from the registered devices, those with type\n        # AuthenticatorData are those from WebAuthn registered devices that we don't have to modify\n        # the other is those registered with u2f-api and it a dict with the keys keyHandle and publicKey\n        for registeredKey in self.get_u2f_devices():\n            if type(registeredKey) == AuthenticatorData:\n                credentials.append(registeredKey.credential_data)\n            else:\n                c = create_credential_object(registeredKey)\n                credentials.append(c)\n\n        registration_data, state = self.webauthn_registration_server.register_begin(\n            user={\n                \"id\": user.id.to_bytes(64, byteorder=\"big\"),\n                \"name\": user.username,\n                \"displayName\": user.username,\n            },\n            credentials=credentials,\n            # user_verification is where the authenticator verifies that the user is authorized\n            # to use the authenticator, this isn't needed for our usecase so set a discouraged\n            user_verification=\"discouraged\",\n        )\n        return cbor.encode(registration_data), state"
+    },
+    "after": {
+      "start": 93,
+      "end": 106,
+      "code": "    def start_enrollment(self, user):\n        credentials = self.credentials()\n        registration_data, state = self.webauthn_registration_server.register_begin(\n            user={\n                \"id\": user.id.to_bytes(64, byteorder=\"big\"),\n                \"name\": user.username,\n                \"displayName\": user.username,\n            },\n            credentials=credentials,\n            # user_verification is where the authenticator verifies that the user is authorized\n            # to use the authenticator, this isn't needed for our usecase so set a discouraged\n            user_verification=\"discouraged\",\n        )\n        return cbor.encode(registration_data), state"
+    }
+  },
+  {
+    "name": "U2fInterface.credentials",
+    "before": null,
+    "after": {
+      "start": 121,
+      "end": 131,
+      "code": "    def credentials(self):\n        credentials = []\n        # there are 2 types of registered keys from the registered devices, those with type\n        # AuthenticatorData are those from WebAuthn registered devices that we don't have to modify\n        # the other is those registered with u2f-api and it a dict with the keys keyHandle and publicKey\n        for device in self.get_u2f_devices():\n            if type(device) == AuthenticatorData:\n                credentials.append(device.credential_data)\n            else:\n                credentials.append(create_credential_object(device))\n        return credentials"
+    }
+  },
+  {
+    "name": "U2fInterface.activate",
+    "before": {
+      "start": 184,
+      "end": 197,
+      "code": "    def activate(self, request: Request):\n        credentials = []\n\n        for device in self.get_u2f_devices():\n            if type(device) == AuthenticatorData:\n                credentials.append(device.credential_data)\n            else:\n                credentials.append(create_credential_object(device))\n        challenge, state = self.webauthn_authentication_server.authenticate_begin(\n            credentials=credentials\n        )\n        request.session[\"webauthn_authentication_state\"] = state\n\n        return ActivationChallengeResult(challenge=cbor.encode(challenge[\"publicKey\"]))"
+    },
+    "after": {
+      "start": 186,
+      "end": 193,
+      "code": "    def activate(self, request: Request):\n        credentials = self.credentials()\n        challenge, state = self.webauthn_authentication_server.authenticate_begin(\n            credentials=credentials\n        )\n        request.session[\"webauthn_authentication_state\"] = state\n\n        return ActivationChallengeResult(challenge=cbor.encode(challenge[\"publicKey\"]))"
+    }
+  },
+  {
+    "name": "U2fInterface.validate_response",
+    "before": {
+      "start": 199,
+      "end": 217,
+      "code": "    def validate_response(self, request: Request, challenge, response):\n        try:\n            credentials = []\n            for device in self.get_u2f_devices():\n                if type(device) == AuthenticatorData:\n                    credentials.append(device.credential_data)\n                else:\n                    credentials.append(create_credential_object(device))\n            self.webauthn_authentication_server.authenticate_complete(\n                state=request.session[\"webauthn_authentication_state\"],\n                credentials=credentials,\n                credential_id=websafe_decode(response[\"keyHandle\"]),\n                client_data=ClientData(websafe_decode(response[\"clientData\"])),\n                auth_data=AuthenticatorData(websafe_decode(response[\"authenticatorData\"])),\n                signature=websafe_decode(response[\"signatureData\"]),\n            )\n        except (InvalidSignature, InvalidKey, StopIteration):\n            return False\n        return True"
+    },
+    "after": {
+      "start": 195,
+      "end": 208,
+      "code": "    def validate_response(self, request: Request, challenge, response):\n        try:\n            credentials = self.credentials()\n            self.webauthn_authentication_server.authenticate_complete(\n                state=request.session[\"webauthn_authentication_state\"],\n                credentials=credentials,\n                credential_id=websafe_decode(response[\"keyHandle\"]),\n                client_data=ClientData(websafe_decode(response[\"clientData\"])),\n                auth_data=AuthenticatorData(websafe_decode(response[\"authenticatorData\"])),\n                signature=websafe_decode(response[\"signatureData\"]),\n            )\n        except (InvalidSignature, InvalidKey, StopIteration):\n            return False\n        return True"
+    }
+  }
+]

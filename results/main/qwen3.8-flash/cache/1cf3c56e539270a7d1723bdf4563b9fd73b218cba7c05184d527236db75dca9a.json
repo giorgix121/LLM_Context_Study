@@ -1,0 +1,65 @@
+{
+  "cache_key": "1cf3c56e539270a7d1723bdf4563b9fd73b218cba7c05184d527236db75dca9a",
+  "sample_id": "case056",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change only fixes a stray closing parenthesis in a log message string, which has no functional impact on the operator's execution.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change only fixes a stray closing parenthesis in a log message string, which has no functional impact on the operator's execution.\"}",
+  "response_id": "gen-1795189240-qjMYYwylzIR58CcthCLC",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 681,
+  "completion_tokens": 40,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00012095,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 681,
+    "completion_tokens": 40,
+    "total_tokens": 721,
+    "cost": 0.00012095,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00012095,
+      "upstream_inference_prompt_cost": 0.00010215,
+      "upstream_inference_completions_cost": 1.88e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.429,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:40:41+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

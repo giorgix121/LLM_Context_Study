@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795047888-BZZgUefv8USWtPycMDox",
+    "object": "chat.completion",
+    "created": 1795047888,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change adds a fallback check in the `name` property to return `_attr_name` if it exists and is not None before falling back to `_attr_name`, which is a standard Home Assistant entity pattern that allows dynamic name overrides without breaking existing behavior.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6982,
+      "completion_tokens": 87,
+      "total_tokens": 7069,
+      "cost": 0.007417,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007417,
+        "upstream_inference_prompt_cost": 0.006982,
+        "upstream_inference_completions_cost": 0.000435
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

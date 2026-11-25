@@ -1,0 +1,65 @@
+{
+  "cache_key": "f50c01c66b77e2af31c22ed5161cef918be44cd7d6e12d3ebfae6f99caa1b802",
+  "sample_id": "case005",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Removing `PrecisionType.MIXED` from the supported set and treating it the same as unsupported means any user who previously passed `precision='mixed'` to DeepSpeed or IPU will now get a hard error instead of the previously-accepted (if incorrect) behavior, which could be a breaking change rather than just a bug fix if downstream code relied on it.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Removing `PrecisionType.MIXED` from the supported set and treating it the same as unsupported means any user who previously passed `precision='mixed'` to DeepSpeed or IPU will now get a hard error instead of the previously-accepted (if incorrect) behavior, which could be a breaking change rather than just a bug fix if downstream code relied on it.\"}",
+  "response_id": "gen-1795564973-EKudG3rMps3rtuuarCVD",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2231,
+  "completion_tokens": 96,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.008133,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2231,
+    "completion_tokens": 96,
+    "total_tokens": 2327,
+    "cost": 0.008133,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.008133,
+      "upstream_inference_prompt_cost": 0.006693,
+      "upstream_inference_completions_cost": 0.00144
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.875,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-25T00:02:57+00:00",
+  "run_id": "20261124T235939Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564176-yC93pCwdlvi7D2xo9fUg",
+    "object": "chat.completion",
+    "created": 1795564176,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The early return for empty strings bypasses the standard formatting logic and returns a `mark_safe` object, which may alter expected behavior or security handling for empty inputs compared to previous versions.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 362,
+      "completion_tokens": 51,
+      "total_tokens": 413,
+      "cost": 7.827e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 7.827e-05,
+        "upstream_inference_prompt_cost": 5.43e-05,
+        "upstream_inference_completions_cost": 2.397e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

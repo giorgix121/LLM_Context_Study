@@ -1,0 +1,110 @@
+{
+  "found": 13,
+  "included": 13,
+  "functions": [
+    {
+      "name": "test_issue5137",
+      "path": "spacy/tests/pipeline/test_pipe_factories.py",
+      "start": 16,
+      "end": 44,
+      "code": "@pytest.mark.issue(5137)\ndef test_issue5137():\n    factory_name = \"test_issue5137\"\n    pipe_name = \"my_component\"\n\n    @Language.factory(factory_name)\n    class MyComponent:\n        def __init__(self, nlp, name=pipe_name, categories=\"all_categories\"):\n            self.nlp = nlp\n            self.categories = categories\n            self.name = name\n\n        def __call__(self, doc):\n            pass\n\n        def to_disk(self, path, **kwargs):\n            pass\n\n        def from_disk(self, path, **cfg):\n            pass\n\n    nlp = English()\n    my_component = nlp.add_pipe(factory_name, name=pipe_name)\n    assert my_component.categories == \"all_categories\"\n    with make_tempdir() as tmpdir:\n        nlp.to_disk(tmpdir)\n        overrides = {\"components\": {pipe_name: {\"categories\": \"my_categories\"}}}\n        nlp2 = spacy.load(tmpdir, config=overrides)\n        assert nlp2.get_pipe(pipe_name).categories == \"my_categories\"",
+      "calls": "load"
+    },
+    {
+      "name": "test_load_disable_enable",
+      "path": "spacy/tests/pipeline/test_pipe_methods.py",
+      "start": 608,
+      "end": 654,
+      "code": "def test_load_disable_enable() -> None:\n    \"\"\"\n    Tests spacy.load() with dis-/enabling components.\n    \"\"\"\n\n    base_nlp = English()\n    for pipe in (\"sentencizer\", \"tagger\", \"parser\"):\n        base_nlp.add_pipe(pipe)\n\n    with make_tempdir() as tmp_dir:\n        base_nlp.to_disk(tmp_dir)\n        to_disable = [\"parser\", \"tagger\"]\n        to_enable = [\"tagger\", \"parser\"]\n\n        # Setting only `disable`.\n        nlp = spacy.load(tmp_dir, disable=to_disable)\n        assert all([comp_name in nlp.disabled for comp_name in to_disable])\n\n        # Setting only `enable`.\n        nlp = spacy.load(tmp_dir, enable=to_enable)\n        assert all(\n            [\n                (comp_name in nlp.disabled) is (comp_name not in to_enable)\n                for comp_name in nlp.component_names\n            ]\n        )\n\n        # Testing consistent enable/disable combination.\n        nlp = spacy.load(\n            tmp_dir,\n            enable=to_enable,\n            disable=[\n                comp_name\n                for comp_name in nlp.component_names\n                if comp_name not in to_enable\n            ],\n        )\n        assert all(\n            [\n                (comp_name in nlp.disabled) is (comp_name not in to_enable)\n                for comp_name in nlp.component_names\n            ]\n        )\n\n        # Inconsistent enable/disable combination.\n        with pytest.raises(ValueError):\n            spacy.load(tmp_dir, enable=to_enable, disable=[\"parser\"])",
+      "calls": "load"
+    },
+    {
+      "name": "test_issue8190",
+      "path": "spacy/tests/serialize/test_serialize_config.py",
+      "start": 187,
+      "end": 203,
+      "code": "@pytest.mark.issue(8190)\ndef test_issue8190():\n    \"\"\"Test that config overrides are not lost after load is complete.\"\"\"\n    source_cfg = {\n        \"nlp\": {\n            \"lang\": \"en\",\n        },\n        \"custom\": {\"key\": \"value\"},\n    }\n    source_nlp = English.from_config(source_cfg)\n    with make_tempdir() as dir_path:\n        # We need to create a loadable source pipeline\n        source_path = dir_path / \"test_model\"\n        source_nlp.to_disk(source_path)\n        nlp = spacy.load(source_path, config={\"custom\": {\"key\": \"updated_value\"}})\n\n        assert nlp.config[\"custom\"][\"key\"] == \"updated_value\"",
+      "calls": "load"
+    },
+    {
+      "name": "test_serialize_nlp",
+      "path": "spacy/tests/serialize/test_serialize_config.py",
+      "start": 256,
+      "end": 273,
+      "code": "def test_serialize_nlp():\n    \"\"\"Create a custom nlp pipeline from config and ensure it serializes it correctly\"\"\"\n    nlp_config = Config().from_str(nlp_config_string)\n    nlp = load_model_from_config(nlp_config, auto_fill=True)\n    nlp.get_pipe(\"tagger\").add_label(\"A\")\n    nlp.initialize()\n    assert \"tok2vec\" in nlp.pipe_names\n    assert \"tagger\" in nlp.pipe_names\n    assert \"parser\" not in nlp.pipe_names\n    assert nlp.get_pipe(\"tagger\").model.get_ref(\"tok2vec\").get_dim(\"nO\") == 342\n\n    with make_tempdir() as d:\n        nlp.to_disk(d)\n        nlp2 = spacy.load(d)\n        assert \"tok2vec\" in nlp2.pipe_names\n        assert \"tagger\" in nlp2.pipe_names\n        assert \"parser\" not in nlp2.pipe_names\n        assert nlp2.get_pipe(\"tagger\").model.get_ref(\"tok2vec\").get_dim(\"nO\") == 342",
+      "calls": "load"
+    },
+    {
+      "name": "test_serialize_custom_nlp",
+      "path": "spacy/tests/serialize/test_serialize_config.py",
+      "start": 276,
+      "end": 291,
+      "code": "def test_serialize_custom_nlp():\n    \"\"\"Create a custom nlp pipeline and ensure it serializes it correctly\"\"\"\n    nlp = English()\n    parser_cfg = dict()\n    parser_cfg[\"model\"] = {\"@architectures\": \"my_test_parser\"}\n    nlp.add_pipe(\"parser\", config=parser_cfg)\n    nlp.initialize()\n\n    with make_tempdir() as d:\n        nlp.to_disk(d)\n        nlp2 = spacy.load(d)\n        model = nlp2.get_pipe(\"parser\").model\n        model.get_ref(\"tok2vec\")\n        # check that we have the correct settings, not the default ones\n        assert model.get_ref(\"upper\").get_dim(\"nI\") == 65\n        assert model.get_ref(\"lower\").get_dim(\"nI\") == 65",
+      "calls": "load"
+    },
+    {
+      "name": "test_serialize_parser",
+      "path": "spacy/tests/serialize/test_serialize_config.py",
+      "start": 294,
+      "end": 313,
+      "code": "@pytest.mark.parametrize(\n    \"parser_config_string\", [parser_config_string_upper, parser_config_string_no_upper]\n)\ndef test_serialize_parser(parser_config_string):\n    \"\"\"Create a non-default parser config to check nlp serializes it correctly\"\"\"\n    nlp = English()\n    model_config = Config().from_str(parser_config_string)\n    parser = nlp.add_pipe(\"parser\", config=model_config)\n    parser.add_label(\"nsubj\")\n    nlp.initialize()\n\n    with make_tempdir() as d:\n        nlp.to_disk(d)\n        nlp2 = spacy.load(d)\n        model = nlp2.get_pipe(\"parser\").model\n        model.get_ref(\"tok2vec\")\n        # check that we have the correct settings, not the default ones\n        if model.attrs[\"has_upper\"]:\n            assert model.get_ref(\"upper\").get_dim(\"nI\") == 66\n        assert model.get_ref(\"lower\").get_dim(\"nI\") == 66",
+      "calls": "load"
+    },
+    {
+      "name": "test_config_nlp_roundtrip_bytes_disk",
+      "path": "spacy/tests/serialize/test_serialize_config.py",
+      "start": 330,
+      "end": 341,
+      "code": "def test_config_nlp_roundtrip_bytes_disk():\n    \"\"\"Test that the config is serialized correctly and not interpolated\n    by mistake.\"\"\"\n    nlp = English()\n    nlp_bytes = nlp.to_bytes()\n    new_nlp = English().from_bytes(nlp_bytes)\n    assert new_nlp.config == nlp.config\n    nlp = English()\n    with make_tempdir() as d:\n        nlp.to_disk(d)\n        new_nlp = spacy.load(d)\n    assert new_nlp.config == nlp.config",
+      "calls": "load"
+    },
+    {
+      "name": "test_serialize_config_language_specific",
+      "path": "spacy/tests/serialize/test_serialize_config.py",
+      "start": 344,
+      "end": 376,
+      "code": "def test_serialize_config_language_specific():\n    \"\"\"Test that config serialization works as expected with language-specific\n    factories.\"\"\"\n    name = \"test_serialize_config_language_specific\"\n\n    @English.factory(name, default_config={\"foo\": 20})\n    def custom_factory(nlp: Language, name: str, foo: int):\n        return lambda doc: doc\n\n    nlp = Language()\n    assert not nlp.has_factory(name)\n    nlp = English()\n    assert nlp.has_factory(name)\n    nlp.add_pipe(name, config={\"foo\": 100}, name=\"bar\")\n    pipe_config = nlp.config[\"components\"][\"bar\"]\n    assert pipe_config[\"foo\"] == 100\n    assert pipe_config[\"factory\"] == name\n\n    with make_tempdir() as d:\n        nlp.to_disk(d)\n        nlp2 = spacy.load(d)\n    assert nlp2.has_factory(name)\n    assert nlp2.pipe_names == [\"bar\"]\n    assert nlp2.get_pipe_meta(\"bar\").factory == name\n    pipe_config = nlp2.config[\"components\"][\"bar\"]\n    assert pipe_config[\"foo\"] == 100\n    assert pipe_config[\"factory\"] == name\n\n    config = Config().from_str(nlp2.config.to_str())\n    config[\"nlp\"][\"lang\"] = \"de\"\n    with pytest.raises(ValueError):\n        # German doesn't have a factory, only English does\n        load_model_from_config(config)",
+      "calls": "load"
+    },
+    {
+      "name": "test_config_overrides",
+      "path": "spacy/tests/serialize/test_serialize_config.py",
+      "start": 388,
+      "end": 415,
+      "code": "def test_config_overrides():\n    overrides_nested = {\"nlp\": {\"lang\": \"de\", \"pipeline\": [\"tagger\"]}}\n    overrides_dot = {\"nlp.lang\": \"de\", \"nlp.pipeline\": [\"tagger\"]}\n    # load_model from config with overrides passed directly to Config\n    config = Config().from_str(nlp_config_string, overrides=overrides_dot)\n    nlp = load_model_from_config(config, auto_fill=True)\n    assert isinstance(nlp, German)\n    assert nlp.pipe_names == [\"tagger\"]\n    # Serialized roundtrip with config passed in\n    base_config = Config().from_str(nlp_config_string)\n    base_nlp = load_model_from_config(base_config, auto_fill=True)\n    assert isinstance(base_nlp, English)\n    assert base_nlp.pipe_names == [\"tok2vec\", \"tagger\"]\n    with make_tempdir() as d:\n        base_nlp.to_disk(d)\n        nlp = spacy.load(d, config=overrides_nested)\n    assert isinstance(nlp, German)\n    assert nlp.pipe_names == [\"tagger\"]\n    with make_tempdir() as d:\n        base_nlp.to_disk(d)\n        nlp = spacy.load(d, config=overrides_dot)\n    assert isinstance(nlp, German)\n    assert nlp.pipe_names == [\"tagger\"]\n    with make_tempdir() as d:\n        base_nlp.to_disk(d)\n        nlp = spacy.load(d)\n    assert isinstance(nlp, English)\n    assert nlp.pipe_names == [\"tok2vec\", \"tagger\"]",
+      "calls": "load"
+    },
+    {
+      "name": "test_issue_3526_4",
+      "path": "spacy/tests/serialize/test_serialize_pipeline.py",
+      "start": 142,
+      "end": 157,
+      "code": "@pytest.mark.issue(3526)\ndef test_issue_3526_4(en_vocab):\n    nlp = Language(vocab=en_vocab)\n    patterns = [{\"label\": \"ORG\", \"pattern\": \"Apple\"}]\n    config = {\"overwrite_ents\": True}\n    ruler = nlp.add_pipe(\"entity_ruler\", config=config)\n    ruler.add_patterns(patterns)\n    with make_tempdir() as tmpdir:\n        nlp.to_disk(tmpdir)\n        ruler = nlp.get_pipe(\"entity_ruler\")\n        assert ruler.patterns == [{\"label\": \"ORG\", \"pattern\": \"Apple\"}]\n        assert ruler.overwrite is True\n        nlp2 = load(tmpdir)\n        new_ruler = nlp2.get_pipe(\"entity_ruler\")\n        assert new_ruler.patterns == [{\"label\": \"ORG\", \"pattern\": \"Apple\"}]\n        assert new_ruler.overwrite is True",
+      "calls": "load"
+    },
+    {
+      "name": "test_serialize_pipeline_disable_enable",
+      "path": "spacy/tests/serialize/test_serialize_pipeline.py",
+      "start": 388,
+      "end": 416,
+      "code": "def test_serialize_pipeline_disable_enable():\n    nlp = English()\n    nlp.add_pipe(\"ner\")\n    nlp.add_pipe(\"tagger\")\n    nlp.disable_pipe(\"tagger\")\n    assert nlp.config[\"nlp\"][\"disabled\"] == [\"tagger\"]\n    config = nlp.config.copy()\n    nlp2 = English.from_config(config)\n    assert nlp2.pipe_names == [\"ner\"]\n    assert nlp2.component_names == [\"ner\", \"tagger\"]\n    assert nlp2.disabled == [\"tagger\"]\n    assert nlp2.config[\"nlp\"][\"disabled\"] == [\"tagger\"]\n    with make_tempdir() as d:\n        nlp2.to_disk(d)\n        nlp3 = spacy.load(d)\n    assert nlp3.pipe_names == [\"ner\"]\n    assert nlp3.component_names == [\"ner\", \"tagger\"]\n    with make_tempdir() as d:\n        nlp3.to_disk(d)\n        nlp4 = spacy.load(d, disable=[\"ner\"])\n    assert nlp4.pipe_names == []\n    assert nlp4.component_names == [\"ner\", \"tagger\"]\n    assert nlp4.disabled == [\"ner\", \"tagger\"]\n    with make_tempdir() as d:\n        nlp.to_disk(d)\n        nlp5 = spacy.load(d, exclude=[\"tagger\"])\n    assert nlp5.pipe_names == [\"ner\"]\n    assert nlp5.component_names == [\"ner\"]\n    assert nlp5.disabled == []",
+      "calls": "load"
+    },
+    {
+      "name": "test_load_without_strings",
+      "path": "spacy/tests/serialize/test_serialize_pipeline.py",
+      "start": 456,
+      "end": 471,
+      "code": "def test_load_without_strings():\n    nlp = spacy.blank(\"en\")\n    orig_strings_length = len(nlp.vocab.strings)\n    word = \"unlikely_word_\" * 20\n    nlp.vocab.strings.add(word)\n    assert len(nlp.vocab.strings) == orig_strings_length + 1\n    with make_tempdir() as d:\n        nlp.to_disk(d)\n        # reload with strings\n        reloaded_nlp = load(d)\n        assert len(nlp.vocab.strings) == len(reloaded_nlp.vocab.strings)\n        assert word in reloaded_nlp.vocab.strings\n        # reload without strings\n        reloaded_nlp = load(d, exclude=[\"strings\"])\n        assert orig_strings_length == len(reloaded_nlp.vocab.strings)\n        assert word not in reloaded_nlp.vocab.strings",
+      "calls": "load"
+    },
+    {
+      "name": "convert",
+      "path": "extra/example_data/textcat_example_data/textcatjsonl_to_trainjson.py",
+      "start": 9,
+      "end": 51,
+      "code": "@plac.annotations(\n    model=(\"Model name. Defaults to 'en'.\", \"option\", \"m\", str),\n    input_file=(\"Input file (jsonl)\", \"positional\", None, Path),\n    output_dir=(\"Output directory\", \"positional\", None, Path),\n    n_texts=(\"Number of texts to convert\", \"option\", \"t\", int),\n)\ndef convert(model=\"en\", input_file=None, output_dir=None, n_texts=0):\n    # Load model with tokenizer + sentencizer only\n    nlp = spacy.load(model)\n    nlp.select_pipes(disable=nlp.pipe_names)\n    sentencizer = nlp.create_pipe(\"sentencizer\")\n    nlp.add_pipe(sentencizer, first=True)\n\n    texts = []\n    cats = []\n    count = 0\n\n    if not input_file.exists():\n        print(\"Input file not found:\", input_file)\n        sys.exit(1)\n    else:\n        with open(input_file) as fileh:\n            for line in fileh:\n                data = srsly.json_loads(line)\n                texts.append(data[\"text\"])\n                cats.append(data[\"cats\"])\n\n    if output_dir is not None:\n        output_dir = Path(output_dir)\n        if not output_dir.exists():\n            output_dir.mkdir()\n    else:\n        output_dir = Path(\".\")\n\n    docs = []\n    for i, doc in enumerate(nlp.pipe(texts)):\n        doc.cats = cats[i]\n        docs.append(doc)\n        if n_texts > 0 and count == n_texts:\n            break\n        count += 1\n\n    srsly.write_json(output_dir / input_file.with_suffix(\".json\"), [docs_to_json(docs)])",
+      "calls": "load"
+    }
+  ]
+}

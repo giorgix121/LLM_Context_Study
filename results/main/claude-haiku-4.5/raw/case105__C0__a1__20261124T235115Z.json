@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564286-B58fXXwXxhCb4Gyt61ky",
+    "object": "chat.completion",
+    "created": 1795564286,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"Adding `copy=True` to the `block.slice()` call changes the behavior from zero-copy views to explicit copies, which may significantly impact memory usage and performance in shuffle operations, and the change lacks clear justification in the diff context.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 13845,
+      "completion_tokens": 78,
+      "total_tokens": 13923,
+      "cost": 0.014235,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.014235,
+        "upstream_inference_prompt_cost": 0.013845,
+        "upstream_inference_completions_cost": 0.00039
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

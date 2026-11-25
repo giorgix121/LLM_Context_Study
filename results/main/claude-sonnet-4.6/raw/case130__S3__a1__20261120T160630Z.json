@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192821-ikc5Vd7xOHVPoUSn9IkR",
+    "object": "chat.completion",
+    "created": 1795192821,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Sorting dict items changes the hash output for any existing dicts, breaking hash stability and potentially invalidating previously stored hashes or causing cache mismatches for data that was hashed before this change; additionally, sorting will raise a TypeError if dict keys are of mixed or non-comparable types.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1098,
+      "completion_tokens": 76,
+      "total_tokens": 1174,
+      "cost": 0.004434,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004434,
+        "upstream_inference_prompt_cost": 0.003294,
+        "upstream_inference_completions_cost": 0.00114
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563482-rTx4LcHyHDLH2xyItUTr",
+    "object": "chat.completion",
+    "created": 1795563482,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google AI Studio",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"label\": \"NON-RISKY\", \"explanation\": \"The changes preserve quotes in strings when using jinja2_native, addressing a bugfix and adding a corresponding test case.\"}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1023,
+      "completion_tokens": 44,
+      "total_tokens": 1067,
+      "cost": 0.0001199,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001199,
+        "upstream_inference_prompt_cost": 0.0001023,
+        "upstream_inference_completions_cost": 1.76e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

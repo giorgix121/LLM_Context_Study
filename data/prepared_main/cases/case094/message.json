@@ -1,0 +1,5 @@
+{
+  "commit": "bdcd185bc020080da29961b9c60a5a0dabd3ab03",
+  "chars": 285,
+  "text": "feat(commit-context): Process commit context task (#38984)\n\n## Objective:\n\nWe want to use the GitHub blame API to determine who is the committer\nfor the first in_app stacktrace frame and assign them as a Suspect\nCommit GroupOwner.\n\nThis task is feature flagged for an internal release."
+}

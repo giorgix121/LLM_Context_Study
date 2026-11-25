@@ -1,0 +1,65 @@
+{
+  "cache_key": "ee5978a00c3a2b84352b11f91239a1b3e45bf931c4176d1ee466b245a99f8f2d",
+  "sample_id": "case091",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The code attempts to access `parse_options.invalid_row_handler` unconditionally after checking for its existence, which will raise an AttributeError if the attribute is missing, and the self-assignment logic does not actually re-initialize the handler as intended by the comment.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\n\"label\": \"RISKY\",\n\"explanation\": \"The code attempts to access `parse_options.invalid_row_handler` unconditionally after checking for its existence, which will raise an AttributeError if the attribute is missing, and the self-assignment logic does not actually re-initialize the handler as intended by the comment.\"}",
+  "response_id": "gen-1795190619-6GJZDONXHbhZQiENDBfv",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 316,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 7.889e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 316,
+    "completion_tokens": 67,
+    "total_tokens": 383,
+    "cost": 7.889e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.889e-05,
+      "upstream_inference_prompt_cost": 4.74e-05,
+      "upstream_inference_completions_cost": 3.149e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.619,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:03:41+00:00",
+  "run_id": "20261120T155553Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

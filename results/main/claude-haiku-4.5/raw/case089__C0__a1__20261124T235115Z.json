@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564702-gWvkS9U3OICvK84WY8ev",
+    "object": "chat.completion",
+    "created": 1795564702,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The code references `version` and `launcher_version`/`cloud_version` variables in f-strings without ensuring they are defined in scope, as the import statements for these variables are missing or moved to different locations in the function.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 10965,
+      "completion_tokens": 76,
+      "total_tokens": 11041,
+      "cost": 0.011345,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.011345,
+        "upstream_inference_prompt_cost": 0.010965,
+        "upstream_inference_completions_cost": 0.00038
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "commit": "77d4c3eee7c68700c3027e7e3b126b329f15d990",
+  "files_in_commit": 2,
+  "target_index": 1,
+  "target_status": "modified",
+  "chars": 570,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "doc/source/whatsnew/v1.6.0.rst",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "patch": "@@ -153,6 +153,7 @@ Performance improvements\n - Performance improvement in ``var`` for nullable dtypes (:issue:`48379`).\n - Performance improvements to :func:`read_sas` (:issue:`47403`, :issue:`47405`, :issue:`47656`, :issue:`48502`)\n - Memory improvement in :meth:`RangeIndex.sort_values` (:issue:`48801`)\n+- Performance improvement in :class:`DataFrameGroupBy` and :class:`SeriesGroupBy` when ``by`` is a categorical type and ``sort=False`` (:issue:`48976`)\n \n .. ---------------------------------------------------------------------------\n .. _whatsnew_160.bug_fixes:"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "ce3f994002dd465bf4fc0b64275879d24554928872c625fb2b78a0b45ae4ec0a",
+  "sample_id": "case051",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a new optional parameter `use_metrics_layer` with a default value of `False`, which is passed through to the query builder, preserving existing behavior for all current callers.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds a new optional parameter `use_metrics_layer` with a default value of `False`, which is passed through to the query builder, preserving existing behavior for all current callers.\"}",
+  "response_id": "gen-1795189101-3Mco2vIwuOZCRmxSFATx",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 2304,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00037004,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2304,
+    "completion_tokens": 52,
+    "total_tokens": 2356,
+    "cost": 0.00037004,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00037004,
+      "upstream_inference_prompt_cost": 0.0003456,
+      "upstream_inference_completions_cost": 2.444e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.573,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:38:23+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

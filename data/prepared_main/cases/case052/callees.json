@@ -1,0 +1,38 @@
+{
+  "found": 4,
+  "included": 4,
+  "functions": [
+    {
+      "name": "BaseNotification.format_url",
+      "path": "src/sentry/notifications/notifications/base.py",
+      "start": 82,
+      "end": 86,
+      "code": "    def format_url(self, text: str, url: str) -> str:\n        \"\"\"\n        Format URLs according to the provider options.\n        \"\"\"\n        return self.url_format.format(text=text, url=url)",
+      "called_by": "ProjectNotification.build_notification_footer"
+    },
+    {
+      "name": "BaseNotification.get_sentry_query_params",
+      "path": "src/sentry/notifications/notifications/base.py",
+      "start": 183,
+      "end": 191,
+      "code": "    def get_sentry_query_params(\n        self, provider: ExternalProviders, recipient: Optional[Team | User] = None\n    ) -> str:\n        \"\"\"\n        Returns the query params that allow us to track clicks into Sentry links.\n        If the recipient is not necessarily a user (ex: sending to an email address associated with an account),\n        The recipient may be omitted.\n        \"\"\"\n        return f\"?referrer={self.get_referrer(provider, recipient)}\"",
+      "called_by": "BaseNotification.get_settings_url"
+    },
+    {
+      "name": "get_notification_setting_type_name",
+      "path": "src/sentry/notifications/types.py",
+      "start": 15,
+      "end": 16,
+      "code": "def get_notification_setting_type_name(value: int | NotificationSettingTypes) -> Optional[str]:\n    return NOTIFICATION_SETTING_TYPES.get(NotificationSettingTypes(value))",
+      "called_by": "BaseNotification.get_settings_url"
+    },
+    {
+      "name": "absolute_uri",
+      "path": "src/sentry/utils/http.py",
+      "start": 12,
+      "end": 16,
+      "code": "def absolute_uri(url: Optional[str] = None) -> str:\n    prefix = options.get(\"system.url-prefix\")\n    if not url:\n        return prefix\n    return urljoin(prefix.rstrip(\"/\") + \"/\", url.lstrip(\"/\"))",
+      "called_by": "BaseNotification.get_settings_url"
+    }
+  ]
+}

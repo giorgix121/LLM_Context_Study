@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193081-jN1o2qcWlkevdFYusSSW",
+    "object": "chat.completion",
+    "created": 1795193081,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new `_alter_column_collation_sql` appends a `USING column::type` clause to a `ALTER COLUMN … TYPE … COLLATE` statement, but the `%(column)s` and `%(type)s` placeholders in `using_sql` are filled from the same format dict, so the USING clause will reference the correct column/type; however, the base class `_alter_column_collation_sql` signature may differ and the interaction with the walrus-operator result being appended to `sql_alter_column_collate` (which may already contain collation-specific syntax) could produce malformed SQL in edge cases, making this a potentially risky change.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 918,
+      "completion_tokens": 170,
+      "total_tokens": 1088,
+      "cost": 0.005304,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005304,
+        "upstream_inference_prompt_cost": 0.002754,
+        "upstream_inference_completions_cost": 0.00255
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

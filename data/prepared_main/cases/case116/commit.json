@@ -1,0 +1,101 @@
+{
+  "commit": "c81a71c90807cbad40e0bb317241440200bbbf43",
+  "files_in_commit": 14,
+  "target_index": 2,
+  "target_status": "modified",
+  "chars": 12370,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": ".lightningignore",
+      "status": "added",
+      "additions": 17,
+      "deletions": 0,
+      "patch": "@@ -0,0 +1,17 @@\n+_notebooks\n+.azure\n+.circleci\n+.github\n+.ipynb_checkpoints\n+.pytest_cache\n+.shared\n+.storage\n+.venv\n+.vscode\n+.git\n+artifacts\n+Datasets\n+dist\n+docs\n+examples\n+tests"
+    },
+    {
+      "path": "src/lightning_app/CHANGELOG.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 5,
+      "patch": "@@ -17,21 +17,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).\n - Application storage prefix moved from `app_id` to `project_id/app_id` ([#14583](https://github.com/Lightning-AI/lightning/pull/14583))\n \n \n-### Deprecated\n+- Improve Lightning App connect logic by disconnecting automatically ([#14532](https://github.com/Lightning-AI/lightning/pull/14532))\n \n--\n \n ### Fixed\n \n - Resolved a bug where the state change detection using DeepDiff won't worked with Path, Drive objects ([#14465](https://github.com/Lightning-AI/lightning/pull/14465))\n \n - Resolved a bug where the wrong client was passed to collect cloud logs ([#14684](https://github.com/Lightning-AI/lightning/pull/14684))\n \n-### Removed\n \n--\n+- Unification of app template: moved `app.py` to root dir for `lightning init app <app_name>` template ([#13853](https://github.com/Lightning-AI/lightning/pull/13853))\n+\n+\n+\n+- Fixed a bug where the uploaded command file wasn't properly parsed ([#14532](https://github.com/Lightning-AI/lightning/pull/14532))\n \n-### Fixed\n \n - Resolved `LightningApp(..., debug=True)` ([#14464](https://github.com/Lightning-AI/lightning/pull/14464))\n "
+    },
+    {
+      "path": "src/lightning_app/cli/lightning_cli.py",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 4,
+      "patch": "@@ -57,7 +57,7 @@ def main():\n         if app_name:\n             # 3: Handle development use case.\n             is_local_app = app_name == \"localhost\"\n-            if is_local_app and sys.argv[1:3] == [\"run\", \"app\"]:\n+            if sys.argv[1:3] == [\"run\", \"app\"] or sys.argv[1:3] == [\"show\", \"logs\"]:\n                 _main()\n             else:\n                 if is_local_app:\n@@ -147,9 +147,20 @@ def logs(app_name: str, components: List[str], follow: bool) -> None:\n     if not components:\n         components = app_component_names\n \n-    for component in components:\n-        if component not in app_component_names:\n-            raise click.ClickException(f\"Component '{component}' does not exist in app {app_name}.\")\n+    else:\n+\n+        def add_prefix(c: str):\n+            if c == \"flow\":\n+                return c\n+            if not c.startswith(\"root.\"):\n+                return \"root.\" + c\n+            return c\n+\n+        components = [add_prefix(c) for c in components]\n+\n+        for component in components:\n+            if component not in app_component_names:\n+                raise click.ClickException(f\"Component '{component}' does not exist in app {app_name}.\")\n \n     log_reader = _app_logs_reader(\n         logs_api_client=_LightningLogsSocketAPI(client.api_client),"
+    },
+    {
+      "path": "src/lightning_app/core/api.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "patch": "@@ -21,7 +21,7 @@\n \n from lightning_app.api.http_methods import HttpMethod\n from lightning_app.api.request_types import DeltaRequest\n-from lightning_app.core.constants import FRONTEND_DIR\n+from lightning_app.core.constants import ENABLE_STATE_WEBSOCKET, FRONTEND_DIR\n from lightning_app.core.queues import RedisQueue\n from lightning_app.utilities.app_helpers import InMemoryStateStore, Logger, StateStore\n from lightning_app.utilities.enum import OpenAPITags\n@@ -261,6 +261,9 @@ async def healthz(response: Response):\n @fastapi_service.websocket(\"/api/v1/ws\")\n async def websocket_endpoint(websocket: WebSocket):\n     await websocket.accept()\n+    if not ENABLE_STATE_WEBSOCKET:\n+        await websocket.close()\n+        return\n     try:\n         counter = global_app_state_store.counter\n         while True:"
+    },
+    {
+      "path": "src/lightning_app/core/app.py",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 3,
+      "patch": "@@ -293,9 +293,16 @@ def _collect_deltas_from_ui_and_work_queues(self) -> t.List[t.Union[Delta, APIRe\n                 component_output: t.Optional[ComponentDelta] = self.get_state_changed_from_queue(self.delta_queue)\n                 if component_output:\n                     logger.debug(f\"Received from {component_output.id} : {component_output.delta.to_dict()}\")\n-                    work = self.get_component_by_name(component_output.id)\n-                    new_work_delta = _delta_to_app_state_delta(self.root, work, deepcopy(component_output.delta))\n-                    deltas.append(new_work_delta)\n+\n+                    work = None\n+                    try:\n+                        work = self.get_component_by_name(component_output.id)\n+                    except (KeyError, AttributeError) as e:\n+                        logger.error(f\"The component {component_output.id} couldn't be accessed. Exception: {e}\")\n+\n+                    if work:\n+                        new_work_delta = _delta_to_app_state_delta(self.root, work, deepcopy(component_output.delta))\n+                        deltas.append(new_work_delta)\n                 else:\n                     should_get_component_output = False\n "
+    },
+    {
+      "path": "src/lightning_app/core/constants.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "patch": "@@ -33,6 +33,7 @@\n DEBUG_ENABLED = bool(int(os.getenv(\"LIGHTNING_DEBUG\", \"0\")))\n LIGHTNING_COMPONENT_PUBLIC_REGISTRY = \"https://lightning.ai/v1/components\"\n LIGHTNING_APPS_PUBLIC_REGISTRY = \"https://lightning.ai/v1/apps\"\n+ENABLE_STATE_WEBSOCKET = bool(int(os.getenv(\"ENABLE_STATE_WEBSOCKET\", \"0\")))\n \n \n def get_lightning_cloud_url() -> str:"
+    },
+    {
+      "path": "src/lightning_app/runners/runtime.py",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 5,
+      "patch": "@@ -92,11 +92,6 @@ def terminate(self) -> None:\n         has_messaged = False\n         while not self.done:\n             try:\n-                for work in self.app.works:\n-                    if not hasattr(work, \"_has_called_on_exit\"):\n-                        work.on_exit()\n-                        work._has_called_on_exit = True\n-\n                 if self.app.backend is not None:\n                     self.app.backend.stop_all_works(self.app.works)\n "
+    },
+    {
+      "path": "src/lightning_app/testing/testing.py",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 6,
+      "patch": "@@ -232,6 +232,16 @@ def run_app_in_cloud(\n \n     os.environ[\"LIGHTNING_APP_NAME\"] = name\n \n+    url = Config.url\n+    if url.endswith(\"/\"):\n+        url = url[:-1]\n+    payload = {\"apiKey\": Config.api_key, \"username\": Config.username}\n+    res = requests.post(url + \"/v1/auth/login\", data=json.dumps(payload))\n+    if \"token\" not in res.json():\n+        raise Exception(\"You haven't properly setup your environment variables.\")\n+\n+    token = res.json()[\"token\"]\n+\n     # 3. Disconnect from the App if any.\n     Popen(\"lightning disconnect\", shell=True).wait()\n \n@@ -273,7 +283,6 @@ def run_app_in_cloud(\n     # 6. Create chromium browser, auth to lightning_app.ai and yield the admin and view pages.\n     with sync_playwright() as p:\n         browser = p.chromium.launch(headless=bool(int(os.getenv(\"HEADLESS\", \"0\"))))\n-        payload = {\"apiKey\": Config.api_key, \"username\": Config.username, \"duration\": \"120000\"}\n         context = browser.new_context(\n             # Eventually this will need to be deleted\n             http_credentials=HttpCredentials(\n@@ -283,11 +292,6 @@ def run_app_in_cloud(\n             record_har_path=Config.har_location,\n         )\n         admin_page = context.new_page()\n-        url = Config.url\n-        if url.endswith(\"/\"):\n-            url = url[:-1]\n-        res = requests.post(url + \"/v1/auth/login\", data=json.dumps(payload))\n-        token = res.json()[\"token\"]\n         print(f\"The Lightning App Token is: {token}\")\n         print(f\"The Lightning App user key is: {Config.key}\")\n         print(f\"The Lightning App user id is: {Config.id}\")"
+    },
+    {
+      "path": "src/lightning_app/utilities/cli_helpers.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "patch": "@@ -116,7 +116,9 @@ def _retrieve_application_url_and_available_commands(app_id_or_name_or_url: Opti\n                     raise Exception(\"The application is starting. Try in a few moments.\")\n                 resp = requests.get(lightningapp.status.url + \"/openapi.json\")\n                 if resp.status_code != 200:\n-                    raise Exception(f\"The server didn't process the request properly. Found {resp.json()}\")\n+                    raise Exception(\n+                        \"The server didn't process the request properly. \" \"Try once your application is ready.\"\n+                    )\n                 return lightningapp.status.url, _extract_command_from_openapi(resp.json()), lightningapp.id\n     return None, None, None\n "
+    },
+    {
+      "path": "src/lightning_app/utilities/commands/base.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "patch": "@@ -60,9 +60,9 @@ def state(self):\n     def run(self, **cli_kwargs) -> None:\n         \"\"\"Overrides with the logic to execute on the client side.\"\"\"\n \n-    def invoke_handler(self, config: BaseModel) -> Dict[str, Any]:\n+    def invoke_handler(self, config: Optional[BaseModel] = None) -> Dict[str, Any]:\n         command = self.command_name.replace(\" \", \"_\")\n-        resp = requests.post(self.app_url + f\"/command/{command}\", data=config.json())\n+        resp = requests.post(self.app_url + f\"/command/{command}\", data=config.json() if config else None)\n         assert resp.status_code == 200, resp.json()\n         return resp.json()\n \n@@ -155,6 +155,7 @@ def _validate_client_command(command: ClientCommand):\n def _upload_command(command_name: str, command: ClientCommand) -> Optional[str]:\n     from lightning_app.storage.path import _is_s3fs_available, filesystem, shared_storage_path\n \n+    command_name = command_name.replace(\" \", \"_\")\n     filepath = f\"commands/{command_name}.py\"\n     remote_url = str(shared_storage_path() / \"artifacts\" / filepath)\n     fs = filesystem()\n@@ -164,6 +165,7 @@ def _upload_command(command_name: str, command: ClientCommand) -> Optional[str]:\n \n         if not isinstance(fs, S3FileSystem):\n             return\n+\n         source_file = str(inspect.getfile(command.__class__))\n         remote_url = str(shared_storage_path() / \"artifacts\" / filepath)\n         fs.put(source_file, remote_url)"
+    },
+    {
+      "path": "src/lightning_app/utilities/proxies.py",
+      "status": "modified",
+      "additions": 23,
+      "deletions": 1,
+      "patch": "@@ -405,8 +405,29 @@ def run_once(self):\n         except BaseException as e:\n             # 10.2 Send failed delta to the flow.\n             reference_state = deepcopy(self.work.state)\n+            exp, val, tb = sys.exc_info()\n+            listing = traceback.format_exception(exp, val, tb)\n+            user_exception = False\n+            used_runpy = False\n+            trace = []\n+            for p in listing:\n+                if \"runpy.py\" in p:\n+                    trace = []\n+                    used_runpy = True\n+                if user_exception:\n+                    trace.append(p)\n+                if \"ret = work_run(*args, **kwargs)\" in p:\n+                    user_exception = True\n+\n+            if used_runpy:\n+                trace = trace[1:]\n+\n             self.work._calls[call_hash][\"statuses\"].append(\n-                make_status(WorkStageStatus.FAILED, message=str(e), reason=WorkFailureReasons.USER_EXCEPTION)\n+                make_status(\n+                    WorkStageStatus.FAILED,\n+                    message=str(\"\\n\".join(trace)),\n+                    reason=WorkFailureReasons.USER_EXCEPTION,\n+                )\n             )\n             self.delta_queue.put(\n                 ComponentDelta(\n@@ -452,6 +473,7 @@ def _sigterm_signal_handler(self, signum, frame, call_hash: str) -> None:\n         logger.info(f\"Received SIGTERM signal. Gracefully terminating {self.work.name.replace('root.', '')}...\")\n         persist_artifacts(work=self.work)\n         with _state_observer_lock:\n+            self.work.on_exit()\n             self.work._calls[call_hash][\"statuses\"] = []\n             state = deepcopy(self.work.state)\n             self.work._calls[call_hash][\"statuses\"].append("
+    },
+    {
+      "path": "tests/tests_app/cli/test_cmd_show_logs.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "patch": "@@ -7,7 +7,7 @@\n \n @mock.patch(\"lightning_app.cli.lightning_cli.LightningClient\")\n @mock.patch(\"lightning_app.cli.lightning_cli._get_project\")\n-def test_show_logs_errors(project, client):\n+def test_show_logs_errors(_, client):\n     \"\"\"Test that the CLI prints the errors for the show logs command.\"\"\"\n \n     runner = CliRunner()\n@@ -58,4 +58,4 @@ def test_show_logs_errors(project, client):\n     result = runner.invoke(logs, [\"MyFakeApp\", \"NonExistentComponent\"])\n \n     assert result.exit_code == 1\n-    assert \"Component 'NonExistentComponent' does not exist in app MyFakeApp.\" in result.output\n+    assert \"Component 'root.NonExistentComponent' does not exist in app MyFakeApp.\" in result.output"
+    },
+    {
+      "path": "tests/tests_app/components/python/test_python.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "patch": "@@ -55,7 +55,7 @@ def test_popen_python_script_failure():\n     )\n     run_work_isolated(python_script)\n     assert python_script.has_failed\n-    assert python_script.status.message == \"1\"\n+    assert \"Exception(self.exit_code)\" in python_script.status.message\n \n \n def test_tracer_python_script_with_kwargs():\n@@ -96,7 +96,7 @@ def test_tracer_component_with_code():\n \n     python_script = TracerPythonScript(\"file.py\", script_args=[\"--b=1\"], raise_exception=False, code=code)\n     run_work_isolated(python_script, params={\"a\": \"1\"}, restart_count=0)\n-    assert python_script.status.message == \"An error\"\n+    assert \"An error\" in python_script.status.message\n \n     with open(\"file.py\", \"w\") as f:\n         f.write(\"import sys\\n\")"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795190654-weHNE3YjOgIk8pv5SJcA",
+    "object": "chat.completion",
+    "created": 1795190654,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Returning mark_safe on an empty string bypasses normal formatting logic and may introduce XSS vulnerabilities if the input is not strictly controlled, as it assumes the empty string is safe without validation.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 240,
+      "completion_tokens": 50,
+      "total_tokens": 290,
+      "cost": 5.95e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 5.95e-05,
+        "upstream_inference_prompt_cost": 3.6e-05,
+        "upstream_inference_completions_cost": 2.35e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

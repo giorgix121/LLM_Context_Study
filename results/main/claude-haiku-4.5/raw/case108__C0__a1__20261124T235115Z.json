@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564728-G0C3iUI9Qzn0FAKo9oVp",
+    "object": "chat.completion",
+    "created": 1795564728,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change safely migrates from using an integer `app_id` field to a string `app_id_str` field by making `app_id` nullable and updating all queries and object creations to use `app_id_str` instead, with a corresponding database migration.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2406,
+      "completion_tokens": 89,
+      "total_tokens": 2495,
+      "cost": 0.002851,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002851,
+        "upstream_inference_prompt_cost": 0.002406,
+        "upstream_inference_completions_cost": 0.000445
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

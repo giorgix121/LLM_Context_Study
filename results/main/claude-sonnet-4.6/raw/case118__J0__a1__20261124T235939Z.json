@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565067-zce3291ADhpYjyqDDPso",
+    "object": "chat.completion",
+    "created": 1795565067,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The gateway device registration now uses `api.smile_model` and `api.smile_name` from the new library version (0.25.0) instead of the hardcoded `f'Smile {api.smile_name}'` and `entry.title`, meaning if the new library returns unexpected values or the attributes don't exist, the device name/model displayed in HA will be wrong or cause an AttributeError.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 12117,
+      "completion_tokens": 108,
+      "total_tokens": 12225,
+      "cost": 0.037971,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.037971,
+        "upstream_inference_prompt_cost": 0.036351,
+        "upstream_inference_completions_cost": 0.00162
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

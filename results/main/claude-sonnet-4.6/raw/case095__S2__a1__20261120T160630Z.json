@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192233-LxotkLtXpS0mPEXHzvKa",
+    "object": "chat.completion",
+    "created": 1795192233,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Setting `self.preemptible` as an instance attribute (not a dataclass field) means `asdict()` in `to_dict()` will include it in serialized output, but `from_dict()` passes the deserialized dict directly to `cls(**d)`, so a round-tripped dict containing `preemptible` will cause a `TypeError` due to an unexpected keyword argument.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3163,
+      "completion_tokens": 105,
+      "total_tokens": 3268,
+      "cost": 0.011064,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.011064,
+        "upstream_inference_prompt_cost": 0.009489,
+        "upstream_inference_completions_cost": 0.001575
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

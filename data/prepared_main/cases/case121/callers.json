@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "IssueDetailsTest.test_activity_page",
+      "path": "tests/acceptance/test_issue_details.py",
+      "start": 162,
+      "end": 169,
+      "code": "    def test_activity_page(self):\n        event = self.create_sample_event(platform=\"python\")\n        self.page.visit_issue(self.org.slug, event.group.id)\n        self.page.go_to_subtab(\"activity\")\n\n        self.browser.wait_until_test_id(\"activity-item\")\n        self.browser.blur()\n        self.browser.snapshot(\"issue activity python\", desktop_only=True)",
+      "calls": "IssueDetailsPage.go_to_subtab"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795047200-hjmMvanjBurllUEqIC3Y",
+    "object": "chat.completion",
+    "created": 1795047200,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at the diff in `src/lightning_app/utilities/cli_helpers.py`, I can identify a clear logic error:\n\n```python\nif description:\n    metadata[\"description\"] = description\n\nif description:  # BUG: Should be \"if requirements:\"\n    metadata[\"requirements\"] = requirements\n```\n\nThe second conditional checks `if description:` when it should check `if requirements:`. This means:\n\n1. The `requirements` variable will only be added to metadata if `description` is truthy, not if `requirements` is truthy\n2. If `description` exists but `requirements` is `None`, the code will still try to set `metadata[\"requirements\"] = None`\n3. If `requirements` exists but `description` is `None`, the requirements will never be added to metadata\n\nThis is a functional defect that will cause incorrect behavior when handling the requirements field.\n\n```json\n{\"label\": \"RISKY\", \"explanation\": \"The second conditional checks 'if description:' instead of 'if requirements:', causing requirements to be added to metadata based on the wrong condition.\"}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5101,
+      "completion_tokens": 246,
+      "total_tokens": 5347,
+      "cost": 0.006331,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006331,
+        "upstream_inference_prompt_cost": 0.005101,
+        "upstream_inference_completions_cost": 0.00123
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

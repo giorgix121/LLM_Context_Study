@@ -1,0 +1,65 @@
+{
+  "cache_key": "862c81c4eef44690dca56953c3f4562299950fdfc5d8d8826dce0bd3a1f8ee46",
+  "sample_id": "case146",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The changes refactor the `run_formatters` function to accept formatter paths as arguments and introduce a new `find_formatters` function, which does not alter the existing functionality or introduce new behavior that could cause defects.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The changes refactor the `run_formatters` function to accept formatter paths as arguments and introduce a new `find_formatters` function, which does not alter the existing functionality or introduce new behavior that could cause defects.\"}",
+  "response_id": "gen-1795563572-dNYOHa6VnD7cbCZhAHx5",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 1165,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0001405,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1165,
+    "completion_tokens": 60,
+    "total_tokens": 1225,
+    "cost": 0.0001405,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001405,
+      "upstream_inference_prompt_cost": 0.0001165,
+      "upstream_inference_completions_cost": 2.4e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.485,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:39:33+00:00",
+  "run_id": "20261124T233752Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

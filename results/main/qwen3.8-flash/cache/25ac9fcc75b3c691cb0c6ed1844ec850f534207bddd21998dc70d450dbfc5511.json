@@ -1,0 +1,65 @@
+{
+  "cache_key": "25ac9fcc75b3c691cb0c6ed1844ec850f534207bddd21998dc70d450dbfc5511",
+  "sample_id": "case049",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit introduces a logic error where `request.body` is set to `None` if files are present, which likely breaks multipart form data proxying because the body content (including file boundaries) is discarded instead of being forwarded or handled correctly via the `files` argument.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The commit introduces a logic error where `request.body` is set to `None` if files are present, which likely breaks multipart form data proxying because the body content (including file boundaries) is discarded instead of being forwarded or handled correctly via the `files` argument.\"}",
+  "response_id": "gen-1795564121-D75L6eS3F9AUpfaLBJNo",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 1205,
+  "completion_tokens": 69,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00021318,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1205,
+    "completion_tokens": 69,
+    "total_tokens": 1274,
+    "cost": 0.00021318,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00021318,
+      "upstream_inference_prompt_cost": 0.00018075,
+      "upstream_inference_completions_cost": 3.243e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.583,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:48:42+00:00",
+  "run_id": "20261124T234127Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564830-A7dI1tyW7suFyH86TMDK",
+    "object": "chat.completion",
+    "created": 1795564830,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at the target file change in `homeassistant/components/homekit/type_lights.py`:\n\n```python\nparams[ATTR_RGBWW_COLOR] = color_temperature_to_rgbww(\n-    temp, bright_val, self.min_mireds, self.max_mireds\n+    color_temperature_mired_to_kelvin(temp),\n+    bright_val,\n+    color_temperature_mired_to_kelvin(self.max_mireds),\n+    color_temperature_mired_to_kelvin(self.min_mireds),\n)\n```\n\nThe `color_temperature_to_rgbww` function signature changed from `(temperature_mireds, brightness, min_mireds, max_mireds)` to `(temperature_kelvin, brightness, min_kelvin, max_kelvin)`. The conversions for `temp` and `bright_val` look correct.\n\nHowever, the `min_kelvin` and `max_kelvin` arguments are swapped relative to what the new API expects. Looking at `color_",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 17155,
+      "completion_tokens": 256,
+      "total_tokens": 17411,
+      "cost": 0.055305,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.055305,
+        "upstream_inference_prompt_cost": 0.051465,
+        "upstream_inference_completions_cost": 0.00384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

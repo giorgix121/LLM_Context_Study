@@ -1,0 +1,65 @@
+{
+  "cache_key": "fa25d67ca36e84f96638f7c25852a0d12a05f5249fa0bca5011b866e3c799733",
+  "sample_id": "case002",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a new optional argument `num_pandas` to the `fingerprint` and `get_car` functions, with a default value of 1, which should not introduce any functional defects.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds a new optional argument `num_pandas` to the `fingerprint` and `get_car` functions, with a default value of 1, which should not introduce any functional defects.\"}",
+  "response_id": "gen-1795048461-3hoLs4Vk4syGM0qFSC5u",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 566,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 7.9e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 566,
+    "completion_tokens": 56,
+    "total_tokens": 622,
+    "cost": 7.9e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.9e-05,
+      "upstream_inference_prompt_cost": 5.66e-05,
+      "upstream_inference_completions_cost": 2.24e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.391,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:34:22+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

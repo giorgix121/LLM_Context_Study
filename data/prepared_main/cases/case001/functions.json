@@ -1,0 +1,33 @@
+[
+  {
+    "name": "_add_global_tags",
+    "before": null,
+    "after": {
+      "start": 48,
+      "end": 58,
+      "code": "def _add_global_tags(_all_threads: bool = False, **tags: TagValue) -> List[Tags]:\n    if _all_threads:\n        stack = _GLOBAL_TAGS\n    else:\n        if not hasattr(_THREAD_LOCAL_TAGS, \"stack\"):\n            stack = _THREAD_LOCAL_TAGS.stack = []\n        else:\n            stack = _THREAD_LOCAL_TAGS.stack\n\n    stack.append(tags)\n    return stack"
+    }
+  },
+  {
+    "name": "add_global_tags",
+    "before": null,
+    "after": {
+      "start": 61,
+      "end": 75,
+      "code": "def add_global_tags(_all_threads: bool = False, **tags: TagValue) -> None:\n    \"\"\"\n    Set multiple metric tags onto the global or thread-local stack which then\n    apply to all metrics.\n\n    When used in combination with the `global_tags` context manager,\n    `add_global_tags` is reverted in any wrapping invocaation of `global_tags`.\n    For example::\n\n        with global_tags(tag_a=123):\n            add_global_tags(tag_b=123)\n\n        # tag_b is no longer visible\n    \"\"\"\n    _add_global_tags(_all_threads=_all_threads, **tags)"
+    }
+  },
+  {
+    "name": "global_tags",
+    "before": {
+      "start": 48,
+      "end": 62,
+      "code": "@contextmanager\ndef global_tags(_all_threads: bool = False, **tags: TagValue) -> Generator[None, None, None]:\n    if _all_threads:\n        stack = _GLOBAL_TAGS\n    else:\n        if not hasattr(_THREAD_LOCAL_TAGS, \"stack\"):\n            stack = _THREAD_LOCAL_TAGS.stack = []\n        else:\n            stack = _THREAD_LOCAL_TAGS.stack\n\n    stack.append(tags)\n    try:\n        yield\n    finally:\n        stack.pop()"
+    },
+    "after": {
+      "start": 78,
+      "end": 92,
+      "code": "@contextmanager\ndef global_tags(_all_threads: bool = False, **tags: TagValue) -> Generator[None, None, None]:\n    \"\"\"\n    The context manager version of `add_global_tags` that reverts all tag\n    changes upon exit.\n\n    See docstring of `add_global_tags` for how those two methods interact.\n    \"\"\"\n    stack = _add_global_tags(_all_threads=_all_threads, **tags)\n    old_len = len(stack) - 1\n\n    try:\n        yield\n    finally:\n        del stack[old_len:]"
+    }
+  }
+]

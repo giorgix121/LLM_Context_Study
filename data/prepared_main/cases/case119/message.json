@@ -1,0 +1,5 @@
+{
+  "commit": "2f5060963aebed5c08f21e5dec1f9a5bab3536ad",
+  "chars": 241,
+  "text": "[LAI] Rename instances of \"lightning_app\" and \"pytorch_lightning\" (#15208)\n\n* rename instances of lightning_app and pytorch_lightning\n* solve failing azure tests\n* wrong runif import\n* lit_app\n\nCo-authored-by: Jirka <jirka.borovec@seznam.cz>"
+}

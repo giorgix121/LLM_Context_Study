@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189794-6EdN9PgM85WSUU8AmVTs",
+    "object": "chat.completion",
+    "created": 1795189794,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The default argument `project_id: str = LIGHTNING_CLOUD_PROJECT_ID` is evaluated at function definition time, so if the module-level constant changes later (e.g., via environment reload or monkey-patching), existing calls without an explicit project_id will still use the stale initial value.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 296,
+      "completion_tokens": 72,
+      "total_tokens": 368,
+      "cost": 7.824e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 7.824e-05,
+        "upstream_inference_prompt_cost": 4.44e-05,
+        "upstream_inference_completions_cost": 3.384e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

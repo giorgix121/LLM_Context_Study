@@ -1,0 +1,65 @@
+{
+  "cache_key": "1698133da0775c05d5d4bf30e5b4ccbe2b73660005acec6c7ac3a28f2a5593be",
+  "sample_id": "case136",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The duplicate-detection query runs before the `ReplayRecordingSegment` record is created, so under concurrent processing two workers can both see zero existing segments, both pass the check, and both write a duplicate record—making the deduplication logic ineffective and potentially causing the very duplicates it aims to prevent.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The duplicate-detection query runs before the `ReplayRecordingSegment` record is created, so under concurrent processing two workers can both see zero existing segments, both pass the check, and both write a duplicate record—making the deduplication logic ineffective and potentially causing the very duplicates it aims to prevent.\"}",
+  "response_id": "gen-1795192462-VCP1nAZyFhrKh0uZsRDe",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 669,
+  "completion_tokens": 82,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.003237,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 669,
+    "completion_tokens": 82,
+    "total_tokens": 751,
+    "cost": 0.003237,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003237,
+      "upstream_inference_prompt_cost": 0.002007,
+      "upstream_inference_completions_cost": 0.00123
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.824,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:34:25+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795194548-ZMpPAORHji2a48bhtG5h",
+    "object": "chat.completion",
+    "created": 1795194548,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new imports (`from lightning_launcher.__version__ import __version__` and `from lightning_cloud.__version__ import __version__`) are placed inside the conditional blocks after the editable-install check, but if those packages are installed in editable mode yet lack a `__version__` module or attribute at that path, the import will raise an ImportError and abort the packaging process entirely.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 657,
+      "completion_tokens": 99,
+      "total_tokens": 756,
+      "cost": 0.003456,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003456,
+        "upstream_inference_prompt_cost": 0.001971,
+        "upstream_inference_completions_cost": 0.001485
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

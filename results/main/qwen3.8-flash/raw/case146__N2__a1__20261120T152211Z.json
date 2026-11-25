@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189910-j1bYzyPazrDEQRBFnNwi",
+    "object": "chat.completion",
+    "created": 1795189910,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The default argument `black_path=(sentinel := object())` creates a new sentinel object at function definition time, but the logic inside `run_formatters` checks if `black_path is sentinel`; since `sentinel` is a local variable in the default argument expression and not accessible in the function body scope for comparison, this will raise a NameError or fail to correctly identify the sentinel state depending on Python version scoping rules, specifically because `sentinel` is not defined in the enclosing scope of the function body.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3196,
+      "completion_tokens": 119,
+      "total_tokens": 3315,
+      "cost": 0.00053533,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00053533,
+        "upstream_inference_prompt_cost": 0.0004794,
+        "upstream_inference_completions_cost": 5.593e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

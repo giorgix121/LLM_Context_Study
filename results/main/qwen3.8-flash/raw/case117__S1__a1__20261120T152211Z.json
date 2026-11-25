@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189045-Ku00fkH5v3GXGmGdQG94",
+    "object": "chat.completion",
+    "created": 1795189045,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change to _should_produce_to_kafka removes support for publishing in MONOLITH mode when the 'hc.region-to-control.monolith-publish' option is enabled, which may break existing functionality or configurations relying on that behavior.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 868,
+      "completion_tokens": 60,
+      "total_tokens": 928,
+      "cost": 0.0001584,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001584,
+        "upstream_inference_prompt_cost": 0.0001302,
+        "upstream_inference_completions_cost": 2.82e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "124fe7973279af3d99692f8d46b72858071381d45fb31c788aeacfdbe0d0a9cb",
+  "sample_id": "case067",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "Removing the forwarding of the Accept-Encoding header means the proxy will use its default encoding negotiation, which is a minor behavioral change but unlikely to cause functional defects since the backend service will still respond with valid (possibly uncompressed) data.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"Removing the forwarding of the Accept-Encoding header means the proxy will use its default encoding negotiation, which is a minor behavioral change but unlikely to cause functional defects since the backend service will still respond with valid (possibly uncompressed) data.\"}",
+  "response_id": "gen-1795192751-YtLURQauQiE5uB99jYfi",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2147,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.007521,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2147,
+    "completion_tokens": 72,
+    "total_tokens": 2219,
+    "cost": 0.007521,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.007521,
+      "upstream_inference_prompt_cost": 0.006441,
+      "upstream_inference_completions_cost": 0.00108
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.599,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:39:13+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

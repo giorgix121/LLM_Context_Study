@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564995-48kVp8OST6jt17q7FRFo",
+    "object": "chat.completion",
+    "created": 1795564995,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Moving `bs = len(dataset)` after the if/else block means it now calls `len()` on `LoadImages` as well, which may not implement `__len__` or could return an unexpected value (e.g., total frames rather than 1), potentially causing `vid_path`/`vid_writer` to be sized incorrectly for single-file inference.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 709,
+      "completion_tokens": 99,
+      "total_tokens": 808,
+      "cost": 0.003612,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003612,
+        "upstream_inference_prompt_cost": 0.002127,
+        "upstream_inference_completions_cost": 0.001485
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

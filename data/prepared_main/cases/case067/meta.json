@@ -1,0 +1,4 @@
+{
+  "sample_id": "case067",
+  "path": "src/sentry/api/endpoints/project_profiling_profile.py"
+}

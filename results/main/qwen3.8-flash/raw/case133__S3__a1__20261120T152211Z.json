@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189761-NGcTHr8qMkNcheIzSdmL",
+    "object": "chat.completion",
+    "created": 1795189761,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a dependency on the `_attr_name` attribute which may not be initialized in all subclasses or contexts, potentially causing AttributeError if `hasattr` returns False but subsequent logic expects it, or more likely, it bypasses the standard Home Assistant entity name resolution mechanism by manually checking an internal attribute instead of relying on the base class's property implementation.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 392,
+      "completion_tokens": 85,
+      "total_tokens": 477,
+      "cost": 9.875e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 9.875e-05,
+        "upstream_inference_prompt_cost": 5.88e-05,
+        "upstream_inference_completions_cost": 3.995e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

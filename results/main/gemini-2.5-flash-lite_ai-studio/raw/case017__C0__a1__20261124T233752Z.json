@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563505-i0gTOqnqvHkRHijQtGce",
+    "object": "chat.completion",
+    "created": 1795563505,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google AI Studio",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change replaces a simple string join with a map operation using `enclose_param`, which is likely intended to correctly handle special characters in S3 keys, improving robustness rather than introducing a defect.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 699,
+      "completion_tokens": 53,
+      "total_tokens": 752,
+      "cost": 9.11e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 9.11e-05,
+        "upstream_inference_prompt_cost": 6.99e-05,
+        "upstream_inference_completions_cost": 2.12e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563903-nbwtQMyS3sRXYc8A2Jyb",
+    "object": "chat.completion",
+    "created": 1795563903,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The commit changes the filename generation logic for source distributions in `uploader.py` from using `pretty_name` to `distribution_name`, which alters the expected file names and may break upload functionality if the built artifacts do not match this new naming convention.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6077,
+      "completion_tokens": 63,
+      "total_tokens": 6140,
+      "cost": 0.00094116,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00094116,
+        "upstream_inference_prompt_cost": 0.00091155,
+        "upstream_inference_completions_cost": 2.961e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

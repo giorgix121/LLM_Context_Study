@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191798-yUdvUx8x81HxzpaOycVG",
+    "object": "chat.completion",
+    "created": 1795191798,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Renaming `setup_environment` to `_setup_distributed` removes the public override of the parent class's `setup_environment` method, meaning the initialization logic (`_launched`, world ranks, `rank_zero_only.rank`) will no longer be called when `setup_environment` is invoked on an `XLAStrategy` instance, potentially leaving the strategy in an uninitialized state.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 643,
+      "completion_tokens": 103,
+      "total_tokens": 746,
+      "cost": 0.003474,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003474,
+        "upstream_inference_prompt_cost": 0.001929,
+        "upstream_inference_completions_cost": 0.001545
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

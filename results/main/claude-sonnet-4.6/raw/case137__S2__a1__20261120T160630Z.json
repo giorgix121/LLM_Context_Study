@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192850-vZhDqOBHTcQcxS1x9iZo",
+    "object": "chat.completion",
+    "created": 1795192850,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"When `evaled` is a string, the code re-wraps it with `out[0]` as a quote character, but `out[0]` could be any character (e.g., a space, letter, or other non-quote character) rather than a quote, producing a corrupted return value; additionally, this changes the previously established behavior of returning the bare evaluated string, potentially breaking existing use cases.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2915,
+      "completion_tokens": 105,
+      "total_tokens": 3020,
+      "cost": 0.01032,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01032,
+        "upstream_inference_prompt_cost": 0.008745,
+        "upstream_inference_completions_cost": 0.001575
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

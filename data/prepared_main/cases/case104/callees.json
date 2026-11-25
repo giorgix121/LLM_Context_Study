@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "mark_safe",
+      "path": "django/utils/safestring.py",
+      "start": 58,
+      "end": 72,
+      "code": "@keep_lazy(SafeString)\ndef mark_safe(s):\n    \"\"\"\n    Explicitly mark a string as safe for (HTML) output purposes. The returned\n    object can be used everywhere a string is appropriate.\n\n    If used on a method as a decorator, mark the returned data as safe.\n\n    Can be called multiple times on a single string.\n    \"\"\"\n    if hasattr(s, \"__html__\"):\n        return s\n    if callable(s):\n        return _safety_decorator(mark_safe, s)\n    return SafeString(s)",
+      "called_by": "format"
+    }
+  ]
+}

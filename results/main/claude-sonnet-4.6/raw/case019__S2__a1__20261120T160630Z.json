@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192407-2TqbKJdH70EI8wAcATw6",
+    "object": "chat.completion",
+    "created": 1795192407,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Renaming `setup_environment` to `_setup_distributed` changes the public API and the method name that callers (including the launcher and parent class) use to initialize the distributed environment, which could cause the setup logic to never be called if the caller still invokes `setup_environment`.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4900,
+      "completion_tokens": 78,
+      "total_tokens": 4978,
+      "cost": 0.01587,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01587,
+        "upstream_inference_prompt_cost": 0.0147,
+        "upstream_inference_completions_cost": 0.00117
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

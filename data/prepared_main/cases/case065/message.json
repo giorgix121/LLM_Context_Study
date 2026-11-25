@@ -1,0 +1,5 @@
+{
+  "commit": "f79b068a71607700c4bbcc9e33f1bb2d10bb8e60",
+  "chars": 96,
+  "text": "Honda Civic 2022: remove LKAS fault reinitialization (#24979)\n\n* no lkas problem\n\n* remove frame"
+}

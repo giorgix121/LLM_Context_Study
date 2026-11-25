@@ -1,0 +1,5 @@
+{
+  "commit": "8a34d25049a060a035d4db4a49cd4a0d0b07fb0b",
+  "chars": 62,
+  "text": "S3ToSnowflakeOperator: escape single quote in s3_keys (#24607)"
+}

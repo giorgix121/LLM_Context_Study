@@ -1,0 +1,15 @@
+[
+  {
+    "name": "decorate_models_by_relation",
+    "before": {
+      "start": 28,
+      "end": 60,
+      "code": "def decorate_models_by_relation(\n    target_relations: TargetRelations,\n    app_label: Optional[str] = \"sentry\",\n    path_name: Optional[str] = \"./src/sentry\",\n):\n    model_classes = frozenset(_get_sentry_model_classes(app_label))\n    search = RelationGraphSearch(\n        model_classes=model_classes,\n        target_classes=target_relations.models,\n        naming_conventions=target_relations.naming_conventions,\n    )\n    region_classes = search.sweep_for_relations()\n    control_classes = model_classes.difference(region_classes)\n\n    def filtered_names(classes):\n        return (\n            (c.__module__, c.__name__)\n            for c in classes\n            if not hasattr(c._meta, \"_ModelSiloLimit__silo_limit\")\n        )\n\n    apply_decorators(\n        \"control_silo_model\",\n        \"from sentry.db.models import control_silo_model\",\n        filtered_names(control_classes),\n        path_name,\n    )\n    apply_decorators(\n        \"region_silo_model\",\n        \"from sentry.db.models import region_silo_model\",\n        filtered_names(region_classes),\n        path_name,\n    )"
+    },
+    "after": {
+      "start": 28,
+      "end": 56,
+      "code": "def decorate_models_by_relation(\n    target_relations: TargetRelations,\n    app_label: Optional[str] = \"sentry\",\n    path_name: Optional[str] = \"./src/sentry\",\n):\n    model_classes = frozenset(_get_sentry_model_classes(app_label))\n    search = RelationGraphSearch(\n        model_classes=model_classes,\n        target_classes=target_relations.models,\n        naming_conventions=target_relations.naming_conventions,\n    )\n    region_classes = search.sweep_for_relations()\n    control_classes = model_classes.difference(region_classes)\n\n    def filtered_names(classes):\n        return ((c.__module__, c.__name__) for c in classes if not hasattr(c._meta, \"silo_limit\"))\n\n    apply_decorators(\n        \"control_silo_model\",\n        \"from sentry.db.models import control_silo_model\",\n        filtered_names(control_classes),\n        path_name,\n    )\n    apply_decorators(\n        \"region_silo_model\",\n        \"from sentry.db.models import region_silo_model\",\n        filtered_names(region_classes),\n        path_name,\n    )"
+    }
+  }
+]

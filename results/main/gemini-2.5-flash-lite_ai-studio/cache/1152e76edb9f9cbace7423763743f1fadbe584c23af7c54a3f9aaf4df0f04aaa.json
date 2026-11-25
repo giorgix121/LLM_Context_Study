@@ -1,0 +1,65 @@
+{
+  "cache_key": "1152e76edb9f9cbace7423763743f1fadbe584c23af7c54a3f9aaf4df0f04aaa",
+  "sample_id": "case058",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The changes in the target file are limited to adding type hints to existing methods, which does not alter the functionality of the code.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The changes in the target file are limited to adding type hints to existing methods, which does not alter the functionality of the code.\"}",
+  "response_id": "gen-1795563643-PrKmO9PBl8ji8abPxAhw",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 6413,
+  "completion_tokens": 40,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0006573,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 6413,
+    "completion_tokens": 40,
+    "total_tokens": 6453,
+    "cost": 0.0006573,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0006573,
+      "upstream_inference_prompt_cost": 0.0006413,
+      "upstream_inference_completions_cost": 1.6e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.361,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:40:44+00:00",
+  "run_id": "20261124T233752Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

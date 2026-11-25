@@ -1,0 +1,65 @@
+{
+  "cache_key": "dd2eea6517184b9ff6157795ebe0decc9abe56d563ce30eea515f087a2b5e9ba",
+  "sample_id": "case135",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change modifies the logic for incrementing the `lka_steering_cmd_counter`, which could lead to incorrect counter values and potentially trigger LKAS faults if the counter logic is flawed or if the new initialization condition is not met as expected.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change modifies the logic for incrementing the `lka_steering_cmd_counter`, which could lead to incorrect counter values and potentially trigger LKAS faults if the counter logic is flawed or if the new initialization condition is not met as expected.\"}",
+  "response_id": "gen-1795563479-GGCpzCLZhlxoUd15GdUi",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 1740,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0001988,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1740,
+    "completion_tokens": 62,
+    "total_tokens": 1802,
+    "cost": 0.0001988,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001988,
+      "upstream_inference_prompt_cost": 0.000174,
+      "upstream_inference_completions_cost": 2.48e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.593,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:38:00+00:00",
+  "run_id": "20261124T233752Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

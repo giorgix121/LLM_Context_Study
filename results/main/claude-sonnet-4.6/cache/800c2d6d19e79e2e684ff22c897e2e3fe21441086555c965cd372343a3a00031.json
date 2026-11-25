@@ -1,0 +1,65 @@
+{
+  "cache_key": "800c2d6d19e79e2e684ff22c897e2e3fe21441086555c965cd372343a3a00031",
+  "sample_id": "case080",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "A mapped sensor that actually uses reschedule mode will now proceed past the early-exit check and reach the TaskReschedule query, but if it has a reschedule record it will be handled correctly; however, a mapped non-sensor (is_mapped=True, no reschedule intent) will also skip the early exit and unnecessarily hit the database, and more critically, a mapped sensor in reschedule mode with a future reschedule_date will correctly fail—but the logic conflates 'mapped' with 'might be a reschedule sensor', meaning any mapped task (including non-sensor mapped tasks) bypasses the fast-pass and could be incorrectly blocked if somehow a TaskReschedule row exists for it, introducing a subtle correctness risk.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"A mapped sensor that actually uses reschedule mode will now proceed past the early-exit check and reach the TaskReschedule query, but if it has a reschedule record it will be handled correctly; however, a mapped non-sensor (is_mapped=True, no reschedule intent) will also skip the early exit and unnecessarily hit the database, and more critically, a mapped sensor in reschedule mode with a future reschedule_date will correctly fail—but the logic conflates 'mapped' with 'might be a reschedule sensor', meaning any mapped task (including non-sensor mapped tasks) bypasses the fast-pass and could be incorrectly blocked if somehow a TaskReschedule row exists for it, introducing a subtle correctness risk.\"}",
+  "response_id": "gen-1795193727-CGfxqNVPnZ8oQs10Wia0",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1760,
+  "completion_tokens": 182,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00801,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1760,
+    "completion_tokens": 182,
+    "total_tokens": 1942,
+    "cost": 0.00801,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00801,
+      "upstream_inference_prompt_cost": 0.00528,
+      "upstream_inference_completions_cost": 0.00273
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 5.88,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:55:33+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

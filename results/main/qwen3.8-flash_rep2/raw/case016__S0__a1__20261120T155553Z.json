@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795190352-E1YIa9ovfmhV9MAjHeZY",
+    "object": "chat.completion",
+    "created": 1795190352,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a potential AttributeError if `environment` is None or lacks the `requeue_signal` attribute when not on Windows, as it accesses `environment.requeue_signal` without checking if `environment` exists first.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 623,
+      "completion_tokens": 58,
+      "total_tokens": 681,
+      "cost": 0.00012071,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00012071,
+        "upstream_inference_prompt_cost": 9.345e-05,
+        "upstream_inference_completions_cost": 2.726e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795188950-tMtxq5osUJxGW6TM2LS2",
+    "object": "chat.completion",
+    "created": 1795188950,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change replaces the explicit call to `self.get_active_organization(request)` with direct access to `self.active_organization`, which may not be initialized or populated at this point in the request lifecycle, potentially causing an AttributeError or incorrect behavior if the attribute is not set by middleware or parent class before this method executes.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 572,
+      "completion_tokens": 75,
+      "total_tokens": 647,
+      "cost": 0.00012105,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00012105,
+        "upstream_inference_prompt_cost": 8.58e-05,
+        "upstream_inference_completions_cost": 3.525e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

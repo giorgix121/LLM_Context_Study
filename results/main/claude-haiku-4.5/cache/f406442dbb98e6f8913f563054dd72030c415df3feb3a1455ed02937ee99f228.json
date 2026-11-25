@@ -1,0 +1,65 @@
+{
+  "cache_key": "f406442dbb98e6f8913f563054dd72030c415df3feb3a1455ed02937ee99f228",
+  "sample_id": "case089",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The code adds f-string logging that references `version`, `launcher_version`, and `cloud_version` variables, but `version` is not defined in the visible scope at line 113, and the conditional imports of `launcher_version` and `cloud_version` may fail if those modules don't have `__version__` attributes, causing runtime errors.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The code adds f-string logging that references `version`, `launcher_version`, and `cloud_version` variables, but `version` is not defined in the visible scope at line 113, and the conditional imports of `launcher_version` and `cloud_version` may fail if those modules don't have `__version__` attributes, causing runtime errors.\"\n}\n```",
+  "response_id": "gen-1795187892-PBbPvmaZCfpUzwfZE7ia",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 690,
+  "completion_tokens": 103,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001205,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 690,
+    "completion_tokens": 103,
+    "total_tokens": 793,
+    "cost": 0.001205,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001205,
+      "upstream_inference_prompt_cost": 0.00069,
+      "upstream_inference_completions_cost": 0.000515
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.624,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:18:14+00:00",
+  "run_id": "20261120T151736Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

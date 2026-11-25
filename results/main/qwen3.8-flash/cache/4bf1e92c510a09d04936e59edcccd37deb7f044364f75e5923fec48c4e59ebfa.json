@@ -1,0 +1,65 @@
+{
+  "cache_key": "4bf1e92c510a09d04936e59edcccd37deb7f044364f75e5923fec48c4e59ebfa",
+  "sample_id": "case066",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change only updates the warning category from PendingDeprecationWarning to DeprecationWarning, which does not alter functional behavior or introduce defects.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change only updates the warning category from PendingDeprecationWarning to DeprecationWarning, which does not alter functional behavior or introduce defects.\"}",
+  "response_id": "gen-1795189166-fy0wGTmeOUUHCpT07usK",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 692,
+  "completion_tokens": 44,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00012448,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 692,
+    "completion_tokens": 44,
+    "total_tokens": 736,
+    "cost": 0.00012448,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00012448,
+      "upstream_inference_prompt_cost": 0.0001038,
+      "upstream_inference_completions_cost": 2.068e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.154,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:39:28+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

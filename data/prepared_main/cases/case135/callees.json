@@ -1,0 +1,110 @@
+{
+  "found": 13,
+  "included": 13,
+  "functions": [
+    {
+      "name": "create_buttons",
+      "path": "selfdrive/car/gm/gmcan.py",
+      "start": 3,
+      "end": 8,
+      "code": "def create_buttons(packer, bus, idx, button):\n  values = {\n    \"ACCButtons\": button,\n    \"RollingCounter\": idx,\n  }\n  return packer.make_can_msg(\"ASCMSteeringButton\", bus, values)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_steering_control",
+      "path": "selfdrive/car/gm/gmcan.py",
+      "start": 10,
+      "end": 19,
+      "code": "def create_steering_control(packer, bus, apply_steer, idx, lkas_active):\n\n  values = {\n    \"LKASteeringCmdActive\": lkas_active,\n    \"LKASteeringCmd\": apply_steer,\n    \"RollingCounter\": idx,\n    \"LKASteeringCmdChecksum\": 0x1000 - (lkas_active << 11) - (apply_steer & 0x7ff) - idx\n  }\n\n  return packer.make_can_msg(\"ASCMLKASteeringCmd\", bus, values)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_adas_keepalive",
+      "path": "selfdrive/car/gm/gmcan.py",
+      "start": 21,
+      "end": 23,
+      "code": "def create_adas_keepalive(bus):\n  dat = b\"\\x00\\x00\\x00\\x00\\x00\\x00\\x00\"\n  return [make_can_msg(0x409, dat, bus), make_can_msg(0x40a, dat, bus)]",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_gas_regen_command",
+      "path": "selfdrive/car/gm/gmcan.py",
+      "start": 25,
+      "end": 42,
+      "code": "def create_gas_regen_command(packer, bus, throttle, idx, acc_engaged, at_full_stop):\n  values = {\n    \"GasRegenCmdActive\": acc_engaged,\n    \"RollingCounter\": idx,\n    \"GasRegenCmdActiveInv\": 1 - acc_engaged,\n    \"GasRegenCmd\": throttle,\n    \"GasRegenFullStopActive\": at_full_stop,\n    \"GasRegenAlwaysOne\": 1,\n    \"GasRegenAlwaysOne2\": 1,\n    \"GasRegenAlwaysOne3\": 1,\n  }\n\n  dat = packer.make_can_msg(\"ASCMGasRegenCmd\", bus, values)[2]\n  values[\"GasRegenChecksum\"] = (((0xff - dat[1]) & 0xff) << 16) | \\\n                               (((0xff - dat[2]) & 0xff) << 8) | \\\n                               ((0x100 - dat[3] - idx) & 0xff)\n\n  return packer.make_can_msg(\"ASCMGasRegenCmd\", bus, values)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_friction_brake_command",
+      "path": "selfdrive/car/gm/gmcan.py",
+      "start": 44,
+      "end": 66,
+      "code": "def create_friction_brake_command(packer, bus, apply_brake, idx, near_stop, at_full_stop):\n  mode = 0x1\n  if apply_brake > 0:\n    mode = 0xa\n    if at_full_stop:\n      mode = 0xd\n\n    # TODO: this is to have GM bringing the car to complete stop,\n    # but currently it conflicts with OP controls, so turned off.\n    #elif near_stop:\n    #  mode = 0xb\n\n  brake = (0x1000 - apply_brake) & 0xfff\n  checksum = (0x10000 - (mode << 12) - brake - idx) & 0xffff\n\n  values = {\n    \"RollingCounter\" : idx,\n    \"FrictionBrakeMode\" : mode,\n    \"FrictionBrakeChecksum\": checksum,\n    \"FrictionBrakeCmd\" : -apply_brake\n  }\n\n  return packer.make_can_msg(\"EBCMFrictionBrakeCmd\", bus, values)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_acc_dashboard_command",
+      "path": "selfdrive/car/gm/gmcan.py",
+      "start": 68,
+      "end": 82,
+      "code": "def create_acc_dashboard_command(packer, bus, acc_engaged, target_speed_kph, lead_car_in_sight, fcw):\n  target_speed = min(target_speed_kph, 255)\n\n  values = {\n    \"ACCAlwaysOne\" : 1,\n    \"ACCResumeButton\" : 0,\n    \"ACCSpeedSetpoint\" : target_speed,\n    \"ACCGapLevel\" : 3 * acc_engaged,  # 3 \"far\", 0 \"inactive\"\n    \"ACCCmdActive\" : acc_engaged,\n    \"ACCAlwaysOne2\" : 1,\n    \"ACCLeadCar\" : lead_car_in_sight,\n    \"FCWAlert\": 0x3 if fcw else 0\n  }\n\n  return packer.make_can_msg(\"ASCMActiveCruiseControlStatus\", bus, values)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_adas_time_status",
+      "path": "selfdrive/car/gm/gmcan.py",
+      "start": 84,
+      "end": 90,
+      "code": "def create_adas_time_status(bus, tt, idx):\n  dat = [(tt >> 20) & 0xff, (tt >> 12) & 0xff, (tt >> 4) & 0xff,\n    ((tt & 0xf) << 4) + (idx << 2)]\n  chksum = 0x1000 - dat[0] - dat[1] - dat[2] - dat[3]\n  chksum = chksum & 0xfff\n  dat += [0x40 + (chksum >> 8), chksum & 0xff, 0x12]\n  return make_can_msg(0xa1, bytes(dat), bus)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_adas_steering_status",
+      "path": "selfdrive/car/gm/gmcan.py",
+      "start": 92,
+      "end": 96,
+      "code": "def create_adas_steering_status(bus, idx):\n  dat = [idx << 6, 0xf0, 0x20, 0, 0, 0]\n  chksum = 0x60 + sum(dat)\n  dat += [chksum >> 8, chksum & 0xff]\n  return make_can_msg(0x306, bytes(dat), bus)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_adas_accelerometer_speed_status",
+      "path": "selfdrive/car/gm/gmcan.py",
+      "start": 98,
+      "end": 109,
+      "code": "def create_adas_accelerometer_speed_status(bus, speed_ms, idx):\n  spd = int(speed_ms * 16) & 0xfff\n  accel = 0 & 0xfff\n  # 0 if in park/neutral, 0x10 if in reverse, 0x08 for D/L\n  #stick = 0x08\n  near_range_cutoff = 0x27\n  near_range_mode = 1 if spd <= near_range_cutoff else 0\n  far_range_mode = 1 - near_range_mode\n  dat = [0x08, spd >> 4, ((spd & 0xf) << 4) | (accel >> 8), accel & 0xff, 0]\n  chksum = 0x62 + far_range_mode + (idx << 2) + dat[0] + dat[1] + dat[2] + dat[3] + dat[4]\n  dat += [(idx << 5) + (far_range_mode << 4) + (near_range_mode << 3) + (chksum >> 8), chksum & 0xff]\n  return make_can_msg(0x308, bytes(dat), bus)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_adas_headlights_status",
+      "path": "selfdrive/car/gm/gmcan.py",
+      "start": 111,
+      "end": 116,
+      "code": "def create_adas_headlights_status(packer, bus):\n  values = {\n    \"Always42\": 0x42,\n    \"Always4\": 0x4,\n  }\n  return packer.make_can_msg(\"ASCMHeadlight\", bus, values)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_lka_icon_command",
+      "path": "selfdrive/car/gm/gmcan.py",
+      "start": 118,
+      "end": 131,
+      "code": "def create_lka_icon_command(bus, active, critical, steer):\n  if active and steer == 1:\n    if critical:\n      dat = b\"\\x50\\xc0\\x14\"\n    else:\n      dat = b\"\\x50\\x40\\x18\"\n  elif active:\n    if critical:\n      dat = b\"\\x40\\xc0\\x14\"\n    else:\n      dat = b\"\\x40\\x40\\x18\"\n  else:\n    dat = b\"\\x00\\x00\\x00\"\n  return make_can_msg(0x104c006c, dat, bus)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "apply_std_steer_torque_limits",
+      "path": "selfdrive/car/__init__.py",
+      "start": 87,
+      "end": 104,
+      "code": "def apply_std_steer_torque_limits(apply_torque, apply_torque_last, driver_torque, LIMITS):\n\n  # limits due to driver torque\n  driver_max_torque = LIMITS.STEER_MAX + (LIMITS.STEER_DRIVER_ALLOWANCE + driver_torque * LIMITS.STEER_DRIVER_FACTOR) * LIMITS.STEER_DRIVER_MULTIPLIER\n  driver_min_torque = -LIMITS.STEER_MAX + (-LIMITS.STEER_DRIVER_ALLOWANCE + driver_torque * LIMITS.STEER_DRIVER_FACTOR) * LIMITS.STEER_DRIVER_MULTIPLIER\n  max_steer_allowed = max(min(LIMITS.STEER_MAX, driver_max_torque), 0)\n  min_steer_allowed = min(max(-LIMITS.STEER_MAX, driver_min_torque), 0)\n  apply_torque = clip(apply_torque, min_steer_allowed, max_steer_allowed)\n\n  # slow rate if steer torque increases in magnitude\n  if apply_torque_last > 0:\n    apply_torque = clip(apply_torque, max(apply_torque_last - LIMITS.STEER_DELTA_DOWN, -LIMITS.STEER_DELTA_UP),\n                        apply_torque_last + LIMITS.STEER_DELTA_UP)\n  else:\n    apply_torque = clip(apply_torque, apply_torque_last - LIMITS.STEER_DELTA_UP,\n                        min(apply_torque_last + LIMITS.STEER_DELTA_DOWN, LIMITS.STEER_DELTA_UP))\n\n  return int(round(float(apply_torque)))",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "interp",
+      "path": "common/numpy_fast.py",
+      "start": 4,
+      "end": 16,
+      "code": "def interp(x, xp, fp):\n  N = len(xp)\n\n  def get_interp(xv):\n    hi = 0\n    while hi < N and xv > xp[hi]:\n      hi += 1\n    low = hi - 1\n    return fp[-1] if hi == N and xv > xp[low] else (\n      fp[0] if hi == 0 else\n      (xv - xp[low]) * (fp[hi] - fp[low]) / (xp[hi] - xp[low]) + fp[low])\n\n  return [get_interp(v) for v in x] if hasattr(x, '__iter__') else get_interp(x)",
+      "called_by": "CarController.update"
+    }
+  ]
+}

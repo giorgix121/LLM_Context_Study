@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "IBeaconEntity.__init__",
+      "path": "homeassistant/components/ibeacon/entity.py",
+      "start": 22,
+      "end": 36,
+      "code": "    def __init__(\n        self,\n        coordinator: IBeaconCoordinator,\n        identifier: str,\n        device_unique_id: str,\n        ibeacon_advertisement: iBeaconAdvertisement,\n    ) -> None:\n        \"\"\"Initialize an iBeacon sensor entity.\"\"\"\n        self._device_unique_id = device_unique_id\n        self._coordinator = coordinator\n        self._ibeacon_advertisement = ibeacon_advertisement\n        self._attr_device_info = DeviceInfo(\n            name=identifier,\n            identifiers={(DOMAIN, device_unique_id)},\n        )",
+      "called_by": "IBeaconTrackerEntity.__init__"
+    },
+    {
+      "name": "async_dispatcher_connect",
+      "path": "homeassistant/helpers/dispatcher.py",
+      "start": 33,
+      "end": 56,
+      "code": "@callback\n@bind_hass\ndef async_dispatcher_connect(\n    hass: HomeAssistant, signal: str, target: Callable[..., Any]\n) -> Callable[[], None]:\n    \"\"\"Connect a callable function to a signal.\n\n    This method must be run in the event loop.\n    \"\"\"\n    if DATA_DISPATCHER not in hass.data:\n        hass.data[DATA_DISPATCHER] = {}\n    hass.data[DATA_DISPATCHER].setdefault(signal, {})[target] = None\n\n    @callback\n    def async_remove_dispatcher() -> None:\n        \"\"\"Remove signal listener.\"\"\"\n        try:\n            del hass.data[DATA_DISPATCHER][signal][target]\n        except (KeyError, ValueError):\n            # KeyError is key target listener did not exist\n            # ValueError if listener did not exist within signal\n            _LOGGER.warning(\"Unable to remove unknown dispatcher %s\", target)\n\n    return async_remove_dispatcher",
+      "called_by": "async_setup_entry"
+    },
+    {
+      "name": "Entity.async_write_ha_state",
+      "path": "homeassistant/helpers/entity.py",
+      "start": 522,
+      "end": 533,
+      "code": "    @callback\n    def async_write_ha_state(self) -> None:\n        \"\"\"Write the state to the state machine.\"\"\"\n        if self.hass is None:\n            raise RuntimeError(f\"Attribute hass is None for {self}\")\n\n        if self.entity_id is None:\n            raise NoEntitySpecifiedError(\n                f\"No entity id specified for entity {self.name}\"\n            )\n\n        self._async_write_ha_state()",
+      "called_by": "IBeaconTrackerEntity._async_seen"
+    }
+  ]
+}

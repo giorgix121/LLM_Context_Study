@@ -1,0 +1,20 @@
+{
+  "run_id": "20261002T054951Z",
+  "finished_at": "2026-10-02T05:52:22+00:00",
+  "halt_reason": null,
+  "completed": 90,
+  "failed": 0,
+  "attempts": 91,
+  "charged_usd_reported": 0.204316,
+  "attempts_with_unknown_cost": 0,
+  "key_usage_before": 1245.389389038,
+  "key_usage_after": 1245.519871038,
+  "key_usage_delta": 0.13048200000002907,
+  "reconciled": false,
+  "tolerance_usd": 0.00408632,
+  "recheck_at": "2026-10-02T05:52:56+00:00",
+  "recheck_key_usage": 1245.593705038,
+  "recheck_key_usage_delta": 0.20431600000006256,
+  "recheck_reconciled": true,
+  "budget_cap_usd": 3.0
+}

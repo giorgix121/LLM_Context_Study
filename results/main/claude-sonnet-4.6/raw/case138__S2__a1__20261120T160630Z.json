@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192514-K4L8kXss4yk4hMoaD0Ff",
+    "object": "chat.completion",
+    "created": 1795192514,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The old `_resolve_last_org_slug` returned `None` for anonymous/unauthenticated users (falling through to `return None` at the end without entering the membership check), but the new `_resolve_last_org` has the same fall-through path returning `None`—however, for anonymous users the org object is fetched but membership is never checked and `None` is returned, which is unchanged; the real risk is that `features.has('organizations:customer-domains', last_org)` is now called with `last_org=None` when there is no last org, which may unexpectedly enable the feature globally if the feature flag has a global/default-on configuration, potentially exposing customer-domains behavior to all users regardless of organization membership.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5758,
+      "completion_tokens": 184,
+      "total_tokens": 5942,
+      "cost": 0.020034,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.020034,
+        "upstream_inference_prompt_cost": 0.017274,
+        "upstream_inference_completions_cost": 0.00276
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

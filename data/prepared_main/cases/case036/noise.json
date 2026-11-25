@@ -1,0 +1,20 @@
+{
+  "target_chars": 1734,
+  "chars": 1734,
+  "files": [
+    {
+      "path": "airflow/hooks/hdfs_hook.py",
+      "chars": 1136,
+      "truncated": false
+    },
+    {
+      "path": "airflow/config_templates/default_celery.py",
+      "chars": 468,
+      "truncated": true
+    }
+  ],
+  "text": "<file path=\"airflow/hooks/hdfs_hook.py\">\n#\n# Licensed to the Apache Software Foundation (ASF) under one\n# or more contributor license agreements.  See the NOTICE file\n# distributed with this work for additional information\n# regarding copyright ownership.  The ASF licenses this file\n# to you under the Apache License, Version 2.0 (the\n# \"License\"); you may not use this file except in compliance\n# with the License.  You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing,\n# software distributed under the License is distributed on an\n# \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n# KIND, either express or implied.  See the License for the\n# specific language governing permissions and limitations\n# under the License.\n\"\"\"This module is deprecated. Please use :mod:`airflow.providers.apache.hdfs.hooks.hdfs`.\"\"\"\n\nimport warnings\n\nfrom airflow.providers.apache.hdfs.hooks.hdfs import HDFSHook, HDFSHookException  # noqa\n\nwarnings.warn(\n    \"This module is deprecated. Please use `airflow.providers.apache.hdfs.hooks.hdfs`.\",\n    DeprecationWarning,\n    stacklevel=2,\n)\n</file>\n\n<file path=\"airflow/config_templates/default_celery.py\" truncated=\"yes\">\n#\n# Licensed to the Apache Software Foundation (ASF) under one\n# or more contributor license agreements.  See the NOTICE file\n# distributed with this work for additional information\n# regarding copyright ownership.  The ASF licenses this file\n# to you under the Apache License, Version 2.0 (the\n# \"License\"); you may not use this file except in compliance\n# with the License.  You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n</file>",
+  "donor_sample_id": "case017",
+  "donor_repo": "apache/airflow",
+  "donor_commit": "8a34d25049a060a035d4db4a49cd4a0d0b07fb0b"
+}

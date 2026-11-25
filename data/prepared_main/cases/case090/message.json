@@ -1,0 +1,5 @@
+{
+  "commit": "ca9c993d6c3c9f59c44d28b22d8968709cd11693",
+  "chars": 271,
+  "text": "Standardize warnings with `WARNING  ⚠️ ...` (#9467)\n\n* Standardize warnings\n\n* [pre-commit.ci] auto fixes from pre-commit.com hooks\n\nfor more information, see https://pre-commit.ci\n\nCo-authored-by: pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>"
+}

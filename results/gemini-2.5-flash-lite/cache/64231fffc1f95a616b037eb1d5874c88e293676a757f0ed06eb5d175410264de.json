@@ -1,0 +1,65 @@
+{
+  "cache_key": "64231fffc1f95a616b037eb1d5874c88e293676a757f0ed06eb5d175410264de",
+  "sample_id": "case06",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change removes a TODO comment and a redundant validation for `max_retries`, which is already handled by Ray's options system, and adds `retry_exceptions` to `WorkflowStepRuntimeOptions`.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change removes a TODO comment and a redundant validation for `max_retries`, which is already handled by Ray's options system, and adds `retry_exceptions` to `WorkflowStepRuntimeOptions`.\"}",
+  "response_id": "gen-1790923099-YrPi1dvhH1IsDunShelo",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 614,
+  "completion_tokens": 57,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 8.42e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 614,
+    "completion_tokens": 57,
+    "total_tokens": 671,
+    "cost": 8.42e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.42e-05,
+      "upstream_inference_prompt_cost": 6.14e-05,
+      "upstream_inference_completions_cost": 2.28e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.591,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T06:38:20+00:00",
+  "run_id": "20261002T063748Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

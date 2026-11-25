@@ -1,0 +1,31 @@
+{
+  "commit": "a66b41b7dc533ad5a29093613e6494c11c00cd1a",
+  "files_in_commit": 4,
+  "target_index": 3,
+  "target_status": "modified",
+  "chars": 2731,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "src/sentry/conf/server.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 12,
+      "patch": "@@ -515,7 +515,7 @@ def SOCIAL_AUTH_DEFAULT_USERNAME():\n SOCIAL_AUTH_FORCE_POST_DISCONNECT = True\n \n # Queue configuration\n-from kombu import Exchange, Queue\n+from kombu import Queue\n \n BROKER_URL = \"redis://127.0.0.1:6379\"\n BROKER_TRANSPORT_OPTIONS = {}\n@@ -679,22 +679,13 @@ def SOCIAL_AUTH_DEFAULT_USERNAME():\n     Queue(\"get_suspect_resolutions\", routing_key=\"get_suspect_resolutions\"),\n     Queue(\"get_suspect_resolutions_releases\", routing_key=\"get_suspect_resolutions_releases\"),\n     Queue(\"replays.delete_replay\", routing_key=\"replays.delete_replay\"),\n+    Queue(\"counters-0\", routing_key=\"counters-0\"),\n+    Queue(\"triggers-0\", routing_key=\"triggers-0\"),\n ]\n \n for queue in CELERY_QUEUES:\n     queue.durable = False\n \n-CELERY_ROUTES = (\"sentry.queue.routers.SplitQueueRouter\",)\n-\n-\n-def create_partitioned_queues(name):\n-    exchange = Exchange(name, type=\"direct\")\n-    for num in range(1):\n-        CELERY_QUEUES.append(Queue(f\"{name}-{num}\", exchange=exchange))\n-\n-\n-create_partitioned_queues(\"counters\")\n-create_partitioned_queues(\"triggers\")\n \n from celery.schedules import crontab\n "
+    },
+    {
+      "path": "src/sentry/queue/routers.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 29,
+      "patch": "@@ -1,29 +0,0 @@\n-import itertools\n-\n-from celery import current_app\n-\n-COUNTER_TASKS = {\"sentry.tasks.process_buffer.process_incr\"}\n-\n-TRIGGER_TASKS = {\n-    \"sentry.tasks.post_process.post_process_group\",\n-    \"sentry.tasks.post_process.plugin_post_process_group\",\n-}\n-\n-\n-class SplitQueueRouter:\n-    def __init__(self):\n-        queues = current_app.conf[\"CELERY_QUEUES\"]\n-        self.counter_queues = itertools.cycle(\n-            [q.name for q in queues if q.name.startswith(\"counters-\")]\n-        )\n-\n-        self.trigger_queues = itertools.cycle(\n-            [q.name for q in queues if q.name.startswith(\"triggers-\")]\n-        )\n-\n-    def route_for_task(self, task, *args, **kwargs):\n-        if task in COUNTER_TASKS:\n-            return {\"queue\": next(self.counter_queues)}\n-        if task in TRIGGER_TASKS:\n-            return {\"queue\": next(self.trigger_queues)}\n-        return None"
+    },
+    {
+      "path": "src/sentry/tasks/post_process.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 4,
+      "patch": "@@ -279,6 +279,7 @@ def fetch_buffered_group_stats(group):\n     name=\"sentry.tasks.post_process.post_process_group\",\n     time_limit=120,\n     soft_time_limit=110,\n+    queue=\"triggers-0\",\n )\n def post_process_group(\n     is_new, is_regression, is_new_group_environment, cache_key, group_id=None, **kwargs\n@@ -627,10 +628,6 @@ def process_similarity(event: \"Event\") -> None:\n         safe_execute(similarity.record, event.project, [event], _with_transaction=False)\n \n \n-@instrumented_task(\n-    name=\"sentry.tasks.post_process.plugin_post_process_group\",\n-    stat_suffix=lambda plugin_slug, *a, **k: plugin_slug,\n-)\n def plugin_post_process_group(plugin_slug, event, **kwargs):\n     \"\"\"\n     Fires post processing hooks for a group."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565158-0ajsYkmMr95b7WiCg51W",
+    "object": "chat.completion",
+    "created": 1795565158,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new `global_tags` context manager saves `old_len = len(stack) - 1` before yielding, but if `add_global_tags` is called inside the `with` block (pushing extra entries), `del stack[old_len:]` will also remove the entry pushed by `global_tags` itself (index `old_len`) rather than only the extra ones, potentially leaving the stack in an inconsistent state across nested or concurrent uses.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3204,
+      "completion_tokens": 116,
+      "total_tokens": 3320,
+      "cost": 0.011352,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.011352,
+        "upstream_inference_prompt_cost": 0.009612,
+        "upstream_inference_completions_cost": 0.00174
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "name": "ProgressBarBase.setup",
+    "before": {
+      "start": 220,
+      "end": 223,
+      "code": "    def setup(self, trainer: \"pl.Trainer\", pl_module: \"pl.LightningModule\", stage: Optional[str] = None) -> None:\n        self._trainer = trainer\n        if not trainer.is_global_zero:\n            self.disable()"
+    },
+    "after": {
+      "start": 220,
+      "end": 223,
+      "code": "    def setup(self, trainer: \"pl.Trainer\", pl_module: \"pl.LightningModule\", stage: str) -> None:\n        self._trainer = trainer\n        if not trainer.is_global_zero:\n            self.disable()"
+    }
+  }
+]

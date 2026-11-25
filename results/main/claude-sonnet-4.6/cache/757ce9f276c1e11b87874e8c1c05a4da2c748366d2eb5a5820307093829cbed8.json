@@ -1,0 +1,65 @@
+{
+  "cache_key": "757ce9f276c1e11b87874e8c1c05a4da2c748366d2eb5a5820307093829cbed8",
+  "sample_id": "case052",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Removing the `provider` property and setter means any code that still calls `self.provider` or sets `instance.provider = ...` (e.g., in message builders that previously relied on the setter) will raise an AttributeError at runtime, potentially breaking notification delivery for providers other than Slack.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Removing the `provider` property and setter means any code that still calls `self.provider` or sets `instance.provider = ...` (e.g., in message builders that previously relied on the setter) will raise an AttributeError at runtime, potentially breaking notification delivery for providers other than Slack.\"}",
+  "response_id": "gen-1795192891-2XZqkBoIBmafIqmBrv5u",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2526,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.008778,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2526,
+    "completion_tokens": 80,
+    "total_tokens": 2606,
+    "cost": 0.008778,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.008778,
+      "upstream_inference_prompt_cost": 0.007578,
+      "upstream_inference_completions_cost": 0.0012
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.961,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:41:34+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

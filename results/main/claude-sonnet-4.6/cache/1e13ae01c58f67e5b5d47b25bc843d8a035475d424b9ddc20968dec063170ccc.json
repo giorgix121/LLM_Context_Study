@@ -1,0 +1,65 @@
+{
+  "cache_key": "1e13ae01c58f67e5b5d47b25bc843d8a035475d424b9ddc20968dec063170ccc",
+  "sample_id": "case101",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change only updates user-facing warning message strings to reflect a renamed CLI command path, with no logic changes.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change only updates user-facing warning message strings to reflect a renamed CLI command path, with no logic changes.\"}",
+  "response_id": "gen-1795565109-Y8IdQnRw6O74fOQYQ3Fd",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 434,
+  "completion_tokens": 42,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001932,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 434,
+    "completion_tokens": 42,
+    "total_tokens": 476,
+    "cost": 0.001932,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001932,
+      "upstream_inference_prompt_cost": 0.001302,
+      "upstream_inference_completions_cost": 0.00063
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.111,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-25T00:05:11+00:00",
+  "run_id": "20261124T235939Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

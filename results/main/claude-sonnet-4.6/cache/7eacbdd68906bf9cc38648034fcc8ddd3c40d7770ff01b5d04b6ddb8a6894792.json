@@ -1,0 +1,65 @@
+{
+  "cache_key": "7eacbdd68906bf9cc38648034fcc8ddd3c40d7770ff01b5d04b6ddb8a6894792",
+  "sample_id": "case127",
+  "strategy": "N2",
+  "status": "invalid_output",
+  "predicted_label": null,
+  "explanation": null,
+  "validation_error": "not valid JSON (Expecting value)",
+  "fenced_json": false,
+  "raw_content": "Looking at the diff, the key change is in the `recode_for_groupby` function. The new code uses `np.int8` for `all_codes`, which can only hold values from -128 to 127. If a categorical has more than 127 categories, `np.arange(c.categories.nunique(), dtype=np.int8)` will overflow, causing incorrect behavior when computing `missing_codes` via `np.setdiff1d`.\n\n{\"label\": \"RISKY\", \"explanation\": \"Using `dtype=np.int8` for `all_codes` limits the range to 127, causing integer overflow and incorrect results when a Categorical has more than 127 categories.\"}",
+  "response_id": "gen-1795191878-dj7f7zHusvtuui8j20gf",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2878,
+  "completion_tokens": 163,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.011079,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2878,
+    "completion_tokens": 163,
+    "total_tokens": 3041,
+    "cost": 0.011079,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.011079,
+      "upstream_inference_prompt_cost": 0.008634,
+      "upstream_inference_completions_cost": 0.002445
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 4.724,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:24:43+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

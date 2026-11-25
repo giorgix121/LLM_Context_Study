@@ -1,0 +1,65 @@
+{
+  "cache_key": "ac3d088d4ca2532beadd14a8973c06ef3177cb1f52a1a3362aa9e806567e5939",
+  "sample_id": "case063",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change simply converts a positional argument to an explicit keyword argument, which is a safe refactor that improves clarity without altering behavior.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change simply converts a positional argument to an explicit keyword argument, which is a safe refactor that improves clarity without altering behavior.\"}",
+  "response_id": "gen-1795192435-y44FtHZQSTPN1p7x3REw",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1698,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.005814,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1698,
+    "completion_tokens": 48,
+    "total_tokens": 1746,
+    "cost": 0.005814,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.005814,
+      "upstream_inference_prompt_cost": 0.005094,
+      "upstream_inference_completions_cost": 0.00072
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.031,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:33:57+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

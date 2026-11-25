@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795190897-A8x8E7hGxzvD2vvBkpu1",
+    "object": "chat.completion",
+    "created": 1795190897,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The attribute name changed from the name-mangled `_ModelSiloLimit__silo_limit` (set by Python's double-underscore name mangling on a class named `ModelSiloLimit`) to the plain `silo_limit`, so if the actual attribute on `_meta` is still the mangled name, the filter will no longer skip already-decorated models and will incorrectly attempt to re-decorate them.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1028,
+      "completion_tokens": 111,
+      "total_tokens": 1139,
+      "cost": 0.004749,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004749,
+        "upstream_inference_prompt_cost": 0.003084,
+        "upstream_inference_completions_cost": 0.001665
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

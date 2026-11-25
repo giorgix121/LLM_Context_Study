@@ -1,0 +1,65 @@
+{
+  "cache_key": "138cdcc916ba6f6bb124f3eff3b8ab1ba31499c5c982ce808693d3d0b5d96b65",
+  "sample_id": "case114",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Changing from `hasattr(device, 'voltage')` to `isinstance(device.voltage, int)` will raise an AttributeError if the voltage attribute doesn't exist, whereas the original code would safely return False.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"Changing from `hasattr(device, 'voltage')` to `isinstance(device.voltage, int)` will raise an AttributeError if the voltage attribute doesn't exist, whereas the original code would safely return False.\"\n}\n```",
+  "response_id": "gen-1795047945-pukFMPZR9juKGnmEryIi",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 251,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000626,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 251,
+    "completion_tokens": 75,
+    "total_tokens": 326,
+    "cost": 0.000626,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000626,
+      "upstream_inference_prompt_cost": 0.000251,
+      "upstream_inference_completions_cost": 0.000375
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.05,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:25:46+00:00",
+  "run_id": "20261119T002019Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

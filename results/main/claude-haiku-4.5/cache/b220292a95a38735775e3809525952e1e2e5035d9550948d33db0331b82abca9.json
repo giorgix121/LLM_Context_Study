@@ -1,0 +1,65 @@
+{
+  "cache_key": "b220292a95a38735775e3809525952e1e2e5035d9550948d33db0331b82abca9",
+  "sample_id": "case013",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit introduces a critical dependency on a `.meta.json` file that must exist in the commands folder, but `_get_commands_metadata()` will crash with a FileNotFoundError if this file is missing, breaking the `_list_app_commands()` function for existing installations.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The commit introduces a critical dependency on a `.meta.json` file that must exist in the commands folder, but `_get_commands_metadata()` will crash with a FileNotFoundError if this file is missing, breaking the `_list_app_commands()` function for existing installations.\"\n}\n```",
+  "response_id": "gen-1795564650-LjAQuxnD6G9azx88b8Er",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 7121,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.007566,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 7121,
+    "completion_tokens": 89,
+    "total_tokens": 7210,
+    "cost": 0.007566,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.007566,
+      "upstream_inference_prompt_cost": 0.007121,
+      "upstream_inference_completions_cost": 0.000445
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.885,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:57:32+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

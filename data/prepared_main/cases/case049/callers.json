@@ -1,0 +1,94 @@
+{
+  "found": 11,
+  "included": 11,
+  "functions": [
+    {
+      "name": "proxy_request_if_needed",
+      "path": "src/sentry/api_gateway/api_gateway.py",
+      "start": 21,
+      "end": 31,
+      "code": "def proxy_request_if_needed(request: Request, view_func, view_kwargs) -> HttpResponseBase | None:\n    \"\"\"\n    Main execution flow for the API Gateway\n    returns None if proxying is not required\n    \"\"\"\n    if not _request_should_be_proxied(request, view_func, view_kwargs):\n        return None\n\n    # Request should be proxied at this point\n    org_slug = view_kwargs.get(\"organization_slug\")\n    return proxy_request(request, org_slug)",
+      "calls": "proxy_request"
+    },
+    {
+      "name": "ProxyTestCase.test_simple",
+      "path": "tests/sentry/api_gateway/test_proxy.py",
+      "start": 23,
+      "end": 39,
+      "code": "    @responses.activate\n    def test_simple(self, _):\n        request = RequestFactory().get(\"http://sentry.io/get\")\n        resp = proxy_request(request, self.organization.slug)\n        resp_json = json.loads(b\"\".join(resp.streaming_content))\n        assert resp.status_code == 200\n        assert resp_json[\"proxy\"]\n        assert resp.has_header(\"test\")\n        assert resp[\"test\"] == \"header\"\n\n        request = RequestFactory().get(\"http://sentry.io/error\")\n        resp = proxy_request(request, self.organization.slug)\n        resp_json = json.loads(b\"\".join(resp.streaming_content))\n        assert resp.status_code == 400\n        assert resp_json[\"proxy\"]\n        assert resp.has_header(\"test\")\n        assert resp[\"test\"] == \"header\"",
+      "calls": "proxy_request"
+    },
+    {
+      "name": "ProxyTestCase.test_query_params",
+      "path": "tests/sentry/api_gateway/test_proxy.py",
+      "start": 41,
+      "end": 54,
+      "code": "    @responses.activate\n    def test_query_params(self, _):\n\n        query_param_dict = dict(foo=\"bar\", numlist=[\"1\", \"2\", \"3\"])\n        query_param_str = urlencode(query_param_dict, doseq=True)\n        request = RequestFactory().get(f\"http://sentry.io/echo?{query_param_str}\")\n\n        resp = proxy_request(request, self.organization.slug)\n        resp_json = json.loads(b\"\".join(resp.streaming_content))\n\n        assert resp.status_code == 200\n        # parse_qs returns everything in a list, including single arguments\n        assert query_param_dict[\"foo\"] == resp_json[\"foo\"][0]\n        assert query_param_dict[\"numlist\"] == resp_json[\"numlist\"]",
+      "calls": "proxy_request"
+    },
+    {
+      "name": "ProxyTestCase.test_bad_org",
+      "path": "tests/sentry/api_gateway/test_proxy.py",
+      "start": 56,
+      "end": 61,
+      "code": "    @pytest.mark.xfail(reason=\"Uncommitted to Organization Table Location\")\n    @responses.activate\n    def test_bad_org(self, _):\n        request = RequestFactory().get(\"http://sentry.io/get\")\n        with pytest.raises(NotFound):\n            proxy_request(request, \"doesnotexist\")",
+      "calls": "proxy_request"
+    },
+    {
+      "name": "ProxyTestCase.test_post",
+      "path": "tests/sentry/api_gateway/test_proxy.py",
+      "start": 63,
+      "end": 79,
+      "code": "    @responses.activate\n    def test_post(self, _):\n        request_body = {\"foo\": \"bar\", \"nested\": {\"int_list\": [1, 2, 3]}}\n        responses.add_callback(\n            responses.POST,\n            \"http://region1.testserver/post\",\n            verify_request_body(request_body, {\"test\": \"header\"}),\n        )\n\n        request = RequestFactory().post(\n            \"http://sentry.io/post\", data=request_body, content_type=\"application/json\"\n        )\n        resp = proxy_request(request, self.organization.slug)\n        resp_json = json.loads(b\"\".join(resp.streaming_content))\n\n        assert resp.status_code == 200\n        assert resp_json[\"proxy\"]",
+      "calls": "proxy_request"
+    },
+    {
+      "name": "ProxyTestCase.test_put",
+      "path": "tests/sentry/api_gateway/test_proxy.py",
+      "start": 81,
+      "end": 97,
+      "code": "    @responses.activate\n    def test_put(self, _):\n        request_body = {\"foo\": \"bar\", \"nested\": {\"int_list\": [1, 2, 3]}}\n        responses.add_callback(\n            responses.PUT,\n            \"http://region1.testserver/put\",\n            verify_request_body(request_body, {\"test\": \"header\"}),\n        )\n\n        request = RequestFactory().put(\n            \"http://sentry.io/put\", data=request_body, content_type=\"application/json\"\n        )\n        resp = proxy_request(request, self.organization.slug)\n        resp_json = json.loads(b\"\".join(resp.streaming_content))\n\n        assert resp.status_code == 200\n        assert resp_json[\"proxy\"]",
+      "calls": "proxy_request"
+    },
+    {
+      "name": "ProxyTestCase.test_patch",
+      "path": "tests/sentry/api_gateway/test_proxy.py",
+      "start": 99,
+      "end": 115,
+      "code": "    @responses.activate\n    def test_patch(self, _):\n        request_body = {\"foo\": \"bar\", \"nested\": {\"int_list\": [1, 2, 3]}}\n        responses.add_callback(\n            responses.PATCH,\n            \"http://region1.testserver/patch\",\n            verify_request_body(request_body, {\"test\": \"header\"}),\n        )\n\n        request = RequestFactory().patch(\n            \"http://sentry.io/patch\", data=request_body, content_type=\"application/json\"\n        )\n        resp = proxy_request(request, self.organization.slug)\n        resp_json = json.loads(b\"\".join(resp.streaming_content))\n\n        assert resp.status_code == 200\n        assert resp_json[\"proxy\"]",
+      "calls": "proxy_request"
+    },
+    {
+      "name": "ProxyTestCase.test_head",
+      "path": "tests/sentry/api_gateway/test_proxy.py",
+      "start": 117,
+      "end": 133,
+      "code": "    @responses.activate\n    def test_head(self, _):\n        request_body = {\"foo\": \"bar\", \"nested\": {\"int_list\": [1, 2, 3]}}\n        responses.add_callback(\n            responses.HEAD,\n            \"http://region1.testserver/head\",\n            verify_request_headers({\"test\": \"header\"}),\n        )\n\n        request = RequestFactory().head(\n            \"http://sentry.io/head\", data=request_body, content_type=\"application/json\"\n        )\n        resp = proxy_request(request, self.organization.slug)\n        resp_json = json.loads(b\"\".join(resp.streaming_content))\n\n        assert resp.status_code == 200\n        assert resp_json[\"proxy\"]",
+      "calls": "proxy_request"
+    },
+    {
+      "name": "ProxyTestCase.test_delete",
+      "path": "tests/sentry/api_gateway/test_proxy.py",
+      "start": 135,
+      "end": 151,
+      "code": "    @responses.activate\n    def test_delete(self, _):\n        request_body = {\"foo\": \"bar\", \"nested\": {\"int_list\": [1, 2, 3]}}\n        responses.add_callback(\n            responses.DELETE,\n            \"http://region1.testserver/delete\",\n            verify_request_body(request_body, {\"test\": \"header\"}),\n        )\n\n        request = RequestFactory().delete(\n            \"http://sentry.io/delete\", data=request_body, content_type=\"application/json\"\n        )\n        resp = proxy_request(request, self.organization.slug)\n        resp_json = json.loads(b\"\".join(resp.streaming_content))\n\n        assert resp.status_code == 200\n        assert resp_json[\"proxy\"]",
+      "calls": "proxy_request"
+    },
+    {
+      "name": "ProxyTestCase.test_file_upload",
+      "path": "tests/sentry/api_gateway/test_proxy.py",
+      "start": 153,
+      "end": 174,
+      "code": "    @responses.activate\n    def test_file_upload(self, _):\n        foo = dict(test=\"a\", file=\"b\", what=\"c\")\n        contents = json.dumps(foo).encode()\n        request_body = {\n            \"test.js\": SimpleUploadedFile(\"test.js\", contents, content_type=\"application/json\"),\n            \"foo\": \"bar\",\n        }\n\n        responses.add_callback(\n            responses.POST,\n            \"http://region1.testserver/post\",\n            verify_file_body(contents, {\"test\": \"header\"}),\n        )\n        request = RequestFactory().post(\n            \"http://sentry.io/post\", data=request_body, format=\"multipart\"\n        )\n        resp = proxy_request(request, self.organization.slug)\n        resp_json = json.loads(b\"\".join(resp.streaming_content))\n\n        assert resp.status_code == 200\n        assert resp_json[\"proxy\"]",
+      "calls": "proxy_request"
+    },
+    {
+      "name": "ProxyTestCase.test_alternate_content_type",
+      "path": "tests/sentry/api_gateway/test_proxy.py",
+      "start": 176,
+      "end": 196,
+      "code": "    @responses.activate\n    def test_alternate_content_type(self, _):\n        # Check form encoded files also work\n        foo = dict(test=\"a\", file=\"b\", what=\"c\")\n        contents = urlencode(foo, doseq=True).encode(\"utf-8\")\n        request_body = contents\n        responses.add_callback(\n            responses.POST,\n            \"http://region1.testserver/post\",\n            verify_request_body(contents, {\"test\": \"header\"}),\n        )\n        request = RequestFactory().post(\n            \"http://sentry.io/post\",\n            data=request_body,\n            content_type=\"application/x-www-form-urlencoded\",\n        )\n        resp = proxy_request(request, self.organization.slug)\n        resp_json = json.loads(b\"\".join(resp.streaming_content))\n\n        assert resp.status_code == 200\n        assert resp_json[\"proxy\"]",
+      "calls": "proxy_request"
+    }
+  ]
+}

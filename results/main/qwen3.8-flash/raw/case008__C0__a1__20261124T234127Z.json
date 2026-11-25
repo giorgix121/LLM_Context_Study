@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564061-Nq0C8suDiZ04exAvGuBZ",
+    "object": "chat.completion",
+    "created": 1795564061,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change is a consistent refactoring renaming 'precision_plugin' to 'precision' across the codebase, with all references updated in the target file and dependent files.\"\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 11755,
+      "completion_tokens": 54,
+      "total_tokens": 11809,
+      "cost": 0.00178863,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00178863,
+        "upstream_inference_prompt_cost": 0.00176325,
+        "upstream_inference_completions_cost": 2.538e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "commit": "0f94d81b7adffa9da5c4632fb5979b27695bbb53",
+  "files_in_commit": 3,
+  "target_index": 0,
+  "target_status": "modified",
+  "chars": 2327,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "selfdrive/car/gm/carstate.py",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 4,
+      "patch": "@@ -15,7 +15,8 @@ def __init__(self, CP):\n     super().__init__(CP)\n     can_define = CANDefine(DBC[CP.carFingerprint][\"pt\"])\n     self.shifter_values = can_define.dv[\"ECMPRDNL2\"][\"PRNDL2\"]\n-    self.lka_steering_cmd_counter = 0\n+    self.loopback_lka_steering_cmd_updated = False\n+    self.camera_lka_steering_cmd_counter = 0\n     self.buttons_counter = 0\n \n   def update(self, pt_cp, cam_cp, loopback_cp):\n@@ -25,6 +26,11 @@ def update(self, pt_cp, cam_cp, loopback_cp):\n     self.cruise_buttons = pt_cp.vl[\"ASCMSteeringButton\"][\"ACCButtons\"]\n     self.buttons_counter = pt_cp.vl[\"ASCMSteeringButton\"][\"RollingCounter\"]\n \n+    # Variables used for avoiding LKAS faults\n+    self.loopback_lka_steering_cmd_updated = len(loopback_cp.vl_all[\"ASCMLKASteeringCmd\"]) > 0\n+    if self.CP.networkLocation == NetworkLocation.fwdCamera:\n+      self.camera_lka_steering_cmd_counter = cam_cp.vl[\"ASCMLKASteeringCmd\"][\"RollingCounter\"]\n+\n     ret.wheelSpeeds = self.get_wheel_speeds(\n       pt_cp.vl[\"EBCMWheelSpdFront\"][\"FLWheelSpd\"],\n       pt_cp.vl[\"EBCMWheelSpdFront\"][\"FRWheelSpd\"],\n@@ -59,7 +65,6 @@ def update(self, pt_cp, cam_cp, loopback_cp):\n     ret.steeringTorque = pt_cp.vl[\"PSCMStatus\"][\"LKADriverAppldTrq\"]\n     ret.steeringTorqueEps = pt_cp.vl[\"PSCMStatus\"][\"LKATorqueDelivered\"]\n     ret.steeringPressed = abs(ret.steeringTorque) > STEER_THRESHOLD\n-    self.lka_steering_cmd_counter = loopback_cp.vl[\"ASCMLKASteeringCmd\"][\"RollingCounter\"]\n \n     # 0 inactive, 1 active, 2 temporarily limited, 3 failed\n     self.lkas_status = pt_cp.vl[\"PSCMStatus\"][\"LKATorqueDeliveredStatus\"]\n@@ -94,8 +99,14 @@ def get_cam_can_parser(CP):\n     signals = []\n     checks = []\n     if CP.networkLocation == NetworkLocation.fwdCamera:\n-      signals.append((\"ACCSpeedSetpoint\", \"ASCMActiveCruiseControlStatus\"))\n-      checks.append((\"ASCMActiveCruiseControlStatus\", 25))\n+      signals += [\n+        (\"RollingCounter\", \"ASCMLKASteeringCmd\"),\n+        (\"ACCSpeedSetpoint\", \"ASCMActiveCruiseControlStatus\"),\n+      ]\n+      checks += [\n+        (\"ASCMLKASteeringCmd\", 10),\n+        (\"ASCMActiveCruiseControlStatus\", 25),\n+      ]\n \n     return CANParser(DBC[CP.carFingerprint][\"pt\"], signals, checks, CanBus.CAMERA)\n "
+    },
+    {
+      "path": "selfdrive/test/process_replay/ref_commit",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -1 +1 @@\n-02c6922762fef41c8188a5a4f1f3267b76651330\n\\ No newline at end of file\n+5fa6a3743f2678eef13267fb946d7a03f2af5824"
+    }
+  ]
+}

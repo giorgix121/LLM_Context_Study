@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193345-Drb6Ii5bNQ1VdBMULKQD",
+    "object": "chat.completion",
+    "created": 1795193345,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at this diff, the change moves `bs = len(dataset)` outside the if/else block so it applies to both webcam (`LoadStreams`) and non-webcam (`LoadImages`) cases.\n\nThe key question is: does `LoadImages` support `len()`?\n\nLooking at `LoadImages.__init__`, it sets `self.nf = ni + nv` (number of files), but there's no `__len__` method shown. However, `LoadStreams` does support `len()` (returning number of streams). If `LoadImages` doesn't implement `__len__`, this would raise a `TypeError` for non-webcam sources.\n\nEven if `LoadImages` does implement `__len__` returning `self.nf`, the old behavior was `bs = 1` for non-webcam, meaning `vid_path` and `vid_writer` were always single-element lists. The new behavior would make `bs = len(dataset)` (number of files), which could be much larger. However, the inference loop for non-webcam uses index `i` from `enumerate(pred)`, and for non-webcam",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 12524,
+      "completion_tokens": 256,
+      "total_tokens": 12780,
+      "cost": 0.041412,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.041412,
+        "upstream_inference_prompt_cost": 0.037572,
+        "upstream_inference_completions_cost": 0.00384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

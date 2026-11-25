@@ -1,0 +1,5 @@
+{
+  "commit": "240890e496a156b47eb41b8d0c35287121d11b7c",
+  "chars": 76,
+  "text": "Appropriately mark Guardian entities as `unavailable` during reboot (#75234)"
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565071-dXpv2Dwro36TI4ZviU1U",
+    "object": "chat.completion",
+    "created": 1795565071,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The retry counter increment was moved from before the `< max_retries` check to inside it, changing the semantics: previously `task_retries` was incremented on every failure (so the condition was `<= total_retries`), but now it is only incremented when a retry is actually scheduled (condition `< max_retries`), which could cause an off-by-one difference in retry count behavior and may interact incorrectly with the new `_retry_failed_task` helper that duplicates the same logic independently.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4776,
+      "completion_tokens": 132,
+      "total_tokens": 4908,
+      "cost": 0.016308,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.016308,
+        "upstream_inference_prompt_cost": 0.014328,
+        "upstream_inference_completions_cost": 0.00198
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

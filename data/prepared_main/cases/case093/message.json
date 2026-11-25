@@ -1,0 +1,5 @@
+{
+  "commit": "729b8112ebd7becdcecb503ba62bd69d97163efa",
+  "chars": 373,
+  "text": "fix(hybrid): Add silo mode to \"model exists\" conditions (#38836)\n\nIn several places where the existence of a model is checked via\n`app_config.get_model`, replace with a new utility function that also\nchecks whether the model is available in the current silo mode.\n\nPromote the `__silo_limit` meta-attributes to publicly visible\nattributes, dropping the leading underscores."
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "49c3ed2060c27ae15b5267fba57f3292797a7992f90d1f8bc94e93cdc232a7d3",
+  "sample_id": "case016",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change renames SIGUSR1 to a more generic sigusr and introduces logic to use a requeue_signal from the environment, which could lead to unexpected behavior if the environment's signal is not SIGUSR1 or if the handler is not compatible with the new signal.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change renames SIGUSR1 to a more generic sigusr and introduces logic to use a requeue_signal from the environment, which could lead to unexpected behavior if the environment's signal is not SIGUSR1 or if the handler is not compatible with the new signal.\"\n}\n```",
+  "response_id": "gen-1795048320-2Pz0oR3FJc9kmfsdCtF7",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 702,
+  "completion_tokens": 78,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0001014,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 702,
+    "completion_tokens": 78,
+    "total_tokens": 780,
+    "cost": 0.0001014,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001014,
+      "upstream_inference_prompt_cost": 7.02e-05,
+      "upstream_inference_completions_cost": 3.12e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.602,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:32:01+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

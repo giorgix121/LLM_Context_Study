@@ -1,0 +1,54 @@
+{
+  "found": 6,
+  "included": 6,
+  "functions": [
+    {
+      "name": "HandlersCompose.__init__",
+      "path": "src/pytorch_lightning/trainer/connectors/signal_connector.py",
+      "start": 23,
+      "end": 26,
+      "code": "    def __init__(self, signal_handlers: Union[List[_HANDLER], _HANDLER]) -> None:\n        if not isinstance(signal_handlers, list):\n            signal_handlers = [signal_handlers]\n        self.signal_handlers = signal_handlers",
+      "called_by": "SignalConnector.register_signal_handlers"
+    },
+    {
+      "name": "SignalConnector._get_current_signal_handlers",
+      "path": "src/pytorch_lightning/trainer/connectors/signal_connector.py",
+      "start": 115,
+      "end": 122,
+      "code": "    @staticmethod\n    def _get_current_signal_handlers() -> Dict[_SIGNUM, _HANDLER]:\n        \"\"\"Collects the currently assigned signal handlers.\"\"\"\n        valid_signals = SignalConnector._valid_signals()\n        if not _IS_WINDOWS:\n            # SIGKILL and SIGSTOP are not allowed to be modified by the user\n            valid_signals -= {signal.SIGKILL, signal.SIGSTOP}\n        return {signum: signal.getsignal(signum) for signum in valid_signals}",
+      "called_by": "SignalConnector.register_signal_handlers"
+    },
+    {
+      "name": "SignalConnector._is_on_windows",
+      "path": "src/pytorch_lightning/trainer/connectors/signal_connector.py",
+      "start": 146,
+      "end": 148,
+      "code": "    @staticmethod\n    def _is_on_windows() -> bool:\n        return sys.platform == \"win32\"",
+      "called_by": "SignalConnector.register_signal_handlers"
+    },
+    {
+      "name": "SignalConnector._has_already_handler",
+      "path": "src/pytorch_lightning/trainer/connectors/signal_connector.py",
+      "start": 150,
+      "end": 152,
+      "code": "    @staticmethod\n    def _has_already_handler(signum: _SIGNUM) -> bool:\n        return signal.getsignal(signum) not in (None, signal.SIG_DFL)",
+      "called_by": "SignalConnector.register_signal_handlers"
+    },
+    {
+      "name": "SignalConnector._register_signal",
+      "path": "src/pytorch_lightning/trainer/connectors/signal_connector.py",
+      "start": 154,
+      "end": 157,
+      "code": "    @staticmethod\n    def _register_signal(signum: _SIGNUM, handlers: _HANDLER) -> None:\n        if threading.current_thread() is threading.main_thread():\n            signal.signal(signum, handlers)  # type: ignore[arg-type]",
+      "called_by": "SignalConnector.register_signal_handlers"
+    },
+    {
+      "name": "_fault_tolerant_training",
+      "path": "src/pytorch_lightning/utilities/imports.py",
+      "start": 68,
+      "end": 71,
+      "code": "def _fault_tolerant_training() -> bool:\n    from pytorch_lightning.utilities.enums import _FaultTolerantMode\n\n    return _FaultTolerantMode.detect_current_mode().is_enabled",
+      "called_by": "SignalConnector.register_signal_handlers"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "async_setup_entry",
+      "path": "homeassistant/components/plugwise/__init__.py",
+      "start": 10,
+      "end": 15,
+      "code": "async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:\n    \"\"\"Set up Plugwise components from a config entry.\"\"\"\n    if entry.data.get(CONF_HOST):\n        return await async_setup_entry_gw(hass, entry)\n    # PLACEHOLDER USB entry setup\n    return False",
+      "calls": "async_setup_entry_gw"
+    }
+  ]
+}

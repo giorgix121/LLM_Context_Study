@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795048704-DW8ES2Erl4tFIySv42ZP",
+    "object": "chat.completion",
+    "created": 1795048704,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google AI Studio",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds a new environment variable to configure memory usage thresholds, which is a configuration change and not expected to introduce a functional defect.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 297,
+      "completion_tokens": 41,
+      "total_tokens": 338,
+      "cost": 4.61e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 4.61e-05,
+        "upstream_inference_prompt_cost": 2.97e-05,
+        "upstream_inference_completions_cost": 1.64e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

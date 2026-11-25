@@ -1,0 +1,5 @@
+{
+  "commit": "ce3e457ef18fe0046d6aca0b545eac55eae8f17c",
+  "chars": 429,
+  "text": "feat(perf-issues): Move queue info for post_process into headers (ISP… (#40239)\n\nRe-do of https://github.com/getsentry/sentry/pull/39946 as merge\nconflict didn't mesh right.\n\nSends dedicated issue category data to post_process_group call so we can\nroute to the appropriate celery queue\n\nWill need to include changes from\nhttps://github.com/getsentry/sentry/pull/40283 to be merged first and an\nensuing PR to remove the old queue."
+}

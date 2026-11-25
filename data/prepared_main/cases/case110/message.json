@@ -1,0 +1,5 @@
+{
+  "commit": "0bafb38c808d1c5b27ddb608cf89c52bc8d46fc0",
+  "chars": 128,
+  "text": "Fix srun availability check (#15211)\n\ncommand -v\n\nCo-authored-by: Justus Schock <12886177+justusschock@users.noreply.github.com>"
+}

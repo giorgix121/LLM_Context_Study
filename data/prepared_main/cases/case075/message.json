@@ -1,0 +1,5 @@
+{
+  "commit": "753f5feaf4538d8e80e9c18938e16b10ebd75cc3",
+  "chars": 835,
+  "text": "[tune] Remove TrialCheckpoint class (#25406)\n\nThe old user-facing TrialCheckpoint class has been deprecated in favor of `ray.ml.Checkpoint` and will be removed with this PR.\n\nThe main change in this PR is to delete the old `TrialCheckpoint` class and replace remaining API calls (e.g. `checkpoint.local_path`) with the correct AIR equivalents.\n\nOne issue that comes up is that with Ray client usage, checkpoint directories are not available on the local node (the client). Thus, we can't construct `Checkpoint` objects easily. (Previously, the TrialCheckpoint object held a reference to the location, even if it is not locally available). There are ongoing discussions on how to resolve this in the future. For now, we print an error when such a checkpoint is requested.\n\nDepends on #25805\n\nSigned-off-by: Kai Fricke <kai@anyscale.com>"
+}

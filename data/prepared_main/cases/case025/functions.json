@@ -1,0 +1,15 @@
+[
+  {
+    "name": "DigestNotification.get_title_link",
+    "before": {
+      "start": 85,
+      "end": 86,
+      "code": "    def get_title_link(self, recipient: Team | User) -> str | None:\n        return None"
+    },
+    "after": {
+      "start": 85,
+      "end": 86,
+      "code": "    def get_title_link(self, recipient: Team | User, provider: ExternalProviders) -> str | None:\n        return None"
+    }
+  }
+]

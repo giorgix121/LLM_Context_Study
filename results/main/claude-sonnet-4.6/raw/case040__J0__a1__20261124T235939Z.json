@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565514-QtfNgQ7cc7TKfAMG8H1y",
+    "object": "chat.completion",
+    "created": 1795565514,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The old `packages` decorator used `getmodule(fn).__name__` (full module path) as the service name fallback, but the new version uses `getmodule(fn).__name__.split('.')[-2]` (second-to-last component), and the old code also used `f\\\"{service}:{name}\\\"` with the unresolved `service` parameter (a bug), while the new code uses `f\\\"{_service}:{name}\\\"` — these combined changes alter plugin registration names, which could break plugin discovery for existing plugins that relied on the old (buggy) naming.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 13084,
+      "completion_tokens": 149,
+      "total_tokens": 13233,
+      "cost": 0.041487,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.041487,
+        "upstream_inference_prompt_cost": 0.039252,
+        "upstream_inference_completions_cost": 0.002235
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

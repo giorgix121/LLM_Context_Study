@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193038-63dLvPjq8pXFLTxZvhmi",
+    "object": "chat.completion",
+    "created": 1795193038,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces unbounded recursion: if the user is already connected to a different app, `disconnect()` is called and then `connect()` calls itself recursively, which could loop indefinitely if `disconnect()` doesn't properly clear the connection state before `connect()` re-evaluates the same condition.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 341,
+      "completion_tokens": 82,
+      "total_tokens": 423,
+      "cost": 0.002253,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002253,
+        "upstream_inference_prompt_cost": 0.001023,
+        "upstream_inference_completions_cost": 0.00123
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

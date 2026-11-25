@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795188940-1IACay5kj1BN16kKBQMv",
+    "object": "chat.completion",
+    "created": 1795188940,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new 'has_metrics' key is added to the query_details dictionary, which is passed as **kwargs to both metrics_enhanced_performance.timeseries_query and dataset.timeseries_query; if the underlying discover.timeseries_query or other dataset implementations do not accept a 'has_metrics' keyword argument, this will cause a TypeError.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4576,
+      "completion_tokens": 79,
+      "total_tokens": 4655,
+      "cost": 0.00072353,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00072353,
+        "upstream_inference_prompt_cost": 0.0006864,
+        "upstream_inference_completions_cost": 3.713e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

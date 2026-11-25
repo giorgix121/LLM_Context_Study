@@ -1,0 +1,65 @@
+{
+  "cache_key": "e4d1c3057717da1a739e882313cebad9bcc70e3ac8311d5053a9f00794c9f90c",
+  "sample_id": "case114",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Changing from `hasattr(device, 'voltage')` to `isinstance(device.voltage, int)` will silently skip the zero-power check if `voltage` is a float or other numeric type, potentially allowing devices with zero readings to not be marked as absent when they should be.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Changing from `hasattr(device, 'voltage')` to `isinstance(device.voltage, int)` will silently skip the zero-power check if `voltage` is a float or other numeric type, potentially allowing devices with zero readings to not be marked as absent when they should be.\"}",
+  "response_id": "gen-1795194504-5xeu2q35yotHklJ4vAmB",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 252,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001941,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 252,
+    "completion_tokens": 79,
+    "total_tokens": 331,
+    "cost": 0.001941,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001941,
+      "upstream_inference_prompt_cost": 0.000756,
+      "upstream_inference_completions_cost": 0.001185
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.611,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T17:08:26+00:00",
+  "run_id": "20261120T165651Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

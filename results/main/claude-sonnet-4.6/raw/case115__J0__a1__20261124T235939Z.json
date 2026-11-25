@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565537-w90nlYpVKua363HP3z0y",
+    "object": "chat.completion",
+    "created": 1795565537,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The `_async_find_next_available_port` function always binds to `source` (the original tuple) instead of incrementing the port, so the loop never actually tries different ports and will either succeed on the first try or fail on every iteration without ever testing the intended port range.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8887,
+      "completion_tokens": 78,
+      "total_tokens": 8965,
+      "cost": 0.027831,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.027831,
+        "upstream_inference_prompt_cost": 0.026661,
+        "upstream_inference_completions_cost": 0.00117
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "commit": "d34b5786858f699ef36da6785464021889eaa672",
+  "files_in_commit": 6,
+  "target_index": 1,
+  "target_status": "modified",
+  "chars": 1320,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "changelogs/fragments/79083-jinja2_native-preserve-quotes-in-strings.yml",
+      "status": "added",
+      "additions": 2,
+      "deletions": 0,
+      "patch": "@@ -0,0 +1,2 @@\n+bugfixes:\n+  - \"jinja2_native: preserve quotes in strings (https://github.com/ansible/ansible/issues/79083)\""
+    },
+    {
+      "path": "test/integration/targets/jinja2_native_types/runme.sh",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "patch": "@@ -7,4 +7,5 @@ ansible-playbook runtests.yml -v \"$@\"\n ansible-playbook --vault-password-file test_vault_pass test_vault.yml -v \"$@\"\n ansible-playbook test_hostvars.yml -v \"$@\"\n ansible-playbook nested_undefined.yml -v \"$@\"\n+ansible-playbook test_preserving_quotes.yml -v \"$@\"\n unset ANSIBLE_JINJA2_NATIVE"
+    },
+    {
+      "path": "test/integration/targets/jinja2_native_types/test_casting.yml",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -13,7 +13,7 @@\n \n - assert:\n     that:\n-        - 'int_to_str == \"2\"'\n+        - int_to_str == \"'2'\"\n         - 'int_to_str|type_debug in [\"str\", \"unicode\"]'\n         - 'int_to_str2 == \"2\"'\n         - 'int_to_str2|type_debug in [\"NativeJinjaText\"]'"
+    },
+    {
+      "path": "test/integration/targets/jinja2_native_types/test_concatentation.yml",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -22,7 +22,7 @@\n \n - assert:\n     that:\n-        - 'string_sum == \"12\"'\n+        - string_sum == \"'12'\"\n         - 'string_sum|type_debug in [\"str\", \"unicode\"]'\n \n - name: add two lists"
+    },
+    {
+      "path": "test/integration/targets/jinja2_native_types/test_preserving_quotes.yml",
+      "status": "added",
+      "additions": 14,
+      "deletions": 0,
+      "patch": "@@ -0,0 +1,14 @@\n+- hosts: localhost\n+  gather_facts: false\n+  tasks:\n+    - assert:\n+        that:\n+          - quoted_str == '\"hello\"'\n+          - empty_quoted_str == '\"\"'\n+      vars:\n+        third_nested_lvl: '\"hello\"'\n+        second_nested_lvl: \"{{ third_nested_lvl }}\"\n+        first_nested_lvl: \"{{ second_nested_lvl }}\"\n+        quoted_str: \"{{ first_nested_lvl }}\"\n+        empty_quoted_str: '\"\"'\n+        empty_str: \"{{ empty_quoted_str}}\""
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "commit": "af2476f29d01376c2f66ed0cff57895f6a9444e3",
+  "chars": 349,
+  "text": "Fix partial regeneration of breeze hash commands on pre-commit (#26550)\n\nPre-commit moved to Host in #26458 caused only partial\ndump for hash file (with main and cleanup method) due to the\nway breeze commands were initialized by click. We are now running\nactual breeze command to regenerate those commands so they\nshould always contain all commands."
+}

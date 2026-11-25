@@ -1,0 +1,65 @@
+{
+  "cache_key": "40f89e81668ba1f6bf50f69402222d610e917ebda067267c55964fefe3879d42",
+  "sample_id": "case123",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The `get_blame_for_file` method now requires a `lineno` argument, but existing callers do not provide it, which will lead to a TypeError.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The `get_blame_for_file` method now requires a `lineno` argument, but existing callers do not provide it, which will lead to a TypeError.\"\n}\n```",
+  "response_id": "gen-1790928352-UxHLqwMdDP2IbOV0bP5r",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 1594,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000183,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1594,
+    "completion_tokens": 59,
+    "total_tokens": 1653,
+    "cost": 0.000183,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000183,
+      "upstream_inference_prompt_cost": 0.0001594,
+      "upstream_inference_completions_cost": 2.36e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.505,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T08:05:53+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

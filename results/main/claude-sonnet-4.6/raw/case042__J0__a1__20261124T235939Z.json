@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565314-FHiPxy5uxcoXLNU1DHLv",
+    "object": "chat.completion",
+    "created": 1795565314,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The old `_array_to_tensor` implementations automatically unsqueezed 1-D tensors to (batch_size, 1) before passing them to the model, but the new `_arrays_to_tensors` implementations remove this automatic unsqueeze, meaning any existing model that relied on that behavior (and wasn't updated in this commit) will receive incorrectly shaped tensors and likely fail or produce wrong results.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 11771,
+      "completion_tokens": 108,
+      "total_tokens": 11879,
+      "cost": 0.036933,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.036933,
+        "upstream_inference_prompt_cost": 0.035313,
+        "upstream_inference_completions_cost": 0.00162
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

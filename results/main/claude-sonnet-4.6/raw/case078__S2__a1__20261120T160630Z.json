@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193131-IaTWp1Sg6nsEkwgyEgVk",
+    "object": "chat.completion",
+    "created": 1795193131,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The default value `LIGHTNING_CLOUD_PROJECT_ID` is evaluated once at module import time, so if the environment variable is set after the module is loaded, the default will be `None` and the project_id filtering logic will be bypassed, silently falling through to the multi-membership path instead of filtering by the intended project ID.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1123,
+      "completion_tokens": 89,
+      "total_tokens": 1212,
+      "cost": 0.004704,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004704,
+        "upstream_inference_prompt_cost": 0.003369,
+        "upstream_inference_completions_cost": 0.001335
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564855-UzAZgUIlUWbZpuC4PjWn",
+    "object": "chat.completion",
+    "created": 1795564855,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at this diff carefully:\n\nThe new code after `ast.literal_eval` succeeds:\n\n```python\nif isinstance(evaled, string_types):\n    quote = out[0]\n    return f'{quote}{evaled}{quote}'\n```\n\nWhen `ast.literal_eval` successfully parses a quoted string like `'\"hello\"'`, `evaled` becomes `hello` (the string without quotes), and `out[0]` is `\"` (the first character of the original string). So it returns `\"hello\"` — preserving the quotes. This is the intended behavior.\n\nHowever, there's a potential issue: `out[0]` assumes `out` is non-empty. If `out` is an empty string, `out[0]` would raise an `IndexError`. But looking at the logic, if `out` is empty, `ast.literal_eval('')` would raise a `SyntaxError` and we'd return `out` before reaching this code, so that's safe.\n\nA more subtle risk: if `evaled` is a string but `out` is something like a single-character string that isn't a",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1112,
+      "completion_tokens": 256,
+      "total_tokens": 1368,
+      "cost": 0.007176,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007176,
+        "upstream_inference_prompt_cost": 0.003336,
+        "upstream_inference_completions_cost": 0.00384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

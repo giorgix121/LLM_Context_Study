@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795187890-qx3eY0wvbvMgUmiQYK7c",
+    "object": "chat.completion",
+    "created": 1795187890,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change replaces an explicit assertion and targeted reset with a call to `reset_results()`, which may have different behavior (e.g., resetting more than just metrics or handling None differently), potentially causing silent failures if `self.trainer._results` is None.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 251,
+      "completion_tokens": 83,
+      "total_tokens": 334,
+      "cost": 0.000666,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000666,
+        "upstream_inference_prompt_cost": 0.000251,
+        "upstream_inference_completions_cost": 0.000415
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

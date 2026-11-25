@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565040-Um4qpIP5uTOaRBfI3Kzo",
+    "object": "chat.completion",
+    "created": 1795565040,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new `_request_should_be_proxied` logic returns `False` when `view_class` or `silo_limit` is `None`, meaning endpoints without a `silo_limit` attribute (e.g., plain function-based views or endpoints missing the decorator) will never be proxied, silently dropping proxy behavior that the old code would have applied based solely on `organization_slug` presence and non-MONOLITH mode.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1682,
+      "completion_tokens": 114,
+      "total_tokens": 1796,
+      "cost": 0.006756,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006756,
+        "upstream_inference_prompt_cost": 0.005046,
+        "upstream_inference_completions_cost": 0.00171
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

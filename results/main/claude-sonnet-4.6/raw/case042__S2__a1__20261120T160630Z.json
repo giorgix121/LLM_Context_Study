@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192557-eYFb2qhu0850c91BFott",
+    "object": "chat.completion",
+    "created": 1795192557,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change replaces `InputLayer(input_shape=(1,))` with `InputLayer(input_shape=()) + Flatten()`, which is functionally equivalent for scalar inputs and aligns with the actual data shape `(None, 1)` produced by `to_tf`, making the model more robust rather than introducing a defect.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2173,
+      "completion_tokens": 93,
+      "total_tokens": 2266,
+      "cost": 0.007914,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007914,
+        "upstream_inference_prompt_cost": 0.006519,
+        "upstream_inference_completions_cost": 0.001395
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

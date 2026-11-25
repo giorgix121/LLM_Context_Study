@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795188181-Pq5GtHjq5BA0dz9Qx8NZ",
+    "object": "chat.completion",
+    "created": 1795188181,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The default argument uses a walrus operator to create a new sentinel object on every function definition evaluation, but since it's in the signature, it is evaluated once at import time; however, the logic correctly handles the sentinel check, so no functional defect is introduced.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 322,
+      "completion_tokens": 67,
+      "total_tokens": 389,
+      "cost": 7.979e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 7.979e-05,
+        "upstream_inference_prompt_cost": 4.83e-05,
+        "upstream_inference_completions_cost": 3.149e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

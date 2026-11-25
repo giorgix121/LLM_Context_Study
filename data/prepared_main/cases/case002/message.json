@@ -1,0 +1,5 @@
+{
+  "commit": "7bf70bf7d8aaccd23ad0b0a9af8235eb939a617e",
+  "chars": 807,
+  "text": "CAN-FD HKG: query FW versions from camera (#26063)\n\n* add adas essential ecus\n\n* add adas ecu and query\n\n* add queries\n\n* add name\n\n* after\n\n* presence of adas ecu\n\n* Revert \"presence of adas ecu\" (POC)\n\nThis reverts commit ab88a7e7df32e1c02a175b81848bd4112b2e5c69.\n\n* no whitelist for debugging\n\n* Apply suggestions from code review\n\n* add adas response\n\n* remove adas version\n\n* temp\n\n* read pandaStates\n\n* works in debug script\n\n* only fwdCamera on tucson\n\n* fix pandaStates reading\n\n* fix test_startup\n\n* fix\n\n* simpler\n\n* use existing socket\n\n* pass in number of pandas\n\n* need to create sm using outcome of fingerprinting, which uses sm\n\nfix\n\n* move default argument\n\n* use sock\n\n* always ignore\n\nalways ignore\n\n* add canfd fingerprint test\n\n* Update selfdrive/car/hyundai/tests/test_hyundai.py\n\n* set"
+}

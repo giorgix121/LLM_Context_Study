@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "create_credential_object",
+      "path": "src/sentry/auth/authenticators/u2f.py",
+      "start": 31,
+      "end": 35,
+      "code": "def create_credential_object(registeredKey):\n    return base.AttestedCredentialData.from_ctap1(\n        websafe_decode(registeredKey[\"keyHandle\"]),\n        websafe_decode(registeredKey[\"publicKey\"]),\n    )",
+      "called_by": "U2fInterface.start_enrollment"
+    },
+    {
+      "name": "U2fInterface.get_u2f_devices",
+      "path": "src/sentry/auth/authenticators/u2f.py",
+      "start": 108,
+      "end": 119,
+      "code": "    def get_u2f_devices(self):\n        rv = []\n        for data in self.config.get(\"devices\", ()):\n            # XXX: The previous version of python-u2flib-server didn't store\n            # the `version` in the device binding. Defaulting to `U2F_V2` here\n            # so that we don't break existing u2f registrations.\n            if type(data[\"binding\"]) == AuthenticatorData:\n                rv.append(data[\"binding\"])\n            else:\n                data[\"binding\"].setdefault(\"version\", \"U2F_V2\")\n                rv.append(DeviceRegistration(data[\"binding\"]))\n        return rv",
+      "called_by": "U2fInterface.start_enrollment"
+    },
+    {
+      "name": "ActivationChallengeResult.__init__",
+      "path": "src/sentry/auth/authenticators/base.py",
+      "start": 32,
+      "end": 33,
+      "code": "    def __init__(self, challenge):\n        self.challenge = challenge",
+      "called_by": "U2fInterface.activate"
+    }
+  ]
+}

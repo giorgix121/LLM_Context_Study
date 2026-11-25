@@ -1,0 +1,31 @@
+{
+  "commit": "dbcb269111f6dc5d9e0f0ed4e1c336bfa5c5c549",
+  "files_in_commit": 4,
+  "target_index": 0,
+  "target_status": "modified",
+  "chars": 714,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "homeassistant/components/switchbot/manifest.json",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -2,7 +2,7 @@\n   \"domain\": \"switchbot\",\n   \"name\": \"SwitchBot\",\n   \"documentation\": \"https://www.home-assistant.io/integrations/switchbot\",\n-  \"requirements\": [\"PySwitchbot==0.19.1\"],\n+  \"requirements\": [\"PySwitchbot==0.19.2\"],\n   \"config_flow\": true,\n   \"dependencies\": [\"bluetooth\"],\n   \"codeowners\": ["
+    },
+    {
+      "path": "requirements_all.txt",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -37,7 +37,7 @@ PyRMVtransport==0.3.3\n PySocks==1.7.1\n \n # homeassistant.components.switchbot\n-PySwitchbot==0.19.1\n+PySwitchbot==0.19.2\n \n # homeassistant.components.transport_nsw\n PyTransportNSW==0.1.1"
+    },
+    {
+      "path": "requirements_test_all.txt",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -33,7 +33,7 @@ PyRMVtransport==0.3.3\n PySocks==1.7.1\n \n # homeassistant.components.switchbot\n-PySwitchbot==0.19.1\n+PySwitchbot==0.19.2\n \n # homeassistant.components.transport_nsw\n PyTransportNSW==0.1.1"
+    }
+  ]
+}

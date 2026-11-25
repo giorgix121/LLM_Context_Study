@@ -1,0 +1,65 @@
+{
+  "cache_key": "2517da20516aeac85dd9122c09729ea540bb8d2e7b13909979f256a9439187ff",
+  "sample_id": "case129",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Adding 'movflags': 'frag_keyframe' changes the MP4 container format to fragmented mode, which may cause compatibility issues with players or systems expecting standard MP4 files, and the 'min_frag_duration' parameter could affect segment timing in unexpected ways.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"Adding 'movflags': 'frag_keyframe' changes the MP4 container format to fragmented mode, which may cause compatibility issues with players or systems expecting standard MP4 files, and the 'min_frag_duration' parameter could affect segment timing in unexpected ways.\"\n}\n```",
+  "response_id": "gen-1795564464-sWLbVI3pN6LjhkoKONRs",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 306,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000756,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 306,
+    "completion_tokens": 90,
+    "total_tokens": 396,
+    "cost": 0.000756,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000756,
+      "upstream_inference_prompt_cost": 0.000306,
+      "upstream_inference_completions_cost": 0.00045
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.412,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:54:25+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

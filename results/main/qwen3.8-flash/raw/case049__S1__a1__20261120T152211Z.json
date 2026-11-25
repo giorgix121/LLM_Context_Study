@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189202-sfRGFQPjIJwcoJKzPn1N",
+    "object": "chat.completion",
+    "created": 1795189202,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a logic error where `data` is set to None if `FILES` exists, but for multipart requests, the body should typically be passed as `data` alongside `files` or handled differently; more critically, passing `stream=True` with `files` in the `requests` library often leads to errors or unexpected behavior because streaming and file uploads are mutually exclusive modes in many HTTP client implementations, potentially breaking file upload proxying.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 848,
+      "completion_tokens": 104,
+      "total_tokens": 952,
+      "cost": 0.00017608,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00017608,
+        "upstream_inference_prompt_cost": 0.0001272,
+        "upstream_inference_completions_cost": 4.888e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

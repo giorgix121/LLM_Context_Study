@@ -1,0 +1,65 @@
+{
+  "cache_key": "258950ca19436cd0dcbd6802937a9264764794ac3c7722ef1108d32ae6c49796",
+  "sample_id": "case140",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The removal of `get_user_bias_by_id` method could break existing code that depends on this public API to retrieve individual biases by ID.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The removal of `get_user_bias_by_id` method could break existing code that depends on this public API to retrieve individual biases by ID.\"\n}\n```",
+  "response_id": "gen-1795046597-PiNY2yCaMkUuFIBYsBBY",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 417,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000717,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 417,
+    "completion_tokens": 60,
+    "total_tokens": 477,
+    "cost": 0.000717,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000717,
+      "upstream_inference_prompt_cost": 0.000417,
+      "upstream_inference_completions_cost": 0.0003
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.876,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:03:18+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "52b8f19b6fab47fc6cb4e88beb73fcfdfb20083aaeb18244cc0c4705dd2a51a1",
+  "sample_id": "case071",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The `_resolve_component_status` method has a logic flaw: when `enable` is provided, it computes `to_disable` as all pipes not in `enable`, then checks if this differs from the provided `disable` list, but this check will incorrectly raise an error even when `disable` and `enable` are semantically consistent (e.g., `enable=['a','b']` with `disable=['c','d']` when pipeline is `['a','b','c','d']` should be valid but will fail the equality check).",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The `_resolve_component_status` method has a logic flaw: when `enable` is provided, it computes `to_disable` as all pipes not in `enable`, then checks if this differs from the provided `disable` list, but this check will incorrectly raise an error even when `disable` and `enable` are semantically consistent (e.g., `enable=['a','b']` with `disable=['c','d']` when pipeline is `['a','b','c','d']` should be valid but will fail the equality check).\"\n}\n```",
+  "response_id": "gen-1795564684-lvxXED5IFURnHUrusZBj",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 5466,
+  "completion_tokens": 149,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.006211,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 5466,
+    "completion_tokens": 149,
+    "total_tokens": 5615,
+    "cost": 0.006211,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.006211,
+      "upstream_inference_prompt_cost": 0.005466,
+      "upstream_inference_completions_cost": 0.000745
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.301,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:58:06+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

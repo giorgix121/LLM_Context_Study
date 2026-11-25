@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "ClientConfigView.get",
+      "path": "src/sentry/web/api.py",
+      "start": 15,
+      "end": 16,
+      "code": "    def get(self, request: Request) -> Response:\n        return HttpResponse(json.dumps(get_client_config(request)), content_type=\"application/json\")",
+      "calls": "get_client_config"
+    },
+    {
+      "name": "get_react_config",
+      "path": "src/sentry/templatetags/sentry_react.py",
+      "start": 9,
+      "end": 13,
+      "code": "@register.simple_tag(takes_context=True)\ndef get_react_config(context):\n    context = get_client_config(context.get(\"request\", None))\n\n    return json.dumps_htmlsafe(context)",
+      "calls": "get_client_config"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "babda7f761c6e17744e89ef56501e51ce67fc0a416faa5fdf456b8cb7b3436a7",
+  "sample_id": "case045",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change consolidates the slicing and pagination logic into a single line, maintaining the original functionality of retrieving and returning a paginated list of plugins.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change consolidates the slicing and pagination logic into a single line, maintaining the original functionality of retrieving and returning a paginated list of plugins.\"}",
+  "response_id": "gen-1790927382-HMZr5QJ7S1DbddglTAq2",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 602,
+  "completion_tokens": 43,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 7.74e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 602,
+    "completion_tokens": 43,
+    "total_tokens": 645,
+    "cost": 7.74e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.74e-05,
+      "upstream_inference_prompt_cost": 6.02e-05,
+      "upstream_inference_completions_cost": 1.72e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.581,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T07:49:43+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

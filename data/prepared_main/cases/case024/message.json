@@ -1,0 +1,5 @@
+{
+  "commit": "e50165492587556dac318418a0121e72bf93baa7",
+  "chars": 227,
+  "text": "Revert \"[RLlib] @deprecate(error=True|False) escalation. (#28733)\" (#28795)\n\nSigned-off-by: Amog Kamsetty amogkamsetty@yahoo.com\n\nReverts #28733\n\nBreaks ray-air/examples:rl_offline_example and ray-air/examples:rl_online_example"
+}

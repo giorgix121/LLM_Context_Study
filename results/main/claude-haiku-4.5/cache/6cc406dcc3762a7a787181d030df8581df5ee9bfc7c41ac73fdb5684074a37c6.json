@@ -1,0 +1,65 @@
+{
+  "cache_key": "6cc406dcc3762a7a787181d030df8581df5ee9bfc7c41ac73fdb5684074a37c6",
+  "sample_id": "case103",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a new optional field to the client config that is properly initialized in both code paths (with and without request) and only populated when the request has a subdomain attribute, making it a safe additive feature with no impact on existing functionality.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change adds a new optional field to the client config that is properly initialized in both code paths (with and without request) and only populated when the request has a subdomain attribute, making it a safe additive feature with no impact on existing functionality.\"\n}\n```",
+  "response_id": "gen-1795187896-YUZ6scX4l9PtHO8FVkL8",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 522,
+  "completion_tokens": 81,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000927,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 522,
+    "completion_tokens": 81,
+    "total_tokens": 603,
+    "cost": 0.000927,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000927,
+      "upstream_inference_prompt_cost": 0.000522,
+      "upstream_inference_completions_cost": 0.000405
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.33,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:18:18+00:00",
+  "run_id": "20261120T151736Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

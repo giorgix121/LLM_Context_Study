@@ -1,0 +1,65 @@
+{
+  "cache_key": "1acb62f2701af2578cdbd50a4ff09ff628eefe6067eb030c61ac91b0cdb3707f",
+  "sample_id": "case034",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change replaces hardcoded PID tuning parameters with a call to `CarInterfaceBase.configure_torque_tune()`, which may apply different tuning values than the original hardcoded ones, potentially altering steering behavior across all Mazda models.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change replaces hardcoded PID tuning parameters with a call to `CarInterfaceBase.configure_torque_tune()`, which may apply different tuning values than the original hardcoded ones, potentially altering steering behavior across all Mazda models.\"\n}\n```",
+  "response_id": "gen-1795046572-zvqZAs8QWmy3ivitT0N1",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 2895,
+  "completion_tokens": 85,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00332,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2895,
+    "completion_tokens": 85,
+    "total_tokens": 2980,
+    "cost": 0.00332,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00332,
+      "upstream_inference_prompt_cost": 0.002895,
+      "upstream_inference_completions_cost": 0.000425
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.371,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:02:54+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

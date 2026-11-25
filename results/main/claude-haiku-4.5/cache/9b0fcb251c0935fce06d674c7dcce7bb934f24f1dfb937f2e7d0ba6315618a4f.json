@@ -1,0 +1,65 @@
+{
+  "cache_key": "9b0fcb251c0935fce06d674c7dcce7bb934f24f1dfb937f2e7d0ba6315618a4f",
+  "sample_id": "case069",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change only adds documentation content (a docstring extension with an autopydantic_model directive) without modifying any functional code logic.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change only adds documentation content (a docstring extension with an autopydantic_model directive) without modifying any functional code logic.\"\n}\n```",
+  "response_id": "gen-1795187982-9YBd9KJvPGuouo91AadY",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 351,
+  "completion_tokens": 58,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000641,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 351,
+    "completion_tokens": 58,
+    "total_tokens": 409,
+    "cost": 0.000641,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000641,
+      "upstream_inference_prompt_cost": 0.000351,
+      "upstream_inference_completions_cost": 0.00029
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.223,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:19:43+00:00",
+  "run_id": "20261120T151736Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

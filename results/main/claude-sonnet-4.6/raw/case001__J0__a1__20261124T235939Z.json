@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564823-80BTivIYBiP9TE1K9Avl",
+    "object": "chat.completion",
+    "created": 1795564823,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The `global_tags` context manager now uses `old_len = len(stack) - 1` (off-by-one: should be `len(stack) - 1` before appending, but `_add_global_tags` appends first and returns the stack, so `old_len` equals the index of the just-appended item rather than the pre-existing length), meaning `del stack[old_len:]` will delete the tag just added by `global_tags` itself plus any subsequently added tags, which is correct only if no tags existed before—but if nested, it could delete too many or too few entries.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3187,
+      "completion_tokens": 155,
+      "total_tokens": 3342,
+      "cost": 0.011886,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.011886,
+        "upstream_inference_prompt_cost": 0.009561,
+        "upstream_inference_completions_cost": 0.002325
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

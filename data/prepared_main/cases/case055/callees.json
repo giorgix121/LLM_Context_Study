@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "DAGNode.get_args",
+      "path": "python/ray/dag/dag_node.py",
+      "start": 59,
+      "end": 62,
+      "code": "    def get_args(self) -> Tuple[Any]:\n        \"\"\"Return the tuple of arguments for this node.\"\"\"\n\n        return self._bound_args",
+      "called_by": "DeploymentExecutorNode.to_json"
+    },
+    {
+      "name": "DAGNode.get_kwargs",
+      "path": "python/ray/dag/dag_node.py",
+      "start": 64,
+      "end": 67,
+      "code": "    def get_kwargs(self) -> Dict[str, Any]:\n        \"\"\"Return the dict of keyword arguments for this node.\"\"\"\n\n        return self._bound_kwargs.copy()",
+      "called_by": "DeploymentExecutorNode.to_json"
+    },
+    {
+      "name": "DAGNode.get_stable_uuid",
+      "path": "python/ray/dag/dag_node.py",
+      "start": 78,
+      "end": 83,
+      "code": "    def get_stable_uuid(self) -> str:\n        \"\"\"Return stable uuid for this node.\n        1) Generated only once at first instance creation\n        2) Stable across pickling, replacement and JSON serialization.\n        \"\"\"\n        return self._stable_uuid",
+      "called_by": "DeploymentExecutorNode.to_json"
+    }
+  ]
+}

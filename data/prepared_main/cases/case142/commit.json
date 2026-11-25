@@ -1,0 +1,66 @@
+{
+  "commit": "01d05f66fe5a189209538650dce319b2f7e192ee",
+  "files_in_commit": 9,
+  "target_index": 6,
+  "target_status": "modified",
+  "chars": 3807,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "common/params.cc",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "patch": "@@ -166,6 +166,7 @@ std::unordered_map<std::string, uint32_t> keys = {\n     {\"TermsVersion\", PERSISTENT},\n     {\"Timezone\", PERSISTENT},\n     {\"TrainingVersion\", PERSISTENT},\n+    {\"UbloxAvailable\", PERSISTENT},\n     {\"UpdateAvailable\", CLEAR_ON_MANAGER_START},\n     {\"UpdateFailedCount\", CLEAR_ON_MANAGER_START},\n     {\"UpdaterState\", CLEAR_ON_MANAGER_START},"
+    },
+    {
+      "path": "common/params.h",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "patch": "@@ -29,8 +29,8 @@ class Params {\n \n   // helpers for reading values\n   std::string get(const std::string &key, bool block = false);\n-  inline bool getBool(const std::string &key) {\n-    return get(key) == \"1\";\n+  inline bool getBool(const std::string &key, bool block = false) {\n+    return get(key, block) == \"1\";\n   }\n   std::map<std::string, std::string> readAll();\n "
+    },
+    {
+      "path": "common/params_pyx.pyx",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "patch": "@@ -16,7 +16,7 @@ cdef extern from \"common/params.h\":\n   cdef cppclass c_Params \"Params\":\n     c_Params(string) nogil\n     string get(string, bool) nogil\n-    bool getBool(string) nogil\n+    bool getBool(string, bool) nogil\n     int remove(string) nogil\n     int put(string, string) nogil\n     int putBool(string, bool) nogil\n@@ -68,11 +68,11 @@ cdef class Params:\n \n     return val if encoding is None else val.decode(encoding)\n \n-  def get_bool(self, key):\n+  def get_bool(self, key, bool block=False):\n     cdef string k = self.check_key(key)\n     cdef bool r\n     with nogil:\n-      r = self.p.getBool(k)\n+      r = self.p.getBool(k, block)\n     return r\n \n   def put(self, key, dat):"
+    },
+    {
+      "path": "selfdrive/locationd/laikad.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -328,7 +328,7 @@ class EphemerisSourceType(IntEnum):\n \n \n def main(sm=None, pm=None):\n-  use_qcom = os.path.isfile(\"/persist/comma/use-quectel-rawgps\")\n+  use_qcom = not Params().get_bool(\"UbloxAvailable\", block=True)\n   if use_qcom:\n     raw_gnss_socket = \"qcomGnss\"\n   else:"
+    },
+    {
+      "path": "selfdrive/locationd/locationd.cc",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "patch": "@@ -492,10 +492,10 @@ void Localizer::determine_gps_mode(double current_time) {\n \n int Localizer::locationd_thread() {\n   const char* gps_location_socket;\n-  if (util::file_exists(\"/persist/comma/use-quectel-rawgps\")) {\n-    gps_location_socket = \"gpsLocation\";\n-  } else {\n+  if (Params().getBool(\"UbloxAvailable\", true)) {\n     gps_location_socket = \"gpsLocationExternal\";\n+  } else {\n+    gps_location_socket = \"gpsLocation\";\n   }\n   const std::initializer_list<const char *> service_list = {gps_location_socket,\n     \"cameraOdometry\", \"liveCalibration\", \"carState\", \"carParams\","
+    },
+    {
+      "path": "selfdrive/locationd/test/test_locationd.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "patch": "@@ -22,6 +22,7 @@ def setUp(self):\n \n     self.pm = messaging.PubMaster(self.LLD_MSGS)\n \n+    Params().put_bool(\"UbloxAvailable\", True)\n     managed_processes['locationd'].prepare()\n     managed_processes['locationd'].start()\n "
+    },
+    {
+      "path": "selfdrive/test/process_replay/process_replay.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "patch": "@@ -417,6 +417,7 @@ def setup_env(simulation=False, CP=None, cfg=None, controlsState=None):\n   params.put_bool(\"DisengageOnAccelerator\", True)\n   params.put_bool(\"WideCameraOnly\", False)\n   params.put_bool(\"DisableLogging\", False)\n+  params.put_bool(\"UbloxAvailable\", True)\n \n   os.environ[\"NO_RADAR_SLEEP\"] = \"1\"\n   os.environ[\"REPLAY\"] = \"1\""
+    },
+    {
+      "path": "tools/sim/bridge.py",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 2,
+      "patch": "@@ -244,11 +244,13 @@ class CarlaBridge:\n   def __init__(self, arguments):\n     set_params_enabled()\n \n+    self.params = Params()\n+\n     msg = messaging.new_message('liveCalibration')\n     msg.liveCalibration.validBlocks = 20\n     msg.liveCalibration.rpyCalib = [0.0, 0.0, 0.0]\n-    Params().put(\"CalibrationParams\", msg.to_bytes())\n-    Params().put_bool(\"WideCameraOnly\", not arguments.dual_camera)\n+    self.params.put(\"CalibrationParams\", msg.to_bytes())\n+    self.params.put_bool(\"WideCameraOnly\", not arguments.dual_camera)\n \n     self._args = arguments\n     self._carla_objects = []\n@@ -363,6 +365,7 @@ def create_camera(fov, callback):\n     gps_bp = blueprint_library.find('sensor.other.gnss')\n     gps = world.spawn_actor(gps_bp, transform, attach_to=vehicle)\n     gps.listen(lambda gps: gps_callback(gps, vehicle_state))\n+    self.params.put_bool(\"UbloxAvailable\", True)\n \n     self._carla_objects.extend([imu, gps])\n     # launch fake car threads"
+    }
+  ]
+}

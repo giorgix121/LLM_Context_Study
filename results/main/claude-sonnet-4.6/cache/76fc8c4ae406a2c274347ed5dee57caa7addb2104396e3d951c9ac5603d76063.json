@@ -1,0 +1,65 @@
+{
+  "cache_key": "76fc8c4ae406a2c274347ed5dee57caa7addb2104396e3d951c9ac5603d76063",
+  "sample_id": "case025",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change simply adds the `provider` parameter to `get_title_link` in `DigestNotification` to match the updated base class signature, and the method still returns `None`, so no functional behavior changes.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change simply adds the `provider` parameter to `get_title_link` in `DigestNotification` to match the updated base class signature, and the method still returns `None`, so no functional behavior changes.\"}",
+  "response_id": "gen-1795564917-iuDcY76sTfrO7d4jxYd9",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2825,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00945,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2825,
+    "completion_tokens": 65,
+    "total_tokens": 2890,
+    "cost": 0.00945,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00945,
+      "upstream_inference_prompt_cost": 0.008475,
+      "upstream_inference_completions_cost": 0.000975
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.448,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-25T00:01:59+00:00",
+  "run_id": "20261124T235939Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "name": "hash_value",
+    "before": {
+      "start": 26,
+      "end": 49,
+      "code": "def hash_value(h: hashlib._Hash, value: Any) -> None:\n    if value is None:\n        h.update(b\"\\x00\")\n    elif value is True:\n        h.update(b\"\\x01\")\n    elif value is False:\n        h.update(b\"\\x02\")\n    elif isinstance(value, int):\n        h.update(b\"\\x03\" + str(value).encode(\"ascii\") + b\"\\x00\")\n    elif isinstance(value, (tuple, list)):\n        h.update(b\"\\x04\" + str(len(value)).encode(\"utf-8\"))\n        for item in value:\n            hash_value(h, item)\n    elif isinstance(value, dict):\n        h.update(b\"\\x05\" + str(len(value)).encode(\"utf-8\"))\n        for k, v in value.items():\n            hash_value(h, k)\n            hash_value(h, v)\n    elif isinstance(value, bytes):\n        h.update(b\"\\x06\" + value + b\"\\x00\")\n    elif isinstance(value, str):\n        h.update(b\"\\x07\" + value.encode(\"utf-8\") + b\"\\x00\")\n    else:\n        raise TypeError(\"Invalid hash value\")"
+    },
+    "after": {
+      "start": 26,
+      "end": 49,
+      "code": "def hash_value(h: hashlib._Hash, value: Any) -> None:\n    if value is None:\n        h.update(b\"\\x00\")\n    elif value is True:\n        h.update(b\"\\x01\")\n    elif value is False:\n        h.update(b\"\\x02\")\n    elif isinstance(value, int):\n        h.update(b\"\\x03\" + str(value).encode(\"ascii\") + b\"\\x00\")\n    elif isinstance(value, (tuple, list)):\n        h.update(b\"\\x04\" + str(len(value)).encode(\"utf-8\"))\n        for item in value:\n            hash_value(h, item)\n    elif isinstance(value, dict):\n        h.update(b\"\\x05\" + str(len(value)).encode(\"utf-8\"))\n        for k, v in sorted(value.items()):\n            hash_value(h, k)\n            hash_value(h, v)\n    elif isinstance(value, bytes):\n        h.update(b\"\\x06\" + value + b\"\\x00\")\n    elif isinstance(value, str):\n        h.update(b\"\\x07\" + value.encode(\"utf-8\") + b\"\\x00\")\n    else:\n        raise TypeError(\"Invalid hash value\")"
+    }
+  }
+]

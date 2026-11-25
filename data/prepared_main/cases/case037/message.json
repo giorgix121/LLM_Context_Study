@@ -1,0 +1,5 @@
+{
+  "commit": "6e66dd7776707936345927f8fccee3ddb7f23a2b",
+  "chars": 57,
+  "text": "Make GoogleBaseHook credentials functions public (#25785)"
+}

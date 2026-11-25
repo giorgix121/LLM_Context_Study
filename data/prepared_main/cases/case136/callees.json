@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "ProcessRecordingSegmentStrategy._process_headers",
+      "path": "src/sentry/replays/consumers/recording/process_recording.py",
+      "start": 80,
+      "end": 88,
+      "code": "    def _process_headers(\n        self, recording_segment_with_headers: bytes\n    ) -> tuple[RecordingSegmentHeaders, bytes]:\n        # split the recording payload by a newline into the headers and the recording\n        try:\n            recording_headers, recording_segment = recording_segment_with_headers.split(b\"\\n\", 1)\n        except ValueError:\n            raise MissingRecordingSegmentHeaders\n        return json.loads(recording_headers), recording_segment",
+      "called_by": "ProcessRecordingSegmentStrategy._store"
+    },
+    {
+      "name": "wraps",
+      "path": "src/sentry/utils/metrics.py",
+      "start": 273,
+      "end": 284,
+      "code": "def wraps(\n    key: str, instance: Optional[str] = None, tags: Optional[Tags] = None\n) -> Callable[[F], F]:\n    def wrapper(f: F) -> F:\n        @functools.wraps(f)\n        def inner(*args: Any, **kwargs: Any) -> Any:\n            with timer(key, instance=instance, tags=tags):\n                return f(*args, **kwargs)\n\n        return inner  # type: ignore\n\n    return wrapper",
+      "called_by": "ProcessRecordingSegmentStrategy._store"
+    },
+    {
+      "name": "track_outcome",
+      "path": "src/sentry/utils/outcomes.py",
+      "start": 39,
+      "end": 134,
+      "code": "def track_outcome(\n    org_id: int,\n    project_id: int,\n    key_id: Optional[int],\n    outcome: Outcome,\n    reason: Optional[str] = None,\n    timestamp: Optional[datetime] = None,\n    event_id: Optional[str] = None,\n    category: Optional[DataCategory] = None,\n    quantity: Optional[int] = None,\n) -> None:\n    \"\"\"\n    This is a central point to track org/project counters per incoming event.\n    NB: This should only ever be called once per incoming event, which means\n    it should only be called at the point we know the final outcome for the\n    event (invalid, rate_limited, accepted, discarded, etc.)\n\n    This sends the \"outcome\" message to Kafka which is used by Snuba to serve\n    data for SnubaTSDB and RedisSnubaTSDB, such as # of rate-limited/filtered\n    events.\n    \"\"\"\n    global outcomes_publisher\n    global billing_publisher\n\n    if quantity is None:\n        quantity = 1\n\n    assert isinstance(org_id, int)\n    assert isinstance(project_id, int)\n    assert isinstance(key_id, (type(None), int))\n    assert isinstance(outcome, Outcome)\n    assert isinstance(timestamp, (type(None), datetime))\n    assert isinstance(category, (type(None), DataCategory))\n    assert isinstance(quantity, int)\n\n    outcomes_config = settings.KAFKA_TOPICS[settings.KAFKA_OUTCOMES]\n    billing_config = settings.KAFKA_TOPICS.get(settings.KAFKA_OUTCOMES_BILLING)\n    use_billing = billing_config is not None and outcome.is_billing()\n\n    # Create a second producer instance only if the cluster differs. Otherwise,\n    # reuse the same producer and just send to the other topic.\n    if use_billing and billing_config[\"cluster\"] != outcomes_config[\"cluster\"]:\n        if billing_publisher is None:\n            cluster_name = billing_config[\"cluster\"]\n            billing_publisher = KafkaPublisher(\n                kafka_config.get_kafka_producer_cluster_options(cluster_name)\n            )\n        publisher = billing_publisher\n\n    else:\n        if outcomes_publisher is None:\n            cluster_name = outcomes_config[\"cluster\"]\n            outcomes_publisher = KafkaPublisher(\n                kafka_config.get_kafka_producer_cluster_options(cluster_name)\n            )\n        publisher = outcomes_publisher\n\n    timestamp = timestamp or to_datetime(time.time())\n\n    # Send billing outcomes to a dedicated topic if there is a separate\n    # configuration for it. Otherwise, fall back to the regular outcomes topic.\n    # This does NOT switch the producer, if both topics are on the same cluster.\n    #\n    # In Sentry, there is no significant difference between the classes of\n    # outcome. In Sentry SaaS, they have elevated stability requirements as they\n    # are used for spike protection and quota enforcement.\n    topic_name = settings.KAFKA_OUTCOMES_BILLING if use_billing else settings.KAFKA_OUTCOMES\n\n    # Send a snuba metrics payload.\n    publisher.publish(\n        topic_name,\n        json.dumps(\n            {\n                \"timestamp\": timestamp,\n                \"org_id\": org_id,\n                \"project_id\": project_id,\n                \"key_id\": key_id,\n                \"outcome\": outcome.value,\n                \"reason\": reason,\n                \"event_id\": event_id,\n                \"category\": category,\n                \"quantity\": quantity,\n            }\n        ),\n    )\n\n    metrics.incr(\n        \"events.outcomes\",\n        skip_internal=True,\n        tags={\n            \"outcome\": outcome.name.lower(),\n            \"reason\": reason,\n            \"category\": category.api_name() if category is not None else \"null\",\n            \"topic\": topic_name,\n        },\n    )",
+      "called_by": "ProcessRecordingSegmentStrategy._store"
+    }
+  ]
+}

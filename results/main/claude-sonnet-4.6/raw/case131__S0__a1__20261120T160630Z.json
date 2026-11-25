@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192020-SBYcwZ6SEaWfgmDDYLCQ",
+    "object": "chat.completion",
+    "created": 1795192020,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"When `args` is `None` (empty/falsy), the code calls `env.execute(self._path)` using the private `_path` attribute instead of the public `self.path` property, which may reference a different or uninitialized value and cause an AttributeError or incorrect behavior.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 401,
+      "completion_tokens": 83,
+      "total_tokens": 484,
+      "cost": 0.002448,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002448,
+        "upstream_inference_prompt_cost": 0.001203,
+        "upstream_inference_completions_cost": 0.001245
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

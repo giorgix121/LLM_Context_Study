@@ -1,0 +1,54 @@
+[
+  {
+    "name": "ProjectProfilingPaginatedBaseEndpoint.get",
+    "before": {
+      "start": 48,
+      "end": 64,
+      "code": "    def get(self, request: Request, project: Project) -> Response:\n        if not features.has(\"organizations:profiling\", project.organization, actor=request.user):\n            return Response(404)\n\n        params = self.get_profiling_params(request, project)\n\n        kwargs = {\"params\": params}\n        if \"Accept-Encoding\" in request.headers:\n            kwargs[\"headers\"] = {\"Accept-Encoding\": request.headers.get(\"Accept-Encoding\")}\n\n        return self.paginate(\n            request,\n            paginator=GenericOffsetPaginator(data_fn=self.get_data_fn(request, project, kwargs)),\n            default_per_page=self.DEFAULT_PER_PAGE,\n            max_per_page=self.MAX_PER_PAGE,\n            on_results=self.get_on_result(),\n        )"
+    },
+    "after": {
+      "start": 48,
+      "end": 62,
+      "code": "    def get(self, request: Request, project: Project) -> Response:\n        if not features.has(\"organizations:profiling\", project.organization, actor=request.user):\n            return Response(404)\n\n        params = self.get_profiling_params(request, project)\n\n        kwargs = {\"params\": params}\n\n        return self.paginate(\n            request,\n            paginator=GenericOffsetPaginator(data_fn=self.get_data_fn(request, project, kwargs)),\n            default_per_page=self.DEFAULT_PER_PAGE,\n            max_per_page=self.MAX_PER_PAGE,\n            on_results=self.get_on_result(),\n        )"
+    }
+  },
+  {
+    "name": "ProjectProfilingTransactionIDProfileIDEndpoint.get",
+    "before": {
+      "start": 69,
+      "end": 78,
+      "code": "    def get(self, request: Request, project: Project, transaction_id: str) -> StreamingHttpResponse:\n        if not features.has(\"organizations:profiling\", project.organization, actor=request.user):\n            return Response(status=404)\n        kwargs: Dict[str, Any] = {\n            \"method\": \"GET\",\n            \"path\": f\"/organizations/{project.organization.id}/projects/{project.id}/transactions/{transaction_id}\",\n        }\n        if \"Accept-Encoding\" in request.headers:\n            kwargs[\"headers\"] = {\"Accept-Encoding\": request.headers.get(\"Accept-Encoding\")}\n        return proxy_profiling_service(**kwargs)"
+    },
+    "after": {
+      "start": 67,
+      "end": 74,
+      "code": "    def get(self, request: Request, project: Project, transaction_id: str) -> StreamingHttpResponse:\n        if not features.has(\"organizations:profiling\", project.organization, actor=request.user):\n            return Response(status=404)\n        kwargs: Dict[str, Any] = {\n            \"method\": \"GET\",\n            \"path\": f\"/organizations/{project.organization.id}/projects/{project.id}/transactions/{transaction_id}\",\n        }\n        return proxy_profiling_service(**kwargs)"
+    }
+  },
+  {
+    "name": "ProjectProfilingProfileEndpoint.get",
+    "before": {
+      "start": 83,
+      "end": 92,
+      "code": "    def get(self, request: Request, project: Project, profile_id: str) -> StreamingHttpResponse:\n        if not features.has(\"organizations:profiling\", project.organization, actor=request.user):\n            return Response(status=404)\n        kwargs: Dict[str, Any] = {\n            \"method\": \"GET\",\n            \"path\": f\"/organizations/{project.organization.id}/projects/{project.id}/profiles/{profile_id}\",\n        }\n        if \"Accept-Encoding\" in request.headers:\n            kwargs[\"headers\"] = {\"Accept-Encoding\": request.headers.get(\"Accept-Encoding\")}\n        return proxy_profiling_service(**kwargs)"
+    },
+    "after": {
+      "start": 79,
+      "end": 86,
+      "code": "    def get(self, request: Request, project: Project, profile_id: str) -> StreamingHttpResponse:\n        if not features.has(\"organizations:profiling\", project.organization, actor=request.user):\n            return Response(status=404)\n        kwargs: Dict[str, Any] = {\n            \"method\": \"GET\",\n            \"path\": f\"/organizations/{project.organization.id}/projects/{project.id}/profiles/{profile_id}\",\n        }\n        return proxy_profiling_service(**kwargs)"
+    }
+  },
+  {
+    "name": "ProjectProfilingRawProfileEndpoint.get",
+    "before": {
+      "start": 97,
+      "end": 106,
+      "code": "    def get(self, request: Request, project: Project, profile_id: str) -> StreamingHttpResponse:\n        if not features.has(\"organizations:profiling\", project.organization, actor=request.user):\n            return Response(status=404)\n        kwargs: Dict[str, Any] = {\n            \"method\": \"GET\",\n            \"path\": f\"/organizations/{project.organization.id}/projects/{project.id}/raw_profiles/{profile_id}\",\n        }\n        if \"Accept-Encoding\" in request.headers:\n            kwargs[\"headers\"] = {\"Accept-Encoding\": request.headers.get(\"Accept-Encoding\")}\n        return proxy_profiling_service(**kwargs)"
+    },
+    "after": {
+      "start": 91,
+      "end": 98,
+      "code": "    def get(self, request: Request, project: Project, profile_id: str) -> StreamingHttpResponse:\n        if not features.has(\"organizations:profiling\", project.organization, actor=request.user):\n            return Response(status=404)\n        kwargs: Dict[str, Any] = {\n            \"method\": \"GET\",\n            \"path\": f\"/organizations/{project.organization.id}/projects/{project.id}/raw_profiles/{profile_id}\",\n        }\n        return proxy_profiling_service(**kwargs)"
+    }
+  }
+]

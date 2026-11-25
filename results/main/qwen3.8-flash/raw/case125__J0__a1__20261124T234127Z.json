@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563823-yYDtnt9GIcN0DnStCltB",
+    "object": "chat.completion",
+    "created": 1795563823,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The commit introduces a potential KeyError in `async_unload_entry` and other functions if `hass.data[DATA_MQTT]` is accessed before being initialized by `async_setup`, as the initialization logic was moved or relies on `setdefault` which might not have been called in all execution paths previously covered by direct dictionary access.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 10025,
+      "completion_tokens": 82,
+      "total_tokens": 10107,
+      "cost": 0.00154229,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00154229,
+        "upstream_inference_prompt_cost": 0.00150375,
+        "upstream_inference_completions_cost": 3.854e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "sample_id": "case123",
+  "path": "src/sentry/integrations/mixins/commit_context.py"
+}

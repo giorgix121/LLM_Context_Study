@@ -1,0 +1,28 @@
+[
+  {
+    "name": "DDPSpawnStrategy.module_to_device",
+    "before": {
+      "start": 116,
+      "end": 121,
+      "code": "    def module_to_device(self, module: Module) -> None:\n        if self.root_device.type == \"cuda\":\n            # TODO(lite): This should be handled outside module_to_device, by a call to accelerator.setup_device()\n            # set the device on the spawned subprocesses\n            torch.cuda.set_device(self.root_device)\n        module.to(self.root_device)"
+    },
+    "after": {
+      "start": 116,
+      "end": 117,
+      "code": "    def module_to_device(self, module: Module) -> None:\n        module.to(self.root_device)"
+    }
+  },
+  {
+    "name": "DDPSpawnStrategy._set_world_ranks",
+    "before": {
+      "start": 203,
+      "end": 209,
+      "code": "    def _set_world_ranks(self, process_idx: int = 0) -> None:\n        self._local_rank = process_idx\n        if self.cluster_environment is None:\n            return\n        self.cluster_environment.set_global_rank(self.node_rank * self.num_processes + self.local_rank)\n        self.cluster_environment.set_world_size(self.num_nodes * self.num_processes)\n        rank_zero_only.rank = self.cluster_environment.global_rank()"
+    },
+    "after": {
+      "start": 199,
+      "end": 204,
+      "code": "    def _set_world_ranks(self) -> None:\n        if self.cluster_environment is None:\n            return\n        self.cluster_environment.set_global_rank(self.node_rank * self.num_processes + self.local_rank)\n        self.cluster_environment.set_world_size(self.num_nodes * self.num_processes)\n        rank_zero_only.rank = self.cluster_environment.global_rank()"
+    }
+  }
+]

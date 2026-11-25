@@ -1,0 +1,5 @@
+{
+  "commit": "be1eb5e86d07fe22b53a59184089aac569875117",
+  "chars": 194,
+  "text": "CI: apps (#15242)\n\n* CI: apps\n* fix imports\n* req\n* doctest\n* SQLModel\n* fsspec\n* azure\n* docs\n* falek8\n\nCo-authored-by: pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>"
+}

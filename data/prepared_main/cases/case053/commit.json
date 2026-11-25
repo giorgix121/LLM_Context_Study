@@ -1,0 +1,24 @@
+{
+  "commit": "d85085479d9248d2f6a06821a0cb41c4a2eb02fc",
+  "files_in_commit": 3,
+  "target_index": 1,
+  "target_status": "modified",
+  "chars": 2251,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "src/pytorch_lightning/CHANGELOG.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "patch": "@@ -61,6 +61,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).\n - Fixed the `NeptuneLogger` dependency being unrecognized ([#13988](https://github.com/Lightning-AI/lightning/pull/13988))\n \n \n+- Fixed epoch-end logging results not being reset after the end of the epoch ([#14061](https://github.com/Lightning-AI/lightning/pull/14061))\n+\n+\n - Fixed an issue where users would be warned about unset `max_epochs` even when `fast_dev_run` was set ([#13262](https://github.com/Lightning-AI/lightning/pull/13262))\n \n "
+    },
+    {
+      "path": "tests/tests_pytorch/trainer/logging_/test_train_loop_logging.py",
+      "status": "modified",
+      "additions": 27,
+      "deletions": 2,
+      "patch": "@@ -569,11 +569,12 @@ def on_train_epoch_end(self, trainer, pl_module):\n     \"accelerator\",\n     [\n         pytest.param(\"gpu\", marks=RunIf(min_cuda_gpus=1)),\n+        \"cpu\",\n     ],\n )\n def test_metric_are_properly_reduced(tmpdir, accelerator):\n     class TestingModel(BoringModel):\n-        def __init__(self, *args, **kwargs) -> None:\n+        def __init__(self) -> None:\n             super().__init__()\n             self.val_acc = Accuracy()\n \n@@ -592,7 +593,6 @@ def validation_step(self, batch, batch_idx):\n             return super().validation_step(batch, batch_idx)\n \n     early_stop = EarlyStopping(monitor=\"val_acc\", mode=\"max\")\n-\n     checkpoint = ModelCheckpoint(monitor=\"val_acc\", save_last=True, save_top_k=2, mode=\"max\")\n \n     model = TestingModel()\n@@ -812,3 +812,28 @@ def training_step(self, batch, batch_idx):\n             call(metrics={\"foo_epoch\": 0.0, \"epoch\": 1}, step=3),\n         ]\n     )\n+\n+\n+@mock.patch(\"pytorch_lightning.loggers.TensorBoardLogger.log_metrics\")\n+def test_log_on_train_start(mock_log_metrics, tmpdir):\n+    \"\"\"Tests that logged metrics on_train_start get reset after the first epoch.\"\"\"\n+\n+    class MyModel(BoringModel):\n+        def on_train_start(self):\n+            self.log(\"foo\", 123)\n+\n+    model = MyModel()\n+    trainer = Trainer(\n+        default_root_dir=tmpdir,\n+        limit_train_batches=1,\n+        limit_val_batches=0,\n+        max_epochs=2,\n+        log_every_n_steps=1,\n+        enable_model_summary=False,\n+        enable_checkpointing=False,\n+        enable_progress_bar=False,\n+    )\n+    trainer.fit(model)\n+\n+    assert mock_log_metrics.mock_calls == [call(metrics={\"foo\": 123.0, \"epoch\": 0}, step=0)]\n+    assert trainer.max_epochs > 1"
+    }
+  ]
+}

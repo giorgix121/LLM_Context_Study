@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192906-DLVUaMPD6o4N87DNazeJ",
+    "object": "chat.completion",
+    "created": 1795192906,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds the required `org_id` parameter to `indexer.reverse_resolve` calls, aligning with the updated method signature already used elsewhere in the codebase (e.g., `indexer.resolve` already takes `org_id`).\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2473,
+      "completion_tokens": 75,
+      "total_tokens": 2548,
+      "cost": 0.008544,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.008544,
+        "upstream_inference_prompt_cost": 0.007419,
+        "upstream_inference_completions_cost": 0.001125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "found": 4,
+  "included": 4,
+  "functions": [
+    {
+      "name": "_is_url",
+      "path": "src/lightning_app/utilities/cli_helpers.py",
+      "start": 48,
+      "end": 51,
+      "code": "def _is_url(id: Optional[str]) -> bool:\n    if isinstance(id, str) and (id.startswith(\"https://\") or id.startswith(\"http://\")):\n        return True\n    return False",
+      "called_by": "_retrieve_application_url_and_available_commands"
+    },
+    {
+      "name": "_extract_command_from_openapi",
+      "path": "src/lightning_app/utilities/cli_helpers.py",
+      "start": 79,
+      "end": 81,
+      "code": "def _extract_command_from_openapi(openapi_resp: Dict) -> Dict[str, Dict[str, str]]:\n    command_paths = [p for p in openapi_resp[\"paths\"] if p.startswith(\"/command/\")]\n    return {p.replace(\"/command/\", \"\"): _get_metadata_from_openapi(openapi_resp[\"paths\"], p) for p in command_paths}",
+      "called_by": "_retrieve_application_url_and_available_commands"
+    },
+    {
+      "name": "_get_project",
+      "path": "src/lightning_app/utilities/cloud.py",
+      "start": 12,
+      "end": 33,
+      "code": "def _get_project(client: LightningClient, project_id: str = LIGHTNING_CLOUD_PROJECT_ID) -> V1Membership:\n    \"\"\"Get a project membership for the user from the backend.\"\"\"\n    projects = client.projects_service_list_memberships()\n    if project_id is not None:\n        for membership in projects.memberships:\n            if membership.project_id == project_id:\n                break\n        else:\n            raise ValueError(\n                \"Environment variable LIGHTNING_CLOUD_PROJECT_ID is set \" \"but could not find an associated project.\"\n            )\n        return membership\n\n    if len(projects.memberships) == 0:\n        raise ValueError(\"No valid projects found. Please reach out to lightning.ai team to create a project\")\n    if len(projects.memberships) > 1:\n        warnings.warn(\n            f\"It is currently not supported to have multiple projects but \"\n            f\"found {len(projects.memberships)} projects.\"\n            f\" Defaulting to the project {projects.memberships[0].name}\"\n        )\n    return projects.memberships[0]",
+      "called_by": "_retrieve_application_url_and_available_commands"
+    },
+    {
+      "name": "LightningClient.__init__",
+      "path": "src/lightning_app/utilities/network.py",
+      "start": 127,
+      "end": 128,
+      "code": "    def __init__(self) -> None:\n        super().__init__(api_client=create_swagger_client())",
+      "called_by": "_retrieve_application_url_and_available_commands"
+    }
+  ]
+}

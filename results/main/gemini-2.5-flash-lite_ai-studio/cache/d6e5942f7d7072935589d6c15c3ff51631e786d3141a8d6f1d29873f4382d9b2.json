@@ -1,0 +1,65 @@
+{
+  "cache_key": "d6e5942f7d7072935589d6c15c3ff51631e786d3141a8d6f1d29873f4382d9b2",
+  "sample_id": "case084",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change introduces a fallback mechanism to retrieve the device using `switchbot.get_device(address)` if `bluetooth.async_ble_device_from_address` fails, which could potentially mask underlying connectivity issues or lead to unexpected device behavior if the fallback method returns an incorrect or stale device representation.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a fallback mechanism to retrieve the device using `switchbot.get_device(address)` if `bluetooth.async_ble_device_from_address` fails, which could potentially mask underlying connectivity issues or lead to unexpected device behavior if the fallback method returns an incorrect or stale device representation.\"}",
+  "response_id": "gen-1795048125-dLaG88lRy1O6XJHsq7ZA",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 2267,
+  "completion_tokens": 74,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0002563,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2267,
+    "completion_tokens": 74,
+    "total_tokens": 2341,
+    "cost": 0.0002563,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0002563,
+      "upstream_inference_prompt_cost": 0.0002267,
+      "upstream_inference_completions_cost": 2.96e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.559,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:28:45+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

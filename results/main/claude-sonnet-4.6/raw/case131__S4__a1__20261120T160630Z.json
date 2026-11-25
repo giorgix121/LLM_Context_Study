@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191019-ooyWSG5Klaq01AgaO616",
+    "object": "chat.completion",
+    "created": 1795191019,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The `if args:` check will also be falsy if `args` is an empty list `[]`, but more critically, when `args = None` the code falls through to `env.execute(self._path)` which does not source the activate script at all, meaning the virtual environment won't actually be activated for unknown Windows shells — this is a behavioral change that silently degrades functionality rather than raising an error or warning.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1801,
+      "completion_tokens": 107,
+      "total_tokens": 1908,
+      "cost": 0.007008,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007008,
+        "upstream_inference_prompt_cost": 0.005403,
+        "upstream_inference_completions_cost": 0.001605
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

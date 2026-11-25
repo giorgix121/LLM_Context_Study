@@ -1,0 +1,65 @@
+{
+  "cache_key": "c399c6980af7fb2b1204f13ea7dbe271d195fb0d5b92321a275c14be1de8fff1",
+  "sample_id": "case143",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The new `else` branch raises an exception for any Column condition that isn't `project_id`, `org_id`, `timestamp`, or `tags[environment]`, which is a breaking change that will reject previously-silently-ignored (or passed-through) column conditions and could cause regressions for callers using other valid column filters.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The new `else` branch raises an exception for any Column condition that isn't `project_id`, `org_id`, `timestamp`, or `tags[environment]`, which is a breaking change that will reject previously-silently-ignored (or passed-through) column conditions and could cause regressions for callers using other valid column filters.\"}",
+  "response_id": "gen-1795192481-s0Zc8tjigdfIPyJgebPL",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1837,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.006846,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1837,
+    "completion_tokens": 89,
+    "total_tokens": 1926,
+    "cost": 0.006846,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.006846,
+      "upstream_inference_prompt_cost": 0.005511,
+      "upstream_inference_completions_cost": 0.001335
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.019,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:34:44+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "generate_rules",
+      "path": "src/sentry/dynamic_sampling/rules_generator.py",
+      "start": 107,
+      "end": 135,
+      "code": "def generate_rules(project: Project) -> List[Union[BaseRule, ReleaseRule]]:\n    \"\"\"\n    This function handles generate rules logic or fallback empty list of rules\n    \"\"\"\n    rules: List[Union[BaseRule, ReleaseRule]] = []\n\n    sample_rate = quotas.get_blended_sample_rate(project)\n\n    if sample_rate is None:\n        try:\n            raise Exception(\"get_blended_sample_rate returns none\")\n        except Exception:\n            sentry_sdk.capture_exception()\n    else:\n        if sample_rate < 1.0:\n\n            enabled_biases = DynamicSamplingFeatureMultiplexer.get_enabled_user_biases(\n                project.get_option(\"sentry:dynamic_sampling_biases\", None)\n            )\n            # Latest releases\n            if RuleType.BOOST_LATEST_RELEASES_RULE.value in enabled_biases:\n                rules += generate_boost_release_rules(project.id, sample_rate)\n\n            # Environments boost\n            if RuleType.BOOST_ENVIRONMENTS_RULE.value in enabled_biases:\n                rules.append(generate_environment_rule())\n        rules.append(generate_uniform_rule(sample_rate))\n\n    return rules",
+      "calls": "DynamicSamplingFeatureMultiplexer.get_enabled_user_biases"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "ReleaseActivityNotification.build_notification_footer",
+      "path": "src/sentry/notifications/notifications/activity/release.py",
+      "start": 165,
+      "end": 176,
+      "code": "    def build_notification_footer(self, recipient: Team | User) -> str:\n        # notification footer only used for Slack for now\n        settings_url = self.get_settings_url(recipient, ExternalProviders.SLACK)\n\n        # no environment related to a deploy\n        footer = \"\"\n        if self.release:\n            footer += f\"{self.release.projects.all()[0].slug} | \"\n\n        footer += f\"{self.format_url(text='Notification Settings', url=settings_url)}\"\n\n        return footer",
+      "calls": "BaseNotification.get_settings_url"
+    },
+    {
+      "name": "ReleaseSummaryActivityNotification.build_notification_footer",
+      "path": "src/sentry/notifications/notifications/activity/release_summary.py",
+      "start": 187,
+      "end": 198,
+      "code": "    def build_notification_footer(self, recipient: Team | User) -> str:\n        # notification footer only used for Slack for now\n        settings_url = self.get_settings_url(recipient, ExternalProviders.SLACK)\n\n        # no environment related to a deploy\n        footer = \"\"\n        if self.release:\n            footer += f\"{self.release.projects.all()[0].slug} | \"\n\n        footer += f\"{self.format_url(text='Notification Settings', url=settings_url)}\"\n\n        return footer",
+      "calls": "BaseNotification.get_settings_url"
+    },
+    {
+      "name": "OrganizationRequestNotification.build_notification_footer",
+      "path": "src/sentry/notifications/notifications/organization_request/base.py",
+      "start": 45,
+      "end": 56,
+      "code": "    def build_notification_footer(self, recipient: Team | User) -> str:\n        if isinstance(recipient, Team):\n            raise NotImplementedError\n\n        settings_url = self.get_settings_url(recipient, ExternalProviders.SLACK)\n        recipient_role_string = self.role_based_recipient_strategy.get_recipient_role_string(\n            recipient\n        )\n        return (\n            \"You are receiving this notification because you're listed as an organization \"\n            f\"{recipient_role_string} | {self.format_url(text='Notification Settings', url=settings_url)}\"\n        )",
+      "calls": "BaseNotification.get_settings_url"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "bb6d424adf6106e3a045e90e1f35123d10428e9e9e4799301d14093a3c4a5391",
+  "sample_id": "case040",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Removing the service argument from the decorator may break package registration or discovery mechanisms that rely on this metadata to associate the package with the Elasticsearch service.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Removing the service argument from the decorator may break package registration or discovery mechanisms that rely on this metadata to associate the package with the Elasticsearch service.\"}",
+  "response_id": "gen-1795189342-nWHbrLazeeTloDoP4HTC",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 347,
+  "completion_tokens": 42,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 7.179e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 347,
+    "completion_tokens": 42,
+    "total_tokens": 389,
+    "cost": 7.179e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.179e-05,
+      "upstream_inference_prompt_cost": 5.205e-05,
+      "upstream_inference_completions_cost": 1.974e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.408,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:42:24+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

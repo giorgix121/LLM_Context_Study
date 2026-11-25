@@ -1,0 +1,65 @@
+{
+  "cache_key": "3dc0b4ca0b537e4797bca38c5c3043fa5546e6c14fd763eb612976ef1a1d96d1",
+  "sample_id": "case106",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "This change renames 'customer_silo_model' to 'region_silo_model' throughout the decorator application logic, which could break existing code that imports or references the old decorator name if not updated consistently across the codebase.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"This change renames 'customer_silo_model' to 'region_silo_model' throughout the decorator application logic, which could break existing code that imports or references the old decorator name if not updated consistently across the codebase.\"\n}\n```",
+  "response_id": "gen-1795047854-0TgjNlTA1LelR6jBrzab",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 402,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000797,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 402,
+    "completion_tokens": 79,
+    "total_tokens": 481,
+    "cost": 0.000797,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000797,
+      "upstream_inference_prompt_cost": 0.000402,
+      "upstream_inference_completions_cost": 0.000395
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.175,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:24:15+00:00",
+  "run_id": "20261119T002019Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

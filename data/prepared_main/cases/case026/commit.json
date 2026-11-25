@@ -1,0 +1,31 @@
+{
+  "commit": "63d98fd8047f61bfcca941ffe9514b5cbc10c9ef",
+  "files_in_commit": 4,
+  "target_index": 1,
+  "target_status": "modified",
+  "chars": 1331,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "src/sentry/ratelimits/concurrent.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "patch": "@@ -34,6 +34,7 @@ def __init__(self, max_tll_seconds: int = DEFAULT_MAX_TTL_SECONDS) -> None:\n     def validate(self) -> None:\n         try:\n             self.client.ping()\n+            self.client.connection_pool.disconnect()\n         except Exception as e:\n             raise InvalidConfiguration(str(e))\n "
+    },
+    {
+      "path": "src/sentry/ratelimits/sliding_windows.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "patch": "@@ -275,6 +275,7 @@ def __init__(self, **options: Any) -> None:\n     def validate(self) -> None:\n         try:\n             self.client.ping()\n+            self.client.connection_pool.disconnect()\n         except Exception as e:\n             raise InvalidConfiguration(str(e))\n "
+    },
+    {
+      "path": "src/sentry/utils/redis.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "patch": "@@ -324,9 +324,11 @@ def validate_dynamic_cluster(is_redis_cluster, cluster):\n     try:\n         if is_redis_cluster:\n             cluster.ping()\n+            cluster.connection_pool.disconnect()\n         else:\n             with cluster.all() as client:\n                 client.ping()\n+            cluster.disconnect_pools()\n     except Exception as e:\n         raise InvalidConfiguration(str(e))\n \n@@ -335,6 +337,7 @@ def check_cluster_versions(cluster, required, recommended=None, label=None):\n     try:\n         with cluster.all() as client:\n             results = client.info()\n+        cluster.disconnect_pools()\n     except Exception as e:\n         # Any connection issues should be caught here.\n         raise InvalidConfiguration(str(e))"
+    }
+  ]
+}

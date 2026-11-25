@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565168-YWwvJ1G2q8mIsMsViIzk",
+    "object": "chat.completion",
+    "created": 1795565168,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The GitLab `get_commit_context` sorts all blame ranges by `committed_date` and picks the last one, but since the GitLab API is now called with `range[start]=lineno&range[end]=lineno`, it should return only the blame for that specific line; however, the datetime parsing uses `%Y-%m-%dT%H:%M:%S.%fZ` which will raise a `ValueError` if the microseconds component is absent (e.g., `2015-11-14T10:12:32.000Z` has milliseconds not microseconds, though `.000Z` may parse as microseconds — but any timestamp without a fractional part will fail), potentially causing unhandled exceptions in production.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4423,
+      "completion_tokens": 179,
+      "total_tokens": 4602,
+      "cost": 0.015954,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.015954,
+        "upstream_inference_prompt_cost": 0.013269,
+        "upstream_inference_completions_cost": 0.002685
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

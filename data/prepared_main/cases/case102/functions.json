@@ -1,0 +1,15 @@
+[
+  {
+    "name": "HomeView.get",
+    "before": {
+      "start": 11,
+      "end": 21,
+      "code": "    def get(self, request: Request) -> Response:\n        # If the active organization has an ongoing onboarding session, redirect to onboarding\n        organization = self.get_active_organization(request)\n        if organization:\n            redirect_uri = get_client_state_redirect_uri(organization.slug, None)\n            if redirect_uri and is_valid_redirect(\n                redirect_uri, allowed_hosts=(request.get_host(),)\n            ):\n                return HttpResponseRedirect(redirect_uri)\n\n        return self.redirect_to_org(request)"
+    },
+    "after": {
+      "start": 11,
+      "end": 20,
+      "code": "    def get(self, request: Request) -> Response:\n        # If the active organization has an ongoing onboarding session, redirect to onboarding\n        if self.active_organization:\n            redirect_uri = get_client_state_redirect_uri(self.active_organization.slug, None)\n            if redirect_uri and is_valid_redirect(\n                redirect_uri, allowed_hosts=(request.get_host(),)\n            ):\n                return HttpResponseRedirect(redirect_uri)\n\n        return self.redirect_to_org(request)"
+    }
+  }
+]

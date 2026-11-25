@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "GroupActivityNotification.get_description",
+      "path": "src/sentry/notifications/notifications/activity/base.py",
+      "start": 83,
+      "end": 84,
+      "code": "    def get_description(self) -> tuple[str, Mapping[str, Any], Mapping[str, Any]]:\n        raise NotImplementedError",
+      "called_by": "GroupActivityNotification.get_notification_title"
+    },
+    {
+      "name": "BaseNotification.format_url",
+      "path": "src/sentry/notifications/notifications/base.py",
+      "start": 67,
+      "end": 71,
+      "code": "    def format_url(self, text: str, url: str, provider: ExternalProviders) -> str:\n        \"\"\"\n        Format URLs according to the provider options.\n        \"\"\"\n        return self.provider_to_url_format[provider].format(text=text, url=url)",
+      "called_by": "GroupActivityNotification.description_as_text"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565045-3vqtj6VX6C1pbrOHdvrz",
+    "object": "chat.completion",
+    "created": 1795565045,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Removing `config = ACTION_SCHEMA(config)` from `async_validate_action_config` in the rfxtrx component means the config is no longer validated against the schema at the platform level; while the base `cv.DEVICE_ACTION_SCHEMA` is now applied upstream, any rfxtrx-specific schema constraints (e.g., required fields, type coercions) in `ACTION_SCHEMA` will no longer be enforced, potentially allowing invalid configs to pass through.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2167,
+      "completion_tokens": 124,
+      "total_tokens": 2291,
+      "cost": 0.008361,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.008361,
+        "upstream_inference_prompt_cost": 0.006501,
+        "upstream_inference_completions_cost": 0.00186
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

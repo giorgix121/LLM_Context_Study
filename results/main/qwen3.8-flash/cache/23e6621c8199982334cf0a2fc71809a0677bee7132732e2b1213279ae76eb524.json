@@ -1,0 +1,65 @@
+{
+  "cache_key": "23e6621c8199982334cf0a2fc71809a0677bee7132732e2b1213279ae76eb524",
+  "sample_id": "case045",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit changes the schema types for several plugin fields from List of Strings to List of Dicts, which will likely cause serialization errors or data loss if the underlying `get_plugin_info()` still returns strings for these fields.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The commit changes the schema types for several plugin fields from List of Strings to List of Dicts, which will likely cause serialization errors or data loss if the underlying `get_plugin_info()` still returns strings for these fields.\"}",
+  "response_id": "gen-1795563688-VCAJGtCT8tCCUUg8xEvK",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 724,
+  "completion_tokens": 58,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00013586,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 724,
+    "completion_tokens": 58,
+    "total_tokens": 782,
+    "cost": 0.00013586,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00013586,
+      "upstream_inference_prompt_cost": 0.0001086,
+      "upstream_inference_completions_cost": 2.726e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.299,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:41:29+00:00",
+  "run_id": "20261124T234127Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

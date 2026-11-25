@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "SLURMEnvironment.__init__",
+      "path": "src/lightning_lite/plugins/environments/slurm.py",
+      "start": 42,
+      "end": 49,
+      "code": "    def __init__(self, auto_requeue: bool = True, requeue_signal: Optional[signal.Signals] = None) -> None:\n        super().__init__()\n        self.auto_requeue = auto_requeue\n        if requeue_signal is None and not _IS_WINDOWS:\n            requeue_signal = signal.SIGUSR1\n        self.requeue_signal = requeue_signal\n        self._validate_srun_used()\n        self._validate_srun_variables()",
+      "calls": "SLURMEnvironment._validate_srun_used"
+    },
+    {
+      "name": "SLURMEnvironment.detect",
+      "path": "src/lightning_lite/plugins/environments/slurm.py",
+      "start": 90,
+      "end": 100,
+      "code": "    @staticmethod\n    def detect() -> bool:\n        \"\"\"Returns ``True`` if the current process was launched on a SLURM cluster.\n\n        It is possible to use the SLURM scheduler to request resources and then launch processes manually using a\n        different environment. For this, the user can set the job name in SLURM to 'bash' (``SLURM_JOB_NAME=bash``).\n        This will then avoid the detection of ``SLURMEnvironment`` and another environment can be detected\n        automatically.\n        \"\"\"\n        SLURMEnvironment._validate_srun_used()\n        return _is_srun_used()",
+      "calls": "SLURMEnvironment._validate_srun_used"
+    }
+  ]
+}

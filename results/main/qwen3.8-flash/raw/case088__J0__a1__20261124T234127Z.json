@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564066-EurIfzRIH88edOs2u5uJ",
+    "object": "chat.completion",
+    "created": 1795564066,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The SSDP discovery flow attempts to access nested keys in `discovery_info.upnp` without checking if they exist, which will raise a KeyError and crash the integration for devices that do not match the expected Sony Bravia structure.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6686,
+      "completion_tokens": 60,
+      "total_tokens": 6746,
+      "cost": 0.0010311,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0010311,
+        "upstream_inference_prompt_cost": 0.0010029,
+        "upstream_inference_completions_cost": 2.82e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "753425756643b1c50d28e4af74bfd277eba7a69f4be37243b73a26e32a8235d8",
+  "sample_id": "case076",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The removal of the `not _TORCH_GREATER_EQUAL_1_13` condition changes the patching behavior for older PyTorch versions, which could introduce regressions or unexpected behavior in environments using PyTorch < 1.13.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The removal of the `not _TORCH_GREATER_EQUAL_1_13` condition changes the patching behavior for older PyTorch versions, which could introduce regressions or unexpected behavior in environments using PyTorch < 1.13.\"\n}\n```",
+  "response_id": "gen-1795564484-Ia068HcN2zvQsPWaSa55",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 916,
+  "completion_tokens": 81,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001321,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 916,
+    "completion_tokens": 81,
+    "total_tokens": 997,
+    "cost": 0.001321,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001321,
+      "upstream_inference_prompt_cost": 0.000916,
+      "upstream_inference_completions_cost": 0.000405
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.164,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:54:45+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

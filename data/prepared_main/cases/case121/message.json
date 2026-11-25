@@ -1,0 +1,5 @@
+{
+  "commit": "7fd8e163f3168519d1ab6748a2a5791c6cddb641",
+  "chars": 471,
+  "text": "ref(issueDetails): Use new Tabs component (#39137)\n\n**Before:**\n<img width=\"828\" alt=\"Screen Shot 2022-09-21 at 5 59 15 PM\"\nsrc=\"https://user-images.githubusercontent.com/44172267/191635595-4b95e0fc-c274-44c6-8c24-3a805b90670c.png\">\n\n**After:**\n<img width=\"828\" alt=\"Screen Shot 2022-09-21 at 6 00 28 PM\"\nsrc=\"https://user-images.githubusercontent.com/44172267/191635710-5d5aab13-6984-4afd-8ff4-f1b97e6bc64e.png\">\n\nCo-authored-by: Evan Purkhiser <evanpurkhiser@gmail.com>"
+}

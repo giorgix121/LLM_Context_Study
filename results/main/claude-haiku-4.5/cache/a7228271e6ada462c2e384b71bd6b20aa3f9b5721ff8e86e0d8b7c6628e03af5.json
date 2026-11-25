@@ -1,0 +1,66 @@
+{
+  "cache_key": "a7228271e6ada462c2e384b71bd6b20aa3f9b5721ff8e86e0d8b7c6628e03af5",
+  "sample_id": "case30",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a new configuration parameter `use_psk` that conditionally switches between two different connection methods (PSK vs PIN-based), which is a legitimate feature addition that maintains backward compatibility through the conditional logic.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change adds a new configuration parameter `use_psk` that conditionally switches between two different connection methods (PSK vs PIN-based), which is a legitimate feature addition that maintains backward compatibility through the conditional logic.\"\n}\n```",
+  "response_id": "gen-1790920294-9itJ7vwl8Eorqy3FjwWX",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 480,
+  "completion_tokens": 75,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000855,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 480,
+    "completion_tokens": 75,
+    "total_tokens": 555,
+    "cost": 0.000855,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000855,
+      "upstream_inference_prompt_cost": 0.00048,
+      "upstream_inference_completions_cost": 0.000375
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.164,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T05:51:35+00:00",
+  "run_id": "20261002T054951Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  },
+  "reused_from": "results/claude-haiku-4.5/cache/a7228271e6ada462c2e384b71bd6b20aa3f9b5721ff8e86e0d8b7c6628e03af5.json"
+}

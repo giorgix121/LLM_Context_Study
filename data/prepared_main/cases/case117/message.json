@@ -1,0 +1,5 @@
+{
+  "commit": "c1c0a777a4f99b87f025c1283303d96fe109cfb6",
+  "chars": 285,
+  "text": "chore(hybrid-cloud): Adding service layer, starting with project key (#40294)\n\nFirst cut at a hybrid cloud service abstraction. No backing\nimplementation for now, but includes a test to be replaced with\n`RegionClient` call. Extracted from\nhttps://github.com/getsentry/sentry/pull/40214"
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "de4e969f89bcea8d6e2a95e42e4d9b72e0286f4931643144384da79baece2dee",
+  "sample_id": "case137",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change introduces a new conditional that reconstructs a string using the first character of the original string as a quote, which could lead to incorrect string formatting if the original string did not start with a quote or if the evaluated string is empty.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a new conditional that reconstructs a string using the first character of the original string as a quote, which could lead to incorrect string formatting if the original string did not start with a quote or if the evaluated string is empty.\"}",
+  "response_id": "gen-1795048434-YWiF3QLNHUjIfJDcmayK",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 2514,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0002754,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2514,
+    "completion_tokens": 60,
+    "total_tokens": 2574,
+    "cost": 0.0002754,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0002754,
+      "upstream_inference_prompt_cost": 0.0002514,
+      "upstream_inference_completions_cost": 2.4e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.555,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:33:55+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

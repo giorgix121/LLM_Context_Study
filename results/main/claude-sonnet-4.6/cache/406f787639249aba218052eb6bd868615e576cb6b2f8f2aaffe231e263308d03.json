@@ -1,0 +1,65 @@
+{
+  "cache_key": "406f787639249aba218052eb6bd868615e576cb6b2f8f2aaffe231e263308d03",
+  "sample_id": "case017",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change replaces manual single-quote wrapping with `enclose_param`, which is the standard utility for safely quoting Snowflake identifiers/parameters, making the behavior equivalent or more correct.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change replaces manual single-quote wrapping with `enclose_param`, which is the standard utility for safely quoting Snowflake identifiers/parameters, making the behavior equivalent or more correct.\"}",
+  "response_id": "gen-1795193767-sMpd4hmolwvhwlXsINUi",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 289,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001797,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 289,
+    "completion_tokens": 62,
+    "total_tokens": 351,
+    "cost": 0.001797,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001797,
+      "upstream_inference_prompt_cost": 0.000867,
+      "upstream_inference_completions_cost": 0.00093
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 9.311,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:56:16+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

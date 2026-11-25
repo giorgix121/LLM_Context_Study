@@ -1,0 +1,28 @@
+[
+  {
+    "name": "RebootButton.__init__",
+    "before": {
+      "start": 29,
+      "end": 35,
+      "code": "    def __init__(self, device: ONVIFDevice) -> None:\n        \"\"\"Initialize the button entity.\"\"\"\n        super().__init__(device)\n        self._attr_name = f\"{self.device.name} Reboot\"\n        self._attr_unique_id = (\n            f\"{self.device.info.mac or self.device.info.serial_number}_reboot\"\n        )"
+    },
+    "after": {
+      "start": 29,
+      "end": 33,
+      "code": "    def __init__(self, device: ONVIFDevice) -> None:\n        \"\"\"Initialize the button entity.\"\"\"\n        super().__init__(device)\n        self._attr_name = f\"{self.device.name} Reboot\"\n        self._attr_unique_id = f\"{self.mac_or_serial}_reboot\""
+    }
+  },
+  {
+    "name": "SetSystemDateAndTimeButton.__init__",
+    "before": {
+      "start": 48,
+      "end": 52,
+      "code": "    def __init__(self, device: ONVIFDevice) -> None:\n        \"\"\"Initialize the button entity.\"\"\"\n        super().__init__(device)\n        self._attr_name = f\"{self.device.name} Set System Date and Time\"\n        self._attr_unique_id = f\"{self.device.info.mac or self.device.info.serial_number}_setsystemdatetime\""
+    },
+    "after": {
+      "start": 46,
+      "end": 50,
+      "code": "    def __init__(self, device: ONVIFDevice) -> None:\n        \"\"\"Initialize the button entity.\"\"\"\n        super().__init__(device)\n        self._attr_name = f\"{self.device.name} Set System Date and Time\"\n        self._attr_unique_id = f\"{self.mac_or_serial}_setsystemdatetime\""
+    }
+  }
+]

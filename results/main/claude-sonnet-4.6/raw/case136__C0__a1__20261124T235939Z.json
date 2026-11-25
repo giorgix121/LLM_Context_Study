@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565519-qRU7ikclrcOdN1CYDTPa",
+    "object": "chat.completion",
+    "created": 1795565519,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The duplicate-detection query runs before the `ReplayRecordingSegment` record is created, so two concurrent consumers processing the same segment simultaneously will both see `count_existing_segments == 0`, both proceed past the guard, and both insert a duplicate record — the very race condition the check is meant to prevent.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 709,
+      "completion_tokens": 83,
+      "total_tokens": 792,
+      "cost": 0.003372,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003372,
+        "upstream_inference_prompt_cost": 0.002127,
+        "upstream_inference_completions_cost": 0.001245
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "commit": "69bf77be12460924423933a20861338cdf468997",
+  "chars": 102,
+  "text": "Avoid multiline lambdas in Fritz!Smarthome sensors (#78524)\n\n* avoid multiline lambdas\n\n* update tests"
+}

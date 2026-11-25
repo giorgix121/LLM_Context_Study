@@ -1,0 +1,65 @@
+{
+  "cache_key": "7067ebe08bf0b108b7411b00f7ce0e1dd120bdcc637a6a960768b2a201b88816",
+  "sample_id": "case060",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds the required `org_id` argument to `indexer.reverse_resolve` calls, aligning them with the updated function signature and ensuring correct organization-scoped resolution.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds the required `org_id` argument to `indexer.reverse_resolve` calls, aligning them with the updated function signature and ensuring correct organization-scoped resolution.\"}",
+  "response_id": "gen-1795189586-L2hBKOfZdTpXXHHdz4Bv",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 1871,
+  "completion_tokens": 50,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00030415,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1871,
+    "completion_tokens": 50,
+    "total_tokens": 1921,
+    "cost": 0.00030415,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00030415,
+      "upstream_inference_prompt_cost": 0.00028065,
+      "upstream_inference_completions_cost": 2.35e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.065,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:46:27+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

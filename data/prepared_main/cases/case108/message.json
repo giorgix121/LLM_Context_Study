@@ -1,0 +1,5 @@
+{
+  "commit": "a02530c7a173512917115cfbfe25d7ecaa8c926d",
+  "chars": 289,
+  "text": "fix(appconnect): Use app_id_str field (#40322)\n\nThis is step 3 in the effort to change the type of\n`AppConnectBuild.app_id` from an integer to a string.\n\nIt replaces all uses of the `app_id` field with `app_id_str` and makes\nthe `app_id` field nullable, since it is not written any longer."
+}

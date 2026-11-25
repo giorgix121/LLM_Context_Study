@@ -1,0 +1,65 @@
+{
+  "cache_key": "00a8759981f15c35aa072ca42902866d339c071c352154eaaecf6873ca2c87fe",
+  "sample_id": "case067",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Removing `preload_content=False` from the urllib3 request means the response body is now fully buffered in memory via `profiling_response.data`, which could cause high memory usage or timeouts for large profiling payloads that were previously streamed.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Removing `preload_content=False` from the urllib3 request means the response body is now fully buffered in memory via `profiling_response.data`, which could cause high memory usage or timeouts for large profiling payloads that were previously streamed.\"}",
+  "response_id": "gen-1795564924-KrqBAK1lXkdKfGt12vBz",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1659,
+  "completion_tokens": 74,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.006087,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1659,
+    "completion_tokens": 74,
+    "total_tokens": 1733,
+    "cost": 0.006087,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.006087,
+      "upstream_inference_prompt_cost": 0.004977,
+      "upstream_inference_completions_cost": 0.00111
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.208,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-25T00:02:06+00:00",
+  "run_id": "20261124T235939Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

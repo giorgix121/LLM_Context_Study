@@ -1,0 +1,17 @@
+{
+  "commit": "e911e0996f1096cc23ef03b1ca70da7499dd8f2f",
+  "files_in_commit": 2,
+  "target_index": 0,
+  "target_status": "modified",
+  "chars": 235,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "tests/utils_tests/test_numberformat.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "patch": "@@ -172,3 +172,6 @@ def __format__(self, specifier, **kwargs):\n \n         price = EuroDecimal(\"1.23\")\n         self.assertEqual(nformat(price, \",\"), \"€ 1,23\")\n+\n+    def test_empty(self):\n+        self.assertEqual(nformat(\"\", \".\"), \"\")"
+    }
+  ]
+}

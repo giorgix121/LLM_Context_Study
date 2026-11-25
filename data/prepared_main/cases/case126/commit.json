@@ -1,0 +1,24 @@
+{
+  "commit": "6bb7be0641f94ddbaa69dc96047a1814e3691723",
+  "files_in_commit": 3,
+  "target_index": 0,
+  "target_status": "modified",
+  "chars": 4173,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "src/sentry/integrations/gitlab/client.py",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 0,
+      "patch": "@@ -1,5 +1,6 @@\n from __future__ import annotations\n \n+from typing import Any, Mapping, Sequence\n from urllib.parse import quote\n \n from django.urls import reverse\n@@ -14,6 +15,7 @@\n \n class GitLabApiClientPath:\n     oauth_token = \"/oauth/token\"\n+    blame = \"/projects/{project}/repository/files/{path}/blame\"\n     commit = \"/projects/{project}/repository/commits/{sha}\"\n     commits = \"/projects/{project}/repository/commits\"\n     compare = \"/projects/{project}/repository/compare\"\n@@ -317,3 +319,11 @@ def get_file(self, repo: Repository, path: str, ref: str) -> str:\n \n         encoded_content = contents[\"content\"]\n         return b64decode(encoded_content).decode(\"utf-8\")\n+\n+    def get_blame_for_file(\n+        self, repo: Repository, path: str, ref: str\n+    ) -> Sequence[Mapping[str, Any]]:\n+        project_id = repo.config[\"project_id\"]\n+        request_path = GitLabApiClientPath.blame.format(project=project_id, path=path)\n+        contents = self.get(request_path, params={\"ref\": ref})\n+        return contents"
+    },
+    {
+      "path": "tests/sentry/integrations/github/test_client.py",
+      "status": "modified",
+      "additions": 51,
+      "deletions": 0,
+      "patch": "@@ -196,3 +196,54 @@ def test_get_codeowner_file(self, mock_jwt, mock_check_file):\n         )\n \n         assert result == GITHUB_CODEOWNERS\n+\n+    @mock.patch(\"sentry.integrations.github.client.get_jwt\", return_value=b\"jwt_token_1\")\n+    @responses.activate\n+    def test_get_blame_for_file(self, get_jwt):\n+        responses.add(\n+            method=responses.POST,\n+            url=\"https://api.github.com/app/installations/1/access_tokens\",\n+            body='{\"token\": \"12345token\", \"expires_at\": \"2030-01-01T00:00:00Z\"}',\n+            content_type=\"application/json\",\n+        )\n+\n+        path = \"src/sentry/integrations/github/client.py\"\n+        ref = \"master\"\n+        query = f\"\"\"query {{\n+            repository(name: foo, owner: Test-Organization) {{\n+                ref(qualifiedName: {ref}) {{\n+                    target {{\n+                        ... on Commit {{\n+                            blame(path: {path}) {{\n+                                ranges {{\n+                                        commit {{\n+                                            oid\n+                                            author {{\n+                                                name\n+                                                email\n+                                            }}\n+                                            message\n+                                        }}\n+                                    startingLine\n+                                    endingLine\n+                                    age\n+                                }}\n+                            }}\n+                        }}\n+                    }}\n+                }}\n+            }}\n+        }}\"\"\"\n+        responses.add(\n+            method=responses.POST,\n+            url=\"https://api.github.com/graphql\",\n+            json={\"query\": query},\n+            content_type=\"application/json\",\n+        )\n+        resp = self.client.get_blame_for_file(self.repo, path, ref)\n+        assert (\n+            responses.calls[1].request.body\n+            == b'{\"query\": \"query {\\\\n            repository(name: foo, owner: Test-Organization) {\\\\n                ref(qualifiedName: master) {\\\\n                    target {\\\\n                        ... on Commit {\\\\n                            blame(path: src/sentry/integrations/github/client.py) {\\\\n                                ranges {\\\\n                                        commit {\\\\n                                            oid\\\\n                                            author {\\\\n                                                name\\\\n                                                email\\\\n                                            }\\\\n                                            message\\\\n                                        }\\\\n                                    startingLine\\\\n                                    endingLine\\\\n                                    age\\\\n                                }\\\\n                            }\\\\n                        }\\\\n                    }\\\\n                }\\\\n            }\\\\n        }\"}'\n+        )\n+\n+        assert resp == []"
+    }
+  ]
+}

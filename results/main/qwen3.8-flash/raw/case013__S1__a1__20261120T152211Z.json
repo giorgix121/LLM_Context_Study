@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189698-rOICG5VzsFg4Egr1uSnm",
+    "object": "chat.completion",
+    "created": 1795189698,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change assumes `ClientCommand` instances always have a `DESCRIPTION` attribute, but if the class definition does not provide a default value for this attribute, accessing it in `_collect_open_api_extras` or checking it in `__init__` will raise an AttributeError.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 837,
+      "completion_tokens": 69,
+      "total_tokens": 906,
+      "cost": 0.00015798,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00015798,
+        "upstream_inference_prompt_cost": 0.00012555,
+        "upstream_inference_completions_cost": 3.243e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "b4fff81a337f52e286446f555a4f2999f72be5ee54af6643bf84e2f6eeeeaa47",
+  "sample_id": "case117",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit introduces a new hybrid cloud service abstraction and changes silo modes for several models, which carries a high risk of functional defects due to potential inconsistencies in data access patterns, missing implementations for specific silo modes (e.g., CONTROL mode services are stubbed), or incorrect handling of the transition from region-to-control replication.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The commit introduces a new hybrid cloud service abstraction and changes silo modes for several models, which carries a high risk of functional defects due to potential inconsistencies in data access patterns, missing implementations for specific silo modes (e.g., CONTROL mode services are stubbed), or incorrect handling of the transition from region-to-control replication.\"}",
+  "response_id": "gen-1795563697-fAeuZFUgUYJ2JAOk2sTB",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 7138,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00110783,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 7138,
+    "completion_tokens": 79,
+    "total_tokens": 7217,
+    "cost": 0.00110783,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00110783,
+      "upstream_inference_prompt_cost": 0.0010707,
+      "upstream_inference_completions_cost": 3.713e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.42,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:41:40+00:00",
+  "run_id": "20261124T234127Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

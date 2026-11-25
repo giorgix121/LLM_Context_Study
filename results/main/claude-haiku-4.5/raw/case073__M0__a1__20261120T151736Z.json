@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795187871-WDuekY59xMF4WNZENIPH",
+    "object": "chat.completion",
+    "created": 1795187871,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change refactors wind_gust handling to only include it in attributes when it's not None, fixing a potential bug where None values were being passed to speed_convert instead of introducing new defects.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 462,
+      "completion_tokens": 73,
+      "total_tokens": 535,
+      "cost": 0.000827,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000827,
+        "upstream_inference_prompt_cost": 0.000462,
+        "upstream_inference_completions_cost": 0.000365
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

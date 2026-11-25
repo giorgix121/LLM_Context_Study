@@ -1,0 +1,65 @@
+{
+  "cache_key": "8f0631a7a75513207bdfaa725b2faaea3fbef3a7f28dc5d11e0ea0038f32730c",
+  "sample_id": "case011",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change only shortens the error message string in a ValidationException, removing a redundant prefix that duplicated context already provided by the exception type and caller, without affecting any functional logic.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change only shortens the error message string in a ValidationException, removing a redundant prefix that duplicated context already provided by the exception type and caller, without affecting any functional logic.\"}",
+  "response_id": "gen-1795192966-NvUhsPjLRZIeo6BLy7bV",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 267,
+  "completion_tokens": 57,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001656,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 267,
+    "completion_tokens": 57,
+    "total_tokens": 324,
+    "cost": 0.001656,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001656,
+      "upstream_inference_prompt_cost": 0.000801,
+      "upstream_inference_completions_cost": 0.000855
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.43,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:42:49+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

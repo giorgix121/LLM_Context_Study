@@ -1,0 +1,65 @@
+{
+  "cache_key": "da62911a5ff818084f4ced13c78e8bf4589a1fce68ac7c3c5f037748bd60f51f",
+  "sample_id": "case128",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change only adjusts brotli compression parameters (quality and mode) which affects performance/size but not the functional correctness of the request body.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change only adjusts brotli compression parameters (quality and mode) which affects performance/size but not the functional correctness of the request body.\"}",
+  "response_id": "gen-1795189419-U4E179a4WC3gtPs2f7k9",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 251,
+  "completion_tokens": 44,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 5.833e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 251,
+    "completion_tokens": 44,
+    "total_tokens": 295,
+    "cost": 5.833e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.833e-05,
+      "upstream_inference_prompt_cost": 3.765e-05,
+      "upstream_inference_completions_cost": 2.068e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.786,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:43:41+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

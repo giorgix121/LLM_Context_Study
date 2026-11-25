@@ -1,0 +1,5 @@
+{
+  "commit": "47d0598e75487f63901931875f69f802a477df13",
+  "chars": 147,
+  "text": "Use Kelvin as the preferred color temperature unit (#79591)\n\n* Use Kelvin as the preferred white temperature unit\n\n* Update homekit\n\n* Adjust tests"
+}

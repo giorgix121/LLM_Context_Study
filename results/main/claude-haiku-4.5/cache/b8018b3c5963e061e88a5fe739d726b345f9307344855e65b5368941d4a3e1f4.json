@@ -1,0 +1,65 @@
+{
+  "cache_key": "b8018b3c5963e061e88a5fe739d726b345f9307344855e65b5368941d4a3e1f4",
+  "sample_id": "case101",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit changes the command syntax from `breeze self-upgrade` to `breeze setup self-upgrade` in user-facing error messages, but if the actual CLI command structure hasn't been updated to support this new syntax, users following these instructions will encounter command failures.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The commit changes the command syntax from `breeze self-upgrade` to `breeze setup self-upgrade` in user-facing error messages, but if the actual CLI command structure hasn't been updated to support this new syntax, users following these instructions will encounter command failures.\"\n}\n```",
+  "response_id": "gen-1795564467-efoScW2eH5hOPEdoGA6G",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 433,
+  "completion_tokens": 83,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000848,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 433,
+    "completion_tokens": 83,
+    "total_tokens": 516,
+    "cost": 0.000848,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000848,
+      "upstream_inference_prompt_cost": 0.000433,
+      "upstream_inference_completions_cost": 0.000415
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.277,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:54:28+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

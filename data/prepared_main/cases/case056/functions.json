@@ -1,0 +1,15 @@
+[
+  {
+    "name": "QuickSightCreateIngestionOperator.execute",
+    "before": {
+      "start": 86,
+      "end": 98,
+      "code": "    def execute(self, context: \"Context\"):\n        hook = QuickSightHook(\n            aws_conn_id=self.aws_conn_id,\n            region_name=self.region,\n        )\n        self.log.info(\"Running the Amazon QuickSight SPICE Ingestion on Dataset ID: %s)\", self.data_set_id)\n        return hook.create_ingestion(\n            data_set_id=self.data_set_id,\n            ingestion_id=self.ingestion_id,\n            ingestion_type=self.ingestion_type,\n            wait_for_completion=self.wait_for_completion,\n            check_interval=self.check_interval,\n        )"
+    },
+    "after": {
+      "start": 86,
+      "end": 98,
+      "code": "    def execute(self, context: \"Context\"):\n        hook = QuickSightHook(\n            aws_conn_id=self.aws_conn_id,\n            region_name=self.region,\n        )\n        self.log.info(\"Running the Amazon QuickSight SPICE Ingestion on Dataset ID: %s\", self.data_set_id)\n        return hook.create_ingestion(\n            data_set_id=self.data_set_id,\n            ingestion_id=self.ingestion_id,\n            ingestion_type=self.ingestion_type,\n            wait_for_completion=self.wait_for_completion,\n            check_interval=self.check_interval,\n        )"
+    }
+  }
+]

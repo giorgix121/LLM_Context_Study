@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795188658-0rm02NMQ03RQsW93np3E",
+    "object": "chat.completion",
+    "created": 1795188658,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "length",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change in `_collect_open_api_extras` assumes non-ClientCommand objects have a `__doc__` attribute, which may raise an AttributeError if the command is a callable object (like a class instance) that does not define it or inherits from a type where `__doc__` is missing/None in unexpected ways, although standard functions/classes usually have it; more critically, if `command` is a simple function passed directly, accessing `command.__doc__` is safe, but if it's an object without `__doc__`, it crashes. However, looking closer at Python semantics, all callables generally have `__doc__`. The real risk is subtle: if `command` is a `ClientCommand`, it now returns `description`. If it's NOT a `ClientCommand`, it checks `command.__doc__`. If `command` is a lambda or a built-in function, `__doc__` might be None, handled by the check. But wait, `ClientCommand` instances are created with `method=None` in `_download_command`. In `__init__`, `self.method = method` (None). Then `if not self.DESCRIPTION: self.DESC",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4525,
+      "completion_tokens": 256,
+      "total_tokens": 4781,
+      "cost": 0.00079907,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00079907,
+        "upstream_inference_prompt_cost": 0.00067875,
+        "upstream_inference_completions_cost": 0.00012032
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

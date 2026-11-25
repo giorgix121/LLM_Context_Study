@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564008-9w5oxEAI97rcMSCpF6zD",
+    "object": "chat.completion",
+    "created": 1795564008,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The commit introduces a new streaming consumer path and modifies function signatures (e.g., adding `use_streaming_consumer` and `strict_offset_reset`) without ensuring all callers or subclasses in the broader codebase are updated, which risks runtime errors like `TypeError` due to missing arguments.\"\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3919,
+      "completion_tokens": 76,
+      "total_tokens": 3995,
+      "cost": 0.00062357,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00062357,
+        "upstream_inference_prompt_cost": 0.00058785,
+        "upstream_inference_completions_cost": 3.572e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

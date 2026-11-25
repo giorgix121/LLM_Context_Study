@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563951-xNiIktLcTG1XZdE8K4yO",
+    "object": "chat.completion",
+    "created": 1795563951,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new `get_enabled_user_biases` method returns a set of bias IDs, but the test mock in `test_generate_rules_return_uniform_rules_with_rate` incorrectly mocks it to return a dictionary (`{\\\"id\\\": \\\"boostEnvironments\\\", \\\"active\\\": False}`) instead of a set, which will cause the membership check `RuleType.BOOST_ENVIRONMENTS_RULE.value in enabled_biases` to fail or behave unexpectedly if the mock is not strictly controlled, and more importantly, the logic change from checking a specific bias object's 'active' status to checking for ID presence in a set assumes that only active biases are included in the returned set, which is correct per the implementation, but the test setup mismatch suggests potential fragility or incorrect test expectations regarding the return type.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8652,
+      "completion_tokens": 170,
+      "total_tokens": 8822,
+      "cost": 0.0013777,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0013777,
+        "upstream_inference_prompt_cost": 0.0012978,
+        "upstream_inference_completions_cost": 7.99e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

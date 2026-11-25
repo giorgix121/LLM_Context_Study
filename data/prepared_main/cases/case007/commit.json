@@ -1,0 +1,143 @@
+{
+  "commit": "fa37ddc584f5e245c589ca1442e50064a0086ca8",
+  "files_in_commit": 20,
+  "target_index": 0,
+  "target_status": "modified",
+  "chars": 14397,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "doc/source/serve/doc_code/conditional.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "patch": "@@ -8,15 +8,15 @@\n \n @serve.deployment\n class Model:\n-    def __init__(self, weight):\n+    def __init__(self, weight: int):\n         self.weight = weight\n \n-    def forward(self, input):\n+    def forward(self, input: int) -> int:\n         return input + self.weight\n \n \n @serve.deployment\n-def combine(value1, value2, operation):\n+def combine(value1: int, value2: int, operation: str) -> int:\n     if operation == \"sum\":\n         return sum([value1, value2])\n     else:"
+    },
+    {
+      "path": "doc/source/serve/doc_code/counter_repro.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 18,
+      "patch": "@@ -1,18 +0,0 @@\n-from ray import serve\n-\n-import logging\n-\n-logger = logging.getLogger(\"ray.serve\")\n-\n-\n-@serve.deployment\n-class Counter:\n-    def __init__(self):\n-        self.count = 0\n-\n-    async def __call__(self, request):\n-        self.count += 1\n-        return self.count\n-\n-\n-counter = Counter.bind()"
+    },
+    {
+      "path": "doc/source/serve/doc_code/create_deployment.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 98,
+      "patch": "@@ -1,98 +0,0 @@\n-# flake8: noqa\n-# fmt: off\n-#\n-# __serve_example_begin__\n-#\n-# This brief example shows how to create, deploy, and expose access to\n-# deployment models, using the simple Ray Serve deployment APIs.\n-# Once deployed, you can access deployment via two methods:\n-# ServerHandle API and HTTP\n-#\n-import os\n-from random import random\n-\n-import requests\n-import starlette.requests\n-from ray import serve\n-\n-#\n-# A simple example model stored in a pickled format at an accessible path\n-# that can be reloaded and deserialized into a model instance. Once deployed\n-# in Ray Serve, we can use it for prediction. The prediction is a fake condition,\n-# based on threshold of weight greater than 0.5.\n-#\n-\n-\n-class Model:\n-    def __init__(self, path):\n-        self.path = path\n-\n-    def predict(self, data: float) -> float:\n-        return random() + data if data > 0.5 else data\n-\n-\n-@serve.deployment\n-class Predictor:\n-    # Take in a path to load your desired model\n-    def __init__(self, path: str) -> None:\n-        self.path = path\n-        self.model = Model(path)\n-        # Get the pid on which this deployment is running on\n-        self.pid = os.getpid()\n-\n-    # Deployments are callable. Here we simply return a prediction from\n-    # our request.\n-    async def predict(self, data: float) -> str:\n-        pred = self.model.predict(data)\n-        return (f\"(pid: {self.pid}); path: {self.path}; \"\n-                f\"data: {float(data):.3f}; prediction: {pred:.3f}\")\n-\n-    async def __call__(self, http_request: starlette.requests.Request) -> str:\n-        data = float(await http_request.query_params['data'])\n-        return await self.predict(data)\n-\n-\n-@serve.deployment\n-class ServeHandleDemo:\n-    def __init__(self, predictor_1: Predictor, predictor_2: Predictor):\n-        self.predictor_1 = predictor_1\n-        self.predictor_2 = predictor_2\n-\n-    async def run(self):\n-        # Query each deployment twice to demonstrate that the requests\n-        # get forwarded to different replicas (below, we will set\n-        # num_replicas to 2 for each deployment).\n-        for _ in range(2):\n-            for predictor in [self.predictor_1, self.predictor_2]:\n-                # Call our deployments from Python using the ServeHandle API.\n-                random_prediction = await predictor.predict.remote(random())\n-                print(f\"prediction: {random_prediction}\")\n-\n-    async def __call__(self, http_request: starlette.requests.Request) -> str:\n-        return await self.run()\n-\n-\n-predictor_1 = Predictor.options(num_replicas=2).bind(\"/model/model-1.pkl\")\n-predictor_2 = Predictor.options(num_replicas=2).bind(\"/model/model-2.pkl\")\n-\n-# Pass in our deployments as arguments.  At runtime, these are resolved to ServeHandles.\n-serve_handle_demo = ServeHandleDemo.bind(predictor_1, predictor_2)\n-\n-# Start a local single-node Ray cluster and start Ray Serve. These will shut down upon\n-# exiting this script. \n-serve.run(serve_handle_demo)\n-\n-print(\"ServeHandle API responses: \" + \"--\" * 5)\n-\n-url = \"http://127.0.0.1:8000/\"\n-response = requests.get(url)\n-prediction = response.text\n-print(f\"prediction : {prediction}\")\n-\n-# Output (\"INFO\" logs omitted for brevity):\n-\n-# (ServeReplica:ServeHandleDemo pid=16062) prediction: (pid: 16059); path: /model/model-1.pkl; data: 0.166; prediction: 0.166\n-# (ServeReplica:ServeHandleDemo pid=16062) prediction: (pid: 16061); path: /model/model-2.pkl; data: 0.820; prediction: 0.986\n-# (ServeReplica:ServeHandleDemo pid=16062) prediction: (pid: 16058); path: /model/model-1.pkl; data: 0.691; prediction: 0.857\n-# (ServeReplica:ServeHandleDemo pid=16062) prediction: (pid: 16060); path: /model/model-2.pkl; data: 0.948; prediction: 1.113\n-# __serve_example_end__"
+    },
+    {
+      "path": "doc/source/serve/doc_code/deploying_serve_example.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "patch": "@@ -1,12 +1,14 @@\n import subprocess\n \n # __deploy_in_single_file_1_start__\n+from starlette.requests import Request\n+\n import ray\n from ray import serve\n \n \n @serve.deployment\n-def my_func(request):\n+def my_func(request: Request) -> str:\n     return \"hello\"\n \n \n@@ -24,7 +26,7 @@ def my_func(request):\n \n \n @serve.deployment\n-def my_func(request):\n+def my_func(request: Request) -> str:\n     return \"hello\"\n \n "
+    },
+    {
+      "path": "doc/source/serve/doc_code/deployment_graph_dag_http.py",
+      "status": "removed",
+      "additions": 0,
+      "deletions": 50,
+      "patch": "@@ -1,50 +0,0 @@\n-import requests\n-from pydantic import BaseModel\n-\n-import ray\n-from ray import serve\n-from ray.serve.drivers import DAGDriver\n-from ray.dag.input_node import InputNode\n-\n-\n-class ModelInputData(BaseModel):\n-    model_input1: int\n-    model_input2: str\n-\n-\n-@serve.deployment\n-class Model:\n-    def __init__(self, weight):\n-        self.weight = weight\n-\n-    def forward(self, input: ModelInputData):\n-        return input.model_input1 + len(input.model_input2) + self.weight\n-\n-\n-@serve.deployment\n-def combine(value_refs):\n-    return sum(ray.get(value_refs))\n-\n-\n-with InputNode() as user_input:\n-    model1 = Model.bind(0)\n-    model2 = Model.bind(1)\n-    output1 = model1.forward.bind(user_input)\n-    output2 = model2.forward.bind(user_input)\n-    dag = combine.bind([output1, output2])\n-    serve_dag = DAGDriver.options(route_prefix=\"/my-dag\").bind(\n-        dag, http_adapter=ModelInputData\n-    )\n-\n-dag_handle = serve.run(serve_dag)\n-\n-print(\n-    ray.get(\n-        dag_handle.predict.remote(ModelInputData(model_input1=1, model_input2=\"test\"))\n-    )\n-)\n-print(\n-    requests.post(\n-        \"http://127.0.0.1:8000/my-dag\", json={\"model_input1\": 1, \"model_input2\": \"test\"}\n-    ).text\n-)"
+    },
+    {
+      "path": "doc/source/serve/doc_code/getting_started/model_deployment.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "patch": "@@ -1,6 +1,8 @@\n # flake8: noqa\n \n # __import_start__\n+from starlette.requests import Request\n+\n import ray\n from ray import serve\n \n@@ -25,7 +27,7 @@ def translate(self, text: str) -> str:\n \n         return translation\n \n-    async def __call__(self, http_request) -> str:\n+    async def __call__(self, http_request: Request) -> str:\n         english_text: str = await http_request.json()\n         return self.translate(english_text)\n "
+    },
+    {
+      "path": "doc/source/serve/doc_code/getting_started/model_deployment_full.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "patch": "@@ -2,8 +2,11 @@\n \n # __deployment_full_start__\n # File name: serve_deployment.py\n+from starlette.requests import Request\n+\n import ray\n from ray import serve\n+\n from transformers import pipeline\n \n \n@@ -22,7 +25,7 @@ def translate(self, text: str) -> str:\n \n         return translation\n \n-    async def __call__(self, http_request) -> str:\n+    async def __call__(self, http_request: Request) -> str:\n         english_text: str = await http_request.json()\n         return self.translate(english_text)\n "
+    },
+    {
+      "path": "doc/source/serve/doc_code/getting_started/model_graph.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "patch": "@@ -2,6 +2,8 @@\n \n # __start_graph__\n # File name: graph.py\n+from starlette.requests import Request\n+\n import ray\n from ray import serve\n \n@@ -40,7 +42,7 @@ def summarize(self, text: str) -> str:\n \n         return summary\n \n-    async def __call__(self, http_request) -> str:\n+    async def __call__(self, http_request: Request) -> str:\n         english_text: str = await http_request.json()\n         summary = self.summarize(english_text)\n "
+    },
+    {
+      "path": "doc/source/serve/doc_code/handle_guide.py",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "patch": "@@ -1,14 +1,16 @@\n # flake8: noqa\n \n # __begin_sync_handle__\n+from starlette.requests import Request\n+\n import ray\n from ray import serve\n from ray.serve.handle import RayServeSyncHandle\n \n \n @serve.deployment\n class Model:\n-    def __call__(self):\n+    def __call__(self) -> str:\n         return \"hello\"\n \n \n@@ -27,7 +29,7 @@ def __call__(self):\n \n @serve.deployment\n class Model:\n-    def __call__(self):\n+    def __call__(self) -> str:\n         return \"hello\"\n \n \n@@ -104,10 +106,10 @@ async def __call__(self, inp):\n \n @serve.deployment\n class Deployment:\n-    def method1(self, arg):\n+    def method1(self, arg: str) -> str:\n         return f\"Method1: {arg}\"\n \n-    def __call__(self, arg):\n+    def __call__(self, arg: str) -> str:\n         return f\"__call__: {arg}\"\n \n "
+    },
+    {
+      "path": "doc/source/serve/doc_code/key-concepts-deployment-graph.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "patch": "@@ -5,7 +5,7 @@\n \n \n @serve.deployment\n-def preprocess(inp: int):\n+def preprocess(inp: int) -> int:\n     return inp + 1\n \n \n@@ -14,7 +14,7 @@ class Model:\n     def __init__(self, increment: int):\n         self.increment = increment\n \n-    def predict(self, inp: int):\n+    def predict(self, inp: int) -> int:\n         return inp + self.increment\n \n "
+    },
+    {
+      "path": "doc/source/serve/doc_code/migration_example.py",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 7,
+      "patch": "@@ -6,7 +6,7 @@\n from ray.serve.handle import RayServeSyncHandle\n \n import requests\n-import starlette\n+from starlette.requests import Request\n \n serve.start()\n \n@@ -16,7 +16,7 @@\n \n @serve.deployment\n class Model:\n-    def forward(self, input):\n+    def forward(self, input) -> str:\n         # do some inference work\n         return \"done\"\n \n@@ -92,7 +92,7 @@ def forward(self, input: int):\n # __customized_route_old_api_start__\n @serve.deployment(route_prefix=\"/my_model1\")\n class Model:\n-    def __call__(self, req: starlette.requests.Request):\n+    def __call__(self, req: Request) -> str:\n         # some inference work\n         return \"done\"\n \n@@ -157,7 +157,7 @@ def forward(self, input: int):\n # __customized_route_old_api_1_start__\n @serve.deployment\n class Model:\n-    def __call__(self, req: starlette.requests.Request):\n+    def __call__(self, req: Request) -> str:\n         # some inference work\n         return \"done\"\n \n@@ -173,14 +173,14 @@ def __call__(self, req: starlette.requests.Request):\n # __customized_route_old_api_2_start__\n @serve.deployment\n class Model:\n-    def __call__(self, req: starlette.requests.Request):\n+    def __call__(self, req: Request) -> str:\n         # some inference work\n         return \"done\"\n \n \n @serve.deployment\n class Model2:\n-    def __call__(self, req: starlette.requests.Request):\n+    def __call__(self, req: Request) -> str:\n         # some inference work\n         return \"done\"\n \n@@ -197,7 +197,7 @@ def __call__(self, req: starlette.requests.Request):\n # __graph_with_new_api_start__\n @serve.deployment\n class Model:\n-    def forward(self, input):\n+    def forward(self, input) -> str:\n         # do some inference work\n         return \"done\"\n "
+    },
+    {
+      "path": "doc/source/serve/doc_code/ml_models_examples.py",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 3,
+      "patch": "@@ -1,5 +1,7 @@\n from ray import serve\n-from typing import List, Dict, Any\n+from typing import List, Dict\n+\n+from starlette.requests import Request\n \n \n # __batch_example_start__\n@@ -9,14 +11,14 @@ def __init__(self):\n         self.count = 0\n \n     @serve.batch\n-    async def handle_batch(self, requests: List[Any]) -> List[Dict]:\n+    async def handle_batch(self, requests: List[Request]) -> List[Dict]:\n         responses = []\n         for request in requests:\n             responses.append(request.json())\n \n         return responses\n \n-    async def __call__(self, request) -> List[Dict]:\n+    async def __call__(self, request: Request) -> List[Dict]:\n         return await self.handle_batch(request)\n \n "
+    },
+    {
+      "path": "doc/source/serve/doc_code/model_composition/arithmetic.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "patch": "@@ -6,6 +6,8 @@\n from ray.serve.drivers import DAGDriver\n from ray.serve.deployment_graph import InputNode\n \n+from starlette.requests import Request\n+\n \n @serve.deployment\n class AddCls:\n@@ -15,7 +17,7 @@ def __init__(self, addend: float):\n     def add(self, number: float) -> float:\n         return number + self.addend\n \n-    async def unpack_request(self, http_request) -> float:\n+    async def unpack_request(self, http_request: Request) -> float:\n         return await http_request.json()\n \n \n@@ -25,7 +27,7 @@ def subtract_one_fn(number: float) -> float:\n \n \n @serve.deployment\n-async def unpack_request(http_request) -> float:\n+async def unpack_request(http_request: Request) -> float:\n     return await http_request.json()\n \n "
+    },
+    {
+      "path": "doc/source/serve/doc_code/model_composition/class_nodes.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "patch": "@@ -4,6 +4,8 @@\n \n # __echo_class_start__\n # File name: echo.py\n+from starlette.requests import Request\n+\n from ray import serve\n \n \n@@ -12,7 +14,7 @@ class EchoClass:\n     def __init__(self, echo_str: str):\n         self.echo_str = echo_str\n \n-    def __call__(self, request) -> str:\n+    def __call__(self, request: Request) -> str:\n         return self.echo_str\n \n "
+    },
+    {
+      "path": "doc/source/serve/doc_code/model_composition/deployment_graph_viz.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "patch": "@@ -7,15 +7,15 @@\n \n @serve.deployment\n class Model:\n-    def __init__(self, weight):\n+    def __init__(self, weight: int):\n         self.weight = weight\n \n-    def forward(self, input):\n+    def forward(self, input: int) -> int:\n         return input + self.weight\n \n \n @serve.deployment\n-def combine(output_1, output_2, kwargs_output=0):\n+def combine(output_1: int, output_2: int, kwargs_output: int = 0) -> int:\n     return output_1 + output_2 + kwargs_output\n \n "
+    },
+    {
+      "path": "doc/source/serve/doc_code/monitoring/monitoring.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "patch": "@@ -5,13 +5,14 @@\n \n from ray import serve\n import logging\n+from starlette.requests import Request\n \n logger = logging.getLogger(\"ray.serve\")\n \n \n @serve.deployment\n class SayHello:\n-    async def __call__(self, request):\n+    async def __call__(self, request: Request) -> str:\n         logger.info(\"Hello world!\")\n         return \"hi\"\n "
+    },
+    {
+      "path": "doc/source/serve/doc_code/quickstart.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "patch": "@@ -1,4 +1,7 @@\n import requests\n+from starlette.requests import Request\n+from typing import Dict\n+\n from ray import serve\n \n \n@@ -9,7 +12,7 @@ def __init__(self, msg: str):\n         # Initialize model state: could be very large neural net weights.\n         self._msg = msg\n \n-    def __call__(self, request):\n+    def __call__(self, request: Request) -> Dict:\n         return {\"result\": self._msg}\n \n "
+    },
+    {
+      "path": "doc/source/serve/doc_code/sklearn_quickstart.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "patch": "@@ -3,6 +3,8 @@\n \n # __serve_example_begin__\n import requests\n+from starlette.requests import Request\n+from typing import Dict\n \n from sklearn.datasets import load_iris\n from sklearn.ensemble import GradientBoostingClassifier\n@@ -22,7 +24,7 @@ def __init__(self, model):\n         self.model = model\n         self.label_list = iris_dataset[\"target_names\"].tolist()\n \n-    async def __call__(self, request):\n+    async def __call__(self, request: Request) -> Dict:\n         payload = (await request.json())[\"vector\"]\n         print(f\"Received http request with data {payload}\")\n "
+    },
+    {
+      "path": "doc/source/serve/doc_code/transformers_example.py",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "patch": "@@ -1,5 +1,9 @@\n import requests\n+from starlette.requests import Request\n+from typing import Dict\n+\n from transformers import pipeline\n+\n from ray import serve\n \n \n@@ -9,7 +13,7 @@ class SentimentAnalysisDeployment:\n     def __init__(self):\n         self._model = pipeline(\"sentiment-analysis\")\n \n-    def __call__(self, request):\n+    def __call__(self, request: Request) -> Dict:\n         return self._model(request.query_params[\"text\"])[0]\n \n "
+    }
+  ]
+}

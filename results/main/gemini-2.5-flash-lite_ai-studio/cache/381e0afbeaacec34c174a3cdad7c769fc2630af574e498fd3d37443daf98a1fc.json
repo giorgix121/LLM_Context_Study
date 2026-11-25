@@ -1,0 +1,65 @@
+{
+  "cache_key": "381e0afbeaacec34c174a3cdad7c769fc2630af574e498fd3d37443daf98a1fc",
+  "sample_id": "case046",
+  "strategy": "N2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The changes in `homeassistant/components/onvif/button.py` are minor refactors that simplify the construction of unique IDs by using a new `mac_or_serial` property, without altering the core functionality or introducing new behavior.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The changes in `homeassistant/components/onvif/button.py` are minor refactors that simplify the construction of unique IDs by using a new `mac_or_serial` property, without altering the core functionality or introducing new behavior.\"}",
+  "response_id": "gen-1795048561-Ww0JffEm4OwhGIFW0H3l",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 1613,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0001873,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1613,
+    "completion_tokens": 65,
+    "total_tokens": 1678,
+    "cost": 0.0001873,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001873,
+      "upstream_inference_prompt_cost": 0.0001613,
+      "upstream_inference_completions_cost": 2.6e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.651,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:36:01+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

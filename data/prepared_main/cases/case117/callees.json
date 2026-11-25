@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "SiloMode.get_current_mode",
+      "path": "src/sentry/silo.py",
+      "start": 34,
+      "end": 36,
+      "code": "    @classmethod\n    def get_current_mode(cls) -> SiloMode:\n        return cls.resolve(settings.SILO_MODE)",
+      "called_by": "_should_produce_to_kafka"
+    },
+    {
+      "name": "get_kafka_producer_cluster_options",
+      "path": "src/sentry/utils/kafka_config.py",
+      "start": 76,
+      "end": 77,
+      "code": "def get_kafka_producer_cluster_options(cluster_name):\n    return _get_kafka_cluster_options(cluster_name, PRODUCERS_SECTION)",
+      "called_by": "get_region_to_control_producer"
+    }
+  ]
+}

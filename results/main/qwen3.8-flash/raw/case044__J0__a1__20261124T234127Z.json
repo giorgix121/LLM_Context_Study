@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563961-gBl6aalIokc9GrytmLnD",
+    "object": "chat.completion",
+    "created": 1795563961,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Changing `call.data.get(ATTR_GW_MAC)` to direct dictionary access `call.data[ATTR_GW_MAC]` in service handlers will raise a KeyError if the attribute is missing, whereas the previous `.get()` method would return None and likely fail more gracefully or be handled by schema validation.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1499,
+      "completion_tokens": 74,
+      "total_tokens": 1573,
+      "cost": 0.00025963,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00025963,
+        "upstream_inference_prompt_cost": 0.00022485,
+        "upstream_inference_completions_cost": 3.478e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

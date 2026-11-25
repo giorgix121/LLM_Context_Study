@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795190075-btx1wxt2Cacpa1YUZBc7",
+    "object": "chat.completion",
+    "created": 1795190075,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change introduces a potential AttributeError in `_collect_open_api_extras` when accessing `command.DESCRIPTION` if the `ClientCommand` instance was created before this patch or if the class definition lacks the `DESCRIPTION` attribute, as the fallback logic in `__init__` only sets it on the instance and not necessarily ensuring the attribute exists for all code paths or older instances.\"\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1178,
+      "completion_tokens": 96,
+      "total_tokens": 1274,
+      "cost": 0.00022182,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00022182,
+        "upstream_inference_prompt_cost": 0.0001767,
+        "upstream_inference_completions_cost": 4.512e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

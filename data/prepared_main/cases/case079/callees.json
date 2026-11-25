@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "ProgressBarBase.disable",
+      "path": "src/pytorch_lightning/callbacks/progress/base.py",
+      "start": 203,
+      "end": 205,
+      "code": "    def disable(self) -> None:\n        \"\"\"You should provide a way to disable the progress bar.\"\"\"\n        raise NotImplementedError",
+      "called_by": "ProgressBarBase.setup"
+    }
+  ]
+}

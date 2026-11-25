@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795187904-CUX3YBNPcaPynD3IBSLH",
+    "object": "chat.completion",
+    "created": 1795187904,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change fixes a memory leak by adding explicit deletion of `ma_batch` and correcting indentation to ensure cleanup happens within the conditional block where the batch is used.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 362,
+      "completion_tokens": 65,
+      "total_tokens": 427,
+      "cost": 0.000687,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000687,
+        "upstream_inference_prompt_cost": 0.000362,
+        "upstream_inference_completions_cost": 0.000325
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795190034-cedaDfqSlncZgpKKohcE",
+    "object": "chat.completion",
+    "created": 1795190034,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a potential race condition or logic error in `global_tags` because `old_len` is calculated after appending the new tags, meaning `del stack[old_len:]` will remove the newly added tags along with any tags added by nested calls to `add_global_tags`, but if `add_global_tags` is called *before* entering the context manager (or concurrently), the cleanup might not behave as intended for the specific scope of the context manager versus global additions.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1275,
+      "completion_tokens": 110,
+      "total_tokens": 1385,
+      "cost": 0.000105734,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000105734,
+        "upstream_inference_prompt_cost": 5.4034e-05,
+        "upstream_inference_completions_cost": 5.17e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

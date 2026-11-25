@@ -1,0 +1,65 @@
+{
+  "cache_key": "22b74a9fcc4fecef11ba03e7d2ffa3422e60306aadf0645c266bc38a3272d46d",
+  "sample_id": "case042",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adjusts the input shape from (1,) to () and adds a Flatten layer to expand the scalar input to a 1D feature vector, which is a documentation/example code fix that maintains equivalent model behavior.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adjusts the input shape from (1,) to () and adds a Flatten layer to expand the scalar input to a 1D feature vector, which is a documentation/example code fix that maintains equivalent model behavior.\"}",
+  "response_id": "gen-1795193879-aPIgs6iX34ASdAXre4tm",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 285,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001845,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 285,
+    "completion_tokens": 66,
+    "total_tokens": 351,
+    "cost": 0.001845,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001845,
+      "upstream_inference_prompt_cost": 0.000855,
+      "upstream_inference_completions_cost": 0.00099
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.274,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:58:01+00:00",
+  "run_id": "20261120T165651Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

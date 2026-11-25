@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192578-bLCJ9sXpfqXOW6SXp2or",
+    "object": "chat.completion",
+    "created": 1795192578,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change correctly migrates from the deprecated direct path access to using `as_directory()` context manager for the AIR Checkpoint API, which is the intended new pattern and keeps all logic inside the context where the directory is guaranteed to be available.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 738,
+      "completion_tokens": 70,
+      "total_tokens": 808,
+      "cost": 0.003264,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003264,
+        "upstream_inference_prompt_cost": 0.002214,
+        "upstream_inference_completions_cost": 0.00105
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

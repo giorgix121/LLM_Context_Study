@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189460-f5bCbRoijm2laJT5te40",
+    "object": "chat.completion",
+    "created": 1795189460,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new feature check `features.has(\\\"organizations:customer-domains\\\", last_org)` is executed unconditionally, which may raise an exception or behave incorrectly if `last_org` is None (e.g., for anonymous users or when no active org exists), whereas the previous logic only accessed organization data after ensuring it existed.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3315,
+      "completion_tokens": 78,
+      "total_tokens": 3393,
+      "cost": 0.00053391,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00053391,
+        "upstream_inference_prompt_cost": 0.00049725,
+        "upstream_inference_completions_cost": 3.666e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

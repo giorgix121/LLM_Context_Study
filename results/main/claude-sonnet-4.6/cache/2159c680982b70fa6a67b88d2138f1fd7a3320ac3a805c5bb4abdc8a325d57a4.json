@@ -1,0 +1,65 @@
+{
+  "cache_key": "2159c680982b70fa6a67b88d2138f1fd7a3320ac3a805c5bb4abdc8a325d57a4",
+  "sample_id": "case120",
+  "strategy": "N2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Changing the parameter type annotation from `str` to `bytes` may cause runtime errors if callers still pass string values, or if internal logic (e.g., JSON decoding, string operations) inside the function expects a string rather than bytes.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Changing the parameter type annotation from `str` to `bytes` may cause runtime errors if callers still pass string values, or if internal logic (e.g., JSON decoding, string operations) inside the function expects a string rather than bytes.\"}",
+  "response_id": "gen-1795191364-LRGqLhr4CM0sIj2T7kVw",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 4352,
+  "completion_tokens": 68,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.014076,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 4352,
+    "completion_tokens": 68,
+    "total_tokens": 4420,
+    "cost": 0.014076,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.014076,
+      "upstream_inference_prompt_cost": 0.013056,
+      "upstream_inference_completions_cost": 0.00102
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.666,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:16:06+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

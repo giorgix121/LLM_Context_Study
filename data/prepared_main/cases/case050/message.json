@@ -1,0 +1,5 @@
+{
+  "commit": "6313787fb65002328a5858c2c3f5c5db29ebe3e1",
+  "chars": 108,
+  "text": "Auto-format code with black (#10977)\n\nCo-authored-by: explosion-bot <explosion-bot@users.noreply.github.com>"
+}

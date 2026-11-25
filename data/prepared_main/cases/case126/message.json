@@ -1,0 +1,5 @@
+{
+  "commit": "6bb7be0641f94ddbaa69dc96047a1814e3691723",
+  "chars": 69,
+  "text": "feat(commit-context): Add blame API to GitHub/GitLab clients (#38646)"
+}

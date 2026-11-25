@@ -1,0 +1,15 @@
+{
+  "target_chars": 1848,
+  "chars": 1838,
+  "files": [
+    {
+      "path": "homeassistant/components/knx/config_flow.py",
+      "chars": 1757,
+      "truncated": true
+    }
+  ],
+  "text": "<file path=\"homeassistant/components/knx/config_flow.py\" truncated=\"yes\">\n\"\"\"Config flow for KNX.\"\"\"\nfrom __future__ import annotations\n\nfrom typing import Any, Final\n\nimport voluptuous as vol\nfrom xknx import XKNX\nfrom xknx.exceptions.exception import InvalidSignature\nfrom xknx.io import DEFAULT_MCAST_GRP, DEFAULT_MCAST_PORT\nfrom xknx.io.gateway_scanner import GatewayDescriptor, GatewayScanner\nfrom xknx.secure import load_key_ring\n\nfrom homeassistant import config_entries\nfrom homeassistant.config_entries import ConfigEntry, OptionsFlow\nfrom homeassistant.const import CONF_HOST, CONF_PORT\nfrom homeassistant.core import callback\nfrom homeassistant.data_entry_flow import FlowResult\nfrom homeassistant.helpers import selector\nfrom homeassistant.helpers.storage import STORAGE_DIR\n\nfrom .const import (\n    CONF_KNX_AUTOMATIC,\n    CONF_KNX_CONNECTION_TYPE,\n    CONF_KNX_DEFAULT_RATE_LIMIT,\n    CONF_KNX_DEFAULT_STATE_UPDATER,\n    CONF_KNX_INDIVIDUAL_ADDRESS,\n    CONF_KNX_KNXKEY_FILENAME,\n    CONF_KNX_KNXKEY_PASSWORD,\n    CONF_KNX_LOCAL_IP,\n    CONF_KNX_MCAST_GRP,\n    CONF_KNX_MCAST_PORT,\n    CONF_KNX_RATE_LIMIT,\n    CONF_KNX_ROUTE_BACK,\n    CONF_KNX_ROUTING,\n    CONF_KNX_SECURE_DEVICE_AUTHENTICATION,\n    CONF_KNX_SECURE_USER_ID,\n    CONF_KNX_SECURE_USER_PASSWORD,\n    CONF_KNX_STATE_UPDATER,\n    CONF_KNX_TUNNELING,\n    CONF_KNX_TUNNELING_TCP,\n    CONF_KNX_TUNNELING_TCP_SECURE,\n    CONST_KNX_STORAGE_KEY,\n    DOMAIN,\n    KNXConfigEntryData,\n)\nfrom .schema import ia_validator, ip_v4_validator\n\nCONF_KNX_GATEWAY: Final = \"gateway\"\nCONF_MAX_RATE_LIMIT: Final = 60\nCONF_DEFAULT_LOCAL_IP: Final = \"0.0.0.0\"\n\nDEFAULT_ENTRY_DATA = KNXConfigEntryData(\n    individual_address=XKNX.DEFAULT_ADDRESS,\n    multicast_group=DEFAULT_MCAST_GRP,\n    multicast_port=DEFAULT_MCAST_PORT,\n    state_updater=CONF_KNX_DEFAULT_STATE_UPDATER,\n</file>",
+  "donor_sample_id": "case043",
+  "donor_repo": "home-assistant/core",
+  "donor_commit": "55b036ec5ef570b146a6126408da929dd66e431e"
+}

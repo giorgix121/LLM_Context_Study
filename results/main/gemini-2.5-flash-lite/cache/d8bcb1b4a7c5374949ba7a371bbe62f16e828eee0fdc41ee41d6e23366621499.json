@@ -1,0 +1,66 @@
+{
+  "cache_key": "d8bcb1b4a7c5374949ba7a371bbe62f16e828eee0fdc41ee41d6e23366621499",
+  "sample_id": "case25",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The code incorrectly assigns the 'requirements' metadata only if 'description' is present, which could lead to missing requirement information.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The code incorrectly assigns the 'requirements' metadata only if 'description' is present, which could lead to missing requirement information.\"\n}\n```",
+  "response_id": "gen-1790923143-Z2uFwMaxzgObVLEEPFv3",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 4735,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0004927,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 4735,
+    "completion_tokens": 48,
+    "total_tokens": 4783,
+    "cost": 0.0004927,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0004927,
+      "upstream_inference_prompt_cost": 0.0004735,
+      "upstream_inference_completions_cost": 1.92e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.731,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T06:39:04+00:00",
+  "run_id": "20261002T063748Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  },
+  "reused_from": "results/gemini-2.5-flash-lite/cache/d8bcb1b4a7c5374949ba7a371bbe62f16e828eee0fdc41ee41d6e23366621499.json"
+}

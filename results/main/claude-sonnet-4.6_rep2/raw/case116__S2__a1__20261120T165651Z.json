@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795194360-6BgC9CzS3nEGYy0NE9dM",
+    "object": "chat.completion",
+    "created": 1795194360,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The recursive call `connect(app_name_or_id, yes)` after `disconnect()` re-reads the connected_file inside the same function, but since `disconnect()` removes the file, the recursion should proceed correctly in normal cases; however, if `disconnect()` fails or the file reappears (e.g., race condition or exception), this could cause infinite recursion with no depth limit or termination guard.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4671,
+      "completion_tokens": 109,
+      "total_tokens": 4780,
+      "cost": 0.015648,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.015648,
+        "upstream_inference_prompt_cost": 0.014013,
+        "upstream_inference_completions_cost": 0.001635
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "6b976b35978f9e44863127492d720ddd2979baebed184b838c1965c5d6177cc4",
+  "sample_id": "case125",
+  "strategy": "S5",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change replaces `hass.data[DATA_MQTT]` with `hass.data[DATA_MQTT].client`, which is a more specific way to access the MQTT client instance, likely improving code clarity without altering functionality.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\"label\": \"NON-RISKY\", \"explanation\": \"The change replaces `hass.data[DATA_MQTT]` with `hass.data[DATA_MQTT].client`, which is a more specific way to access the MQTT client instance, likely improving code clarity without altering functionality.\"}\n```",
+  "response_id": "gen-1790927784-04GTtIWrBHGqeqTSspUx",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 683173,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0683429,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 683173,
+    "completion_tokens": 64,
+    "total_tokens": 683237,
+    "cost": 0.0683429,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0683429,
+      "upstream_inference_prompt_cost": 0.0683173,
+      "upstream_inference_completions_cost": 2.56e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 11.941,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T07:56:36+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

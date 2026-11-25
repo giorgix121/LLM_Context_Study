@@ -1,0 +1,65 @@
+{
+  "cache_key": "3510460db571cf5d7c5b0cc4b63d59efb295203028020d60dd0d05775b1250c8",
+  "sample_id": "case006",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The removal of max_retries validation and allow_inplace parameter, combined with the addition of retry_exceptions parameter, changes the runtime behavior without ensuring the WorkflowStepRuntimeOptions class can handle these changes or that retry_exceptions is properly initialized elsewhere.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The removal of max_retries validation and allow_inplace parameter, combined with the addition of retry_exceptions parameter, changes the runtime behavior without ensuring the WorkflowStepRuntimeOptions class can handle these changes or that retry_exceptions is properly initialized elsewhere.\"\n}\n```",
+  "response_id": "gen-1795047961-F2mPaR8UTFWCrCokQlcL",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 4375,
+  "completion_tokens": 82,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.004785,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 4375,
+    "completion_tokens": 82,
+    "total_tokens": 4457,
+    "cost": 0.004785,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.004785,
+      "upstream_inference_prompt_cost": 0.004375,
+      "upstream_inference_completions_cost": 0.00041
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.401,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:26:03+00:00",
+  "run_id": "20261119T002019Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

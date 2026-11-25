@@ -1,0 +1,20 @@
+[
+  {
+    "name": "XLAStrategy.setup_environment",
+    "before": {
+      "start": 97,
+      "end": 100,
+      "code": "    def setup_environment(self) -> None:\n        self._launched = True\n        self._set_world_ranks()\n        rank_zero_only.rank = self.global_rank"
+    },
+    "after": null
+  },
+  {
+    "name": "XLAStrategy._setup_distributed",
+    "before": null,
+    "after": {
+      "start": 97,
+      "end": 100,
+      "code": "    def _setup_distributed(self) -> None:\n        self._launched = True\n        self._set_world_ranks()\n        rank_zero_only.rank = self.global_rank"
+    }
+  }
+]

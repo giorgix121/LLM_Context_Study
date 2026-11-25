@@ -1,0 +1,65 @@
+{
+  "cache_key": "ef83449f0d0a0b653e2e030dc4de57a12af8b909f36cd03e3b78e6b8b1fe1ae9",
+  "sample_id": "case134",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Defaulting `GsmMetered` to `\"1\"` (metered/true) means that on first boot or after a param clear, the system will treat the connection as metered and potentially suppress data uploads or updates, which could silently affect connectivity-dependent features for users who have an unmetered connection.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Defaulting `GsmMetered` to `\\\"1\\\"` (metered/true) means that on first boot or after a param clear, the system will treat the connection as metered and potentially suppress data uploads or updates, which could silently affect connectivity-dependent features for users who have an unmetered connection.\"}",
+  "response_id": "gen-1795192035-e2ODNcyvj4k7jusiIUrV",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1813,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.006699,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1813,
+    "completion_tokens": 84,
+    "total_tokens": 1897,
+    "cost": 0.006699,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.006699,
+      "upstream_inference_prompt_cost": 0.005439,
+      "upstream_inference_completions_cost": 0.00126
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.981,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:27:18+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

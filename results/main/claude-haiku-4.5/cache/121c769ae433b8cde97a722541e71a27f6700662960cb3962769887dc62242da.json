@@ -1,0 +1,65 @@
+{
+  "cache_key": "121c769ae433b8cde97a722541e71a27f6700662960cb3962769887dc62242da",
+  "sample_id": "case039",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change extracts duplicated credential construction logic into a single `credentials()` method and reuses it in three places, which is a safe refactoring that maintains identical behavior while improving code maintainability.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change extracts duplicated credential construction logic into a single `credentials()` method and reuses it in three places, which is a safe refactoring that maintains identical behavior while improving code maintainability.\"\n}\n```",
+  "response_id": "gen-1795187875-EaugH6xIeQTYN3DXGl4C",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 986,
+  "completion_tokens": 73,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001351,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 986,
+    "completion_tokens": 73,
+    "total_tokens": 1059,
+    "cost": 0.001351,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001351,
+      "upstream_inference_prompt_cost": 0.000986,
+      "upstream_inference_completions_cost": 0.000365
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.06,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:17:56+00:00",
+  "run_id": "20261120T151736Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

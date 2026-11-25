@@ -1,0 +1,65 @@
+{
+  "cache_key": "90b6382addc2cd9e955c559fe84423b40cef3b77d400a45fbd26e67a2ea799f8",
+  "sample_id": "case135",
+  "strategy": "N2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The new counter logic initializes `lka_steering_cmd_counter` from `CS.camera_lka_steering_cmd_counter + 1` only on the first STEER_STEP frame, but if `loopback_lka_steering_cmd_updated` fires before that first step the counter starts at 1 (from 0) rather than being camera-synchronized, potentially causing a counter mismatch that triggers GM EPS faults.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The new counter logic initializes `lka_steering_cmd_counter` from `CS.camera_lka_steering_cmd_counter + 1` only on the first STEER_STEP frame, but if `loopback_lka_steering_cmd_updated` fires before that first step the counter starts at 1 (from 0) rather than being camera-synchronized, potentially causing a counter mismatch that triggers GM EPS faults.\"}",
+  "response_id": "gen-1795192306-VUZ1OJ9tiCN6H8nr5yOu",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 5249,
+  "completion_tokens": 117,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.017502,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 5249,
+    "completion_tokens": 117,
+    "total_tokens": 5366,
+    "cost": 0.017502,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.017502,
+      "upstream_inference_prompt_cost": 0.015747,
+      "upstream_inference_completions_cost": 0.001755
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 5.291,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:31:51+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

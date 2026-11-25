@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "ProcessIncrTest.test_calls_process",
+      "path": "tests/sentry/tasks/test_process_buffer.py",
+      "start": 8,
+      "end": 14,
+      "code": "    @mock.patch(\"sentry.buffer.backend.process\")\n    def test_calls_process(self, process):\n        model = mock.Mock()\n        columns = {\"times_seen\": 1}\n        filters = {\"pk\": 1}\n        process_incr(model=model, columns=columns, filters=filters)\n        process.assert_called_once_with(model=model, columns=columns, filters=filters)",
+      "calls": "process_incr"
+    }
+  ]
+}

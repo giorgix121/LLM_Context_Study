@@ -1,0 +1,46 @@
+{
+  "found": 5,
+  "included": 5,
+  "functions": [
+    {
+      "name": "Endpoint.paginate",
+      "path": "src/sentry/api/base.py",
+      "start": 331,
+      "end": 385,
+      "code": "    def paginate(\n        self,\n        request,\n        on_results=None,\n        paginator=None,\n        paginator_cls=Paginator,\n        default_per_page=100,\n        max_per_page=100,\n        cursor_cls=Cursor,\n        response_cls=Response,\n        response_kwargs=None,\n        **paginator_kwargs,\n    ):\n        assert (paginator and not paginator_kwargs) or (paginator_cls and paginator_kwargs)\n\n        if response_kwargs is None:\n            response_kwargs = {}\n\n        per_page = self.get_per_page(request, default_per_page, max_per_page)\n\n        input_cursor = self.get_cursor_from_request(request, cursor_cls=cursor_cls)\n\n        if not paginator:\n            paginator = paginator_cls(**paginator_kwargs)\n\n        try:\n            with sentry_sdk.start_span(\n                op=\"base.paginate.get_result\",\n                description=type(self).__name__,\n            ) as span:\n                span.set_data(\"Limit\", per_page)\n                set_measurement(\"query.per_page\", per_page)\n                sentry_sdk.set_tag(\"query.per_page\", per_page)\n                sentry_sdk.set_tag(\n                    \"query.per_page.grouped\", format_grouped_length(per_page, [1, 10, 50, 100])\n                )\n                cursor_result = paginator.get_result(limit=per_page, cursor=input_cursor)\n        except BadPaginationError as e:\n            raise ParseError(detail=str(e))\n\n        # map results based on callback\n        if on_results:\n            with sentry_sdk.start_span(\n                op=\"base.paginate.on_results\",\n                description=type(self).__name__,\n            ):\n                results = on_results(cursor_result.results)\n        else:\n            results = cursor_result.results\n\n        response = response_cls(results, **response_kwargs)\n\n        self.add_cursor_headers(request, response, cursor_result)\n\n        return response",
+      "called_by": "OrganizationProjectsEndpoint.get"
+    },
+    {
+      "name": "EnvironmentMixin._get_environment_id_from_request",
+      "path": "src/sentry/api/base.py",
+      "start": 404,
+      "end": 406,
+      "code": "    def _get_environment_id_from_request(self, request: Request, organization_id):\n        environment = self._get_environment_from_request(request, organization_id)\n        return environment and environment.id",
+      "called_by": "OrganizationProjectsEndpoint.get"
+    },
+    {
+      "name": "ProjectSerializer.__init__",
+      "path": "src/sentry/api/serializers/models/project.py",
+      "start": 228,
+      "end": 243,
+      "code": "    def __init__(\n        self,\n        environment_id: str | None = None,\n        stats_period: str | None = None,\n        expand: Iterable[str] | None = None,\n        expand_context: Mapping[str, Any] | None = None,\n        collapse: Iterable[str] | None = None,\n    ) -> None:\n        if stats_period is not None:\n            assert stats_period in STATS_PERIOD_CHOICES\n\n        self.environment_id = environment_id\n        self.stats_period = stats_period\n        self.expand = expand\n        self.expand_context = expand_context\n        self.collapse = collapse",
+      "called_by": "OrganizationProjectsEndpoint.get"
+    },
+    {
+      "name": "inline_sentry_response_serializer",
+      "path": "src/sentry/apidocs/utils.py",
+      "start": 24,
+      "end": 46,
+      "code": "def inline_sentry_response_serializer(name: str, t: type) -> type:\n    \"\"\"\n    Function for documenting an API response with python types.\n    You may use existing types, and likely serializer response types.\n    Be sure to pass the type, and not the serializer itself.\n\n    .. code-block::\n\n        @extend_schema(\n            response=inline_sentry_response_serializer('ListMemberResponse',List[SCIMAPIMemberSerializerResponse])\n        )\n\n    :param name: the name of the component, used in the OpenAPIJson\n    :param t: the type of the response\n    \"\"\"\n\n    if isinstance(t, Serializer):\n        raise TypeError(\n            \"Please use the type of the `serialize` function instead of the serializer itself.\"\n        )\n\n    serializer_class = type(name, (_RawSchema,), {\"typeSchema\": t})\n    return serializer_class",
+      "called_by": "OrganizationProjectsEndpoint.get"
+    },
+    {
+      "name": "tokenize_query",
+      "path": "src/sentry/search/utils.py",
+      "start": 469,
+      "end": 509,
+      "code": "def tokenize_query(query):\n    \"\"\"\n    Tokenizes a standard Sentry search query.\n\n    Example:\n    >>> query = 'is:resolved foo bar tag:value'\n    >>> tokenize_query(query)\n    {\n        'is': ['resolved'],\n        'query': ['foo', 'bar'],\n        'tag': ['value'],\n    }\n\n    Has a companion implementation in static/app/utils/tokenizeSearch.tsx\n    \"\"\"\n    result = defaultdict(list)\n    query_params = defaultdict(list)\n    tokens = split_query_into_tokens(query)\n    for token in tokens:\n        if token.upper() in [\"OR\", \"AND\"] or token.strip(\"()\") == \"\":\n            continue\n\n        state = \"query\"\n        for idx, char in enumerate(token):\n            next_char = token[idx + 1] if idx < len(token) - 1 else None\n            if idx == 0 and char in ('\"', \"'\", \":\"):\n                break\n            if char == \":\":\n                if next_char in (\":\", \" \"):\n                    state = \"query\"\n                else:\n                    state = \"tags\"\n                break\n        query_params[state].append(token)\n\n    if \"query\" in query_params:\n        result[\"query\"] = [format_query(query) for query in query_params[\"query\"]]\n    for tag in query_params[\"tags\"]:\n        key, value = format_tag(tag)\n        result[key].append(value)\n    return dict(result)",
+      "called_by": "OrganizationProjectsEndpoint.get"
+    }
+  ]
+}

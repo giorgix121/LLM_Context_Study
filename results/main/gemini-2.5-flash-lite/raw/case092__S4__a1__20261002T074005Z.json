@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1790927059-sC5VRg6WCDjJrH3Zijkr",
+    "object": "chat.completion",
+    "created": 1790927059,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"A new method `get_resolution_info` is added to retrieve data from the Supervisor resolution center, which is a safe addition as it only introduces a new read-only API call.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 756,
+      "completion_tokens": 52,
+      "total_tokens": 808,
+      "cost": 9.64e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 9.64e-05,
+        "upstream_inference_prompt_cost": 7.56e-05,
+        "upstream_inference_completions_cost": 2.08e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

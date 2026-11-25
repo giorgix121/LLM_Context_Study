@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1790920282-AW1FvWeKdhtZAGxYky6j",
+    "object": "chat.completion",
+    "created": 1790920282,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The function `_get_task_kwargs_and_dispatch` is annotated to return `None`, but the code contains `return None` which is inconsistent with a function that should return `None` implicitly, and more critically, the caller may rely on the actual return value from `_get_task_kwargs` being propagated.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 334,
+      "completion_tokens": 99,
+      "total_tokens": 433,
+      "cost": 0.000829,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000829,
+        "upstream_inference_prompt_cost": 0.000334,
+        "upstream_inference_completions_cost": 0.000495
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

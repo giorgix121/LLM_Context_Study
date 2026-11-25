@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192306-VUZ1OJ9tiCN6H8nr5yOu",
+    "object": "chat.completion",
+    "created": 1795192306,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new counter logic initializes `lka_steering_cmd_counter` from `CS.camera_lka_steering_cmd_counter + 1` only on the first STEER_STEP frame, but if `loopback_lka_steering_cmd_updated` fires before that first step the counter starts at 1 (from 0) rather than being camera-synchronized, potentially causing a counter mismatch that triggers GM EPS faults.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5249,
+      "completion_tokens": 117,
+      "total_tokens": 5366,
+      "cost": 0.017502,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.017502,
+        "upstream_inference_prompt_cost": 0.015747,
+        "upstream_inference_completions_cost": 0.001755
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

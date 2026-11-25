@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "_MultiGPULoaderThread.__init__",
+      "path": "rllib/execution/multi_gpu_learner_thread.py",
+      "start": 185,
+      "end": 196,
+      "code": "    def __init__(\n        self, multi_gpu_learner_thread: MultiGPULearnerThread, share_stats: bool\n    ):\n        threading.Thread.__init__(self)\n        self.multi_gpu_learner_thread = multi_gpu_learner_thread\n        self.daemon = True\n        if share_stats:\n            self.queue_timer = multi_gpu_learner_thread.queue_timer\n            self.load_timer = multi_gpu_learner_thread.load_timer\n        else:\n            self.queue_timer = _Timer()\n            self.load_timer = _Timer()",
+      "called_by": "MultiGPULearnerThread.__init__"
+    }
+  ]
+}

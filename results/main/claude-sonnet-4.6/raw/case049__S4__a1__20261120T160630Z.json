@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795190796-gbmILoFIV0z4bHXup8uo",
+    "object": "chat.completion",
+    "created": 1795190796,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"When FILES is non-empty, the raw `request.body` is suppressed and `request.FILES` (a Django MultiValueDict) is passed as `files`, but the `requests` library expects `files` to be a dict of `(filename, fileobj)` tuples, not a Django FILES dict, and passing `files={}` (an empty dict, which is falsy but still passed) alongside `headers` that already contain a multipart Content-Type could corrupt or misroute the proxied request.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1574,
+      "completion_tokens": 128,
+      "total_tokens": 1702,
+      "cost": 0.006642,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006642,
+        "upstream_inference_prompt_cost": 0.004722,
+        "upstream_inference_completions_cost": 0.00192
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "158f4d0886744feeea5d154ed4419813befa3286aee91c7a32b8abecadb861a3",
+  "sample_id": "case145",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change correctly assigns the batch size based on whether a webcam stream or image files are being processed, ensuring consistent behavior.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change correctly assigns the batch size based on whether a webcam stream or image files are being processed, ensuring consistent behavior.\"}",
+  "response_id": "gen-1790926880-tH5zk1CCf9zwU8YMzVvV",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 277,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 4.29e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 277,
+    "completion_tokens": 38,
+    "total_tokens": 315,
+    "cost": 4.29e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.29e-05,
+      "upstream_inference_prompt_cost": 2.77e-05,
+      "upstream_inference_completions_cost": 1.52e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.48,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T07:41:21+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

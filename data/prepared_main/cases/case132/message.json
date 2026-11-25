@@ -1,0 +1,5 @@
+{
+  "commit": "a10312cf1f10af0a79a07b9895565963429dce24",
+  "chars": 920,
+  "text": "feat(metrics): Support field aliasing on metrics layer [TET-322 TET-356] (#38509)\n\nAdds logic that allows for aliasing on all instances of `MetricField`.\nIf `MetricField` references an metrics expression or an instance of\n`SingleEntityDerivedMetric` then, the alias is propagated down to query\nlevel, and the response has the aliased names. If however, it references\nan instance of `CompositeEntityDerivedMetric`, then it creates alias\nthat corresponds to the mri of the constituent suffixed with\n`__CHILD_OF__<parent_alias>`, and then post query the value of the\ncomposite derived metric is computed from the children values. This\nalias suffixing behaviour allows us to avoid naming collisions when\nrequesting the same composite dervied metric more than once but with\ndifferent arguments. This PR also adds meta type for composite entity\nderived metric.\n\nToDo:\n- Will handle aliasing groupBy aliasing in a subsequent PR"
+}

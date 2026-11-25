@@ -1,0 +1,65 @@
+{
+  "cache_key": "63b28a1bed94f1d868da1c983ca91a1042cf0ea8b4073f988f6c7c81bceae7ed",
+  "sample_id": "case095",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a new instance attribute `preemptible` initialized to False, which is included in the dictionary representation via `asdict`, but does not alter existing logic or introduce side effects that would cause functional defects.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds a new instance attribute `preemptible` initialized to False, which is included in the dictionary representation via `asdict`, but does not alter existing logic or introduce side effects that would cause functional defects.\"}",
+  "response_id": "gen-1795190518-xvvBXzL4y1YxDu3fW9Fc",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 244,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 6.433e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 244,
+    "completion_tokens": 59,
+    "total_tokens": 303,
+    "cost": 6.433e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 6.433e-05,
+      "upstream_inference_prompt_cost": 3.66e-05,
+      "upstream_inference_completions_cost": 2.773e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.699,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:02:00+00:00",
+  "run_id": "20261120T155553Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

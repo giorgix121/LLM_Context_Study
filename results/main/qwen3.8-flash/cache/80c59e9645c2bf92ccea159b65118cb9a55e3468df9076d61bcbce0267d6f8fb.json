@@ -1,0 +1,65 @@
+{
+  "cache_key": "80c59e9645c2bf92ccea159b65118cb9a55e3468df9076d61bcbce0267d6f8fb",
+  "sample_id": "case046",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change introduces a dependency on `self.mac_or_serial`, which is not defined in the provided diff and may cause an AttributeError if it does not exist in the base class.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a dependency on `self.mac_or_serial`, which is not defined in the provided diff and may cause an AttributeError if it does not exist in the base class.\"}",
+  "response_id": "gen-1795189283-rkMjfX7hdd6vw1W1DFfL",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 423,
+  "completion_tokens": 49,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 8.648e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 423,
+    "completion_tokens": 49,
+    "total_tokens": 472,
+    "cost": 8.648e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.648e-05,
+      "upstream_inference_prompt_cost": 6.345e-05,
+      "upstream_inference_completions_cost": 2.303e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.324,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:41:24+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

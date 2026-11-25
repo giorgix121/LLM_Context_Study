@@ -1,0 +1,65 @@
+{
+  "cache_key": "55968e9bd1fe090801f13c5feb6cffd568bef71c7aae9b274eb69de0b0183652",
+  "sample_id": "case141",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The commit introduces a new API endpoint for managing the Discover homepage query, including GET, PUT, and DELETE operations, and adds corresponding tests without altering existing functionality.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The commit introduces a new API endpoint for managing the Discover homepage query, including GET, PUT, and DELETE operations, and adds corresponding tests without altering existing functionality.\"}",
+  "response_id": "gen-1795563588-MNmsSx7VJu9VcXrPIM88",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 3249,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0003433,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3249,
+    "completion_tokens": 46,
+    "total_tokens": 3295,
+    "cost": 0.0003433,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003433,
+      "upstream_inference_prompt_cost": 0.0003249,
+      "upstream_inference_completions_cost": 1.84e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.419,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:39:49+00:00",
+  "run_id": "20261124T233752Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

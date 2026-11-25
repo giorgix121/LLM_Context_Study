@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "JiraServerClient.get_users_for_project",
+      "path": "src/sentry/integrations/jira_server/client.py",
+      "start": 144,
+      "end": 147,
+      "code": "    def get_users_for_project(self, project):\n        # Jira Server wants a project key, while cloud is indifferent.\n        project_key = self.get_project_key_for_id(project)\n        return self.get_cached(self.USERS_URL, params={\"project\": project_key})",
+      "calls": "JiraServerClient.get_project_key_for_id"
+    },
+    {
+      "name": "JiraServerClient.search_users_for_project",
+      "path": "src/sentry/integrations/jira_server/client.py",
+      "start": 149,
+      "end": 154,
+      "code": "    def search_users_for_project(self, project, username):\n        # Jira Server wants a project key, while cloud is indifferent.\n        project_key = self.get_project_key_for_id(project)\n        return self.get_cached(\n            self.USERS_URL, params={\"project\": project_key, self.user_query_param(): username}\n        )",
+      "calls": "JiraServerClient.get_project_key_for_id"
+    }
+  ]
+}

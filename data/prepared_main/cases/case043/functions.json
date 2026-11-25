@@ -1,0 +1,15 @@
+[
+  {
+    "name": "async_validate_action_config",
+    "before": {
+      "start": 79,
+      "end": 92,
+      "code": "async def async_validate_action_config(\n    hass: HomeAssistant, config: ConfigType\n) -> ConfigType:\n    \"\"\"Validate config.\"\"\"\n    config = ACTION_SCHEMA(config)\n    commands, _ = _get_commands(hass, config[CONF_DEVICE_ID], config[CONF_TYPE])\n    sub_type = config[CONF_SUBTYPE]\n\n    if sub_type not in commands.values():\n        raise InvalidDeviceAutomationConfig(\n            f\"Subtype {sub_type} not found in device commands {commands}\"\n        )\n\n    return config"
+    },
+    "after": {
+      "start": 79,
+      "end": 91,
+      "code": "async def async_validate_action_config(\n    hass: HomeAssistant, config: ConfigType\n) -> ConfigType:\n    \"\"\"Validate config.\"\"\"\n    commands, _ = _get_commands(hass, config[CONF_DEVICE_ID], config[CONF_TYPE])\n    sub_type = config[CONF_SUBTYPE]\n\n    if sub_type not in commands.values():\n        raise InvalidDeviceAutomationConfig(\n            f\"Subtype {sub_type} not found in device commands {commands}\"\n        )\n\n    return config"
+    }
+  }
+]

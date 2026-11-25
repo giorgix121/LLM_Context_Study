@@ -1,0 +1,80 @@
+[
+  {
+    "name": "MotionBatterySensor.available",
+    "before": {
+      "start": 63,
+      "end": 72,
+      "code": "    @property\n    def available(self):\n        \"\"\"Return True if entity is available.\"\"\"\n        if self.coordinator.data is None:\n            return False\n\n        if not self.coordinator.data[KEY_GATEWAY][ATTR_AVAILABLE]:\n            return False\n\n        return self.coordinator.data[self._blind.mac][ATTR_AVAILABLE]"
+    },
+    "after": {
+      "start": 63,
+      "end": 72,
+      "code": "    @property\n    def available(self) -> bool:\n        \"\"\"Return True if entity is available.\"\"\"\n        if self.coordinator.data is None:\n            return False\n\n        if not self.coordinator.data[KEY_GATEWAY][ATTR_AVAILABLE]:\n            return False\n\n        return self.coordinator.data[self._blind.mac][ATTR_AVAILABLE]"
+    }
+  },
+  {
+    "name": "MotionBatterySensor.async_added_to_hass",
+    "before": {
+      "start": 84,
+      "end": 87,
+      "code": "    async def async_added_to_hass(self):\n        \"\"\"Subscribe to multicast pushes.\"\"\"\n        self._blind.Register_callback(self.unique_id, self.schedule_update_ha_state)\n        await super().async_added_to_hass()"
+    },
+    "after": {
+      "start": 84,
+      "end": 87,
+      "code": "    async def async_added_to_hass(self) -> None:\n        \"\"\"Subscribe to multicast pushes.\"\"\"\n        self._blind.Register_callback(self.unique_id, self.schedule_update_ha_state)\n        await super().async_added_to_hass()"
+    }
+  },
+  {
+    "name": "MotionBatterySensor.async_will_remove_from_hass",
+    "before": {
+      "start": 89,
+      "end": 92,
+      "code": "    async def async_will_remove_from_hass(self):\n        \"\"\"Unsubscribe when removed.\"\"\"\n        self._blind.Remove_callback(self.unique_id)\n        await super().async_will_remove_from_hass()"
+    },
+    "after": {
+      "start": 89,
+      "end": 92,
+      "code": "    async def async_will_remove_from_hass(self) -> None:\n        \"\"\"Unsubscribe when removed.\"\"\"\n        self._blind.Remove_callback(self.unique_id)\n        await super().async_will_remove_from_hass()"
+    }
+  },
+  {
+    "name": "MotionSignalStrengthSensor.available",
+    "before": {
+      "start": 147,
+      "end": 160,
+      "code": "    @property\n    def available(self):\n        \"\"\"Return True if entity is available.\"\"\"\n        if self.coordinator.data is None:\n            return False\n\n        gateway_available = self.coordinator.data[KEY_GATEWAY][ATTR_AVAILABLE]\n        if self._device_type == TYPE_GATEWAY:\n            return gateway_available\n\n        return (\n            gateway_available\n            and self.coordinator.data[self._device.mac][ATTR_AVAILABLE]\n        )"
+    },
+    "after": {
+      "start": 147,
+      "end": 160,
+      "code": "    @property\n    def available(self) -> bool:\n        \"\"\"Return True if entity is available.\"\"\"\n        if self.coordinator.data is None:\n            return False\n\n        gateway_available = self.coordinator.data[KEY_GATEWAY][ATTR_AVAILABLE]\n        if self._device_type == TYPE_GATEWAY:\n            return gateway_available\n\n        return (\n            gateway_available\n            and self.coordinator.data[self._device.mac][ATTR_AVAILABLE]\n        )"
+    }
+  },
+  {
+    "name": "MotionSignalStrengthSensor.async_added_to_hass",
+    "before": {
+      "start": 167,
+      "end": 170,
+      "code": "    async def async_added_to_hass(self):\n        \"\"\"Subscribe to multicast pushes.\"\"\"\n        self._device.Register_callback(self.unique_id, self.schedule_update_ha_state)\n        await super().async_added_to_hass()"
+    },
+    "after": {
+      "start": 167,
+      "end": 170,
+      "code": "    async def async_added_to_hass(self) -> None:\n        \"\"\"Subscribe to multicast pushes.\"\"\"\n        self._device.Register_callback(self.unique_id, self.schedule_update_ha_state)\n        await super().async_added_to_hass()"
+    }
+  },
+  {
+    "name": "MotionSignalStrengthSensor.async_will_remove_from_hass",
+    "before": {
+      "start": 172,
+      "end": 175,
+      "code": "    async def async_will_remove_from_hass(self):\n        \"\"\"Unsubscribe when removed.\"\"\"\n        self._device.Remove_callback(self.unique_id)\n        await super().async_will_remove_from_hass()"
+    },
+    "after": {
+      "start": 172,
+      "end": 175,
+      "code": "    async def async_will_remove_from_hass(self) -> None:\n        \"\"\"Unsubscribe when removed.\"\"\"\n        self._device.Remove_callback(self.unique_id)\n        await super().async_will_remove_from_hass()"
+    }
+  }
+]

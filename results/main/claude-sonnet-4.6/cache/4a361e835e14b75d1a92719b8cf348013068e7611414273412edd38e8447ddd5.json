@@ -1,0 +1,65 @@
+{
+  "cache_key": "4a361e835e14b75d1a92719b8cf348013068e7611414273412edd38e8447ddd5",
+  "sample_id": "case034",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change replaces per-car PID lateral tuning (kp, ki, kf) with a generic torque-based tune via `configure_torque_tune`, fundamentally changing the lateral control algorithm and parameters for all Mazda vehicles, which could significantly alter steering behavior and safety.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change replaces per-car PID lateral tuning (kp, ki, kf) with a generic torque-based tune via `configure_torque_tune`, fundamentally changing the lateral control algorithm and parameters for all Mazda vehicles, which could significantly alter steering behavior and safety.\"}",
+  "response_id": "gen-1795193408-MRncu6DJmHg3GZ026dKn",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2863,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.009774,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2863,
+    "completion_tokens": 79,
+    "total_tokens": 2942,
+    "cost": 0.009774,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.009774,
+      "upstream_inference_prompt_cost": 0.008589,
+      "upstream_inference_completions_cost": 0.001185
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.925,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:50:10+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

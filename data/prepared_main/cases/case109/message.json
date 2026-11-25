@@ -1,0 +1,5 @@
+{
+  "commit": "0106c26529900bad0561efb9c9180f7f016365b0",
+  "chars": 186,
+  "text": "REVERT caching in find_stack_level (#49053)\n\nRevert \"PERF cache find_stack_level (#48023)\"\n\nThis reverts commit 2f8d0a36703e81e4dca52ca9fe4f58c910c1b304.\n\nCo-authored-by: MarcoGorelli <>"
+}

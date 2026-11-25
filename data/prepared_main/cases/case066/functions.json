@@ -1,0 +1,15 @@
+[
+  {
+    "name": "VaultBackend.get_conn_uri",
+    "before": {
+      "start": 170,
+      "end": 187,
+      "code": "    def get_conn_uri(self, conn_id: str) -> Optional[str]:\n        \"\"\"\n        Get serialized representation of connection\n\n        :param conn_id: The connection id\n        :rtype: str\n        :return: The connection uri retrieved from the secret\n        \"\"\"\n        # Since VaultBackend implements `get_connection`, `get_conn_uri` is not used. So we\n        # don't need to implement (or direct users to use) method `get_conn_value` instead\n        warnings.warn(\n            f\"Method `{self.__class__.__name__}.get_conn_uri` is deprecated and will be removed \"\n            \"in a future release.\",\n            PendingDeprecationWarning,\n            stacklevel=2,\n        )\n        response = self.get_response(conn_id)\n        return response.get(\"conn_uri\") if response else None"
+    },
+    "after": {
+      "start": 170,
+      "end": 187,
+      "code": "    def get_conn_uri(self, conn_id: str) -> Optional[str]:\n        \"\"\"\n        Get serialized representation of connection\n\n        :param conn_id: The connection id\n        :rtype: str\n        :return: The connection uri retrieved from the secret\n        \"\"\"\n        # Since VaultBackend implements `get_connection`, `get_conn_uri` is not used. So we\n        # don't need to implement (or direct users to use) method `get_conn_value` instead\n        warnings.warn(\n            f\"Method `{self.__class__.__name__}.get_conn_uri` is deprecated and will be removed \"\n            \"in a future release.\",\n            DeprecationWarning,\n            stacklevel=2,\n        )\n        response = self.get_response(conn_id)\n        return response.get(\"conn_uri\") if response else None"
+    }
+  }
+]

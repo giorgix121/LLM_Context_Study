@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "_backprop_precomputable_affine_padding",
+      "path": "spacy/ml/_precomputable_affine.py",
+      "start": 71,
+      "end": 91,
+      "code": "def _backprop_precomputable_affine_padding(model, dY, ids):\n    nB = dY.shape[0]\n    nF = model.get_dim(\"nF\")\n    nP = model.get_dim(\"nP\")\n    nO = model.get_dim(\"nO\")\n    # Backprop the \"padding\", used as a filler for missing values.\n    # Values that are missing are set to -1, and each state vector could\n    # have multiple missing values. The padding has different values for\n    # different missing features. The gradient of the padding vector is:\n    #\n    # for b in range(nB):\n    #     for f in range(nF):\n    #         if ids[b, f] < 0:\n    #             d_pad[f] += dY[b]\n    #\n    # Which can be rewritten as:\n    #\n    # (ids < 0).T @ dY\n    mask = model.ops.asarray(ids < 0, dtype=\"f\")\n    d_pad = model.ops.gemm(mask, dY.reshape(nB, nO * nP), trans1=True)\n    return d_pad.reshape((1, nF, nO, nP))",
+      "called_by": "forward"
+    }
+  ]
+}

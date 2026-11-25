@@ -1,0 +1,80 @@
+{
+  "commit": "2f5060963aebed5c08f21e5dec1f9a5bab3536ad",
+  "files_in_commit": 11,
+  "target_index": 5,
+  "target_status": "modified",
+  "chars": 11583,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "src/lightning_app/cli/commands/connection.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 4,
+      "patch": "@@ -79,12 +79,10 @@ def connect(app_name_or_id: str, yes: bool = False):\n         if not api_commands:\n             client = LightningClient()\n             project = _get_project(client)\n-            lightningapps = client.lightningapp_instance_service_list_lightningapp_instances(\n-                project_id=project.project_id\n-            )\n+            apps = client.lightningapp_instance_service_list_lightningapp_instances(project_id=project.project_id)\n             click.echo(\n                 \"We didn't find a matching App. Here are the available Apps that could be \"\n-                f\"connected to {[app.name for app in lightningapps.lightningapps]}.\"\n+                f\"connected to {[app.name for app in apps.lightningapps]}.\"\n             )\n             return\n "
+    },
+    {
+      "path": "src/lightning_app/cli/lightning_cli.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "patch": "@@ -41,9 +41,9 @@\n \n def get_app_url(runtime_type: RuntimeType, *args: Any, need_credits: bool = False) -> str:\n     if runtime_type == RuntimeType.CLOUD:\n-        lightning_app: Externalv1LightningappInstance = args[0]\n+        lit_app: Externalv1LightningappInstance = args[0]\n         action = \"?action=add_credits\" if need_credits else \"\"\n-        return f\"{get_lightning_cloud_url()}/me/apps/{lightning_app.id}{action}\"\n+        return f\"{get_lightning_cloud_url()}/me/apps/{lit_app.id}{action}\"\n     else:\n         return \"http://127.0.0.1:7501/view\"\n "
+    },
+    {
+      "path": "src/lightning_app/runners/cloud.py",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 6,
+      "patch": "@@ -227,10 +227,10 @@ def dispatch(\n             )\n             if list_apps_resp.lightningapps:\n                 # There can be only one app with unique project_id<>name pair\n-                lightning_app = list_apps_resp.lightningapps[0]\n+                lit_app = list_apps_resp.lightningapps[0]\n             else:\n                 app_body = Body7(name=app_config.name, can_download_source_code=True)\n-                lightning_app = self.backend.client.lightningapp_v2_service_create_lightningapp_v2(\n+                lit_app = self.backend.client.lightningapp_v2_service_create_lightningapp_v2(\n                     project_id=project.project_id, body=app_body\n                 )\n \n@@ -264,7 +264,7 @@ def dispatch(\n                 self._ensure_cluster_project_binding(project.project_id, cluster_id)\n \n             lightning_app_release = self.backend.client.lightningapp_v2_service_create_lightningapp_release(\n-                project_id=project.project_id, app_id=lightning_app.id, body=release_body\n+                project_id=project.project_id, app_id=lit_app.id, body=release_body\n             )\n \n             if cluster_id is not None:\n@@ -288,7 +288,7 @@ def dispatch(\n \n             # right now we only allow a single instance of the app\n             find_instances_resp = self.backend.client.lightningapp_instance_service_list_lightningapp_instances(\n-                project_id=project.project_id, app_id=lightning_app.id\n+                project_id=project.project_id, app_id=lit_app.id\n             )\n             queue_server_type = V1QueueServerType.REDIS if CLOUD_QUEUE_TYPE == \"redis\" else V1QueueServerType.HTTP\n             if find_instances_resp.lightningapps:\n@@ -335,12 +335,12 @@ def dispatch(\n                 lightning_app_instance = (\n                     self.backend.client.lightningapp_v2_service_create_lightningapp_release_instance(\n                         project_id=project.project_id,\n-                        app_id=lightning_app.id,\n+                        app_id=lit_app.id,\n                         id=lightning_app_release.id,\n                         body=Body9(\n                             cluster_id=cluster_id,\n                             desired_state=app_release_desired_state,\n-                            name=lightning_app.name,\n+                            name=lit_app.name,\n                             env=v1_env_vars,\n                             queue_server_type=queue_server_type,\n                         ),"
+    },
+    {
+      "path": "src/lightning_app/testing/helpers.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "patch": "@@ -54,7 +54,7 @@ def test_wrapper(arg1):\n     def __new__(\n         self,\n         *args,\n-        pytorch_lightning: bool = False,\n+        pl: bool = False,\n         flash: bool = False,\n         min_python: Optional[str] = None,\n         skip_windows: bool = False,\n@@ -67,7 +67,7 @@ def __new__(\n         \"\"\"\n         Args:\n             *args: Any :class:`pytest.mark.skipif` arguments.\n-            pytorch_lightning: Requires that PyTorch Lightning is installed.\n+            pl: Requires that PyTorch Lightning is installed.\n             flash: Requires that Flash is installed.\n             min_python: Require that Python is greater or equal than this version.\n             skip_windows: Skip for Windows platform.\n@@ -95,7 +95,7 @@ def __new__(\n             conditions.append(sys.platform == \"darwin\")\n             reasons.append(\"unimplemented on MacOS\")\n \n-        if pytorch_lightning:\n+        if pl:\n             conditions.append(not _is_pytorch_lightning_available())\n             reasons.append(\"PyTorch Lightning is required.\")\n "
+    },
+    {
+      "path": "src/lightning_app/testing/testing.py",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 13,
+      "patch": "@@ -358,19 +358,19 @@ def run_app_in_cloud(\n         client = LightningClient()\n         project = _get_project(client)\n \n-        lightning_apps = [\n+        lit_apps = [\n             app\n             for app in client.lightningapp_instance_service_list_lightningapp_instances(\n                 project_id=project.project_id\n             ).lightningapps\n             if app.name == name\n         ]\n \n-        if not lightning_apps:\n+        if not lit_apps:\n             return True\n \n-        assert len(lightning_apps) == 1\n-        app_id = lightning_apps[0].id\n+        assert len(lit_apps) == 1\n+        app_id = lit_apps[0].id\n \n         if debug:\n             process = Process(target=print_logs, kwargs={\"app_id\": app_id})\n@@ -386,15 +386,15 @@ def run_app_in_cloud(\n             except (playwright._impl._api_types.Error, playwright._impl._api_types.TimeoutError):\n                 pass\n \n-        lightning_apps = [\n+        lit_apps = [\n             app\n             for app in client.lightningapp_instance_service_list_lightningapp_instances(\n                 project_id=project.project_id\n             ).lightningapps\n             if app.name == name\n         ]\n \n-        app_url = lightning_apps[0].status.url\n+        app_url = lit_apps[0].status.url\n \n         while True:\n             sleep(1)\n@@ -476,19 +476,19 @@ def delete_cloud_lightning_apps():\n \n     print(f\"deleting apps for pr_number: {pr_number}, app_name: {app_name}\")\n     project = _get_project(client)\n-    list_lightningapps = client.lightningapp_instance_service_list_lightningapp_instances(project_id=project.project_id)\n+    list_apps = client.lightningapp_instance_service_list_lightningapp_instances(project_id=project.project_id)\n \n-    print([lightningapp.name for lightningapp in list_lightningapps.lightningapps])\n+    print([lit_app.name for lit_app in list_apps.lightningapps])\n \n-    for lightningapp in list_lightningapps.lightningapps:\n-        if pr_number and app_name and not lightningapp.name.startswith(f\"test-{pr_number}-{app_name}-\"):\n+    for lit_app in list_apps.lightningapps:\n+        if pr_number and app_name and not lit_app.name.startswith(f\"test-{pr_number}-{app_name}-\"):\n             continue\n-        print(f\"Deleting {lightningapp.name}\")\n+        print(f\"Deleting {lit_app.name}\")\n         try:\n             res = client.lightningapp_instance_service_delete_lightningapp_instance(\n                 project_id=project.project_id,\n-                id=lightningapp.id,\n+                id=lit_app.id,\n             )\n             assert res == {}\n         except ApiException as e:\n-            print(f\"Failed to delete {lightningapp.name}. Exception {e}\")\n+            print(f\"Failed to delete {lit_app.name}. Exception {e}\")"
+    },
+    {
+      "path": "tests/tests_app/utilities/packaging/test_build_spec.py",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "patch": "@@ -27,7 +27,7 @@ def test_build_config_requirements_provided():\n     assert spec.requirements == [\n         \"dask\",\n         \"pandas\",\n-        \"pytorch_lightning==1.5.9\",\n+        \"pytorch_\" + \"lightning==1.5.9\",  # ugly hack due to replacing `pytorch_lightning string`\n         \"git+https://github.com/mit-han-lab/torchsparse.git@v1.4.0\",\n     ]\n     assert spec == BuildConfig.from_dict(spec.to_dict())\n@@ -47,13 +47,15 @@ def test_build_config_invalid_requirements():\n def test_build_config_dockerfile_provided():\n     spec = BuildConfig(dockerfile=\"./projects/Dockerfile.cpu\")\n     assert not spec.requirements\n-    assert \"pytorchlightning/pytorch_lightning\" in spec.dockerfile[0]\n+    # ugly hack due to replacing `pytorch_lightning string\n+    assert \"pytorchlightning/pytorch_\" + \"lightning\" in spec.dockerfile[0]\n \n \n class DockerfileLightningTestApp(LightningTestApp):\n     def on_after_run_once(self):\n         print(self.root.work.local_build_config.dockerfile)\n-        assert \"pytorchlightning/pytorch_lightning\" in self.root.work.local_build_config.dockerfile[0]\n+        # ugly hack due to replacing `pytorch_lightning string\n+        assert \"pytorchlightning/pytorch_\" + \"lightning\" in self.root.work.local_build_config.dockerfile[0]\n         return super().on_after_run_once()\n \n \n@@ -68,7 +70,7 @@ def on_after_run_once(self):\n         assert self.root.work.local_build_config.requirements == [\n             \"git+https://github.com/mit-han-lab/torchsparse.git@v1.4.0\",\n             \"pandas\",\n-            \"pytorch_lightning==1.5.9\",\n+            \"pytorch_\" + \"lightning==1.5.9\",  # ugly hack due to replacing `pytorch_lightning string\n         ]\n         return super().on_after_run_once()\n "
+    },
+    {
+      "path": "tests/tests_app/utilities/test_introspection.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 4,
+      "patch": "@@ -1,9 +1,8 @@\n import os\n from numbers import Rational\n \n-import pytest\n-\n from lightning_app import LightningApp, LightningFlow\n+from lightning_app.testing.helpers import RunIf\n from lightning_app.utilities.imports import _is_pytorch_lightning_available\n from lightning_app.utilities.introspection import Scanner\n \n@@ -26,7 +25,7 @@ def test_introspection():\n     assert not scanner.has_class(LightningFlow)\n \n \n-@pytest.mark.skipif(not _is_pytorch_lightning_available(), reason=\"pytorch_lightning isn't installed.\")\n+@RunIf(pl=True)\n def test_introspection_lightning():\n     \"\"\"This test validates the scanner can find some PyTorch Lightning class within the provided files.\"\"\"\n     scanner = Scanner(str(os.path.join(_PROJECT_ROOT, \"tests/tests_app/core/scripts/lightning_cli.py\")))\n@@ -38,7 +37,7 @@ def test_introspection_lightning():\n     assert not scanner.has_class(LightningCLI)\n \n \n-@pytest.mark.skipif(not _is_pytorch_lightning_available(), reason=\"pytorch_lightning isn't installed.\")\n+@RunIf(pl=True)\n def test_introspection_lightning_overrides():\n     \"\"\"This test validates the scanner can find all the subclasses from primitives classes from PyTorch Lightning\n     in the provided files.\"\"\""
+    },
+    {
+      "path": "tests/tests_app/utilities/test_tracer.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -7,7 +7,7 @@\n from lightning_app.utilities.tracer import Tracer\n \n \n-@RunIf(pytorch_lightning=True)\n+@RunIf(pl=True)\n def test_tracer():\n     from pytorch_lightning import Trainer\n "
+    },
+    {
+      "path": "tests/tests_app_examples/components/python/test_scripts.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "patch": "@@ -8,7 +8,7 @@\n from lightning_app.testing.helpers import run_script, RunIf\n \n \n-@RunIf(pytorch_lightning=True)\n+@RunIf(pl=True)\n @pytest.mark.parametrize(\n     \"file\",\n     [\n@@ -21,7 +21,7 @@ def test_scripts(file):\n \n \n @pytest.mark.skip(reason=\"causing some issues with CI, not sure if the test is actually needed\")\n-@RunIf(pytorch_lightning=True)\n+@RunIf(pl=True)\n def test_components_app_example():\n \n     runner = CliRunner()"
+    },
+    {
+      "path": "tests/tests_app_examples/test_quick_start.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -26,7 +26,7 @@ def run_once(self):\n \n # TODO: Investigate why it doesn't work\n @pytest.mark.skipif(True, reason=\"test is skipped because CI was blocking all the PRs.\")\n-@RunIf(pytorch_lightning=True, skip_windows=True, skip_linux=True)\n+@RunIf(pl=True, skip_windows=True, skip_linux=True)\n def test_quick_start_example(caplog, monkeypatch):\n     \"\"\"This test ensures the Quick Start example properly train and serve PyTorch Lightning.\"\"\"\n "
+    }
+  ]
+}

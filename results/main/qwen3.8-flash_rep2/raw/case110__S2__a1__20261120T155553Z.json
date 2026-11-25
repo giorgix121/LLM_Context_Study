@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795190177-qmcqEn87852eDXo5rvZh",
+    "object": "chat.completion",
+    "created": 1795190177,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change replaces 'which' with 'command -v', but 'command' is a shell builtin and not an executable, so subprocess.call will raise FileNotFoundError (caught) or fail to find the command, potentially causing srun_exists to always be False on systems where 'command' isn't available as a standalone binary, thus suppressing valid warnings.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4117,
+      "completion_tokens": 83,
+      "total_tokens": 4200,
+      "cost": 0.000176304,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 3584,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000176304,
+        "upstream_inference_prompt_cost": 0.000137294,
+        "upstream_inference_completions_cost": 3.901e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

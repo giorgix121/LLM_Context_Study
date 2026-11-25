@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565237-fyJN8v6DfQk65YIveBJ1",
+    "object": "chat.completion",
+    "created": 1795565237,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change correctly updates the type annotation of `get_task_kwargs_for_message` from `str` to `bytes` to match how it is actually called (with `message.payload.value`, which is bytes from Kafka), making the signature more accurate without altering runtime behavior.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2990,
+      "completion_tokens": 80,
+      "total_tokens": 3070,
+      "cost": 0.01017,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01017,
+        "upstream_inference_prompt_cost": 0.00897,
+        "upstream_inference_completions_cost": 0.0012
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

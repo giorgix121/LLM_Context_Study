@@ -1,0 +1,15 @@
+[
+  {
+    "name": "test_best_model",
+    "before": {
+      "start": 69,
+      "end": 78,
+      "code": "def test_best_model(analysis):\n    \"\"\"Test the best model given output of tune.run\"\"\"\n    best_checkpoint_path = analysis.best_checkpoint\n    best_model = ConvNet()\n    best_checkpoint = torch.load(os.path.join(best_checkpoint_path, \"checkpoint.pt\"))\n    best_model.load_state_dict(best_checkpoint[\"model_state_dict\"])\n    # Note that test only runs on a small random set of the test data, thus the\n    # accuracy may be different from metrics shown in tuning process.\n    test_acc = test(best_model, get_data_loaders()[1])\n    print(\"best model accuracy: \", test_acc)"
+    },
+    "after": {
+      "start": 69,
+      "end": 80,
+      "code": "def test_best_model(analysis):\n    \"\"\"Test the best model given output of tune.run\"\"\"\n    with analysis.best_checkpoint.as_directory() as best_checkpoint_path:\n        best_model = ConvNet()\n        best_checkpoint = torch.load(\n            os.path.join(best_checkpoint_path, \"checkpoint.pt\")\n        )\n        best_model.load_state_dict(best_checkpoint[\"model_state_dict\"])\n        # Note that test only runs on a small random set of the test data, thus the\n        # accuracy may be different from metrics shown in tuning process.\n        test_acc = test(best_model, get_data_loaders()[1])\n        print(\"best model accuracy: \", test_acc)"
+    }
+  }
+]

@@ -1,0 +1,5 @@
+{
+  "commit": "dba4bbf6a63a522df7569ba4b0941feef53bd2fc",
+  "chars": 307,
+  "text": "feat(ds): Send boosted releases to relay as part of ProjectConfig [TET-497] (#40415)\n\nSends boosted release ids as dynamic sampling with start and end time\nranges to relay as part of the project config\nContinuation of #40403\n\nCo-authored-by: getsantry[bot] <66042841+getsantry[bot]@users.noreply.github.com>"
+}

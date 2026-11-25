@@ -1,0 +1,65 @@
+{
+  "cache_key": "dde800055abdc30805e3285c07ade5abeedab786804606fa8025772d41a853f4",
+  "sample_id": "case016",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "When the environment is not a SLURMEnvironment, `sigusr` falls back to `signal.SIGUSR1`, but `environment` could be `None` (no cluster environment configured), causing an `AttributeError` on `environment.requeue_signal` before the `isinstance` check short-circuits — actually the ternary is safe, but the unconditional `assert sigusr is not None` will raise if `signal.SIGUSR1` itself is somehow None, and more critically the `sigusr` variable is now computed outside the `if sigusr_handlers` guard, meaning it always evaluates `environment.requeue_signal` for SLURM environments even when no handlers are registered, potentially hitting an uninitialized or None `requeue_signal` attribute and triggering the assert.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"When the environment is not a SLURMEnvironment, `sigusr` falls back to `signal.SIGUSR1`, but `environment` could be `None` (no cluster environment configured), causing an `AttributeError` on `environment.requeue_signal` before the `isinstance` check short-circuits — actually the ternary is safe, but the unconditional `assert sigusr is not None` will raise if `signal.SIGUSR1` itself is somehow None, and more critically the `sigusr` variable is now computed outside the `if sigusr_handlers` guard, meaning it always evaluates `environment.requeue_signal` for SLURM environments even when no handlers are registered, potentially hitting an uninitialized or None `requeue_signal` attribute and triggering the assert.\"}",
+  "response_id": "gen-1795192856-t5rL7C52ZIprOzi58pqw",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 3080,
+  "completion_tokens": 193,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.012135,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3080,
+    "completion_tokens": 193,
+    "total_tokens": 3273,
+    "cost": 0.012135,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.012135,
+      "upstream_inference_prompt_cost": 0.00924,
+      "upstream_inference_completions_cost": 0.002895
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 6.117,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:41:02+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

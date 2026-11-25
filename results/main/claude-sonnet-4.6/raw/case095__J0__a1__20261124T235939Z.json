@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565058-aZw8lcCNLO19f6EBce3l",
+    "object": "chat.completion",
+    "created": 1795565058,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The assertion `assert pkg_found` in `testing.py` will raise an `AssertionError` (not a descriptive exception) if the 'Packaged Lightning with your application' line is never found in stdout, but more critically the stdout is redirected to a file while stderr still goes to `sys.stderr`, meaning the packaging print output could be missed if it goes to stderr, causing the assertion to always fail in editable-mode CI runs.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5103,
+      "completion_tokens": 114,
+      "total_tokens": 5217,
+      "cost": 0.017019,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.017019,
+        "upstream_inference_prompt_cost": 0.015309,
+        "upstream_inference_completions_cost": 0.00171
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

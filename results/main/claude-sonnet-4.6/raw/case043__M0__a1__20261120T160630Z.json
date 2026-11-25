@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191920-3SSV6o3GlbxyA7HirWqE",
+    "object": "chat.completion",
+    "created": 1795191920,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Removing `config = ACTION_SCHEMA(config)` skips schema validation in `async_validate_action_config`, meaning malformed or incomplete action configs are no longer validated before their fields are accessed, which can cause unexpected KeyErrors or allow invalid configurations to pass through.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1147,
+      "completion_tokens": 74,
+      "total_tokens": 1221,
+      "cost": 0.004551,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004551,
+        "upstream_inference_prompt_cost": 0.003441,
+        "upstream_inference_completions_cost": 0.00111
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

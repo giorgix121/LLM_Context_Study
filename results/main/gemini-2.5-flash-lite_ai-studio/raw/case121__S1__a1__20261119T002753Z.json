@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795048465-9TquWLWO1exFgS4OS40N",
+    "object": "chat.completion",
+    "created": 1795048465,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google AI Studio",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change modifies the `go_to_subtab` method to select tabs using a `data-key` attribute instead of partial link text, which could break existing functionality if the `data-key` attributes do not match the expected tab names.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 620,
+      "completion_tokens": 63,
+      "total_tokens": 683,
+      "cost": 8.72e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 8.72e-05,
+        "upstream_inference_prompt_cost": 6.2e-05,
+        "upstream_inference_completions_cost": 2.52e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "commit": "be0f10bfb9160244f987c8e2d535cac0469cfcf0",
+  "chars": 59,
+  "text": "ref: unskip sentry_sdk mypy exclude and fix errors (#38678)"
+}

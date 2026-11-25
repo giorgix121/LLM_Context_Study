@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795187917-gP1LR0GmlCOwD8keGrh9",
+    "object": "chat.completion",
+    "created": 1795187917,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change replaces `which` with `command -v` but `command` is a shell builtin that won't work with `subprocess.call()` without a shell, and the added exception handling for `FileNotFoundError` may mask the actual issue of the command not being found.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 359,
+      "completion_tokens": 88,
+      "total_tokens": 447,
+      "cost": 0.000799,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000799,
+        "upstream_inference_prompt_cost": 0.000359,
+        "upstream_inference_completions_cost": 0.00044
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

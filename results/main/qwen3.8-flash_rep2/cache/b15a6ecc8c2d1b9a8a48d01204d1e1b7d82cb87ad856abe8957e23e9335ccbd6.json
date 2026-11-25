@@ -1,0 +1,65 @@
+{
+  "cache_key": "b15a6ecc8c2d1b9a8a48d01204d1e1b7d82cb87ad856abe8957e23e9335ccbd6",
+  "sample_id": "case136",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The new duplicate check queries the database before creating the File and ReplayRecordingSegment, but if a race condition occurs between the count check and the creation, it could lead to duplicate entries or integrity errors since there is no unique constraint enforcement shown in this snippet.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The new duplicate check queries the database before creating the File and ReplayRecordingSegment, but if a race condition occurs between the count check and the creation, it could lead to duplicate entries or integrity errors since there is no unique constraint enforcement shown in this snippet.\"}",
+  "response_id": "gen-1795190272-lxr1uA3V7BMKzOyIajyj",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 5503,
+  "completion_tokens": 65,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000856,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 5503,
+    "completion_tokens": 65,
+    "total_tokens": 5568,
+    "cost": 0.000856,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000856,
+      "upstream_inference_prompt_cost": 0.00082545,
+      "upstream_inference_completions_cost": 3.055e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.396,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:57:54+00:00",
+  "run_id": "20261120T155553Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

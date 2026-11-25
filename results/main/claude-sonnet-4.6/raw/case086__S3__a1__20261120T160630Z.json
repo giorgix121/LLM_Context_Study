@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191484-Wg3pgvvFoo6F5oFpJzhe",
+    "object": "chat.completion",
+    "created": 1795191484,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new `async_update` method only refreshes UV index data but not UV protection window data, which may leave the sensor state inconsistent if other sensors depend on protection window data; additionally, calling `async_update_uv_index_data()` directly bypasses any coordinator-level rate limiting or error handling that the normal update flow provides.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 461,
+      "completion_tokens": 89,
+      "total_tokens": 550,
+      "cost": 0.002718,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002718,
+        "upstream_inference_prompt_cost": 0.001383,
+        "upstream_inference_completions_cost": 0.001335
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

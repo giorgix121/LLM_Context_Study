@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193613-nNSQDVG5J5QK4Se5t1Cf",
+    "object": "chat.completion",
+    "created": 1795193613,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Let me examine what `reset_results()` does compared to the original code.\n\nThe original code:\n1. Asserts `self.trainer._results is not None`\n2. Calls `self.trainer._results.reset(metrics=True)`\n\nThe new code calls `self.reset_results()`. I need to consider what `reset_results()` does - it likely resets results but may do so differently (e.g., it might reset with different parameters, or it might set `_results` to `None` rather than calling `.reset(metrics=True)` on it, or it might reset all metrics rather than just with `metrics=True`).\n\nThe key difference is that `reset_results()` is a method on `LoggerConnector` that likely does a broader reset (possibly setting `_results` to `None` or resetting without the `metrics=True` flag), whereas the original specifically called `.reset(metrics=True)` which preserves non-metric state while resetting metrics.\n\nIf `reset_results()` resets differently (e.g., full reset vs. metrics-only reset), this could change behavior at epoch boundaries, potentially",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 462,
+      "completion_tokens": 256,
+      "total_tokens": 718,
+      "cost": 0.005226,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005226,
+        "upstream_inference_prompt_cost": 0.001386,
+        "upstream_inference_completions_cost": 0.00384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

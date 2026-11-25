@@ -1,0 +1,65 @@
+{
+  "cache_key": "25f2ba9ab599cb20a33a13a1167fe442c9764ed369888ba47efd79c5a65ef810",
+  "sample_id": "case11",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change only simplifies the error message text by removing the operation context prefix, which does not affect the functional behavior of the code since the exception is still raised with a valid error message.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change only simplifies the error message text by removing the operation context prefix, which does not affect the functional behavior of the code since the exception is still raised with a valid error message.\"\n}\n```",
+  "response_id": "gen-1790920306-KXK9pbHlYCToPKeUXdwG",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 1316,
+  "completion_tokens": 68,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001656,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1316,
+    "completion_tokens": 68,
+    "total_tokens": 1384,
+    "cost": 0.001656,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001656,
+      "upstream_inference_prompt_cost": 0.001316,
+      "upstream_inference_completions_cost": 0.00034
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.217,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T05:51:47+00:00",
+  "run_id": "20261002T054951Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

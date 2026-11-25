@@ -1,0 +1,15 @@
+[
+  {
+    "name": "CSVDatasource._read_stream",
+    "before": {
+      "start": 29,
+      "end": 48,
+      "code": "    def _read_stream(\n        self, f: \"pyarrow.NativeFile\", path: str, **reader_args\n    ) -> Iterator[Block]:\n        import pyarrow\n        from pyarrow import csv\n\n        read_options = reader_args.pop(\n            \"read_options\", csv.ReadOptions(use_threads=False)\n        )\n        reader = csv.open_csv(f, read_options=read_options, **reader_args)\n        schema = None\n        while True:\n            try:\n                batch = reader.read_next_batch()\n                table = pyarrow.Table.from_batches([batch], schema=schema)\n                if schema is None:\n                    schema = table.schema\n                yield table\n            except StopIteration:\n                return"
+    },
+    "after": {
+      "start": 29,
+      "end": 55,
+      "code": "    def _read_stream(\n        self, f: \"pyarrow.NativeFile\", path: str, **reader_args\n    ) -> Iterator[Block]:\n        import pyarrow\n        from pyarrow import csv\n\n        read_options = reader_args.pop(\n            \"read_options\", csv.ReadOptions(use_threads=False)\n        )\n        parse_options = reader_args.pop(\"parse_options\", csv.ParseOptions())\n        # Re-init invalid row handler: https://issues.apache.org/jira/browse/ARROW-17641\n        if hasattr(parse_options, \"invalid_row_handler\"):\n            parse_options.invalid_row_handler = parse_options.invalid_row_handler\n\n        reader = csv.open_csv(\n            f, read_options=read_options, parse_options=parse_options, **reader_args\n        )\n        schema = None\n        while True:\n            try:\n                batch = reader.read_next_batch()\n                table = pyarrow.Table.from_batches([batch], schema=schema)\n                if schema is None:\n                    schema = table.schema\n                yield table\n            except StopIteration:\n                return"
+    }
+  }
+]

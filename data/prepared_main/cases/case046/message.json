@@ -1,0 +1,5 @@
+{
+  "commit": "debd475a6dca085535f758369a3e4e3cb6efa7c2",
+  "chars": 43,
+  "text": "Remove onvif from mypy ignore list (#75162)"
+}

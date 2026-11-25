@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563481-Nbgl0MaCrp8q1l4HeXmC",
+    "object": "chat.completion",
+    "created": 1795563481,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google AI Studio",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n \"label\": \"RISKY\",\n \"explanation\": \"The changes refactor Arrow serialization logic, moving from custom reducers to `ray.util.register_serializer`, which could introduce subtle behavioral differences or compatibility issues with older PyArrow versions.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 13039,
+      "completion_tokens": 59,
+      "total_tokens": 13098,
+      "cost": 0.0013275,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0013275,
+        "upstream_inference_prompt_cost": 0.0013039,
+        "upstream_inference_completions_cost": 2.36e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

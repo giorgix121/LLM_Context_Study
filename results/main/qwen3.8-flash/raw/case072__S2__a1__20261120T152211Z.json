@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795188945-WNgdFy4CAiDP0qJ3I4i7",
+    "object": "chat.completion",
+    "created": 1795188945,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The new `_alter_column_collation_sql` method appends `USING %(column)s::%(type)s` to the collation SQL string, but the subsequent formatting dictionary does not provide a value for the `%(type)s` placeholder, which will cause a KeyError during migration execution.\"\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5912,
+      "completion_tokens": 78,
+      "total_tokens": 5990,
+      "cost": 0.00092346,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00092346,
+        "upstream_inference_prompt_cost": 0.0008868,
+        "upstream_inference_completions_cost": 3.666e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

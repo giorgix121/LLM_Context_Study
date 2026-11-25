@@ -1,0 +1,65 @@
+{
+  "cache_key": "3a6e14c9fd8f0e17d8630a4ba1b80d0ba8cee64b6d0a9f33ef86251c003b3378",
+  "sample_id": "case032",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change only removes a pylint disable comment from line 78, which has no functional impact on the code's behavior or execution.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change only removes a pylint disable comment from line 78, which has no functional impact on the code's behavior or execution.\"\n}\n```",
+  "response_id": "gen-1795046757-tmV0ZiML2EB634DLIkGm",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 749,
+  "completion_tokens": 57,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001034,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 749,
+    "completion_tokens": 57,
+    "total_tokens": 806,
+    "cost": 0.001034,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001034,
+      "upstream_inference_prompt_cost": 0.000749,
+      "upstream_inference_completions_cost": 0.000285
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.88,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:05:58+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

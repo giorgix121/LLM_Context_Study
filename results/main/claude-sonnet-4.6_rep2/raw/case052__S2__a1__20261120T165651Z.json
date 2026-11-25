@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795194143-AwJV2EOtPYqRaKKbmBSd",
+    "object": "chat.completion",
+    "created": 1795194143,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Hardcoding `ExternalProviders.SLACK` in `build_notification_footer` means that if the footer is ever used for non-Slack providers (e.g., MS Teams or email), the settings URL referrer will incorrectly report Slack, and any subclasses that previously called `get_settings_url(recipient)` with a different provider via the old `self.provider` mechanism will now always get a Slack-branded URL.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6738,
+      "completion_tokens": 116,
+      "total_tokens": 6854,
+      "cost": 0.021954,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.021954,
+        "upstream_inference_prompt_cost": 0.020214,
+        "upstream_inference_completions_cost": 0.00174
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

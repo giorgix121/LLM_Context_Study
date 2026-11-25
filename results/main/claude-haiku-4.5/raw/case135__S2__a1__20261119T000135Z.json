@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795046655-q0Z1l4ktOWK15CXWgkZ1",
+    "object": "chat.completion",
+    "created": 1795046655,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change replaces a counter synchronization mechanism based on `CS.lka_steering_cmd_counter` with a new mechanism using `CS.loopback_lka_steering_cmd_updated` and `CS.camera_lka_steering_cmd_counter`, which introduces dependencies on new CAN signal fields that may not be properly initialized or available in all scenarios, potentially causing steering command counter misalignment.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5620,
+      "completion_tokens": 116,
+      "total_tokens": 5736,
+      "cost": 0.0062,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0062,
+        "upstream_inference_prompt_cost": 0.00562,
+        "upstream_inference_completions_cost": 0.00058
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563893-xuiULVp1bSwBfOoXRzXo",
+    "object": "chat.completion",
+    "created": 1795563893,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The commit removes the `provider` parameter from `create_notification_with_properties` and the `provider` property from `BaseNotification`, but hardcodes `ExternalProviders.SLACK` in several methods like `build_notification_footer` and `get_message_actions`, which may cause incorrect behavior for non-Slack providers or break functionality if these methods are called in contexts where the provider is not Slack.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1912,
+      "completion_tokens": 92,
+      "total_tokens": 2004,
+      "cost": 0.00033004,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00033004,
+        "upstream_inference_prompt_cost": 0.0002868,
+        "upstream_inference_completions_cost": 4.324e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

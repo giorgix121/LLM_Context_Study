@@ -1,0 +1,65 @@
+{
+  "cache_key": "204bcc8b9764e9cee4c0bcca1d56764d6645b845562e3bcda4a38f731919c83d",
+  "sample_id": "case137",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "If `ast.literal_eval` succeeds and returns a string, the code blindly uses `out[0]` as the quote character without verifying it is actually a quote, and without handling cases where `out` might be empty or use triple-quotes, potentially producing malformed or incorrect output.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"If `ast.literal_eval` succeeds and returns a string, the code blindly uses `out[0]` as the quote character without verifying it is actually a quote, and without handling cases where `out` might be empty or use triple-quotes, potentially producing malformed or incorrect output.\"}",
+  "response_id": "gen-1795193211-w2TRp6u8qdNhaCLdQXKn",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 371,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.002313,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 371,
+    "completion_tokens": 80,
+    "total_tokens": 451,
+    "cost": 0.002313,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.002313,
+      "upstream_inference_prompt_cost": 0.001113,
+      "upstream_inference_completions_cost": 0.0012
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.829,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:46:53+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "created_at": "2026-10-02T07:12:39+00:00",
+  "study": "main",
+  "seed": 42,
+  "sample_size": "max balanced (all eligible RISKY + as many NON-RISKY)",
+  "python": "3.14.6",
+  "git": "git version 2.53.0",
+  "dataset": {
+    "archive": "https://zenodo.org/records/7708984/files/defectors.zip?download=1",
+    "member": "jit_bug_prediction_splits/time/test.parquet.gzip",
+    "rows": 10000,
+    "columns": {
+      "datetime": "datetime64[us, UTC-01:00]",
+      "commit": "str",
+      "repo": "str",
+      "filepath": "str",
+      "content": "str",
+      "methods": "object",
+      "lines": "object"
+    },
+    "annotation_column": "lines",
+    "annotation_column_note": "paper Table I names the defect-line column `induce_bug` (List<int>); the released parquet stores it as `lines` (List<int64>)",
+    "provenance": {
+      "source": "https://zenodo.org/records/7708984/files/defectors.zip?download=1",
+      "member": "jit_bug_prediction_splits/time/test.parquet.gzip",
+      "access": "direct ZIP member access (HTTP range requests)",
+      "downloaded_at": "2026-10-02T05:41:40+00:00",
+      "member_bytes": 4232539,
+      "member_sha256": "61635792623c6baabe0ec6b6b4136d5c268e1e9ff58da086b92e8e26b98e4a9e",
+      "zip_entry": {
+        "archive_size": 2223303371,
+        "method": 8,
+        "flags": 0,
+        "crc32": 1465758184,
+        "compressed_size": 4222256,
+        "uncompressed_size": 4232539,
+        "header_offset": 104288623,
+        "data_offset": 104288701
+      }
+    }
+  },
+  "labels": {
+    "counts": {
+      "NON-RISKY": 8754,
+      "RISKY": 1246
+    },
+    "rejected_malformed": 0,
+    "rejected_examples": {},
+    "risky_rows_annotations_are_added_lines": "1246/1246"
+  },
+  "selection": {
+    "quota": {
+      "RISKY": 73,
+      "NON-RISKY": 73
+    },
+    "selected": {
+      "RISKY": 73,
+      "NON-RISKY": 73
+    },
+    "examined": 1731,
+    "excluded": 1585,
+    "exclusion_reasons_by_label": {
+      "combined BEFORE+AFTER > 24,000 chars": {
+        "NON-RISKY": 188,
+        "RISKY": 427
+      },
+      "commit already sampled": {
+        "NON-RISKY": 14,
+        "RISKY": 282
+      },
+      "diff > 8,000 chars": {
+        "NON-RISKY": 12,
+        "RISKY": 37
+      },
+      "diff creates the file (@@ -0,0)": {
+        "NON-RISKY": 17,
+        "RISKY": 67
+      },
+      "diff empties the file (+0,0)": {
+        "NON-RISKY": 2,
+        "RISKY": 0
+      },
+      "edit outside functions": {
+        "NON-RISKY": 173,
+        "RISKY": 353
+      },
+      "empty dataset diff": {
+        "NON-RISKY": 4,
+        "RISKY": 0
+      },
+      "file absent at parent revision": {
+        "NON-RISKY": 1,
+        "RISKY": 7
+      },
+      "not a .py file": {
+        "NON-RISKY": 1,
+        "RISKY": 0
+      }
+    },
+    "shortfall": {},
+    "manifest_sha256": "89269e6c2ac6237a08b6784b9b72edd154934fbb8adc02187d4b98ee55b72777"
+  },
+  "function_extraction_check": {
+    "cases_where_ast_function_names_equal_dataset_methods": "133/146"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "782b36aa2025f4ef6dcd0e927b6cf985c66a81cb881a7ecaedc47a7d1251c189",
+  "sample_id": "case146",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The `run_formatters` function now accepts an optional `black_path` argument, which could lead to unexpected behavior if not handled correctly by callers, and the introduction of a sentinel object for default argument handling is a new pattern that might be less clear than the previous direct `shutil.which` call.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The `run_formatters` function now accepts an optional `black_path` argument, which could lead to unexpected behavior if not handled correctly by callers, and the introduction of a sentinel object for default argument handling is a new pattern that might be less clear than the previous direct `shutil.which` call.\"}",
+  "response_id": "gen-1795048303-U4GC6ow7nyQ57F2rAZAW",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 677,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 9.81e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 677,
+    "completion_tokens": 76,
+    "total_tokens": 753,
+    "cost": 9.81e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 9.81e-05,
+      "upstream_inference_prompt_cost": 6.77e-05,
+      "upstream_inference_completions_cost": 3.04e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.553,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:31:43+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

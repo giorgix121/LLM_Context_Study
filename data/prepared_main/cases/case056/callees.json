@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "QuickSightHook.__init__",
+      "path": "airflow/providers/amazon/aws/hooks/quicksight.py",
+      "start": 42,
+      "end": 43,
+      "code": "    def __init__(self, *args, **kwargs):\n        super().__init__(client_type=\"quicksight\", *args, **kwargs)",
+      "called_by": "QuickSightCreateIngestionOperator.execute"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191318-gh6Run6MxjmTQV47VHcf",
+    "object": "chat.completion",
+    "created": 1795191318,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Overriding the `name` property to check `_attr_name` bypasses the parent `entity.Entity` class's own `_attr_name` handling (which already supports this pattern), potentially causing inconsistent behavior or double-handling if the parent class also reads `_attr_name` through its own `name` property, and the `hasattr` check is redundant/fragile since `_attr_name` is a class-level attribute in the HA entity base class.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 418,
+      "completion_tokens": 122,
+      "total_tokens": 540,
+      "cost": 0.003084,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003084,
+        "upstream_inference_prompt_cost": 0.001254,
+        "upstream_inference_completions_cost": 0.00183
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

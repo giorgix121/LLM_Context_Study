@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "loads",
+      "path": "src/sentry/utils/json.py",
+      "start": 109,
+      "end": 114,
+      "code": "def loads(value: str, use_rapid_json: bool = False, **kwargs) -> JSONData:\n    with sentry_sdk.start_span(op=\"sentry.utils.json.loads\"):\n        if use_rapid_json is True:\n            return rapidjson.loads(value)\n        else:\n            return _default_decoder.decode(value)",
+      "called_by": "get_task_kwargs_for_message"
+    },
+    {
+      "name": "timing",
+      "path": "src/sentry/utils/metrics.py",
+      "start": 232,
+      "end": 247,
+      "code": "def timing(\n    key: str,\n    value: Union[int, float],\n    instance: Optional[str] = None,\n    tags: Optional[Tags] = None,\n    sample_rate: float = settings.SENTRY_METRICS_SAMPLE_RATE,\n) -> None:\n    current_tags = _get_current_global_tags()\n    if tags is not None:\n        current_tags.update(tags)\n\n    try:\n        backend.timing(key, value, instance, current_tags, sample_rate)\n    except Exception:\n        logger = logging.getLogger(\"sentry.errors\")\n        logger.exception(\"Unable to record backend metric\")",
+      "called_by": "get_task_kwargs_for_message"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "ac68e8e8a8eac7f53de21650ac0d5dc540195b59745270dfc4fcadad8fbe28ba",
+  "sample_id": "case125",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change modifies `hass.data[DATA_MQTT]` to `hass.data[DATA_MQTT].client`, which is a breaking change if the `DATA_MQTT` object no longer directly holds the client instance.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\"label\": \"RISKY\", \"explanation\": \"The change modifies `hass.data[DATA_MQTT]` to `hass.data[DATA_MQTT].client`, which is a breaking change if the `DATA_MQTT` object no longer directly holds the client instance.\"}\n```",
+  "response_id": "gen-1795187798-aH3XPk178PpTXdXbfpeV",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 466,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 7.14e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 466,
+    "completion_tokens": 62,
+    "total_tokens": 528,
+    "cost": 7.14e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.14e-05,
+      "upstream_inference_prompt_cost": 4.66e-05,
+      "upstream_inference_completions_cost": 2.48e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.469,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:16:38+00:00",
+  "run_id": "20261120T151513Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

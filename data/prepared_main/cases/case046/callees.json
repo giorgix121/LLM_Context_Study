@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "ONVIFBaseEntity.__init__",
+      "path": "homeassistant/components/onvif/base.py",
+      "start": 14,
+      "end": 16,
+      "code": "    def __init__(self, device: ONVIFDevice) -> None:\n        \"\"\"Initialize the ONVIF entity.\"\"\"\n        self.device: ONVIFDevice = device",
+      "called_by": "RebootButton.__init__"
+    }
+  ]
+}

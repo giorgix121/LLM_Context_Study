@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191070-6czfWGC17zUseCGVrhMz",
+    "object": "chat.completion",
+    "created": 1795191070,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Replacing `hasattr(device, 'voltage')` with `isinstance(device.voltage, int)` changes behavior: if `device.voltage` is `None` or a float (e.g., 0.0), the condition will no longer trigger, potentially causing genuinely unavailable devices to remain marked as present.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 922,
+      "completion_tokens": 86,
+      "total_tokens": 1008,
+      "cost": 0.004056,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004056,
+        "upstream_inference_prompt_cost": 0.002766,
+        "upstream_inference_completions_cost": 0.00129
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795188713-NK4lPnHyEZfEC3S8PvTf",
+    "object": "chat.completion",
+    "created": 1795188713,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new `else` clause raises an exception for any column not explicitly handled (e.g., 'tags[release]', 'mri', etc.), whereas previously these columns were silently appended to the `where` list, potentially breaking existing queries that filter on other valid metric tags or fields.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1143,
+      "completion_tokens": 72,
+      "total_tokens": 1215,
+      "cost": 0.00020529,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00020529,
+        "upstream_inference_prompt_cost": 0.00017145,
+        "upstream_inference_completions_cost": 3.384e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

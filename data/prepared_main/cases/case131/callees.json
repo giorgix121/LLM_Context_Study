@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "Shell._get_activate_script",
+      "path": "src/poetry/utils/shell.py",
+      "start": 128,
+      "end": 142,
+      "code": "    def _get_activate_script(self) -> str:\n        if self._name == \"fish\":\n            suffix = \".fish\"\n        elif self._name in (\"csh\", \"tcsh\"):\n            suffix = \".csh\"\n        elif self._name in (\"powershell\", \"pwsh\"):\n            suffix = \".ps1\"\n        elif self._name == \"cmd\":\n            suffix = \".bat\"\n        elif self._name == \"nu\":\n            suffix = \".nu\"\n        else:\n            suffix = \"\"\n\n        return \"activate\" + suffix",
+      "called_by": "Shell.activate"
+    },
+    {
+      "name": "Shell._get_source_command",
+      "path": "src/poetry/utils/shell.py",
+      "start": 144,
+      "end": 147,
+      "code": "    def _get_source_command(self) -> str:\n        if self._name in (\"fish\", \"csh\", \"tcsh\", \"nu\"):\n            return \"source\"\n        return \".\"",
+      "called_by": "Shell.activate"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795188588-Up7aO8R931Ym84dx8Uhf",
+    "object": "chat.completion",
+    "created": 1795188588,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The recursive call to `connect` after `disconnect` may cause infinite recursion or unexpected behavior if the connection state isn't properly cleared or if the app name remains unchanged, and it bypasses the original user confirmation flow for switching apps.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3807,
+      "completion_tokens": 61,
+      "total_tokens": 3868,
+      "cost": 0.00059972,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00059972,
+        "upstream_inference_prompt_cost": 0.00057105,
+        "upstream_inference_completions_cost": 2.867e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

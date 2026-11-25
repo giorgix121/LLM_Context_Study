@@ -1,0 +1,24 @@
+{
+  "commit": "6f16e46bdb397bf1898e4d7d9050492924177abd",
+  "files_in_commit": 3,
+  "target_index": 0,
+  "target_status": "modified",
+  "chars": 1468,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "src/lightning_lite/utilities/distributed.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "patch": "@@ -136,10 +136,10 @@ def sync_ddp(result: Tensor, group: Optional[Any] = None, reduce_op: Optional[Un\n \n     # WA for HPU. HPU doesn't support Long types, forcefully set it to float\n     if module_available(\"habana_frameworks.torch.utils.library_loader\"):\n-        from habana_frameworks.torch.utils.library_loader import is_habana_available\n+        from habana_frameworks.torch.utils.library_loader import is_habana_avaialble\n \n         if (\n-            is_habana_available()\n+            is_habana_avaialble()\n             and os.environ.get(\"HCCL_DISTRIBUTED_BACKEND\") == \"1\"\n             and result.type() in (\"torch.LongTensor\", \"torch.hpu.LongTensor\")\n         ):"
+    },
+    {
+      "path": "tests/tests_pytorch/serve/test_servable_module_validator.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "patch": "@@ -1,8 +1,9 @@\n from typing import Dict\n \n+import pytest\n import torch\n \n-from pytorch_lightning import seed_everything, Trainer\n+from pytorch_lightning import Trainer\n from pytorch_lightning.demos.boring_classes import BoringModel\n from pytorch_lightning.serve.servable_module_validator import ServableModule, ServableModuleValidator\n \n@@ -29,14 +30,13 @@ def configure_response(self):\n \n \n def test_servable_module_validator():\n-    seed_everything(42)\n     model = ServableBoringModel()\n     callback = ServableModuleValidator()\n     callback.on_train_start(Trainer(), model)\n \n \n+@pytest.mark.flaky(reruns=3)\n def test_servable_module_validator_with_trainer(tmpdir):\n-    seed_everything(42)\n     callback = ServableModuleValidator()\n     trainer = Trainer(\n         default_root_dir=tmpdir,"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "_get_derived_op_metric_field_from_snuba_function",
+      "path": "src/sentry/snuba/metrics/mqb_query_transformer.py",
+      "start": 23,
+      "end": 50,
+      "code": "def _get_derived_op_metric_field_from_snuba_function(function: Function):\n    if len(function.parameters) == 0 or not isinstance(function.parameters[0], Column):\n        raise MQBQueryTransformationException(\n            \"The first parameter of a function should be a column of the metric MRI\"\n        )\n    default_args_for_snql_func = {\"aggregate_filter\", \"org_id\", \"alias\"}\n\n    metric_field_params = {}\n    function_params = function.parameters[1:]\n    snql_func_args = inspect.signature(DERIVED_OPS[function.function].snql_func).parameters.keys()\n    for arg in snql_func_args:\n        if arg in default_args_for_snql_func:\n            continue\n        try:\n            metric_field_params[arg] = function_params.pop(0)\n        except IndexError:\n            raise MQBQueryTransformationException(\n                f\"Too few function parameters are provided. The arguments required for function \"\n                f\"{function.function} are \"\n                f\"{[arg for arg in snql_func_args if arg not in default_args_for_snql_func]}\"\n            )\n\n    return MetricField(\n        op=function.function,\n        metric_mri=function.parameters[0].name,\n        params=metric_field_params,\n        alias=function.alias,\n    )",
+      "called_by": "_get_mq_dict_params_from_where"
+    }
+  ]
+}

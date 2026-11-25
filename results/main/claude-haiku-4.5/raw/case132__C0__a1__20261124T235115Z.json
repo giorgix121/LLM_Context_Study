@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564376-qRm6zrySQEcIV7pwG6R5",
+    "object": "chat.completion",
+    "created": 1795564376,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at the target file change in `src/sentry/snuba/metrics/naming_layer/mapping.py`, the modification changes the `get_operation_with_public_name` function:\n\n**Before:**\n```python\ndef get_operation_with_public_name(operation: Optional[str], metric_mri: str) -> str:\n    if operation is None:\n        return get_public_name_from_mri(metric_mri)\n    return f\"{operation}({get_public_name_from_mri(metric_mri)})\"\n```\n\n**After:**\n```python\ndef get_operation_with_public_name(operation: Optional[str], metric_mri: str) -> str:\n    return (\n        f\"{operation}({get_public_name_from_mri(metric_mri)})\"\n        if operation is not None\n        else metric_mri\n    )\n```\n\n**Critical Issue:** When `operation is None`, the function now returns `metric_mri` directly instead of calling `get_public_name_from_mri(metric_mri)`.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 22830,
+      "completion_tokens": 256,
+      "total_tokens": 23086,
+      "cost": 0.02411,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.02411,
+        "upstream_inference_prompt_cost": 0.02283,
+        "upstream_inference_completions_cost": 0.00128
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

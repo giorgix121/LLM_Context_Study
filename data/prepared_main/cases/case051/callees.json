@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "zerofill",
+      "path": "src/sentry/snuba/discover.py",
+      "start": 99,
+      "end": 124,
+      "code": "def zerofill(data, start, end, rollup, orderby):\n    rv = []\n    start = int(to_naive_timestamp(naiveify_datetime(start)) / rollup) * rollup\n    end = (int(to_naive_timestamp(naiveify_datetime(end)) / rollup) * rollup) + rollup\n    data_by_time = {}\n\n    for obj in data:\n        # This is needed for SnQL, and was originally done in utils.snuba.get_snuba_translators\n        if isinstance(obj[\"time\"], str):\n            obj[\"time\"] = int(to_timestamp(parse_datetime(obj[\"time\"])))\n        if obj[\"time\"] in data_by_time:\n            data_by_time[obj[\"time\"]].append(obj)\n        else:\n            data_by_time[obj[\"time\"]] = [obj]\n\n    for key in range(start, end, rollup):\n        if key in data_by_time and len(data_by_time[key]) > 0:\n            rv = rv + data_by_time[key]\n            data_by_time[key] = []\n        else:\n            rv.append({\"time\": key})\n\n    if \"-time\" in orderby:\n        return list(reversed(rv))\n\n    return rv",
+      "called_by": "timeseries_query"
+    },
+    {
+      "name": "categorize_columns",
+      "path": "src/sentry/discover/arithmetic.py",
+      "start": 369,
+      "end": 378,
+      "code": "def categorize_columns(columns) -> Tuple[List[str], List[str]]:\n    \"\"\"equations have a prefix so that they can be easily included alongside our existing fields\"\"\"\n    equations = []\n    fields = []\n    for column in columns:\n        if is_equation(column):\n            equations.append(strip_equation(column))\n        else:\n            fields.append(column)\n    return equations, fields",
+      "called_by": "timeseries_query"
+    },
+    {
+      "name": "TimeseriesMetricQueryBuilder.__init__",
+      "path": "src/sentry/search/events/builder.py",
+      "start": 2674,
+      "end": 2708,
+      "code": "    def __init__(\n        self,\n        params: ParamsType,\n        interval: int,\n        dataset: Optional[Dataset] = None,\n        query: Optional[str] = None,\n        selected_columns: Optional[List[str]] = None,\n        allow_metric_aggregates: Optional[bool] = False,\n        functions_acl: Optional[List[str]] = None,\n        dry_run: Optional[bool] = False,\n        limit: Optional[int] = 10000,\n        use_metrics_layer: Optional[bool] = False,\n    ):\n        super().__init__(\n            params=params,\n            query=query,\n            dataset=dataset,\n            selected_columns=selected_columns,\n            allow_metric_aggregates=allow_metric_aggregates,\n            auto_fields=False,\n            functions_acl=functions_acl,\n            dry_run=dry_run,\n            use_metrics_layer=use_metrics_layer,\n        )\n        if self.granularity.granularity > interval:\n            for granularity in METRICS_GRANULARITIES:\n                if granularity < interval:\n                    self.granularity = Granularity(granularity)\n                    break\n\n        self.time_column = self.resolve_time_column(interval)\n        self.limit = None if limit is None else Limit(limit)\n\n        # This is a timeseries, the groupby will always be time\n        self.groupby = [self.time_column]",
+      "called_by": "timeseries_query"
+    }
+  ]
+}

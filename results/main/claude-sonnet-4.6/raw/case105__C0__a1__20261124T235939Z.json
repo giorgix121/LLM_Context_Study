@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564798-6aKq6CKgMHIblNUhrJ8p",
+    "object": "chat.completion",
+    "created": 1795564798,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The custom Arrow data serializer (which worked around the zero-copy slice pickling bug in Arrow < 8.0.0) has been removed, but the change adds `copy=True` to the slice call to force a buffer-level copy at shuffle time; if any other slice call site was missed or if the copied slices are later re-sliced without copying, the underlying serialization bug can still cause oversized or incorrect data to be sent over the wire.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 13846,
+      "completion_tokens": 115,
+      "total_tokens": 13961,
+      "cost": 0.043263,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.043263,
+        "upstream_inference_prompt_cost": 0.041538,
+        "upstream_inference_completions_cost": 0.001725
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

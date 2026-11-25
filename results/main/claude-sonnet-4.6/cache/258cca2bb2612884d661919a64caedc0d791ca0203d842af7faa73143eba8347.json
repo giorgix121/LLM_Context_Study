@@ -1,0 +1,65 @@
+{
+  "cache_key": "258cca2bb2612884d661919a64caedc0d791ca0203d842af7faa73143eba8347",
+  "sample_id": "case051",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change only adds an optional parameter `use_metrics_layer` with a default of `False` and passes it through to the underlying query builder, preserving all existing behavior by default.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change only adds an optional parameter `use_metrics_layer` with a default of `False` and passes it through to the underlying query builder, preserving all existing behavior by default.\"}",
+  "response_id": "gen-1795191541-n9eDzkn9NMv3SmG3lfWU",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 410,
+  "completion_tokens": 58,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0021,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 410,
+    "completion_tokens": 58,
+    "total_tokens": 468,
+    "cost": 0.0021,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0021,
+      "upstream_inference_prompt_cost": 0.00123,
+      "upstream_inference_completions_cost": 0.00087
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.969,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:19:03+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

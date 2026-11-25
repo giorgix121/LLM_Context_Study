@@ -1,0 +1,5 @@
+{
+  "commit": "dd9fad42d5cfdd7b9f4ab8a84c13794f0bb58ff4",
+  "chars": 405,
+  "text": "More clear docs for `LightningDataModule` (#13464)\n\n* More clear docs for `LightningDataModule`\n\nMore clear docs for the methods `add_argparse_args` and `from_argparse_args` of the class `LightningDataModule`.\n\n* [pre-commit.ci] auto fixes from pre-commit.com hooks\n\nfor more information, see https://pre-commit.ci\n\nCo-authored-by: pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>"
+}

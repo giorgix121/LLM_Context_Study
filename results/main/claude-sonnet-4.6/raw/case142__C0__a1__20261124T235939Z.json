@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565524-cRDJom6TYuTqAsvelYfY",
+    "object": "chat.completion",
+    "created": 1795565524,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The `UbloxAvailable` param is PERSISTENT, so on first boot or after a factory reset it won't exist yet; `locationd` and `laikad` block on `getBool(\\\"UbloxAvailable\\\", block=True)` waiting for it, but if `pigeond` never runs (e.g., non-ublox hardware or a crash before `initialize_pigeon` is called) the param is never written and those processes will hang indefinitely.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2153,
+      "completion_tokens": 123,
+      "total_tokens": 2276,
+      "cost": 0.008304,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.008304,
+        "upstream_inference_prompt_cost": 0.006459,
+        "upstream_inference_completions_cost": 0.001845
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

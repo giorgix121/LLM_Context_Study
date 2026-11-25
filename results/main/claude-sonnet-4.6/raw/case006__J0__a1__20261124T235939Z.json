@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565486-wE1n1FayDOWXZm73ZhKy",
+    "object": "chat.completion",
+    "created": 1795565486,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The retry counter increment was moved from before the comparison (`task_retries[task_id] += 1` then `<= max_retries`) to after (`< max_retries` then `+= 1`), which changes the effective number of retries by one and could cause off-by-one behavior in retry logic.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4759,
+      "completion_tokens": 89,
+      "total_tokens": 4848,
+      "cost": 0.015612,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.015612,
+        "upstream_inference_prompt_cost": 0.014277,
+        "upstream_inference_completions_cost": 0.001335
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

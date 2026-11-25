@@ -1,0 +1,65 @@
+{
+  "cache_key": "746e227281cc0a67abf2aa2dc50f94b963986c39bd2fefd4eb7bb3a92c44187d",
+  "sample_id": "case01",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change from `stack.pop()` to `del stack[old_len:]` could fail to clean up tags if `add_global_tags` is called within a `global_tags` context, as it deletes all items from `old_len` onwards rather than just the one added by the context manager.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change from `stack.pop()` to `del stack[old_len:]` could fail to clean up tags if `add_global_tags` is called within a `global_tags` context, as it deletes all items from `old_len` onwards rather than just the one added by the context manager.\"\n}\n```",
+  "response_id": "gen-1790920278-hJ00ZpwuTfAXmwMolPFb",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 694,
+  "completion_tokens": 95,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001169,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 694,
+    "completion_tokens": 95,
+    "total_tokens": 789,
+    "cost": 0.001169,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001169,
+      "upstream_inference_prompt_cost": 0.000694,
+      "upstream_inference_completions_cost": 0.000475
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.393,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T05:51:19+00:00",
+  "run_id": "20261002T054951Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

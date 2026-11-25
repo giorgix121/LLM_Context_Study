@@ -1,0 +1,1 @@
+{"data": {"repository": {"object": {"blame": {"ranges": [{"startingLine": 1, "endingLine": 22, "commit": {"oid": "d013bcc5bf23475578f9f3699f33824596174110"}}, {"startingLine": 23, "endingLine": 23, "commit": {"oid": "e9c571d39fb80b10c6462703e7ba35052511d41c"}}, {"startingLine": 24, "endingLine": 53, "commit": {"oid": "d013bcc5bf23475578f9f3699f33824596174110"}}]}}}}}

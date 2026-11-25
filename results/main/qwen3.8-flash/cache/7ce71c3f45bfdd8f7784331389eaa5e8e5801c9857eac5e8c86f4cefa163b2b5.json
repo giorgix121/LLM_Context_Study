@@ -1,0 +1,65 @@
+{
+  "cache_key": "7ce71c3f45bfdd8f7784331389eaa5e8e5801c9857eac5e8c86f4cefa163b2b5",
+  "sample_id": "case051",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit introduces a new code path for the metrics layer that manually constructs query results and modifies function argument orders (e.g., swapping interval and constant in rate calculations), which carries a high risk of data inconsistency or calculation errors compared to the standard SnQL path.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The commit introduces a new code path for the metrics layer that manually constructs query results and modifies function argument orders (e.g., swapping interval and constant in rate calculations), which carries a high risk of data inconsistency or calculation errors compared to the standard SnQL path.\"}",
+  "response_id": "gen-1795564212-Vz1dAvp2SnK5FPJQA3VB",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 2499,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00040587,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2499,
+    "completion_tokens": 66,
+    "total_tokens": 2565,
+    "cost": 0.00040587,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00040587,
+      "upstream_inference_prompt_cost": 0.00037485,
+      "upstream_inference_completions_cost": 3.102e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.457,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:50:13+00:00",
+  "run_id": "20261124T234127Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

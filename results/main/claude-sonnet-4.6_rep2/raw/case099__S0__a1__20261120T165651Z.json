@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795194168-UeyeliUIgZAD4zQGj6wB",
+    "object": "chat.completion",
+    "created": 1795194168,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Removing `torch.cuda.set_device(self.root_device)` from `module_to_device` means the CUDA device is no longer explicitly set on spawned subprocesses before moving the module, which can cause operations to run on the wrong GPU or trigger CUDA errors in multi-GPU setups; additionally, removing the `self._local_rank = process_idx` assignment means `local_rank` may not be correctly initialized when `_set_world_ranks` is called without a process index argument.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 487,
+      "completion_tokens": 129,
+      "total_tokens": 616,
+      "cost": 0.003396,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003396,
+        "upstream_inference_prompt_cost": 0.001461,
+        "upstream_inference_completions_cost": 0.001935
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

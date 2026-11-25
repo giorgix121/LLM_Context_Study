@@ -1,0 +1,5 @@
+{
+  "commit": "5de11e1410b432d632e8c0d1d8ca0945811a56f0",
+  "chars": 212,
+  "text": "Sync up plugin API schema and definition (#25524)\n\nMany of the entries should have been objects (dicts), not strings. Also\nremoved \"number\" since it is not present anyway and I don't even know\nwhere it came from."
+}

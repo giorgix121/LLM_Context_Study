@@ -1,0 +1,65 @@
+{
+  "cache_key": "39e3a2058e3f2d1a9bb5d14dc1a5e81d0b2023ab4afd6452ca92c14affcd6143",
+  "sample_id": "case144",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The new `is_saas()` function will raise an AttributeError if `SENTRY_IS_SAAS` is not defined in Django settings, unlike the similar `is_self_hosted()` function which has fallback logic for missing attributes.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The new `is_saas()` function will raise an AttributeError if `SENTRY_IS_SAAS` is not defined in Django settings, unlike the similar `is_self_hosted()` function which has fallback logic for missing attributes.\"\n}\n```",
+  "response_id": "gen-1795047760-340EuH62Q6qKk31QpY0c",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 1337,
+  "completion_tokens": 83,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001752,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1337,
+    "completion_tokens": 83,
+    "total_tokens": 1420,
+    "cost": 0.001752,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001752,
+      "upstream_inference_prompt_cost": 0.001337,
+      "upstream_inference_completions_cost": 0.000415
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.17,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:22:41+00:00",
+  "run_id": "20261119T002019Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

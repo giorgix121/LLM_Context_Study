@@ -1,0 +1,65 @@
+{
+  "cache_key": "906b3c1e599031c2d8bc01d0ab1a41b9ecb09b6f17eac7557e3acd9972b2916b",
+  "sample_id": "case001",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The `global_tags` context manager now uses `del stack[old_len:]` where `old_len = len(stack) - 1`, so it removes everything from the position before the newly appended tag onward, meaning nested `global_tags` calls inside the `with` block will have their tags deleted when the outer context exits, but more critically if `add_global_tags` or nested `global_tags` calls push items onto the stack inside the `with` block, the slice deletion correctly cleans them up — however, the `old_len` is set to `len(stack) - 1` (i.e., the index of the just-appended item), so `del stack[old_len:]` removes the current tag and everything added after it, which is the intended behavior, but this is a behavioral change from the previous `stack.pop()` that only removed one item, potentially masking bugs where the stack grows unexpectedly and silently discarding tags added by concurrent or nested operations on the same stack reference.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The `global_tags` context manager now uses `del stack[old_len:]` where `old_len = len(stack) - 1`, so it removes everything from the position before the newly appended tag onward, meaning nested `global_tags` calls inside the `with` block will have their tags deleted when the outer context exits, but more critically if `add_global_tags` or nested `global_tags` calls push items onto the stack inside the `with` block, the slice deletion correctly cleans them up — however, the `old_len` is set to `len(stack) - 1` (i.e., the index of the just-appended item), so `del stack[old_len:]` removes the current tag and everything added after it, which is the intended behavior, but this is a behavioral change from the previous `stack.pop()` that only removed one item, potentially masking bugs where the stack grows unexpectedly and silently discarding tags added by concurrent or nested operations on the same stack reference.\"}",
+  "response_id": "gen-1795193195-ylULti2HxbBolST2J2B6",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1414,
+  "completion_tokens": 241,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.007857,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1414,
+    "completion_tokens": 241,
+    "total_tokens": 1655,
+    "cost": 0.007857,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.007857,
+      "upstream_inference_prompt_cost": 0.004242,
+      "upstream_inference_completions_cost": 0.003615
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 7.19,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:46:42+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

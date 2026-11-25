@@ -1,0 +1,65 @@
+{
+  "cache_key": "d6564050548a42491bfdb3ac7977751c9f6233e1342241ce98ffcebbc663877e",
+  "sample_id": "case114",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds type checks for voltage and power to ensure they are integers before comparison, preventing potential type errors and improving code robustness.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds type checks for voltage and power to ensure they are integers before comparison, preventing potential type errors and improving code robustness.\"}\n```",
+  "response_id": "gen-1795048372-socG2jfGqDBlEMfz3uSB",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 1465,
+  "completion_tokens": 45,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0001645,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1465,
+    "completion_tokens": 45,
+    "total_tokens": 1510,
+    "cost": 0.0001645,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001645,
+      "upstream_inference_prompt_cost": 0.0001465,
+      "upstream_inference_completions_cost": 1.8e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.364,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:32:53+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795190297-g83qoYflvCyqgMvDl3cZ",
+    "object": "chat.completion",
+    "created": 1795190297,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "length",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The use of a mutable default argument pattern via `sentinel := object()` in the function signature is evaluated at definition time, which is correct for this specific sentinel usage, but if `find_formatters` or other callers pass `None` explicitly to disable formatting, the logic `if black_path:` will correctly skip it; however, the primary risk is that existing callers passing positional arguments might break if they don't account for the new parameter, though here it's keyword-only effectively due to position. More critically, the change introduces a subtle behavior where if a caller explicitly passes `black_path=None`, it bypasses the lookup and skips formatting, which is intended, but if any internal code previously relied on `run_formatters(written_files)` without knowing about the new optional arg, it works fine. The real defect potential lies in the fact that `find_formatters` returns a dict with `black_path` potentially being `None`, and if this result is passed directly as `**kwargs` to `run_formatters`, it sets `black_path=None`, which disables formatting even if `black` is installed, whereas the old behavior would have found it. This changes the contract: previously `run_formatters",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3015,
+      "completion_tokens": 256,
+      "total_tokens": 3271,
+      "cost": 0.000332442,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1792,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000332442,
+        "upstream_inference_prompt_cost": 0.000212122,
+        "upstream_inference_completions_cost": 0.00012032
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

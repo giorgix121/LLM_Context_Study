@@ -1,0 +1,65 @@
+{
+  "cache_key": "2fbdedac8b3868c8d825f33e69af4a1039412a9382a73565f7d21497e0aab34b",
+  "sample_id": "case029",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The changes are purely cosmetic, splitting string literals across lines and adding noqa comments to suppress linter warnings, with no functional behavior altered.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The changes are purely cosmetic, splitting string literals across lines and adding noqa comments to suppress linter warnings, with no functional behavior altered.\"}",
+  "response_id": "gen-1795191386-X0QsS7c5SUrINjIjqzhT",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 6162,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.019206,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 6162,
+    "completion_tokens": 48,
+    "total_tokens": 6210,
+    "cost": 0.019206,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.019206,
+      "upstream_inference_prompt_cost": 0.018486,
+      "upstream_inference_completions_cost": 0.00072
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.417,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:16:28+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

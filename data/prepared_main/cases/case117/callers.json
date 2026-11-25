@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "produce_user_ip",
+      "path": "src/sentry/region_to_control/producer.py",
+      "start": 15,
+      "end": 23,
+      "code": "def produce_user_ip(event: UserIpEvent):\n    if _should_produce_to_kafka():\n        write_region_to_control_message(\n            dataclasses.asdict(RegionToControlMessage(user_ip_event=event)), sync=False\n        )\n    else:\n        UserIP.objects.create_or_update(\n            user_id=event.user_id, ip_address=event.ip_address, values=dataclasses.asdict(event)\n        )",
+      "calls": "_should_produce_to_kafka"
+    },
+    {
+      "name": "produce_audit_log_entry",
+      "path": "src/sentry/region_to_control/producer.py",
+      "start": 26,
+      "end": 33,
+      "code": "def produce_audit_log_entry(entry: AuditLogEntry):\n    if _should_produce_to_kafka():\n        write_region_to_control_message(\n            dataclasses.asdict(RegionToControlMessage(audit_log_event=entry.as_kafka_event())),\n            sync=True,\n        )\n    else:\n        entry.save()",
+      "calls": "_should_produce_to_kafka"
+    },
+    {
+      "name": "write_region_to_control_message",
+      "path": "src/sentry/region_to_control/producer.py",
+      "start": 41,
+      "end": 54,
+      "code": "def write_region_to_control_message(payload: Any, sync=True, timeout=1):\n    future = get_region_to_control_producer().produce(\n        Topic(settings.KAFKA_REGION_TO_CONTROL),\n        KafkaPayload(\n            key=None,\n            value=json.dumps(payload).encode(\"utf8\"),\n            headers=_empty_headers,\n        ),\n    )\n\n    if not sync:\n        return\n\n    future.result(timeout)",
+      "calls": "get_region_to_control_producer"
+    }
+  ]
+}

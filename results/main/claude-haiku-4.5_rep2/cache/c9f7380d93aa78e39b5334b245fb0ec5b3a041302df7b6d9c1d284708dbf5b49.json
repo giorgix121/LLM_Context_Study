@@ -1,0 +1,65 @@
+{
+  "cache_key": "c9f7380d93aa78e39b5334b245fb0ec5b3a041302df7b6d9c1d284708dbf5b49",
+  "sample_id": "case045",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The refactoring consolidates equivalent logic into fewer lines without changing the functional behavior: it still applies offset and limit slicing in the same order and correctly preserves the total count before slicing.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The refactoring consolidates equivalent logic into fewer lines without changing the functional behavior: it still applies offset and limit slicing in the same order and correctly preserves the total count before slicing.\"\n}\n```",
+  "response_id": "gen-1795047622-jiWEKA4waJ44E7Ptfbdn",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 1194,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001544,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1194,
+    "completion_tokens": 70,
+    "total_tokens": 1264,
+    "cost": 0.001544,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001544,
+      "upstream_inference_prompt_cost": 0.001194,
+      "upstream_inference_completions_cost": 0.00035
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.678,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:20:23+00:00",
+  "run_id": "20261119T002019Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

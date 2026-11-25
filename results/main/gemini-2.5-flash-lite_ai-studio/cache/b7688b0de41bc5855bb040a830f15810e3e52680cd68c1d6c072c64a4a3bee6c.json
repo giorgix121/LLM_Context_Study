@@ -1,0 +1,65 @@
+{
+  "cache_key": "b7688b0de41bc5855bb040a830f15810e3e52680cd68c1d6c072c64a4a3bee6c",
+  "sample_id": "case048",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a callback to track device unavailability and reset the advertisement state, which is a bug fix for a previously reported issue.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds a callback to track device unavailability and reset the advertisement state, which is a bug fix for a previously reported issue.\"}",
+  "response_id": "gen-1795187762-7ebUAccILcJ4F4wreuEy",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 365,
+  "completion_tokens": 40,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 5.25e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 365,
+    "completion_tokens": 40,
+    "total_tokens": 405,
+    "cost": 5.25e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.25e-05,
+      "upstream_inference_prompt_cost": 3.65e-05,
+      "upstream_inference_completions_cost": 1.6e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.422,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:16:02+00:00",
+  "run_id": "20261120T151513Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

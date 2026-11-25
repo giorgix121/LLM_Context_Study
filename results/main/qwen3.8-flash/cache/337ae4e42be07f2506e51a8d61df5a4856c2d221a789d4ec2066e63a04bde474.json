@@ -1,0 +1,65 @@
+{
+  "cache_key": "337ae4e42be07f2506e51a8d61df5a4856c2d221a789d4ec2066e63a04bde474",
+  "sample_id": "case134",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a new default parameter 'GsmMetered' to the manager initialization, which is consistent with the corresponding C++ parameter registration and UI logic changes in the same commit.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds a new default parameter 'GsmMetered' to the manager initialization, which is consistent with the corresponding C++ parameter registration and UI logic changes in the same commit.\"}",
+  "response_id": "gen-1795564098-ePP88QafMO4gQqX66OfY",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 3007,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00047549,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3007,
+    "completion_tokens": 52,
+    "total_tokens": 3059,
+    "cost": 0.00047549,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00047549,
+      "upstream_inference_prompt_cost": 0.00045105,
+      "upstream_inference_completions_cost": 2.444e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.74,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:48:19+00:00",
+  "run_id": "20261124T234127Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

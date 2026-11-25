@@ -1,0 +1,4 @@
+{
+  "sample_id": "case039",
+  "path": "src/sentry/auth/authenticators/u2f.py"
+}

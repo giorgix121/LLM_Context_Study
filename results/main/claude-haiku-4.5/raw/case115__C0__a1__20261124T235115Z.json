@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564481-3XIA51Zci7PXwYYLTkTC",
+    "object": "chat.completion",
+    "created": 1795564481,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at the diff for `homeassistant/components/yeelight/scanner.py`, the change is:\n\n```python\n- service_type=SSDP_ST,\n+ search_target=SSDP_ST,\n```\n\nThis is a parameter name change in the `SsdpSearchListener` constructor call. The context shows this is part of a larger commit that upgrades `async-upnp-client` from version 0.31.2 to 0.32.0 across multiple manifest files and requirements files.\n\nThe key question is whether this parameter name change is compatible with the new version of the library. Looking at the other files changed in this commit:\n- Multiple `manifest.json` files update `async-upnp-client` to `0.32.0`\n- The `ssdp/__init__.py` file shows significant changes to accommodate the new library version\n- Test files are updated to work with the new structure\n\nThe parameter rename from `service_type` to `search_target` appears to be an intentional API change in the `async-upnp-client==0.32.0` library.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8903,
+      "completion_tokens": 256,
+      "total_tokens": 9159,
+      "cost": 0.010183,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.010183,
+        "upstream_inference_prompt_cost": 0.008903,
+        "upstream_inference_completions_cost": 0.00128
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

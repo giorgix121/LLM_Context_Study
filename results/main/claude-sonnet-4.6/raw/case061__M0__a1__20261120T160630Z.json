@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192886-6IeOz80Sggeswn2OUcmO",
+    "object": "chat.completion",
+    "created": 1795192886,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Moving `learner_queue_size.push`, `weights_updated = True`, and `overall_timer.push_units_processed` inside the `if prio_dict` block means these statements no longer execute when `prio_dict` is falsy, potentially causing `weights_updated` to never be set and metrics to be skipped in that code path.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 363,
+      "completion_tokens": 95,
+      "total_tokens": 458,
+      "cost": 0.002514,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002514,
+        "upstream_inference_prompt_cost": 0.001089,
+        "upstream_inference_completions_cost": 0.001425
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

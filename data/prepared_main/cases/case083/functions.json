@@ -1,0 +1,15 @@
+[
+  {
+    "name": "_get_metadata_from_openapi",
+    "before": {
+      "start": 56,
+      "end": 78,
+      "code": "def _get_metadata_from_openapi(paths: Dict, path: str):\n    parameters = paths[path][\"post\"].get(\"parameters\", {})\n    tag = paths[path][\"post\"].get(\"tags\", [None])[0]\n    cls_path = paths[path][\"post\"].get(\"cls_path\", None)\n    cls_name = paths[path][\"post\"].get(\"cls_name\", None)\n    description = paths[path][\"post\"].get(\"description\", None)\n\n    metadata = {\"tag\": tag, \"parameters\": {}}\n\n    if cls_path:\n        metadata[\"cls_path\"] = cls_path\n\n    if cls_name:\n        metadata[\"cls_name\"] = cls_name\n\n    if description:\n        metadata[\"description\"] = description\n\n    if not parameters:\n        return metadata\n\n    metadata[\"parameters\"].update({d[\"name\"]: d[\"schema\"][\"type\"] for d in parameters})\n    return metadata"
+    },
+    "after": {
+      "start": 56,
+      "end": 82,
+      "code": "def _get_metadata_from_openapi(paths: Dict, path: str):\n    parameters = paths[path][\"post\"].get(\"parameters\", {})\n    tag = paths[path][\"post\"].get(\"tags\", [None])[0]\n    cls_path = paths[path][\"post\"].get(\"cls_path\", None)\n    cls_name = paths[path][\"post\"].get(\"cls_name\", None)\n    description = paths[path][\"post\"].get(\"description\", None)\n    requirements = paths[path][\"post\"].get(\"requirements\", None)\n\n    metadata = {\"tag\": tag, \"parameters\": {}}\n\n    if cls_path:\n        metadata[\"cls_path\"] = cls_path\n\n    if cls_name:\n        metadata[\"cls_name\"] = cls_name\n\n    if description:\n        metadata[\"description\"] = description\n\n    if description:\n        metadata[\"requirements\"] = requirements\n\n    if not parameters:\n        return metadata\n\n    metadata[\"parameters\"].update({d[\"name\"]: d[\"schema\"][\"type\"] for d in parameters})\n    return metadata"
+    }
+  }
+]

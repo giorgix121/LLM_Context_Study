@@ -1,0 +1,65 @@
+{
+  "cache_key": "518ae848e1f773447d6ffbb3d198b319f17074e98afcaa11292d2eef182e73b4",
+  "sample_id": "case28",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds an async_update method to the OpenUvSensor class, which is a standard pattern for entity updates and does not appear to introduce new functionality or alter existing logic in a way that would cause defects.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds an async_update method to the OpenUvSensor class, which is a standard pattern for entity updates and does not appear to introduce new functionality or alter existing logic in a way that would cause defects.\"}",
+  "response_id": "gen-1790923146-pM8YVlQG8KR4i20U8wAP",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 262,
+  "completion_tokens": 58,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 4.94e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 262,
+    "completion_tokens": 58,
+    "total_tokens": 320,
+    "cost": 4.94e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.94e-05,
+      "upstream_inference_prompt_cost": 2.62e-05,
+      "upstream_inference_completions_cost": 2.32e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.543,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T06:39:06+00:00",
+  "run_id": "20261002T063748Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

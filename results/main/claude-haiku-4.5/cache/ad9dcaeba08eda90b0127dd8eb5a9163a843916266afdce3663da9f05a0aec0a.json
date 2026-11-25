@@ -1,0 +1,66 @@
+{
+  "cache_key": "ad9dcaeba08eda90b0127dd8eb5a9163a843916266afdce3663da9f05a0aec0a",
+  "sample_id": "case08",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Renaming the parameter from `precision_plugin` to `precision` changes the public API signature, which will break any code calling this method with the old parameter name.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"Renaming the parameter from `precision_plugin` to `precision` changes the public API signature, which will break any code calling this method with the old parameter name.\"\n}\n```",
+  "response_id": "gen-1790920273-ZR1xbvQPgW1vPHwM221N",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 319,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000629,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 319,
+    "completion_tokens": 62,
+    "total_tokens": 381,
+    "cost": 0.000629,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000629,
+      "upstream_inference_prompt_cost": 0.000319,
+      "upstream_inference_completions_cost": 0.00031
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.385,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T05:51:14+00:00",
+  "run_id": "20261002T054951Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  },
+  "reused_from": "results/claude-haiku-4.5/cache/ad9dcaeba08eda90b0127dd8eb5a9163a843916266afdce3663da9f05a0aec0a.json"
+}

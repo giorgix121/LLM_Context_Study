@@ -1,0 +1,65 @@
+{
+  "cache_key": "c9fbfc7721bd06adc227d267b0010eb51ec9979935501b71e24f29e1ea3e27c8",
+  "sample_id": "case049",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change introduces logic to conditionally set the 'data' field to None if 'files' are present, which could lead to file uploads not being sent correctly if the underlying request library expects 'data' to be present even with files.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change introduces logic to conditionally set the 'data' field to None if 'files' are present, which could lead to file uploads not being sent correctly if the underlying request library expects 'data' to be present even with files.\"\n}\n```",
+  "response_id": "gen-1790927890-AIORaXM67oXRQjDTrddS",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 3447,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0003727,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3447,
+    "completion_tokens": 70,
+    "total_tokens": 3517,
+    "cost": 0.0003727,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003727,
+      "upstream_inference_prompt_cost": 0.0003447,
+      "upstream_inference_completions_cost": 2.8e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.723,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T07:58:10+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

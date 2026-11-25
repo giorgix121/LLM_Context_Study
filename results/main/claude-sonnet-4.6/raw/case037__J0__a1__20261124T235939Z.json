@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564903-ljXSdOrgQfDMnHIpOAiw",
+    "object": "chat.completion",
+    "created": 1795564903,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Renaming `_get_credentials` and `_get_credentials_and_project_id` to public methods (`get_credentials`/`get_credentials_and_project_id`) is a breaking API change that will cause AttributeError in any external code or subclasses that still call the old private method names, and one instance in `hyperparameter_tuning_job.py` passes `self.get_credentials` (without calling it) instead of `self.get_credentials()`, which would pass the bound method object rather than the credentials.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 37058,
+      "completion_tokens": 137,
+      "total_tokens": 37195,
+      "cost": 0.113229,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.113229,
+        "upstream_inference_prompt_cost": 0.111174,
+        "upstream_inference_completions_cost": 0.002055
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

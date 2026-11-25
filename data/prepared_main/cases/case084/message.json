@@ -1,0 +1,5 @@
+{
+  "commit": "dbcb269111f6dc5d9e0f0ed4e1c336bfa5c5c549",
+  "chars": 71,
+  "text": "Fix switchbot not setting up when already connected at startup (#78198)"
+}

@@ -1,0 +1,31 @@
+{
+  "retrieved_at": "2026-11-24T23:41:27+00:00",
+  "source": "https://openrouter.ai/api/v1/models/qwen/qwen3.8-flash/endpoints",
+  "model": "qwen/qwen3.8-flash",
+  "provider": "Alibaba",
+  "provider_tag": "alibaba",
+  "endpoint_model": "qwen/qwen3.8-flash-20260826",
+  "status": 0,
+  "uptime_last_30m": 100,
+  "price_prompt_per_token": 1.5e-07,
+  "price_completion_per_token": 4.7e-07,
+  "price_cache_read_per_token": 1.6e-08,
+  "supported_parameters": [
+    "reasoning",
+    "include_reasoning",
+    "max_tokens",
+    "temperature",
+    "top_p",
+    "seed",
+    "presence_penalty",
+    "response_format",
+    "tools",
+    "structured_outputs",
+    "top_k",
+    "frequency_penalty",
+    "stop",
+    "logprobs",
+    "top_logprobs",
+    "tool_choice"
+  ]
+}

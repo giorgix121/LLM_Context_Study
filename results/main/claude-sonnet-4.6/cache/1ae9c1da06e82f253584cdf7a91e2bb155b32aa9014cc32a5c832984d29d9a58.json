@@ -1,0 +1,65 @@
+{
+  "cache_key": "1ae9c1da06e82f253584cdf7a91e2bb155b32aa9014cc32a5c832984d29d9a58",
+  "sample_id": "case137",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "When `evaled` is a string, the code re-wraps it with `out[0]` as a quote character, but `out[0]` could be any character (e.g., a space, letter, or other non-quote character) rather than a quote, producing a corrupted return value; additionally, this changes the previously established behavior of returning the bare evaluated string, potentially breaking existing use cases.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"When `evaled` is a string, the code re-wraps it with `out[0]` as a quote character, but `out[0]` could be any character (e.g., a space, letter, or other non-quote character) rather than a quote, producing a corrupted return value; additionally, this changes the previously established behavior of returning the bare evaluated string, potentially breaking existing use cases.\"}",
+  "response_id": "gen-1795192850-vZhDqOBHTcQcxS1x9iZo",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2915,
+  "completion_tokens": 105,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.01032,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2915,
+    "completion_tokens": 105,
+    "total_tokens": 3020,
+    "cost": 0.01032,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.01032,
+      "upstream_inference_prompt_cost": 0.008745,
+      "upstream_inference_completions_cost": 0.001575
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.375,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:40:53+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

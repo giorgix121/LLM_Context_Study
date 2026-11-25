@@ -1,0 +1,4 @@
+{
+  "sample_id": "case066",
+  "path": "airflow/providers/hashicorp/secrets/vault.py"
+}

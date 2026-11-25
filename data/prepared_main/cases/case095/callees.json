@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "_verify_mount_root_dirs_are_unique",
+      "path": "src/lightning_app/utilities/packaging/cloud_compute.py",
+      "start": 122,
+      "end": 126,
+      "code": "def _verify_mount_root_dirs_are_unique(mounts: Union[None, Mount, List[Mount], Tuple[Mount]]) -> None:\n    if isinstance(mounts, (list, tuple, set)):\n        mount_paths = [mount.mount_path for mount in mounts]\n        if len(set(mount_paths)) != len(mount_paths):\n            raise ValueError(\"Every Mount attached to a work must have a unique 'mount_path' argument.\")",
+      "called_by": "CloudCompute.__post_init__"
+    }
+  ]
+}

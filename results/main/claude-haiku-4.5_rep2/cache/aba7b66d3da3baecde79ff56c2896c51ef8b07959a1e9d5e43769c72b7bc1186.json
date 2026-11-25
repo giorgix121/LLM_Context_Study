@@ -1,0 +1,65 @@
+{
+  "cache_key": "aba7b66d3da3baecde79ff56c2896c51ef8b07959a1e9d5e43769c72b7bc1186",
+  "sample_id": "case080",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds proper handling for mapped sensors by checking the `is_mapped` flag before accessing the `reschedule` property and providing an appropriate fallback path, which prevents AttributeError and correctly handles a previously unhandled case.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change adds proper handling for mapped sensors by checking the `is_mapped` flag before accessing the `reschedule` property and providing an appropriate fallback path, which prevents AttributeError and correctly handles a previously unhandled case.\"\n}\n```",
+  "response_id": "gen-1795047946-joZwt2zjvH2G4t7Vgl1H",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 475,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00087,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 475,
+    "completion_tokens": 79,
+    "total_tokens": 554,
+    "cost": 0.00087,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00087,
+      "upstream_inference_prompt_cost": 0.000475,
+      "upstream_inference_completions_cost": 0.000395
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.379,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:25:47+00:00",
+  "run_id": "20261119T002019Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

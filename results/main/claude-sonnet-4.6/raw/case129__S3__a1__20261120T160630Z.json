@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191102-07XOs07tGyx3jX1ooMj4",
+    "object": "chat.completion",
+    "created": 1795191102,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Adding `movflags=frag_keyframe` changes the output from a standard MP4 to a fragmented MP4, which may produce files that are incompatible with some players or post-processing tools that expect a standard moov-atom MP4 recording.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2932,
+      "completion_tokens": 74,
+      "total_tokens": 3006,
+      "cost": 0.009906,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.009906,
+        "upstream_inference_prompt_cost": 0.008796,
+        "upstream_inference_completions_cost": 0.00111
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

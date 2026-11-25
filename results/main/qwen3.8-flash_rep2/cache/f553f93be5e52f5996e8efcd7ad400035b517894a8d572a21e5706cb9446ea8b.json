@@ -1,0 +1,65 @@
+{
+  "cache_key": "f553f93be5e52f5996e8efcd7ad400035b517894a8d572a21e5706cb9446ea8b",
+  "sample_id": "case131",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change introduces a new code path for Windows shells that are not 'powershell', 'pwsh', or 'cmd' (e.g., Git Bash, MSYS2) which calls `env.execute(self._path)` instead of running the activation script, potentially failing to properly activate the virtual environment or causing unexpected behavior since `env.execute` typically runs commands within the env rather than launching an interactive shell with activation.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a new code path for Windows shells that are not 'powershell', 'pwsh', or 'cmd' (e.g., Git Bash, MSYS2) which calls `env.execute(self._path)` instead of running the activation script, potentially failing to properly activate the virtual environment or causing unexpected behavior since `env.execute` typically runs commands within the env rather than launching an interactive shell with activation.\"}",
+  "response_id": "gen-1795190194-v2RtLInE59xVFUWr2WVL",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 2423,
+  "completion_tokens": 98,
+  "cached_tokens": 1792,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000169382,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2423,
+    "completion_tokens": 98,
+    "total_tokens": 2521,
+    "cost": 0.000169382,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 1792,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000169382,
+      "upstream_inference_prompt_cost": 0.000123322,
+      "upstream_inference_completions_cost": 4.606e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.43,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:56:37+00:00",
+  "run_id": "20261120T155553Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

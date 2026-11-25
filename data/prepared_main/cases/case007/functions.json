@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Model.__init__",
+    "before": {
+      "start": 11,
+      "end": 12,
+      "code": "    def __init__(self, weight):\n        self.weight = weight"
+    },
+    "after": {
+      "start": 11,
+      "end": 12,
+      "code": "    def __init__(self, weight: int):\n        self.weight = weight"
+    }
+  },
+  {
+    "name": "Model.forward",
+    "before": {
+      "start": 14,
+      "end": 15,
+      "code": "    def forward(self, input):\n        return input + self.weight"
+    },
+    "after": {
+      "start": 14,
+      "end": 15,
+      "code": "    def forward(self, input: int) -> int:\n        return input + self.weight"
+    }
+  }
+]

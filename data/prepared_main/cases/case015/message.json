@@ -1,0 +1,5 @@
+{
+  "commit": "5986c239f6c3524a9068a842cdae152e3ed59a9a",
+  "chars": 394,
+  "text": "ref(notifications): Add provider argument to notification methods (#37258)\n\n- Add a `provider` argument to notification methods to support different providers.\n- Methods affected\n  - `build_notification_footer`\n  - `get_notification_title`\n  - `get_message_description`\n  - `description_as_text`\n  - `get_message_actions`.\n- Remove `url_format` property, determine `url_format` from `provider`."
+}

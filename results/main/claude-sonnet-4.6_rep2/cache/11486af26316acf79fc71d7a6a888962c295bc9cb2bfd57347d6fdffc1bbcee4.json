@@ -1,0 +1,65 @@
+{
+  "cache_key": "11486af26316acf79fc71d7a6a888962c295bc9cb2bfd57347d6fdffc1bbcee4",
+  "sample_id": "case086",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The new `async_update` method only calls `async_update_uv_index_data()`, so sensors whose data comes from `async_update_protection_data()` (e.g., safe exposure time sensors) will never refresh their underlying data when the generic update service is invoked, potentially leaving them stale or causing errors.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The new `async_update` method only calls `async_update_uv_index_data()`, so sensors whose data comes from `async_update_protection_data()` (e.g., safe exposure time sensors) will never refresh their underlying data when the generic update service is invoked, potentially leaving them stale or causing errors.\"}",
+  "response_id": "gen-1795194235-AFZqQspPPpnVX8NMrZev",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 286,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.002193,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 286,
+    "completion_tokens": 89,
+    "total_tokens": 375,
+    "cost": 0.002193,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.002193,
+      "upstream_inference_prompt_cost": 0.000858,
+      "upstream_inference_completions_cost": 0.001335
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.087,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T17:03:58+00:00",
+  "run_id": "20261120T165651Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

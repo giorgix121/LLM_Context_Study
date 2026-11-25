@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "_get_task_kwargs",
+      "path": "src/sentry/eventstream/kafka/consumer_strategy.py",
+      "start": 56,
+      "end": 69,
+      "code": "def _get_task_kwargs(message: Message[KafkaPayload]) -> Optional[Mapping[str, Any]]:\n    use_kafka_headers = options.get(\"post-process-forwarder:kafka-headers\")\n\n    if use_kafka_headers:\n        try:\n            with _sampled_eventstream_timer(instance=\"get_task_kwargs_for_message_from_headers\"):\n                return get_task_kwargs_for_message_from_headers(message.payload.headers)\n        except Exception as error:\n            logger.warning(\"Could not forward message: %s\", error, exc_info=True)\n            with metrics.timer(_DURATION_METRIC, instance=\"get_task_kwargs_for_message\"):\n                return get_task_kwargs_for_message(message.payload.value)\n    else:\n        with metrics.timer(_DURATION_METRIC, instance=\"get_task_kwargs_for_message\"):\n            return get_task_kwargs_for_message(message.payload.value)",
+      "calls": "get_task_kwargs_for_message_from_headers"
+    },
+    {
+      "name": "_get_task_kwargs",
+      "path": "src/sentry/eventstream/kafka/postprocessworker.py",
+      "start": 41,
+      "end": 54,
+      "code": "def _get_task_kwargs(message: Message) -> Optional[Mapping[str, Any]]:\n    use_kafka_headers = options.get(\"post-process-forwarder:kafka-headers\")\n\n    if use_kafka_headers:\n        try:\n            with _sampled_eventstream_timer(instance=\"get_task_kwargs_for_message_from_headers\"):\n                return get_task_kwargs_for_message_from_headers(message.headers())\n        except Exception as error:\n            logger.error(\"Could not forward message: %s\", error, exc_info=True)\n            with metrics.timer(_DURATION_METRIC, instance=\"get_task_kwargs_for_message\"):\n                return get_task_kwargs_for_message(message.value())\n    else:\n        with metrics.timer(_DURATION_METRIC, instance=\"get_task_kwargs_for_message\"):\n            return get_task_kwargs_for_message(message.value())",
+      "calls": "get_task_kwargs_for_message_from_headers"
+    },
+    {
+      "name": "test_get_task_kwargs_for_message_version_1_kafka_headers",
+      "path": "tests/sentry/eventstream/kafka/test_protocol.py",
+      "start": 84,
+      "end": 107,
+      "code": "@pytest.mark.django_db\ndef test_get_task_kwargs_for_message_version_1_kafka_headers():\n    kafka_headers = [\n        (\"Received-Timestamp\", b\"1626301534.910839\"),\n        (\"event_id\", b\"00000000000010008080808080808080\"),\n        (\"project_id\", b\"1\"),\n        (\"is_new\", b\"1\"),\n        (\"is_new_group_environment\", b\"1\"),\n        (\"is_regression\", b\"0\"),\n        (\"version\", b\"2\"),\n        (\"operation\", b\"insert\"),\n        (\"skip_consume\", b\"0\"),\n        (\"queue\", b\"post_process_errors\"),\n    ]\n\n    kwargs = get_task_kwargs_for_message_from_headers(kafka_headers)\n    assert kwargs[\"project_id\"] == 1\n    assert kwargs[\"event_id\"] == \"00000000000010008080808080808080\"\n    assert kwargs[\"group_id\"] is None\n    assert kwargs[\"primary_hash\"] is None\n    assert kwargs[\"is_new\"] is True\n    assert kwargs[\"is_regression\"] is False\n    assert kwargs[\"is_new_group_environment\"] is True\n    assert kwargs[\"queue\"] == \"post_process_errors\"",
+      "calls": "get_task_kwargs_for_message_from_headers"
+    }
+  ]
+}

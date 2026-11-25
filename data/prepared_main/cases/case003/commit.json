@@ -1,0 +1,17 @@
+{
+  "commit": "ca1917ec80e6a167111ba441154188aa53c9b79b",
+  "files_in_commit": 2,
+  "target_index": 1,
+  "target_status": "modified",
+  "chars": 386,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "src/lightning/__setup__.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "patch": "@@ -39,6 +39,7 @@ def _adjust_manifest(**kwargs: Any) -> None:\n         lines += [\n             \"recursive-include src *.md\" + os.linesep,\n             \"recursive-include requirements *.txt\" + os.linesep,\n+            \"recursive-include src/lightning_app/cli/*-template *\" + os.linesep,  # Add templates\n         ]\n     with open(manifest_path, \"w\") as fp:\n         fp.writelines(lines)"
+    }
+  ]
+}

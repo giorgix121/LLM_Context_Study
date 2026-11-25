@@ -1,0 +1,65 @@
+{
+  "cache_key": "1eaf34e09df83eebec1314fa210979de8f38aee1c52c47cda5f7fe4be375c723",
+  "sample_id": "case124",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change updates the package name check from 'lightning' to 'lightning-app' and the git directory check from 'lightning' to 'lightning_app', which may break editable install detection for users who have installed the package under the original names or are working in a repository named 'lightning'.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change updates the package name check from 'lightning' to 'lightning-app' and the git directory check from 'lightning' to 'lightning_app', which may break editable install detection for users who have installed the package under the original names or are working in a repository named 'lightning'.\"}",
+  "response_id": "gen-1795189426-YVaQXGNXo8idSOVu0w2Z",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 4878,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00076789,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 4878,
+    "completion_tokens": 77,
+    "total_tokens": 4955,
+    "cost": 0.00076789,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00076789,
+      "upstream_inference_prompt_cost": 0.0007317,
+      "upstream_inference_completions_cost": 3.619e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.558,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:43:48+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565426-AZ3t8zj22olupV1c6rI3",
+    "object": "chat.completion",
+    "created": 1795565426,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at this commit, I need to analyze the change in `recode_for_groupby` when `sort=False`.\n\nKey changes:\n1. Instead of using `c.unique()` to get unique categories, it now uses `unique1d(c.codes[c.codes != -1])` to get unique non-NaN codes.\n2. The dtype for `all_codes` is hardcoded as `np.int8`.\n3. The final return uses `c.unique().categories.take(take_codes)` - but `c.unique()` returns categories in as-encountered order, while `take_codes` is built from indices into `c.categories` (the original category order).\n\nThe critical issue: `unique_notnan_codes` contains values from `c.codes` (which are indices into `c.categories`), but `c.unique().categories` is a reordered version of categories. Using `take_codes` (which are indices into `c.categories`) to index into `c.unique().categories` is incorrect - these are different orderings.\n\nAdditionally, `np.int8` for `all_codes",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 866,
+      "completion_tokens": 256,
+      "total_tokens": 1122,
+      "cost": 0.006438,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006438,
+        "upstream_inference_prompt_cost": 0.002598,
+        "upstream_inference_completions_cost": 0.00384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

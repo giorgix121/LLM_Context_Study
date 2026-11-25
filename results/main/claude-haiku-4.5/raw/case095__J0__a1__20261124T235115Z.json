@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564437-Igv2Knlz3nQkIEd5vDpj",
+    "object": "chat.completion",
+    "created": 1795564437,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The commit changes a critical log message pattern from 'Your app has started. View it in your browser' to 'Your app has started.' which breaks the log detection logic in testing.py that searches for 'Packaged Lightning with your application', and modifies test assertions to expect different port numbers (1111 instead of 8080) without clear justification, potentially causing test failures.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5102,
+      "completion_tokens": 110,
+      "total_tokens": 5212,
+      "cost": 0.005652,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005652,
+        "upstream_inference_prompt_cost": 0.005102,
+        "upstream_inference_completions_cost": 0.00055
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

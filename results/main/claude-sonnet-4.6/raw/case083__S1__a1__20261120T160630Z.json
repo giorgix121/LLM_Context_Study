@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192104-Oy84NOfPOILOtVNIDOnI",
+    "object": "chat.completion",
+    "created": 1795192104,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The condition for setting `metadata[\\\"requirements\\\"]` incorrectly uses `if description:` instead of `if requirements:`, so requirements will be added (or not) based on whether a description exists rather than whether requirements exist.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 865,
+      "completion_tokens": 65,
+      "total_tokens": 930,
+      "cost": 0.00357,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00357,
+        "upstream_inference_prompt_cost": 0.002595,
+        "upstream_inference_completions_cost": 0.000975
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

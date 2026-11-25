@@ -1,0 +1,65 @@
+{
+  "cache_key": "8a6fe3048db36becdb98dccdcb0fe4efe60f7a6e78019d716054010ac4f50bbe",
+  "sample_id": "case107",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change refactors existing logic into a new helper method without altering the functional behavior of index deletion or creation.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change refactors existing logic into a new helper method without altering the functional behavior of index deletion or creation.\"}",
+  "response_id": "gen-1795189448-ILanHxVFTIaYk6hcNrye",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 594,
+  "completion_tokens": 37,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00010649,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 594,
+    "completion_tokens": 37,
+    "total_tokens": 631,
+    "cost": 0.00010649,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00010649,
+      "upstream_inference_prompt_cost": 8.91e-05,
+      "upstream_inference_completions_cost": 1.739e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.203,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:44:10+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

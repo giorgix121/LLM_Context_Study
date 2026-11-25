@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1790923369-YclxkMJENn5TFXJdh3Vz",
+    "object": "chat.completion",
+    "created": 1790923369,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"label\": \"NON-RISKY\", \"explanation\": \"The change only modifies the parameter name passed to the superclass constructor, renaming `precision_plugin` to `precision`, which is a non-functional change.\"}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 659111,
+      "completion_tokens": 51,
+      "total_tokens": 659162,
+      "cost": 0.0659315,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0659315,
+        "upstream_inference_prompt_cost": 0.0659111,
+        "upstream_inference_completions_cost": 2.04e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

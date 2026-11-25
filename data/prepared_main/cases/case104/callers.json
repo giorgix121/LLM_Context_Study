@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "number_format",
+      "path": "django/utils/formats.py",
+      "start": 175,
+      "end": 196,
+      "code": "def number_format(value, decimal_pos=None, use_l10n=None, force_grouping=False):\n    \"\"\"\n    Format a numeric value using localization settings.\n\n    If use_l10n is provided and is not None, it forces the value to\n    be localized (or not), overriding the value of settings.USE_L10N.\n    \"\"\"\n    if use_l10n is None:\n        try:\n            use_l10n = settings._USE_L10N_INTERNAL\n        except AttributeError:\n            use_l10n = settings.USE_L10N\n    lang = get_language() if use_l10n else None\n    return numberformat.format(\n        value,\n        get_format(\"DECIMAL_SEPARATOR\", lang, use_l10n=use_l10n),\n        decimal_pos,\n        get_format(\"NUMBER_GROUPING\", lang, use_l10n=use_l10n),\n        get_format(\"THOUSAND_SEPARATOR\", lang, use_l10n=use_l10n),\n        force_grouping=force_grouping,\n        use_l10n=use_l10n,\n    )",
+      "calls": "format"
+    }
+  ]
+}

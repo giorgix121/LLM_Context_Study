@@ -1,0 +1,15 @@
+[
+  {
+    "name": "BillingTxCountMetricConsumerStrategy._produce_billing_outcomes",
+    "before": {
+      "start": 151,
+      "end": 172,
+      "code": "    def _produce_billing_outcomes(self, payload: MetricsBucket) -> None:\n        quantity = self._count_processed_transactions(payload)\n        if quantity < 1:\n            return\n\n        # track_outcome does not guarantee to deliver the outcome, making this\n        # an at-most-once delivery.\n        #\n        # If it turns out that we drop too many outcomes on shutdown,\n        # we may have to revisit this part to achieve a\n        # better approximation of exactly-once delivery.\n        track_outcome(\n            org_id=payload[\"org_id\"],\n            project_id=payload[\"project_id\"],\n            key_id=None,\n            outcome=Outcome.ACCEPTED,\n            reason=None,\n            timestamp=datetime.fromtimestamp(payload[\"timestamp\"]),\n            event_id=None,\n            category=DataCategory.TRANSACTION_PROCESSED,\n            quantity=quantity,\n        )"
+    },
+    "after": {
+      "start": 151,
+      "end": 172,
+      "code": "    def _produce_billing_outcomes(self, payload: MetricsBucket) -> None:\n        quantity = self._count_processed_transactions(payload)\n        if quantity < 1:\n            return\n\n        # track_outcome does not guarantee to deliver the outcome, making this\n        # an at-most-once delivery.\n        #\n        # If it turns out that we drop too many outcomes on shutdown,\n        # we may have to revisit this part to achieve a\n        # better approximation of exactly-once delivery.\n        track_outcome(\n            org_id=payload[\"org_id\"],\n            project_id=payload[\"project_id\"],\n            key_id=None,\n            outcome=Outcome.ACCEPTED,\n            reason=None,\n            timestamp=datetime.fromtimestamp(payload[\"timestamp\"]),\n            event_id=None,\n            category=DataCategory.TRANSACTION,\n            quantity=quantity,\n        )"
+    }
+  }
+]

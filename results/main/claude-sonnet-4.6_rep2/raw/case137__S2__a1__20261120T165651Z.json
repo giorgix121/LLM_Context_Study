@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193865-cYh3qO3f3Fappqlu9Nwn",
+    "object": "chat.completion",
+    "created": 1795193865,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"When `evaled` is a string, the code wraps it with `out[0]` (the first character of the original string, assumed to be a quote), but `out` could be an empty string or start with a non-quote character, causing an IndexError or returning a malformed value with incorrect quoting.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2915,
+      "completion_tokens": 85,
+      "total_tokens": 3000,
+      "cost": 0.01002,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01002,
+        "upstream_inference_prompt_cost": 0.008745,
+        "upstream_inference_completions_cost": 0.001275
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

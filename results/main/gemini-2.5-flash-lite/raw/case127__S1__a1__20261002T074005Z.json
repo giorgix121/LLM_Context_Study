@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1790928113-YBaepGEjuD5aAmbpHLvM",
+    "object": "chat.completion",
+    "created": 1790928113,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The refactoring changes the logic for handling categories when sort=False, potentially altering the order and inclusion of categories in the groupby result, which could lead to unexpected behavior.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2164,
+      "completion_tokens": 46,
+      "total_tokens": 2210,
+      "cost": 0.0002348,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002348,
+        "upstream_inference_prompt_cost": 0.0002164,
+        "upstream_inference_completions_cost": 1.84e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

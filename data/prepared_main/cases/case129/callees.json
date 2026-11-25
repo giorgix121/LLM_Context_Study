@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "StreamOutput.recv",
+      "path": "homeassistant/components/stream/core.py",
+      "start": 325,
+      "end": 328,
+      "code": "    async def recv(self) -> bool:\n        \"\"\"Wait for the latest segment.\"\"\"\n        await self._event.wait()\n        return self.last_segment is not None",
+      "called_by": "RecorderOutput.async_record"
+    }
+  ]
+}

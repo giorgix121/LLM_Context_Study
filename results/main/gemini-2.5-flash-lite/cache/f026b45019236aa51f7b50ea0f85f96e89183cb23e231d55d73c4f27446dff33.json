@@ -1,0 +1,66 @@
+{
+  "cache_key": "f026b45019236aa51f7b50ea0f85f96e89183cb23e231d55d73c4f27446dff33",
+  "sample_id": "case30",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change introduces conditional logic for connecting to the Bravia TV based on `use_psk`, which could lead to connection failures if the `pin` is misinterpreted as a PSK when it should be treated as a standard PIN.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces conditional logic for connecting to the Bravia TV based on `use_psk`, which could lead to connection failures if the `pin` is misinterpreted as a PSK when it should be treated as a standard PIN.\"}",
+  "response_id": "gen-1790923138-7NyyxF3lDho5AIGL2ANX",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 439,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 6.75e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 439,
+    "completion_tokens": 59,
+    "total_tokens": 498,
+    "cost": 6.75e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 6.75e-05,
+      "upstream_inference_prompt_cost": 4.39e-05,
+      "upstream_inference_completions_cost": 2.36e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.637,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T06:38:58+00:00",
+  "run_id": "20261002T063748Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  },
+  "reused_from": "results/gemini-2.5-flash-lite/cache/f026b45019236aa51f7b50ea0f85f96e89183cb23e231d55d73c4f27446dff33.json"
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795047271-UBFgSvay11Yu5HsdVsO9",
+    "object": "chat.completion",
+    "created": 1795047271,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at the diff in `src/lightning_app/utilities/commands/base.py`, I need to analyze the changes for potential functional defects:\n\n**Changes made:**\n\n1. In `ClientCommand.__init__()` (lines 38-39):\n   - Added a check: `if not self.DESCRIPTION: self.DESCRIPTION = self.method.__doc__ or \"\"`\n   - This sets `DESCRIPTION` from the method's docstring if it's not already set\n\n2. In `_collect_open_api_extras()` (lines 222-224):\n   - Added a check for non-ClientCommand objects: `if command.__doc__ is not None: return {\"description\": command.__doc__}`\n   - Added `\"description\": command.DESCRIPTION` to the return dict for ClientCommand objects (line 228)\n\n**Potential issues:**\n\n1. **Logic error in `_collect_open_api_extras()`**: The function checks `if not isinstance(command, ClientCommand)` and then has a nested `if command.__doc__ is not None`. However, the indentation shows that the `return {}` statement is at the",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5805,
+      "completion_tokens": 256,
+      "total_tokens": 6061,
+      "cost": 0.007085,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007085,
+        "upstream_inference_prompt_cost": 0.005805,
+        "upstream_inference_completions_cost": 0.00128
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

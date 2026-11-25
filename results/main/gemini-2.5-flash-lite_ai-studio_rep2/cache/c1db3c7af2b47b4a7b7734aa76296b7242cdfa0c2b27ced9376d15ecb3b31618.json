@@ -1,0 +1,65 @@
+{
+  "cache_key": "c1db3c7af2b47b4a7b7734aa76296b7242cdfa0c2b27ced9376d15ecb3b31618",
+  "sample_id": "case053",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change replaces a direct attribute access with a method call, which is a refactoring that does not alter the existing functionality.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change replaces a direct attribute access with a method call, which is a refactoring that does not alter the existing functionality.\"}",
+  "response_id": "gen-1795048620-INqQvdsuR6EwvkdgtD86",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 210,
+  "completion_tokens": 39,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 3.66e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 210,
+    "completion_tokens": 39,
+    "total_tokens": 249,
+    "cost": 3.66e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 3.66e-05,
+      "upstream_inference_prompt_cost": 2.1e-05,
+      "upstream_inference_completions_cost": 1.56e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.47,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:37:00+00:00",
+  "run_id": "20261119T003650Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

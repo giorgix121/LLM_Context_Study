@@ -1,0 +1,15 @@
+[
+  {
+    "name": "async_setup_entry",
+    "before": {
+      "start": 37,
+      "end": 61,
+      "code": "async def async_setup_entry(\n    hass: HomeAssistant,\n    entry: ConfigEntry,\n    async_add_entities: AddEntitiesCallback,\n) -> None:\n    \"\"\"Discover cameras with speakers on a UniFi Protect NVR.\"\"\"\n    data: ProtectData = hass.data[DOMAIN][entry.entry_id]\n\n    async def _add_new_device(device: ProtectAdoptableDeviceModel) -> None:\n        if not device.is_adopted_by_us:\n            return\n\n        if isinstance(device, Camera) and device.feature_flags.has_speaker:\n            async_add_entities([ProtectMediaPlayer(data, device)])\n\n    async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n\n    entities = []\n    for device in data.api.bootstrap.cameras.values():\n        if not device.is_adopted_by_us:\n            continue\n        if device.feature_flags.has_speaker:\n            entities.append(ProtectMediaPlayer(data, device))\n\n    async_add_entities(entities)"
+    },
+    "after": {
+      "start": 37,
+      "end": 63,
+      "code": "async def async_setup_entry(\n    hass: HomeAssistant,\n    entry: ConfigEntry,\n    async_add_entities: AddEntitiesCallback,\n) -> None:\n    \"\"\"Discover cameras with speakers on a UniFi Protect NVR.\"\"\"\n    data: ProtectData = hass.data[DOMAIN][entry.entry_id]\n\n    async def _add_new_device(device: ProtectAdoptableDeviceModel) -> None:\n        if not device.is_adopted_by_us:\n            return\n\n        if isinstance(device, Camera) and device.feature_flags.has_speaker:\n            async_add_entities([ProtectMediaPlayer(data, device)])\n\n    entry.async_on_unload(\n        async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n    )\n\n    entities = []\n    for device in data.api.bootstrap.cameras.values():\n        if not device.is_adopted_by_us:\n            continue\n        if device.feature_flags.has_speaker:\n            entities.append(ProtectMediaPlayer(data, device))\n\n    async_add_entities(entities)"
+    }
+  }
+]

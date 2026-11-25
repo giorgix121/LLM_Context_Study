@@ -1,0 +1,5 @@
+{
+  "commit": "42cd8c390d5f165fd7f6bbdffafd2aa4c2d9a32a",
+  "chars": 620,
+  "text": "Fixed #33986 -- Hardened binary lookup in template commands.\n\nMade template commands look up formatters before writing files.\nThis makes sure files included in the template are not identified\nas executable formatter commands, even in case the template is\nrendered into the system path (as might easily happen on Windows,\nwhere the current directory is on the system path by default).\n\nWhile at it, Warned about trusting custom templates for\nstartapp/startproject.\n\nThanks Trung Pham of Viettel Cyber Security for reporting the issue,\nDjango Security Team for discussions, and Adam Johnson and\nCarlton Gibson for reviews."
+}

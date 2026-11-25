@@ -1,0 +1,65 @@
+{
+  "cache_key": "a18d6fe8c76265504a8d15922dde5331b502d761feb8273a4185c084bdb0af8a",
+  "sample_id": "case054",
+  "strategy": "N2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change removes a direct function call to `regenerate_help_images_for_all_commands` and replaces it with a subprocess call to `breeze setup regenerate-command-images`, which may fail silently or behave differently if the breeze command is not available or has changed its interface.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change removes a direct function call to `regenerate_help_images_for_all_commands` and replaces it with a subprocess call to `breeze setup regenerate-command-images`, which may fail silently or behave differently if the breeze command is not available or has changed its interface.\"\n}\n```",
+  "response_id": "gen-1795046703-vQcozIVK99I2OM2D1Rgi",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 3785,
+  "completion_tokens": 92,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.004245,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3785,
+    "completion_tokens": 92,
+    "total_tokens": 3877,
+    "cost": 0.004245,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.004245,
+      "upstream_inference_prompt_cost": 0.003785,
+      "upstream_inference_completions_cost": 0.00046
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.608,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:05:05+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

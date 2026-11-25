@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1790923174-OlQdgGQnUK2SLVCCJSRn",
+    "object": "chat.completion",
+    "created": 1790923174,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change replaces a direct string formatting for S3 keys with a call to `map(enclose_param, self.s3_keys)`, which might alter how S3 keys are quoted in the SQL query, potentially causing issues if `enclose_param` has different behavior than the original string formatting.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 652961,
+      "completion_tokens": 84,
+      "total_tokens": 653045,
+      "cost": 0.0653297,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0653297,
+        "upstream_inference_prompt_cost": 0.0652961,
+        "upstream_inference_completions_cost": 3.36e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

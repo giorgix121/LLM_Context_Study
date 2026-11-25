@@ -1,0 +1,15 @@
+[
+  {
+    "name": "elasticsearch_package",
+    "before": {
+      "start": 4,
+      "end": 8,
+      "code": "@packages(service=\"es\")\ndef elasticsearch_package() -> Package:\n    from localstack.services.opensearch.packages import elasticsearch_package\n\n    return elasticsearch_package"
+    },
+    "after": {
+      "start": 4,
+      "end": 8,
+      "code": "@packages()\ndef elasticsearch_package() -> Package:\n    from localstack.services.opensearch.packages import elasticsearch_package\n\n    return elasticsearch_package"
+    }
+  }
+]

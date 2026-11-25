@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191942-BR20mVG39dZX9Vabp1LD",
+    "object": "chat.completion",
+    "created": 1795191942,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Removing the `not _TORCH_GREATER_EQUAL_1_13` guard means the NVML-based patch is now applied on PyTorch ≥ 1.13, where `torch.cuda.is_available` may already use NVML internally or have changed internals, potentially causing infinite recursion or incorrect behavior that the original guard was specifically meant to prevent.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 346,
+      "completion_tokens": 101,
+      "total_tokens": 447,
+      "cost": 0.002553,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002553,
+        "upstream_inference_prompt_cost": 0.001038,
+        "upstream_inference_completions_cost": 0.001515
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "90040b9e9962016c5887dc9416711c0fd05e8718cd2172349a9466194c639dbb",
+  "sample_id": "case130",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Sorting dict items changes the hash output for any existing dict values, breaking hash stability and invalidating previously stored hashes that depend on this function.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Sorting dict items changes the hash output for any existing dict values, breaking hash stability and invalidating previously stored hashes that depend on this function.\"}",
+  "response_id": "gen-1795192115-aNcmAUpJlpLUtAyQUPj4",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 964,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.003582,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 964,
+    "completion_tokens": 46,
+    "total_tokens": 1010,
+    "cost": 0.003582,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003582,
+      "upstream_inference_prompt_cost": 0.002892,
+      "upstream_inference_completions_cost": 0.00069
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.033,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:28:37+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

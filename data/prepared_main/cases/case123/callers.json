@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "GitHubIntegration.get_commit_context",
+      "path": "src/sentry/integrations/github/integration.py",
+      "start": 179,
+      "end": 211,
+      "code": "    def get_commit_context(\n        self, repo: Repository, filepath: str, ref: str, event_frame: Mapping[str, Any]\n    ) -> Mapping[str, str] | None:\n        lineno = event_frame.get(\"lineno\", 0)\n        if not lineno:\n            return None\n        blame_range = self.get_blame_for_file(repo, filepath, ref, lineno)\n\n        try:\n            commit = sorted(\n                (\n                    blame\n                    for blame in blame_range\n                    if blame.get(\"startingLine\", 0) <= lineno <= blame.get(\"endingLine\", 0)\n                ),\n                key=lambda blame: datetime.strptime(\n                    blame.get(\"commit\", {}).get(\"committedDate\"), \"%Y-%m-%dT%H:%M:%SZ\"\n                ),\n            )[-1]\n        except IndexError:\n            return None\n\n        commitInfo = commit.get(\"commit\")\n        if not commitInfo:\n            return None\n        else:\n            return {\n                \"commitId\": commitInfo.get(\"oid\"),\n                \"committedDate\": commitInfo.get(\"committedDate\"),\n                \"commitMessage\": commitInfo.get(\"message\"),\n                \"commitAuthorName\": commitInfo.get(\"author\", {}).get(\"name\"),\n                \"commitAuthorEmail\": commitInfo.get(\"author\", {}).get(\"email\"),\n            }",
+      "calls": "CommitContextMixin.get_blame_for_file"
+    },
+    {
+      "name": "GitlabIntegration.get_commit_context",
+      "path": "src/sentry/integrations/gitlab/integration.py",
+      "start": 147,
+      "end": 178,
+      "code": "    def get_commit_context(\n        self, repo: Repository, filepath: str, ref: str, event_frame: Mapping[str, Any]\n    ) -> Mapping[str, str] | None:\n        \"\"\"\n        Returns the latest commit that altered the line from the event frame if it exists.\n        \"\"\"\n        lineno = event_frame.get(\"lineno\", 0)\n        if not lineno:\n            return None\n        blame_range = self.get_blame_for_file(repo, filepath, ref, lineno)\n\n        try:\n            commit = sorted(\n                blame_range,\n                key=lambda blame: datetime.strptime(\n                    blame.get(\"commit\", {}).get(\"committed_date\"), \"%Y-%m-%dT%H:%M:%S.%fZ\"\n                ),\n            )[-1]\n        except IndexError:\n            return None\n\n        commitInfo = commit.get(\"commit\")\n        if not commitInfo:\n            return None\n        else:\n            return {\n                \"commitId\": commitInfo.get(\"id\"),\n                \"committedDate\": commitInfo.get(\"committed_date\"),\n                \"commitMessage\": commitInfo.get(\"message\"),\n                \"commitAuthorName\": commitInfo.get(\"committer_name\"),\n                \"commitAuthorEmail\": commitInfo.get(\"committer_email\"),\n            }",
+      "calls": "CommitContextMixin.get_blame_for_file"
+    }
+  ]
+}

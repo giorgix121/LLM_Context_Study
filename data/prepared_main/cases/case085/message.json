@@ -1,0 +1,5 @@
+{
+  "commit": "4992db3403f1200d8c1ddaec0588394d99facd8c",
+  "chars": 598,
+  "text": "feat(metrics-layer): Add the metrics_layer dataset (#40450)\n\n- This adds a metrics_layer dataset to the QueryBuilder which builds\nmetric layer snql, instead of direct snql\n- This calls the metrics_layer get_series function, which doubles as a\ntable query\n- This introduces a metric layer feature flag so we can gradually roll\nout this change\n- Several of the tests are currently xfailed due to bugs in the metric\nlayer\n- ~One is currently failing until this change merges:\nhttps://github.com/getsentry/sentry/pull/40448~\n- Groupby xfails are fixed by:\nhttps://github.com/getsentry/sentry/pull/40313"
+}

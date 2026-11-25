@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "WLEDMasterLight.__init__",
+      "path": "homeassistant/components/wled/light.py",
+      "start": 59,
+      "end": 62,
+      "code": "    def __init__(self, coordinator: WLEDDataUpdateCoordinator) -> None:\n        \"\"\"Initialize WLED master light.\"\"\"\n        super().__init__(coordinator=coordinator)\n        self._attr_unique_id = coordinator.data.info.mac_address",
+      "called_by": "async_update_segments"
+    },
+    {
+      "name": "WLEDSegmentLight.__init__",
+      "path": "homeassistant/components/wled/light.py",
+      "start": 108,
+      "end": 132,
+      "code": "    def __init__(\n        self,\n        coordinator: WLEDDataUpdateCoordinator,\n        segment: int,\n    ) -> None:\n        \"\"\"Initialize WLED segment light.\"\"\"\n        super().__init__(coordinator=coordinator)\n        self._rgbw = coordinator.data.info.leds.rgbw\n        self._wv = coordinator.data.info.leds.wv\n        self._segment = segment\n\n        # Segment 0 uses a simpler name, which is more natural for when using\n        # a single segment / using WLED with one big LED strip.\n        if segment != 0:\n            self._attr_name = f\"Segment {segment}\"\n\n        self._attr_unique_id = (\n            f\"{self.coordinator.data.info.mac_address}_{self._segment}\"\n        )\n\n        self._attr_color_mode = ColorMode.RGB\n        self._attr_supported_color_modes = {ColorMode.RGB}\n        if self._rgbw and self._wv:\n            self._attr_color_mode = ColorMode.RGBW\n            self._attr_supported_color_modes = {ColorMode.RGBW}",
+      "called_by": "async_update_segments"
+    }
+  ]
+}

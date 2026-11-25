@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "BaseApiClient.post",
+      "path": "src/sentry/shared_integrations/client/base.py",
+      "start": 191,
+      "end": 192,
+      "code": "    def post(self, *args: Any, **kwargs: Any) -> BaseApiResponseX:\n        return self.request(\"POST\", *args, **kwargs)",
+      "called_by": "GitHubClientMixin.get_blame_for_file"
+    }
+  ]
+}

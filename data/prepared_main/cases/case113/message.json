@@ -1,0 +1,5 @@
+{
+  "commit": "2c43606922b30e303c65339bde83ca54495220f9",
+  "chars": 265,
+  "text": "Add websocket type hints in components (#80654)\n\n* Add websocket type hints in components\n\n* Adjust\n\n* Apply suggestion\n\nCo-authored-by: Marc Mueller <30130371+cdce8p@users.noreply.github.com>\n\nCo-authored-by: Marc Mueller <30130371+cdce8p@users.noreply.github.com>"
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "660dd397676b82880bd44a930f866303f2c0dd3b87d70f815c0698bfb486b6b3",
+  "sample_id": "case078",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The default value `LIGHTNING_CLOUD_PROJECT_ID` is evaluated once at module import time, so if the environment variable is set after the module is loaded, the default will be `None` and the project_id filtering logic will be bypassed, silently falling through to the multi-membership path instead of filtering by the intended project ID.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The default value `LIGHTNING_CLOUD_PROJECT_ID` is evaluated once at module import time, so if the environment variable is set after the module is loaded, the default will be `None` and the project_id filtering logic will be bypassed, silently falling through to the multi-membership path instead of filtering by the intended project ID.\"}",
+  "response_id": "gen-1795193131-IaTWp1Sg6nsEkwgyEgVk",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1123,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.004704,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1123,
+    "completion_tokens": 89,
+    "total_tokens": 1212,
+    "cost": 0.004704,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.004704,
+      "upstream_inference_prompt_cost": 0.003369,
+      "upstream_inference_completions_cost": 0.001335
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.895,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:45:34+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "3db6bd5b0628af0e8ec3a447fc1777e29e7c221ef774d130e49d7387148c9834",
+  "sample_id": "case102",
+  "strategy": "C0",
+  "status": "invalid_output",
+  "predicted_label": null,
+  "explanation": null,
+  "validation_error": "not valid JSON (Expecting ',' delimiter)",
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change assumes `self.active_organization` is already populated by the base class's dispatch method, but if `HomeView` or its parent does not correctly invoke `determine_active_organization` before `get`, accessing `.slug` on a potentially uninitialized or None attribute could raise an AttributeError.\"",
+  "response_id": "gen-1795563908-aH2FXg8qABBXYRupSQZf",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 8851,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00136102,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 8851,
+    "completion_tokens": 71,
+    "total_tokens": 8922,
+    "cost": 0.00136102,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00136102,
+      "upstream_inference_prompt_cost": 0.00132765,
+      "upstream_inference_completions_cost": 3.337e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.246,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:45:10+00:00",
+  "run_id": "20261124T234127Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

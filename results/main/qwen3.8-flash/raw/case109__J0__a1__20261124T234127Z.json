@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564081-ZKIFd94Vedt1vysguk4y",
+    "object": "chat.completion",
+    "created": 1795564081,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The commit changes `find_stack_level` to no longer accept a frame argument and instead calls `inspect.currentframe()` internally, which alters the stack depth calculation; if the new implementation does not correctly account for the extra internal function call or other stack frames compared to the previous explicit passing of the caller's frame, it may result in incorrect warning stacklevels (pointing to pandas internals instead of user code).\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 37566,
+      "completion_tokens": 95,
+      "total_tokens": 37661,
+      "cost": 0.00567955,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00567955,
+        "upstream_inference_prompt_cost": 0.0056349,
+        "upstream_inference_completions_cost": 4.465e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

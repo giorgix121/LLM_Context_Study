@@ -1,0 +1,65 @@
+{
+  "cache_key": "083decf82444ec9203ee3b34d0596e1d1602e189d2532da9f35507e70cc4db3f",
+  "sample_id": "case013",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Setting `self.DESCRIPTION = self.method.__doc__ or \"\"` mutates the class-level attribute on the `ClientCommand` class itself (not an instance attribute) when `DESCRIPTION` is falsy, meaning the first instantiation with a docstring could permanently override `DESCRIPTION` for all subsequent instances of that class.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Setting `self.DESCRIPTION = self.method.__doc__ or \\\"\\\"` mutates the class-level attribute on the `ClientCommand` class itself (not an instance attribute) when `DESCRIPTION` is falsy, meaning the first instantiation with a docstring could permanently override `DESCRIPTION` for all subsequent instances of that class.\"}",
+  "response_id": "gen-1795193724-GCL9pGrU13rGP7Cp2S44",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1323,
+  "completion_tokens": 87,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.005274,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1323,
+    "completion_tokens": 87,
+    "total_tokens": 1410,
+    "cost": 0.005274,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.005274,
+      "upstream_inference_prompt_cost": 0.003969,
+      "upstream_inference_completions_cost": 0.001305
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.126,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:55:27+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

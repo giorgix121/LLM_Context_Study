@@ -1,0 +1,65 @@
+{
+  "cache_key": "32e12874bbbb7bf6f743c86dcec69a79fe2cbbcc27dc1434a553dd6e958e1d34",
+  "sample_id": "case114",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Replacing `hasattr` with `isinstance(..., int)` may incorrectly skip devices where voltage or power are valid numeric types (e.g., float) or None, potentially failing to mark unavailable devices as intended.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Replacing `hasattr` with `isinstance(..., int)` may incorrectly skip devices where voltage or power are valid numeric types (e.g., float) or None, potentially failing to mark unavailable devices as intended.\"}",
+  "response_id": "gen-1795189887-Fqvbrq5FXUwdVCXmUXH5",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 792,
+  "completion_tokens": 57,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00014559,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 792,
+    "completion_tokens": 57,
+    "total_tokens": 849,
+    "cost": 0.00014559,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00014559,
+      "upstream_inference_prompt_cost": 0.0001188,
+      "upstream_inference_completions_cost": 2.679e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.579,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:51:29+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

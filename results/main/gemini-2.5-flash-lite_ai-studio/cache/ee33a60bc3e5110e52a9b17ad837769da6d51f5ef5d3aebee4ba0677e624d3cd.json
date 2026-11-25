@@ -1,0 +1,65 @@
+{
+  "cache_key": "ee33a60bc3e5110e52a9b17ad837769da6d51f5ef5d3aebee4ba0677e624d3cd",
+  "sample_id": "case012",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change renames private methods in `TemperatureConverter` from public to private, which could break external integrations that rely on these methods.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change renames private methods in `TemperatureConverter` from public to private, which could break external integrations that rely on these methods.\"}",
+  "response_id": "gen-1795563495-AKQadPbkFQS6NLKCFIfA",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 2229,
+  "completion_tokens": 39,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0002385,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2229,
+    "completion_tokens": 39,
+    "total_tokens": 2268,
+    "cost": 0.0002385,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0002385,
+      "upstream_inference_prompt_cost": 0.0002229,
+      "upstream_inference_completions_cost": 1.56e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.459,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:38:15+00:00",
+  "run_id": "20261124T233752Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

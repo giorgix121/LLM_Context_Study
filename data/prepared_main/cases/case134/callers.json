@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "main",
+      "path": "selfdrive/manager/manager.py",
+      "start": 164,
+      "end": 198,
+      "code": "def main() -> None:\n  prepare_only = os.getenv(\"PREPAREONLY\") is not None\n\n  manager_init()\n\n  # Start UI early so prepare can happen in the background\n  if not prepare_only:\n    managed_processes['ui'].start()\n\n  manager_prepare()\n\n  if prepare_only:\n    return\n\n  # SystemExit on sigterm\n  signal.signal(signal.SIGTERM, lambda signum, frame: sys.exit(1))\n\n  try:\n    manager_thread()\n  except Exception:\n    traceback.print_exc()\n    sentry.capture_exception()\n  finally:\n    manager_cleanup()\n\n  params = Params()\n  if params.get_bool(\"DoUninstall\"):\n    cloudlog.warning(\"uninstalling\")\n    HARDWARE.uninstall()\n  elif params.get_bool(\"DoReboot\"):\n    cloudlog.warning(\"reboot\")\n    HARDWARE.reboot()\n  elif params.get_bool(\"DoShutdown\"):\n    cloudlog.warning(\"shutdown\")\n    HARDWARE.shutdown()",
+      "calls": "manager_init"
+    }
+  ]
+}

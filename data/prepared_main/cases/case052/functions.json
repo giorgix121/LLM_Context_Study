@@ -1,0 +1,46 @@
+[
+  {
+    "name": "BaseNotification.provider",
+    "before": {
+      "start": 88,
+      "end": 95,
+      "code": "    @property\n    def provider(self) -> ExternalProviders:\n        if not getattr(self, \"_provider\", None):\n            raise AttributeError(\n                f\"'provider' not set on {self.__class__.__name__}. Please set 'provider' from the message builder.\"\n            )\n\n        return self._provider"
+    },
+    "after": null
+  },
+  {
+    "name": "BaseNotification.provider#2",
+    "before": {
+      "start": 97,
+      "end": 99,
+      "code": "    @provider.setter\n    def provider(self, provider: ExternalProviders) -> None:\n        self._provider = provider"
+    },
+    "after": null
+  },
+  {
+    "name": "BaseNotification.get_settings_url",
+    "before": {
+      "start": 206,
+      "end": 221,
+      "code": "    def get_settings_url(self, recipient: Team | User) -> str:\n        # Settings url is dependant on the provider so we know which provider is sending them into Sentry.\n        if isinstance(recipient, Team):\n            url_str = f\"/settings/{self.organization.slug}/teams/{recipient.slug}/notifications/\"\n        else:\n            url_str = \"/settings/account/notifications/\"\n            if self.notification_setting_type:\n                fine_tuning_key = get_notification_setting_type_name(self.notification_setting_type)\n                if fine_tuning_key:\n                    url_str += f\"{fine_tuning_key}/\"\n        return str(\n            urljoin(\n                absolute_uri(url_str),\n                self.get_sentry_query_params(self.provider, recipient),\n            )\n        )"
+    },
+    "after": {
+      "start": 193,
+      "end": 205,
+      "code": "    def get_settings_url(self, recipient: Team | User, provider: ExternalProviders) -> str:\n        # Settings url is dependant on the provider so we know which provider is sending them into Sentry.\n        if isinstance(recipient, Team):\n            url_str = f\"/settings/{self.organization.slug}/teams/{recipient.slug}/notifications/\"\n        else:\n            url_str = \"/settings/account/notifications/\"\n            if self.notification_setting_type:\n                fine_tuning_key = get_notification_setting_type_name(self.notification_setting_type)\n                if fine_tuning_key:\n                    url_str += f\"{fine_tuning_key}/\"\n        return str(\n            urljoin(absolute_uri(url_str), self.get_sentry_query_params(provider, recipient))\n        )"
+    }
+  },
+  {
+    "name": "ProjectNotification.build_notification_footer",
+    "before": {
+      "start": 277,
+      "end": 296,
+      "code": "    def build_notification_footer(self, recipient: Team | User) -> str:\n        settings_url = self.get_settings_url(recipient)\n\n        parent = getattr(self, \"project\", self.organization)\n        footer: str = parent.slug\n        group = getattr(self, \"group\", None)\n        latest_event = group.get_latest_event() if group else None\n        environment = None\n        if latest_event:\n            try:\n                environment = latest_event.get_environment()\n            except Environment.DoesNotExist:\n                pass\n\n        if environment and getattr(environment, \"name\", None) != \"\":\n            footer += f\" | {environment.name}\"\n\n        footer += f\" | {self.format_url(text='Notification Settings', url=settings_url)}\"\n\n        return footer"
+    },
+    "after": {
+      "start": 261,
+      "end": 281,
+      "code": "    def build_notification_footer(self, recipient: Team | User) -> str:\n        # notification footer only used for Slack for now\n        settings_url = self.get_settings_url(recipient, ExternalProviders.SLACK)\n\n        parent = getattr(self, \"project\", self.organization)\n        footer: str = parent.slug\n        group = getattr(self, \"group\", None)\n        latest_event = group.get_latest_event() if group else None\n        environment = None\n        if latest_event:\n            try:\n                environment = latest_event.get_environment()\n            except Environment.DoesNotExist:\n                pass\n\n        if environment and getattr(environment, \"name\", None) != \"\":\n            footer += f\" | {environment.name}\"\n\n        footer += f\" | {self.format_url(text='Notification Settings', url=settings_url)}\"\n\n        return footer"
+    }
+  }
+]

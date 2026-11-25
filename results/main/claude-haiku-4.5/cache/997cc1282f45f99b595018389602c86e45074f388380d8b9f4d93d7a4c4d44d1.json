@@ -1,0 +1,65 @@
+{
+  "cache_key": "997cc1282f45f99b595018389602c86e45074f388380d8b9f4d93d7a4c4d44d1",
+  "sample_id": "case077",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "This change only updates a GitHub repository URL in an error message from an old organization name to a new one, with no functional logic changes.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"This change only updates a GitHub repository URL in an error message from an old organization name to a new one, with no functional logic changes.\"\n}\n```",
+  "response_id": "gen-1795187898-VQAa1n0LRDo9c6jBvjiJ",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 292,
+  "completion_tokens": 58,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000582,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 292,
+    "completion_tokens": 58,
+    "total_tokens": 350,
+    "cost": 0.000582,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000582,
+      "upstream_inference_prompt_cost": 0.000292,
+      "upstream_inference_completions_cost": 0.00029
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.997,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:18:19+00:00",
+  "run_id": "20261120T151736Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

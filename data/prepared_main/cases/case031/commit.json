@@ -1,0 +1,38 @@
+{
+  "commit": "be0f10bfb9160244f987c8e2d535cac0469cfcf0",
+  "files_in_commit": 5,
+  "target_index": 1,
+  "target_status": "modified",
+  "chars": 2118,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "mypy.ini",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 4,
+      "patch": "@@ -189,9 +189,5 @@ ignore_missing_imports = True\n ignore_missing_imports = True\n \n # TODO: these cause type errors when followed\n-[mypy-sentry_sdk]\n-follow_imports = skip\n-[mypy-sentry_sdk.tracing]\n-follow_imports = skip\n [mypy-snuba_sdk.*]\n follow_imports = skip"
+    },
+    {
+      "path": "src/sentry/integrations/slack/client.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -27,7 +27,7 @@ def track_response_data(\n         try:\n             span.set_http_status(int(code))\n         except ValueError:\n-            span.set_status(code)\n+            span.set_status(str(code))\n \n         span.set_tag(\"integration\", \"slack\")\n "
+    },
+    {
+      "path": "src/sentry/shared_integrations/client/base.py",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 7,
+      "patch": "@@ -101,13 +101,13 @@ def _request(\n             tags={str(self.integration_type): self.name},\n         )\n \n-        try:\n-            with sentry_sdk.configure_scope() as scope:\n-                parent_span_id = scope.span.span_id\n-                trace_id = scope.span.trace_id\n-        except AttributeError:\n-            parent_span_id = None\n-            trace_id = None\n+        with sentry_sdk.configure_scope() as scope:\n+            if scope.span is not None:\n+                parent_span_id: str | None = scope.span.span_id\n+                trace_id: str | None = scope.span.trace_id\n+            else:\n+                parent_span_id = None\n+                trace_id = None\n \n         with sentry_sdk.start_transaction(\n             op=f\"{self.integration_type}.http\","
+    },
+    {
+      "path": "src/sentry/shared_integrations/client/internal.py",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 7,
+      "patch": "@@ -25,13 +25,13 @@ def request(self, *args: Any, **kwargs: Any) -> Response:\n             tags={str(self.integration_type): self.name},\n         )\n \n-        try:\n-            with sentry_sdk.configure_scope() as scope:\n-                parent_span_id = scope.span.span_id\n-                trace_id = scope.span.trace_id\n-        except AttributeError:\n-            parent_span_id = None\n-            trace_id = None\n+        with sentry_sdk.configure_scope() as scope:\n+            if scope.span is not None:\n+                parent_span_id: str | None = scope.span.span_id\n+                trace_id: str | None = scope.span.trace_id\n+            else:\n+                parent_span_id = None\n+                trace_id = None\n \n         with sentry_sdk.start_transaction(\n             op=f\"{self.integration_type}.http\","
+    }
+  ]
+}

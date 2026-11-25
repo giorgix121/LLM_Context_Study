@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565234-XAsWzqaqKJpfkfkDaUws",
+    "object": "chat.completion",
+    "created": 1795565234,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The `test_reject_all` and `test_reject_partial` tests assert a specific ordering of `keys_to_remove`, but the keys are derived from iterating over a dict (`keys_to_remove = hash_to_offset`) after deletions, and hash collisions or dict iteration order differences could make the order non-deterministic, potentially causing flaky tests or masking incorrect behavior in the limiter logic.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 9579,
+      "completion_tokens": 107,
+      "total_tokens": 9686,
+      "cost": 0.030342,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.030342,
+        "upstream_inference_prompt_cost": 0.028737,
+        "upstream_inference_completions_cost": 0.001605
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

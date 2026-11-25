@@ -1,0 +1,65 @@
+{
+  "cache_key": "9036a3485e98ebd349847a688ca98221b444a51f0d6f8ec11b0b5774f781b58c",
+  "sample_id": "case075",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change correctly migrates from the deprecated direct path access to using `as_directory()` context manager for the AIR Checkpoint API, which is the intended new pattern and keeps all logic inside the context where the directory is guaranteed to be available.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change correctly migrates from the deprecated direct path access to using `as_directory()` context manager for the AIR Checkpoint API, which is the intended new pattern and keeps all logic inside the context where the directory is guaranteed to be available.\"}",
+  "response_id": "gen-1795192578-bLCJ9sXpfqXOW6SXp2or",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 738,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.003264,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 738,
+    "completion_tokens": 70,
+    "total_tokens": 808,
+    "cost": 0.003264,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003264,
+      "upstream_inference_prompt_cost": 0.002214,
+      "upstream_inference_completions_cost": 0.00105
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.717,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:36:20+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

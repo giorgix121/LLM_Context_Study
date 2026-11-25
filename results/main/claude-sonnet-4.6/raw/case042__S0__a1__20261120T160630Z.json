@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191170-W9ManrY3cHJ2imDQYdqN",
+    "object": "chat.completion",
+    "created": 1795191170,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Changing `input_shape=(1,)` to `input_shape=()` alters the expected input from a 2D tensor of shape (batch_size, 1) to a scalar/1D tensor, and while the added `Flatten()` layer is intended to compensate, this changes the model's input contract and may cause shape mismatches or silent behavioral differences depending on how data is fed to the model.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 285,
+      "completion_tokens": 108,
+      "total_tokens": 393,
+      "cost": 0.002475,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002475,
+        "upstream_inference_prompt_cost": 0.000855,
+        "upstream_inference_completions_cost": 0.00162
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

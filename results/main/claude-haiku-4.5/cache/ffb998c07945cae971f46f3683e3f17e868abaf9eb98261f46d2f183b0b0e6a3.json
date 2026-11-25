@@ -1,0 +1,66 @@
+{
+  "cache_key": "ffb998c07945cae971f46f3683e3f17e868abaf9eb98261f46d2f183b0b0e6a3",
+  "sample_id": "case12",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Renaming public methods to private (with underscore prefix) breaks the public API and will cause runtime errors for any external code calling these methods directly.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"Renaming public methods to private (with underscore prefix) breaks the public API and will cause runtime errors for any external code calling these methods directly.\"\n}\n```",
+  "response_id": "gen-1790920252-kwq4BratC7sXIzFfyooc",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 3229,
+  "completion_tokens": 58,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.003519,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3229,
+    "completion_tokens": 58,
+    "total_tokens": 3287,
+    "cost": 0.003519,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003519,
+      "upstream_inference_prompt_cost": 0.003229,
+      "upstream_inference_completions_cost": 0.00029
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.118,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T05:50:53+00:00",
+  "run_id": "20261002T054951Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  },
+  "reused_from": "results/claude-haiku-4.5/cache/ffb998c07945cae971f46f3683e3f17e868abaf9eb98261f46d2f183b0b0e6a3.json"
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "3042ad71175ebc00b60f286461142313803a0f47348cf706e635cbb185a0ba0b",
+  "sample_id": "case097",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change converts mired values to Kelvin before passing to `color_temperature_to_rgbww()`, but without seeing the function signature and expected parameter types, this conversion could be incorrect if the function expects mired values or if the conversion is applied in the wrong order (min/max are swapped in the new code).",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change converts mired values to Kelvin before passing to `color_temperature_to_rgbww()`, but without seeing the function signature and expected parameter types, this conversion could be incorrect if the function expects mired values or if the conversion is applied in the wrong order (min/max are swapped in the new code).\"\n}\n```",
+  "response_id": "gen-1795047419-uxanZTDnLU2wTnuxCL2X",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 2149,
+  "completion_tokens": 99,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.002644,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2149,
+    "completion_tokens": 99,
+    "total_tokens": 2248,
+    "cost": 0.002644,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.002644,
+      "upstream_inference_prompt_cost": 0.002149,
+      "upstream_inference_completions_cost": 0.000495
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.167,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:17:01+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

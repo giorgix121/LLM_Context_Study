@@ -1,0 +1,5 @@
+{
+  "commit": "822a7f50af8c1b83384e31e95eb79d663d520aa7",
+  "chars": 206,
+  "text": "Align ddp and ddp-spawn strategies in setting up the environment (#11073)\n\nCo-authored-by: Kushashwa Ravi Shrimali <kushashwaravishrimali@gmail.com>\nCo-authored-by: Carlos Mocholí <carlossmocholi@gmail.com>"
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192428-A4wJx6vuOJkaN1QVQNFb",
+    "object": "chat.completion",
+    "created": 1795192428,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Renaming the constructor argument from `service_type` to `search_target` changes the keyword argument passed to `SsdpSearchListener`, which will cause a TypeError or silently drop the filter if the underlying library's API does not accept `search_target` (or still requires `service_type`), potentially breaking Yeelight device discovery entirely.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2055,
+      "completion_tokens": 92,
+      "total_tokens": 2147,
+      "cost": 0.007545,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007545,
+        "upstream_inference_prompt_cost": 0.006165,
+        "upstream_inference_completions_cost": 0.00138
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

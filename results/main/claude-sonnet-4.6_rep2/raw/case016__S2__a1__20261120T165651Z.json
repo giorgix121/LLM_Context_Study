@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795194527-nDsKrdmF1LKziJ5Ml56e",
+    "object": "chat.completion",
+    "created": 1795194527,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"When the environment is not a SLURMEnvironment, `sigusr` defaults to `signal.SIGUSR1`, but `environment` could be `None` or any other type, and the `assert sigusr is not None` runs unconditionally even when `sigusr_handlers` is empty, potentially causing an AssertionError if `environment.requeue_signal` returns `None` for a SLURM environment.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4474,
+      "completion_tokens": 110,
+      "total_tokens": 4584,
+      "cost": 0.015072,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.015072,
+        "upstream_inference_prompt_cost": 0.013422,
+        "upstream_inference_completions_cost": 0.00165
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

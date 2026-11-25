@@ -1,0 +1,65 @@
+{
+  "cache_key": "1676a6492b829a66df8dd6bc7b9aae73a4ae1486f78c517daa806a8993aab5db",
+  "sample_id": "case115",
+  "strategy": "N2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Renaming the keyword argument from `service_type` to `search_target` when constructing `SsdpSearchListener` will cause a TypeError if the underlying library's constructor does not accept `search_target`, or will silently stop filtering by service type if `service_type` was the correct parameter name, potentially breaking Yeelight device discovery.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Renaming the keyword argument from `service_type` to `search_target` when constructing `SsdpSearchListener` will cause a TypeError if the underlying library's constructor does not accept `search_target`, or will silently stop filtering by service type if `service_type` was the correct parameter name, potentially breaking Yeelight device discovery.\"}",
+  "response_id": "gen-1795192472-Rs1olvQZbNrJONFZVrCN",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 5236,
+  "completion_tokens": 92,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.017088,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 5236,
+    "completion_tokens": 92,
+    "total_tokens": 5328,
+    "cost": 0.017088,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.017088,
+      "upstream_inference_prompt_cost": 0.015708,
+      "upstream_inference_completions_cost": 0.00138
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 8.699,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:34:41+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "commit": "e38aa13378cbf5727560bc1897e3b4791b001066",
+  "chars": 306,
+  "text": "fix(appconnect): Add app_id_str column to appconnectbuild (#40261)\n\nThis is step 1 in the effort to change the type of\n`AppConnectBuild.app_id` from an integer to a string.\n\nIt adds a new column `app_id_str` of type `CharField` to the\n`appconnectbuild` model and a corresponding field to `AppConnectBuild`."
+}

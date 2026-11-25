@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192095-CzFVP7Qh4G19gOoFbAih",
+    "object": "chat.completion",
+    "created": 1795192095,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Changing the billing outcome category from `TRANSACTION_PROCESSED` to `TRANSACTION` alters which data category is reported for accepted transactions, which could affect billing calculations, quota enforcement, and outcome aggregations in ways that may not be intended or backward-compatible.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 762,
+      "completion_tokens": 71,
+      "total_tokens": 833,
+      "cost": 0.003351,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003351,
+        "upstream_inference_prompt_cost": 0.002286,
+        "upstream_inference_completions_cost": 0.001065
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

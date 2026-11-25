@@ -1,0 +1,15 @@
+[
+  {
+    "name": "build_model",
+    "before": {
+      "start": 26,
+      "end": 34,
+      "code": "def build_model() -> tf.keras.Model:\n    model = tf.keras.Sequential(\n        [\n            tf.keras.layers.InputLayer(input_shape=(1,)),\n            tf.keras.layers.Dense(10),\n            tf.keras.layers.Dense(1),\n        ]\n    )\n    return model"
+    },
+    "after": {
+      "start": 26,
+      "end": 36,
+      "code": "def build_model() -> tf.keras.Model:\n    model = tf.keras.Sequential(\n        [\n            tf.keras.layers.InputLayer(input_shape=()),\n            # Add feature dimension, expanding (batch_size,) to (batch_size, 1).\n            tf.keras.layers.Flatten(),\n            tf.keras.layers.Dense(10),\n            tf.keras.layers.Dense(1),\n        ]\n    )\n    return model"
+    }
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795190846-9GffcVcYpGQRNtnipJ0s",
+    "object": "chat.completion",
+    "created": 1795190846,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The counter initialization (`camera_lka_steering_cmd_counter + 1`) only happens once before the first send, but if `sent_lka_steering_cmd` is never set to `True` before the loopback path triggers (e.g., a spurious loopback arrives before the first scheduled send), the counter could diverge from the camera's expected sequence, potentially causing GM EPS faults.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 958,
+      "completion_tokens": 106,
+      "total_tokens": 1064,
+      "cost": 0.004464,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004464,
+        "upstream_inference_prompt_cost": 0.002874,
+        "upstream_inference_completions_cost": 0.00159
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

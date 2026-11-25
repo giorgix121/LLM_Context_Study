@@ -1,0 +1,65 @@
+{
+  "cache_key": "dbae7e4039436e7ec57cf81e0ea867ed6046dae73e1e2faf3abd43c160de27a5",
+  "sample_id": "case127",
+  "strategy": "S2",
+  "status": "invalid_output",
+  "predicted_label": null,
+  "explanation": null,
+  "validation_error": "not valid JSON (Expecting value)",
+  "fenced_json": false,
+  "raw_content": "Looking at the diff, the key change is in the `sort=False` branch of `recode_for_groupby`. The new code uses `np.int8` for `all_codes`, which can only hold values from -128 to 127. If a categorical has more than 127 categories, `np.arange(c.categories.nunique(), dtype=np.int8)` will overflow, and the subsequent `np.setdiff1d` comparison against `unique_notnan_codes` (which uses the actual category codes dtype, likely `int8` or `int16` depending on number of categories) could produce incorrect results.\n\nAdditionally, `c.codes` for categoricals with more than 127 categories would use `int16` or larger, while `all_codes` is forced to `int8`, potentially causing incorrect `setdiff1d` comparisons due to dtype mismatch or overflow.\n\n{\"label\": \"RISKY\", \"explanation\": \"Using `dtype=np.int8` for `all_codes` causes integer overflow when a categorical has more than 127 categories, leading to incorrect `setdiff1d`",
+  "response_id": "gen-1795193095-io7OyXm0xTTrgSryJiGa",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "length",
+  "prompt_tokens": 2875,
+  "completion_tokens": 256,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.012465,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2875,
+    "completion_tokens": 256,
+    "total_tokens": 3131,
+    "cost": 0.012465,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.012465,
+      "upstream_inference_prompt_cost": 0.008625,
+      "upstream_inference_completions_cost": 0.00384
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 6.999,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:45:02+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

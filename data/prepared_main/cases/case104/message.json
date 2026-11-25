@@ -1,0 +1,5 @@
+{
+  "commit": "e911e0996f1096cc23ef03b1ca70da7499dd8f2f",
+  "chars": 67,
+  "text": "Fixed #34000 -- Fixed numberformat.format() crash on empty strings."
+}

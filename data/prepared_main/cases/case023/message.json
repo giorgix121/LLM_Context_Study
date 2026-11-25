@@ -1,0 +1,5 @@
+{
+  "commit": "ec69f7dd5e93f837dbb216b58a54600769b801d1",
+  "chars": 263,
+  "text": "feat(issues) add ability to filter attachments by event_ids (#39723)\n\nAdds a query param so that you can filter attachments within an issue by\nevent ids.\nRequired for the new all events tab, which will show attachments\nassociated to each event, in the events tab."
+}

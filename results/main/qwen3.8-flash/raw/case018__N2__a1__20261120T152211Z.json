@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189016-Vo5OMmAj6zQiNnBXhLZu",
+    "object": "chat.completion",
+    "created": 1795189016,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "The provided text is a description of a calculation, not a question or problem to solve. It explains how to compute the total cost for 23 students by multiplying the number of students by the ticket price. There is no specific task or query that requires an answer in the format you requested (e.g., solving for x, finding a result, etc.).\n\nIf you have a specific question or need help with a different type of problem, please let me know!",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 967,
+      "completion_tokens": 94,
+      "total_tokens": 1061,
+      "cost": 0.00018923,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00018923,
+        "upstream_inference_prompt_cost": 0.00014505,
+        "upstream_inference_completions_cost": 4.418e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

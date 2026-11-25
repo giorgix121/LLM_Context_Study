@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193700-3nTW4FK8oTOnUCO3MROi",
+    "object": "chat.completion",
+    "created": 1795193700,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new imports of `lightning_launcher.__version__` and `lightning_cloud.__version__` are placed inside the conditional blocks but will raise an ImportError if those packages are not installed, even though the surrounding `if launcher_project_path` / `if lightning_cloud_project_path` checks were presumably meant to guard against missing packages.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 691,
+      "completion_tokens": 89,
+      "total_tokens": 780,
+      "cost": 0.003408,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003408,
+        "upstream_inference_prompt_cost": 0.002073,
+        "upstream_inference_completions_cost": 0.001335
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

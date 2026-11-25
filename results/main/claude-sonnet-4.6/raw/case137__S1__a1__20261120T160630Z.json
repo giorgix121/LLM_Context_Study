@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191735-wE4qHa3wdr4IFGgYFMwE",
+    "object": "chat.completion",
+    "created": 1795191735,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"When `ast.literal_eval` successfully parses a string (e.g., `out = \\\"'hello'\\\"`), the new code re-wraps it with `out[0]` as the quote character, but `out[0]` is the first character of the raw template output which may not be a quote (e.g., leading whitespace or other characters), and even when it is a quote, returning a quoted string like `\\\"'hello'\\\"` instead of the plain string `hello` changes the return type from `str` to a quoted `str`, breaking callers that expected the unquoted native Python string value.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1443,
+      "completion_tokens": 153,
+      "total_tokens": 1596,
+      "cost": 0.006624,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006624,
+        "upstream_inference_prompt_cost": 0.004329,
+        "upstream_inference_completions_cost": 0.002295
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

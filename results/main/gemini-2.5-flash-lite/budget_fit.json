@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-10-02T07:40:05+00:00",
+  "cap_usd": 12.0,
+  "spent_usd": 2.1914357,
+  "unaccounted_upper_usd": 0.0,
+  "guard_headroom_usd": 0.7505442,
+  "available_usd": 9.0580201,
+  "estimated_pending_usd": 8.47959662,
+  "estimate": "calibrated chars/token per level from earlier runs of this model, +10% margin",
+  "chars_per_token": {
+    "S0": 3.675851336506774,
+    "S1": 3.7188268776228837,
+    "S2": 3.6580484887518976,
+    "S3": 3.7101917314014723,
+    "S4": 3.6688194884621317,
+    "S5": 3.719019245613751
+  },
+  "limited": false
+}

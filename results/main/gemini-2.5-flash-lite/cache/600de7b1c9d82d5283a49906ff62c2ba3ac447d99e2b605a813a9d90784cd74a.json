@@ -1,0 +1,65 @@
+{
+  "cache_key": "600de7b1c9d82d5283a49906ff62c2ba3ac447d99e2b605a813a9d90784cd74a",
+  "sample_id": "case116",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The code introduces a recursive call to `connect` after calling `disconnect`, which could lead to an infinite loop if the initial connection attempt fails or if the `disconnect` function itself does not properly terminate the existing connection.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The code introduces a recursive call to `connect` after calling `disconnect`, which could lead to an infinite loop if the initial connection attempt fails or if the `disconnect` function itself does not properly terminate the existing connection.\"}",
+  "response_id": "gen-1790927193-UWitxN1ajoUuL9Doji2f",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 241,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 4.65e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 241,
+    "completion_tokens": 56,
+    "total_tokens": 297,
+    "cost": 4.65e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.65e-05,
+      "upstream_inference_prompt_cost": 2.41e-05,
+      "upstream_inference_completions_cost": 2.24e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.05,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T07:46:34+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

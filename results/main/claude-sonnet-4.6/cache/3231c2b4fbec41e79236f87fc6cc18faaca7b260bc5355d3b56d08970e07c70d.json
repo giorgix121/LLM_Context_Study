@@ -1,0 +1,65 @@
+{
+  "cache_key": "3231c2b4fbec41e79236f87fc6cc18faaca7b260bc5355d3b56d08970e07c70d",
+  "sample_id": "case050",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change is purely cosmetic, removing an extra space in `X.shape[0]  + 1` to `X.shape[0] + 1`, with no functional difference.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change is purely cosmetic, removing an extra space in `X.shape[0]  + 1` to `X.shape[0] + 1`, with no functional difference.\"}",
+  "response_id": "gen-1795191711-eDakKkCtI01fzSesDcRm",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2456,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.008268,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2456,
+    "completion_tokens": 60,
+    "total_tokens": 2516,
+    "cost": 0.008268,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.008268,
+      "upstream_inference_prompt_cost": 0.007368,
+      "upstream_inference_completions_cost": 0.0009
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.512,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:21:53+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189393-kSRKuq0LYsytWn88lUyx",
+    "object": "chat.completion",
+    "created": 1795189393,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n    \"label\": \"RISKY\",\n    \"explanation\": \"The code incorrectly checks 'if description' instead of 'if requirements' before adding the requirements field to the metadata, causing requirements to be omitted when description is missing or included as None/empty when description exists but requirements are not.\"\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 304,
+      "completion_tokens": 66,
+      "total_tokens": 370,
+      "cost": 7.662e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 7.662e-05,
+        "upstream_inference_prompt_cost": 4.56e-05,
+        "upstream_inference_completions_cost": 3.102e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

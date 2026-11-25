@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564571-crreOo153pwweCIeKsGK",
+    "object": "chat.completion",
+    "created": 1795564571,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at the diff in `src/lightning_app/utilities/cli_helpers.py`, I can identify a critical bug:\n\n```python\nrequirements = paths[path][\"post\"].get(\"requirements\", None)\n\n# ... later ...\n\nif description:\n    metadata[\"requirements\"] = requirements\n```\n\nThe problem is on line 74 (in the new code): the condition checks `if description:` but should check `if requirements:`. This means:\n\n1. The `requirements` variable is extracted correctly on line 62\n2. But it's only added to metadata if `description` is truthy, not if `requirements` is truthy\n3. This creates a logical error where requirements are conditionally included based on an unrelated field\n\nThis is a functional defect because:\n- Requirements will be silently dropped if description is falsy/None, even if requirements exist\n- Requirements will be incorrectly included if description exists but requirements don't\n- The feature for \"adding requirements to commands\" (mentioned in CHANGELOG) won't work as intended\n\nThe fix should be `if requirements:` instead of `if description:`.\n\n```json\n{\"label\": \"RISKY\", \"",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4431,
+      "completion_tokens": 256,
+      "total_tokens": 4687,
+      "cost": 0.005711,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005711,
+        "upstream_inference_prompt_cost": 0.004431,
+        "upstream_inference_completions_cost": 0.00128
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

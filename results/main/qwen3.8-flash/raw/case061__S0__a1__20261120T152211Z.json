@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189261-KCB7P27K8OHzpQ5AxKIQ",
+    "object": "chat.completion",
+    "created": 1795189261,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change moves critical state updates (learner_queue_size, weights_updated, overall_timer) inside the conditional block, meaning they are skipped when the condition is false, which likely breaks learner synchronization and metrics tracking.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 278,
+      "completion_tokens": 55,
+      "total_tokens": 333,
+      "cost": 6.755e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 6.755e-05,
+        "upstream_inference_prompt_cost": 4.17e-05,
+        "upstream_inference_completions_cost": 2.585e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

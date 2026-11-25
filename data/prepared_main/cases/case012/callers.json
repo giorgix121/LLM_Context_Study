@@ -1,0 +1,246 @@
+{
+  "found": 30,
+  "included": 30,
+  "functions": [
+    {
+      "name": "convert",
+      "path": "homeassistant/util/temperature.py",
+      "start": 36,
+      "end": 48,
+      "code": "def convert(\n    temperature: float, from_unit: str, to_unit: str, interval: bool = False\n) -> float:\n    \"\"\"Convert a temperature from one unit to another.\"\"\"\n    report(\n        \"uses temperature utility. This is deprecated since 2022.10 and will \"\n        \"stop working in Home Assistant 2022.4, it should be updated to use \"\n        \"unit_conversion.TemperatureConverter instead\",\n        error_if_core=False,\n    )\n    return TemperatureConverter.convert(\n        temperature, from_unit, to_unit, interval=interval\n    )",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "UnitSystem.temperature",
+      "path": "homeassistant/util/unit_system.py",
+      "start": 124,
+      "end": 131,
+      "code": "    def temperature(self, temperature: float, from_unit: str) -> float:\n        \"\"\"Convert the given temperature to this unit system.\"\"\"\n        if not isinstance(temperature, Number):\n            raise TypeError(f\"{temperature!s} is not a numeric value.\")\n\n        return TemperatureConverter.convert(\n            temperature, from_unit, self.temperature_unit\n        )",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "display_temp",
+      "path": "homeassistant/helpers/temperature.py",
+      "start": 11,
+      "end": 40,
+      "code": "def display_temp(\n    hass: HomeAssistant, temperature: float | None, unit: str, precision: float\n) -> float | None:\n    \"\"\"Convert temperature into preferred units/precision for display.\"\"\"\n    temperature_unit = unit\n    ha_unit = hass.config.units.temperature_unit\n\n    if temperature is None:\n        return temperature\n\n    # If the temperature is not a number this can cause issues\n    # with Polymer components, so bail early there.\n    if not isinstance(temperature, Number):\n        raise TypeError(f\"Temperature is not a number: {temperature}\")\n\n    if temperature_unit != ha_unit:\n        temperature = TemperatureConverter.convert(\n            temperature, temperature_unit, ha_unit\n        )\n\n    # Round in the units appropriate\n    if precision == PRECISION_HALVES:\n        temperature = round(temperature * 2) / 2.0\n    elif precision == PRECISION_TENTHS:\n        temperature = round(temperature, 1)\n    # Integer as a fall back (PRECISION_WHOLE)\n    else:\n        temperature = round(temperature)\n\n    return temperature",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "temperature_from_object",
+      "path": "homeassistant/components/alexa/handlers.py",
+      "start": 810,
+      "end": 822,
+      "code": "def temperature_from_object(hass, temp_obj, interval=False):\n    \"\"\"Get temperature from Temperature object in requested unit.\"\"\"\n    to_unit = hass.config.units.temperature_unit\n    from_unit = TEMP_CELSIUS\n    temp = float(temp_obj[\"value\"])\n\n    if temp_obj[\"scale\"] == \"FAHRENHEIT\":\n        from_unit = TEMP_FAHRENHEIT\n    elif temp_obj[\"scale\"] == \"KELVIN\" and not interval:\n        # convert to Celsius if absolute temperature\n        temp -= 273.15\n\n    return TemperatureConverter.convert(temp, from_unit, to_unit, interval=interval)",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "ClimateEntity.min_temp",
+      "path": "homeassistant/components/climate/__init__.py",
+      "start": 559,
+      "end": 566,
+      "code": "    @property\n    def min_temp(self) -> float:\n        \"\"\"Return the minimum temperature.\"\"\"\n        if not hasattr(self, \"_attr_min_temp\"):\n            return TemperatureConverter.convert(\n                DEFAULT_MIN_TEMP, TEMP_CELSIUS, self.temperature_unit\n            )\n        return self._attr_min_temp",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "ClimateEntity.max_temp",
+      "path": "homeassistant/components/climate/__init__.py",
+      "start": 568,
+      "end": 575,
+      "code": "    @property\n    def max_temp(self) -> float:\n        \"\"\"Return the maximum temperature.\"\"\"\n        if not hasattr(self, \"_attr_max_temp\"):\n            return TemperatureConverter.convert(\n                DEFAULT_MAX_TEMP, TEMP_CELSIUS, self.temperature_unit\n            )\n        return self._attr_max_temp",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "async_service_temperature_set",
+      "path": "homeassistant/components/climate/__init__.py",
+      "start": 598,
+      "end": 613,
+      "code": "async def async_service_temperature_set(\n    entity: ClimateEntity, service_call: ServiceCall\n) -> None:\n    \"\"\"Handle set temperature service.\"\"\"\n    hass = entity.hass\n    kwargs = {}\n\n    for value, temp in service_call.data.items():\n        if value in CONVERTIBLE_ATTRIBUTE:\n            kwargs[value] = TemperatureConverter.convert(\n                temp, hass.config.units.temperature_unit, entity.temperature_unit\n            )\n        else:\n            kwargs[value] = temp\n\n    await entity.async_set_temperature(**kwargs)",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "Thermostat.create_vacation",
+      "path": "homeassistant/components/ecobee/climate.py",
+      "start": 763,
+      "end": 807,
+      "code": "    def create_vacation(self, service_data):\n        \"\"\"Create a vacation with user-specified parameters.\"\"\"\n        vacation_name = service_data[ATTR_VACATION_NAME]\n        cool_temp = TemperatureConverter.convert(\n            service_data[ATTR_COOL_TEMP],\n            self.hass.config.units.temperature_unit,\n            TEMP_FAHRENHEIT,\n        )\n        heat_temp = TemperatureConverter.convert(\n            service_data[ATTR_HEAT_TEMP],\n            self.hass.config.units.temperature_unit,\n            TEMP_FAHRENHEIT,\n        )\n        start_date = service_data.get(ATTR_START_DATE)\n        start_time = service_data.get(ATTR_START_TIME)\n        end_date = service_data.get(ATTR_END_DATE)\n        end_time = service_data.get(ATTR_END_TIME)\n        fan_mode = service_data[ATTR_FAN_MODE]\n        fan_min_on_time = service_data[ATTR_FAN_MIN_ON_TIME]\n\n        kwargs = {\n            key: value\n            for key, value in {\n                \"start_date\": start_date,\n                \"start_time\": start_time,\n                \"end_date\": end_date,\n                \"end_time\": end_time,\n                \"fan_mode\": fan_mode,\n                \"fan_min_on_time\": fan_min_on_time,\n            }.items()\n            if value is not None\n        }\n\n        _LOGGER.debug(\n            \"Creating a vacation on thermostat %s with name %s, cool temp %s, heat temp %s, \"\n            \"and the following other parameters: %s\",\n            self.name,\n            vacation_name,\n            cool_temp,\n            heat_temp,\n            kwargs,\n        )\n        self.data.ecobee.create_vacation(\n            self.thermostat_index, vacation_name, cool_temp, heat_temp, **kwargs\n        )",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "TemperatureControlTrait.query_attributes",
+      "path": "homeassistant/components/google_assistant/trait.py",
+      "start": 841,
+      "end": 853,
+      "code": "    def query_attributes(self):\n        \"\"\"Return temperature states.\"\"\"\n        response = {}\n        unit = self.hass.config.units.temperature_unit\n        current_temp = self.state.state\n        if current_temp not in (STATE_UNKNOWN, STATE_UNAVAILABLE):\n            temp = round(\n                TemperatureConverter.convert(float(current_temp), unit, TEMP_CELSIUS), 1\n            )\n            response[\"temperatureSetpointCelsius\"] = temp\n            response[\"temperatureAmbientCelsius\"] = temp\n\n        return response",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "TemperatureSettingTrait.query_attributes",
+      "path": "homeassistant/components/google_assistant/trait.py",
+      "start": 936,
+      "end": 988,
+      "code": "    def query_attributes(self):\n        \"\"\"Return temperature point and modes query attributes.\"\"\"\n        response = {}\n        attrs = self.state.attributes\n        unit = self.hass.config.units.temperature_unit\n\n        operation = self.state.state\n        preset = attrs.get(climate.ATTR_PRESET_MODE)\n        supported = attrs.get(ATTR_SUPPORTED_FEATURES, 0)\n\n        if preset in self.preset_to_google:\n            response[\"thermostatMode\"] = self.preset_to_google[preset]\n        else:\n            response[\"thermostatMode\"] = self.hvac_to_google.get(operation, \"none\")\n\n        current_temp = attrs.get(climate.ATTR_CURRENT_TEMPERATURE)\n        if current_temp is not None:\n            response[\"thermostatTemperatureAmbient\"] = round(\n                TemperatureConverter.convert(current_temp, unit, TEMP_CELSIUS), 1\n            )\n\n        current_humidity = attrs.get(climate.ATTR_CURRENT_HUMIDITY)\n        if current_humidity is not None:\n            response[\"thermostatHumidityAmbient\"] = current_humidity\n\n        if operation in (climate.HVACMode.AUTO, climate.HVACMode.HEAT_COOL):\n            if supported & climate.SUPPORT_TARGET_TEMPERATURE_RANGE:\n                response[\"thermostatTemperatureSetpointHigh\"] = round(\n                    TemperatureConverter.convert(\n                        attrs[climate.ATTR_TARGET_TEMP_HIGH], unit, TEMP_CELSIUS\n                    ),\n                    1,\n                )\n                response[\"thermostatTemperatureSetpointLow\"] = round(\n                    TemperatureConverter.convert(\n                        attrs[climate.ATTR_TARGET_TEMP_LOW], unit, TEMP_CELSIUS\n                    ),\n                    1,\n                )\n            else:\n                if (target_temp := attrs.get(ATTR_TEMPERATURE)) is not None:\n                    target_temp = round(\n                        TemperatureConverter.convert(target_temp, unit, TEMP_CELSIUS), 1\n                    )\n                    response[\"thermostatTemperatureSetpointHigh\"] = target_temp\n                    response[\"thermostatTemperatureSetpointLow\"] = target_temp\n        else:\n            if (target_temp := attrs.get(ATTR_TEMPERATURE)) is not None:\n                response[\"thermostatTemperatureSetpoint\"] = round(\n                    TemperatureConverter.convert(target_temp, unit, TEMP_CELSIUS), 1\n                )\n\n        return response",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "TemperatureSettingTrait.execute",
+      "path": "homeassistant/components/google_assistant/trait.py",
+      "start": 990,
+      "end": 1112,
+      "code": "    async def execute(self, command, data, params, challenge):\n        \"\"\"Execute a temperature point or mode command.\"\"\"\n        # All sent in temperatures are always in Celsius\n        unit = self.hass.config.units.temperature_unit\n        min_temp = self.state.attributes[climate.ATTR_MIN_TEMP]\n        max_temp = self.state.attributes[climate.ATTR_MAX_TEMP]\n\n        if command == COMMAND_THERMOSTAT_TEMPERATURE_SETPOINT:\n            temp = TemperatureConverter.convert(\n                params[\"thermostatTemperatureSetpoint\"], TEMP_CELSIUS, unit\n            )\n            if unit == TEMP_FAHRENHEIT:\n                temp = round(temp)\n\n            if temp < min_temp or temp > max_temp:\n                raise SmartHomeError(\n                    ERR_VALUE_OUT_OF_RANGE,\n                    f\"Temperature should be between {min_temp} and {max_temp}\",\n                )\n\n            await self.hass.services.async_call(\n                climate.DOMAIN,\n                climate.SERVICE_SET_TEMPERATURE,\n                {ATTR_ENTITY_ID: self.state.entity_id, ATTR_TEMPERATURE: temp},\n                blocking=not self.config.should_report_state,\n                context=data.context,\n            )\n\n        elif command == COMMAND_THERMOSTAT_TEMPERATURE_SET_RANGE:\n            temp_high = TemperatureConverter.convert(\n                params[\"thermostatTemperatureSetpointHigh\"], TEMP_CELSIUS, unit\n            )\n            if unit == TEMP_FAHRENHEIT:\n                temp_high = round(temp_high)\n\n            if temp_high < min_temp or temp_high > max_temp:\n                raise SmartHomeError(\n                    ERR_VALUE_OUT_OF_RANGE,\n                    (\n                        f\"Upper bound for temperature range should be between \"\n                        f\"{min_temp} and {max_temp}\"\n                    ),\n                )\n\n            temp_low = TemperatureConverter.convert(\n                params[\"thermostatTemperatureSetpointLow\"], TEMP_CELSIUS, unit\n            )\n            if unit == TEMP_FAHRENHEIT:\n                temp_low = round(temp_low)\n\n            if temp_low < min_temp or temp_low > max_temp:\n                raise SmartHomeError(\n                    ERR_VALUE_OUT_OF_RANGE,\n                    (\n                        f\"Lower bound for temperature range should be between \"\n                        f\"{min_temp} and {max_temp}\"\n                    ),\n                )\n\n            supported = self.state.attributes.get(ATTR_SUPPORTED_FEATURES)\n            svc_data = {ATTR_ENTITY_ID: self.state.entity_id}\n\n            if supported & climate.SUPPORT_TARGET_TEMPERATURE_RANGE:\n                svc_data[climate.ATTR_TARGET_TEMP_HIGH] = temp_high\n                svc_data[climate.ATTR_TARGET_TEMP_LOW] = temp_low\n            else:\n                svc_data[ATTR_TEMPERATURE] = (temp_high + temp_low) / 2\n\n            await self.hass.services.async_call(\n                climate.DOMAIN,\n                climate.SERVICE_SET_TEMPERATURE,\n                svc_data,\n                blocking=not self.config.should_report_state,\n                context=data.context,\n            )\n\n        elif command == COMMAND_THERMOSTAT_SET_MODE:\n            target_mode = params[\"thermostatMode\"]\n            supported = self.state.attributes.get(ATTR_SUPPORTED_FEATURES)\n\n            if target_mode == \"on\":\n                await self.hass.services.async_call(\n                    climate.DOMAIN,\n                    SERVICE_TURN_ON,\n                    {ATTR_ENTITY_ID: self.state.entity_id},\n                    blocking=not self.config.should_report_state,\n                    context=data.context,\n                )\n                return\n\n            if target_mode == \"off\":\n                await self.hass.services.async_call(\n                    climate.DOMAIN,\n                    SERVICE_TURN_OFF,\n                    {ATTR_ENTITY_ID: self.state.entity_id},\n                    blocking=not self.config.should_report_state,\n                    context=data.context,\n                )\n                return\n\n            if target_mode in self.google_to_preset:\n                await self.hass.services.async_call(\n                    climate.DOMAIN,\n                    climate.SERVICE_SET_PRESET_MODE,\n                    {\n                        climate.ATTR_PRESET_MODE: self.google_to_preset[target_mode],\n                        ATTR_ENTITY_ID: self.state.entity_id,\n                    },\n                    blocking=not self.config.should_report_state,\n                    context=data.context,\n                )\n                return\n\n            await self.hass.services.async_call(\n                climate.DOMAIN,\n                climate.SERVICE_SET_HVAC_MODE,\n                {\n                    ATTR_ENTITY_ID: self.state.entity_id,\n                    climate.ATTR_HVAC_MODE: self.google_to_hvac[target_mode],\n                },\n                blocking=not self.config.should_report_state,\n                context=data.context,\n            )",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "temperature_to_homekit",
+      "path": "homeassistant/components/homekit/util.py",
+      "start": 392,
+      "end": 394,
+      "code": "def temperature_to_homekit(temperature: float | int, unit: str) -> float:\n    \"\"\"Convert temperature to Celsius for HomeKit.\"\"\"\n    return round(TemperatureConverter.convert(temperature, unit, TEMP_CELSIUS), 1)",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "temperature_to_states",
+      "path": "homeassistant/components/homekit/util.py",
+      "start": 397,
+      "end": 399,
+      "code": "def temperature_to_states(temperature: float | int, unit: str) -> float:\n    \"\"\"Convert temperature back from Celsius to Home Assistant unit.\"\"\"\n    return round(TemperatureConverter.convert(temperature, TEMP_CELSIUS, unit) * 2) / 2",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "MoldIndicator._update_temp_sensor",
+      "path": "homeassistant/components/mold_indicator/sensor.py",
+      "start": 196,
+      "end": 233,
+      "code": "    @staticmethod\n    def _update_temp_sensor(state):\n        \"\"\"Parse temperature sensor value.\"\"\"\n        _LOGGER.debug(\"Updating temp sensor with value %s\", state.state)\n\n        # Return an error if the sensor change its state to Unknown.\n        if state.state == STATE_UNKNOWN:\n            _LOGGER.error(\n                \"Unable to parse temperature sensor %s with state: %s\",\n                state.entity_id,\n                state.state,\n            )\n            return None\n\n        unit = state.attributes.get(ATTR_UNIT_OF_MEASUREMENT)\n\n        if (temp := util.convert(state.state, float)) is None:\n            _LOGGER.error(\n                \"Unable to parse temperature sensor %s with state: %s\",\n                state.entity_id,\n                state.state,\n            )\n            return None\n\n        # convert to celsius if necessary\n        if unit == TEMP_FAHRENHEIT:\n            return TemperatureConverter.convert(temp, TEMP_FAHRENHEIT, TEMP_CELSIUS)\n        if unit == TEMP_CELSIUS:\n            return temp\n        _LOGGER.error(\n            \"Temp sensor %s has unsupported unit: %s (allowed: %s, %s)\",\n            state.entity_id,\n            unit,\n            TEMP_CELSIUS,\n            TEMP_FAHRENHEIT,\n        )\n\n        return None",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "MoldIndicator.extra_state_attributes",
+      "path": "homeassistant/components/mold_indicator/sensor.py",
+      "start": 379,
+      "end": 403,
+      "code": "    @property\n    def extra_state_attributes(self):\n        \"\"\"Return the state attributes.\"\"\"\n        if self._is_metric:\n            return {\n                ATTR_DEWPOINT: round(self._dewpoint, 2),\n                ATTR_CRITICAL_TEMP: round(self._crit_temp, 2),\n            }\n\n        dewpoint = (\n            TemperatureConverter.convert(self._dewpoint, TEMP_CELSIUS, TEMP_FAHRENHEIT)\n            if self._dewpoint is not None\n            else None\n        )\n\n        crit_temp = (\n            TemperatureConverter.convert(self._crit_temp, TEMP_CELSIUS, TEMP_FAHRENHEIT)\n            if self._crit_temp is not None\n            else None\n        )\n\n        return {\n            ATTR_DEWPOINT: round(dewpoint, 2),\n            ATTR_CRITICAL_TEMP: round(crit_temp, 2),\n        }",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "NWSWeather.forecast",
+      "path": "homeassistant/components/nws/weather.py",
+      "start": 222,
+      "end": 263,
+      "code": "    @property\n    def forecast(self):\n        \"\"\"Return forecast.\"\"\"\n        if self._forecast is None:\n            return None\n        forecast = []\n        for forecast_entry in self._forecast:\n            data = {\n                ATTR_FORECAST_DETAILED_DESCRIPTION: forecast_entry.get(\n                    \"detailedForecast\"\n                ),\n                ATTR_FORECAST_TIME: forecast_entry.get(\"startTime\"),\n            }\n\n            if (temp := forecast_entry.get(\"temperature\")) is not None:\n                data[ATTR_FORECAST_NATIVE_TEMP] = TemperatureConverter.convert(\n                    temp, TEMP_FAHRENHEIT, TEMP_CELSIUS\n                )\n            else:\n                data[ATTR_FORECAST_NATIVE_TEMP] = None\n\n            if self.mode == DAYNIGHT:\n                data[ATTR_FORECAST_DAYTIME] = forecast_entry.get(\"isDaytime\")\n            time = forecast_entry.get(\"iconTime\")\n            weather = forecast_entry.get(\"iconWeather\")\n            if time and weather:\n                cond, precip = convert_condition(time, weather)\n            else:\n                cond, precip = None, None\n            data[ATTR_FORECAST_CONDITION] = cond\n            data[ATTR_FORECAST_PRECIPITATION_PROBABILITY] = precip\n\n            data[ATTR_FORECAST_WIND_BEARING] = forecast_entry.get(\"windBearing\")\n            wind_speed = forecast_entry.get(\"windSpeedAvg\")\n            if wind_speed is not None:\n                data[ATTR_FORECAST_NATIVE_WIND_SPEED] = SpeedConverter.convert(\n                    wind_speed, SPEED_MILES_PER_HOUR, SPEED_KILOMETERS_PER_HOUR\n                )\n            else:\n                data[ATTR_FORECAST_NATIVE_WIND_SPEED] = None\n            forecast.append(data)\n        return forecast",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "WeatherUpdateCoordinator._fmt_dewpoint",
+      "path": "homeassistant/components/openweathermap/weather_update_coordinator.py",
+      "start": 191,
+      "end": 198,
+      "code": "    @staticmethod\n    def _fmt_dewpoint(dewpoint):\n        \"\"\"Format the dewpoint data.\"\"\"\n        if dewpoint is not None:\n            return round(\n                TemperatureConverter.convert(dewpoint, TEMP_KELVIN, TEMP_CELSIUS), 1\n            )\n        return None",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "PrometheusMetrics._handle_input_number",
+      "path": "homeassistant/components/prometheus/__init__.py",
+      "start": 334,
+      "end": 354,
+      "code": "    def _handle_input_number(self, state):\n        if unit := self._unit_string(state.attributes.get(ATTR_UNIT_OF_MEASUREMENT)):\n            metric = self._metric(\n                f\"input_number_state_{unit}\",\n                self.prometheus_cli.Gauge,\n                f\"State of the input number measured in {unit}\",\n            )\n        else:\n            metric = self._metric(\n                \"input_number_state\",\n                self.prometheus_cli.Gauge,\n                \"State of the input number\",\n            )\n\n        with suppress(ValueError):\n            value = self.state_as_number(state)\n            if state.attributes.get(ATTR_UNIT_OF_MEASUREMENT) == TEMP_FAHRENHEIT:\n                value = TemperatureConverter.convert(\n                    value, TEMP_FAHRENHEIT, TEMP_CELSIUS\n                )\n            metric.labels(**self._labels(state)).set(value)",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "PrometheusMetrics._handle_climate_temp",
+      "path": "homeassistant/components/prometheus/__init__.py",
+      "start": 396,
+      "end": 405,
+      "code": "    def _handle_climate_temp(self, state, attr, metric_name, metric_description):\n        if temp := state.attributes.get(attr):\n            if self._climate_units == TEMP_FAHRENHEIT:\n                temp = TemperatureConverter.convert(temp, TEMP_FAHRENHEIT, TEMP_CELSIUS)\n            metric = self._metric(\n                metric_name,\n                self.prometheus_cli.Gauge,\n                metric_description,\n            )\n            metric.labels(**self._labels(state)).set(temp)",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "PrometheusMetrics._handle_sensor",
+      "path": "homeassistant/components/prometheus/__init__.py",
+      "start": 494,
+      "end": 519,
+      "code": "    def _handle_sensor(self, state):\n        unit = self._unit_string(state.attributes.get(ATTR_UNIT_OF_MEASUREMENT))\n\n        for metric_handler in self._sensor_metric_handlers:\n            metric = metric_handler(state, unit)\n            if metric is not None:\n                break\n\n        if metric is not None:\n            documentation = \"State of the sensor\"\n            if unit:\n                documentation = f\"Sensor data measured in {unit}\"\n\n            _metric = self._metric(metric, self.prometheus_cli.Gauge, documentation)\n\n            try:\n                value = self.state_as_number(state)\n                if state.attributes.get(ATTR_UNIT_OF_MEASUREMENT) == TEMP_FAHRENHEIT:\n                    value = TemperatureConverter.convert(\n                        value, TEMP_FAHRENHEIT, TEMP_CELSIUS\n                    )\n                _metric.labels(**self._labels(state)).set(value)\n            except ValueError:\n                pass\n\n        self._battery(state)",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "SensiboClimate.current_temperature",
+      "path": "homeassistant/components/sensibo/climate.py",
+      "start": 168,
+      "end": 177,
+      "code": "    @property\n    def current_temperature(self) -> float | None:\n        \"\"\"Return the current temperature.\"\"\"\n        if self.device_data.temp:\n            return TemperatureConverter.convert(\n                self.device_data.temp,\n                TEMP_CELSIUS,\n                self.temperature_unit,\n            )\n        return None",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "SmartTubThermostat.min_temp",
+      "path": "homeassistant/components/smarttub/climate.py",
+      "start": 86,
+      "end": 92,
+      "code": "    @property\n    def min_temp(self):\n        \"\"\"Return the minimum temperature.\"\"\"\n        min_temp = DEFAULT_MIN_TEMP\n        return TemperatureConverter.convert(\n            min_temp, TEMP_CELSIUS, self.temperature_unit\n        )",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "SmartTubThermostat.max_temp",
+      "path": "homeassistant/components/smarttub/climate.py",
+      "start": 94,
+      "end": 100,
+      "code": "    @property\n    def max_temp(self):\n        \"\"\"Return the maximum temperature.\"\"\"\n        max_temp = DEFAULT_MAX_TEMP\n        return TemperatureConverter.convert(\n            max_temp, TEMP_CELSIUS, self.temperature_unit\n        )",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "WaterHeaterEntity.min_temp",
+      "path": "homeassistant/components/water_heater/__init__.py",
+      "start": 326,
+      "end": 333,
+      "code": "    @property\n    def min_temp(self) -> float:\n        \"\"\"Return the minimum temperature.\"\"\"\n        if hasattr(self, \"_attr_min_temp\"):\n            return self._attr_min_temp\n        return TemperatureConverter.convert(\n            DEFAULT_MIN_TEMP, TEMP_FAHRENHEIT, self.temperature_unit\n        )",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "WaterHeaterEntity.max_temp",
+      "path": "homeassistant/components/water_heater/__init__.py",
+      "start": 335,
+      "end": 342,
+      "code": "    @property\n    def max_temp(self) -> float:\n        \"\"\"Return the maximum temperature.\"\"\"\n        if hasattr(self, \"_attr_max_temp\"):\n            return self._attr_max_temp\n        return TemperatureConverter.convert(\n            DEFAULT_MAX_TEMP, TEMP_FAHRENHEIT, self.temperature_unit\n        )",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "async_service_temperature_set",
+      "path": "homeassistant/components/water_heater/__init__.py",
+      "start": 355,
+      "end": 370,
+      "code": "async def async_service_temperature_set(\n    entity: WaterHeaterEntity, service: ServiceCall\n) -> None:\n    \"\"\"Handle set temperature service.\"\"\"\n    hass = entity.hass\n    kwargs = {}\n\n    for value, temp in service.data.items():\n        if value in CONVERTIBLE_ATTRIBUTE:\n            kwargs[value] = TemperatureConverter.convert(\n                temp, hass.config.units.temperature_unit, entity.temperature_unit\n            )\n        else:\n            kwargs[value] = temp\n\n    await entity.async_set_temperature(**kwargs)",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "ZWaveClimate.min_temp",
+      "path": "homeassistant/components/zwave_js/climate.py",
+      "start": 377,
+      "end": 391,
+      "code": "    @property\n    def min_temp(self) -> float:\n        \"\"\"Return the minimum temperature.\"\"\"\n        min_temp = DEFAULT_MIN_TEMP\n        base_unit = TEMP_CELSIUS\n        try:\n            temp = self._setpoint_value(self._current_mode_setpoint_enums[0])\n            if temp.metadata.min:\n                min_temp = temp.metadata.min\n                base_unit = self.temperature_unit\n        # In case of any error, we fallback to the default\n        except (IndexError, ValueError, TypeError):\n            pass\n\n        return TemperatureConverter.convert(min_temp, base_unit, self.temperature_unit)",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "ZWaveClimate.max_temp",
+      "path": "homeassistant/components/zwave_js/climate.py",
+      "start": 393,
+      "end": 407,
+      "code": "    @property\n    def max_temp(self) -> float:\n        \"\"\"Return the maximum temperature.\"\"\"\n        max_temp = DEFAULT_MAX_TEMP\n        base_unit = TEMP_CELSIUS\n        try:\n            temp = self._setpoint_value(self._current_mode_setpoint_enums[0])\n            if temp.metadata.max:\n                max_temp = temp.metadata.max\n                base_unit = self.temperature_unit\n        # In case of any error, we fallback to the default\n        except (IndexError, ValueError, TypeError):\n            pass\n\n        return TemperatureConverter.convert(max_temp, base_unit, self.temperature_unit)",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "test_temperature_convert",
+      "path": "tests/util/test_unit_conversion.py",
+      "start": 422,
+      "end": 437,
+      "code": "@pytest.mark.parametrize(\n    \"value,from_unit,expected,to_unit\",\n    [\n        (100, TEMP_CELSIUS, 212, TEMP_FAHRENHEIT),\n        (100, TEMP_CELSIUS, 373.15, TEMP_KELVIN),\n        (100, TEMP_FAHRENHEIT, pytest.approx(37.77777777777778), TEMP_CELSIUS),\n        (100, TEMP_FAHRENHEIT, pytest.approx(310.92777777777775), TEMP_KELVIN),\n        (100, TEMP_KELVIN, pytest.approx(-173.15), TEMP_CELSIUS),\n        (100, TEMP_KELVIN, pytest.approx(-279.66999999999996), TEMP_FAHRENHEIT),\n    ],\n)\ndef test_temperature_convert(\n    value: float, from_unit: str, expected: float, to_unit: str\n) -> None:\n    \"\"\"Test conversion to other units.\"\"\"\n    assert TemperatureConverter.convert(value, from_unit, to_unit) == expected",
+      "calls": "TemperatureConverter.convert"
+    },
+    {
+      "name": "test_temperature_convert_with_interval",
+      "path": "tests/util/test_unit_conversion.py",
+      "start": 440,
+      "end": 458,
+      "code": "@pytest.mark.parametrize(\n    \"value,from_unit,expected,to_unit\",\n    [\n        (100, TEMP_CELSIUS, 180, TEMP_FAHRENHEIT),\n        (100, TEMP_CELSIUS, 100, TEMP_KELVIN),\n        (100, TEMP_FAHRENHEIT, pytest.approx(55.55555555555556), TEMP_CELSIUS),\n        (100, TEMP_FAHRENHEIT, pytest.approx(55.55555555555556), TEMP_KELVIN),\n        (100, TEMP_KELVIN, 100, TEMP_CELSIUS),\n        (100, TEMP_KELVIN, 180, TEMP_FAHRENHEIT),\n    ],\n)\ndef test_temperature_convert_with_interval(\n    value: float, from_unit: str, expected: float, to_unit: str\n) -> None:\n    \"\"\"Test conversion to other units.\"\"\"\n    assert (\n        TemperatureConverter.convert(value, from_unit, to_unit, interval=True)\n        == expected\n    )",
+      "calls": "TemperatureConverter.convert"
+    }
+  ]
+}

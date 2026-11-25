@@ -1,0 +1,65 @@
+{
+  "cache_key": "86fcae28cabfe397b772ede6418639ebc29e3543eca1aa0dd9914d732641b9e0",
+  "sample_id": "case034",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change replaces the previously used PID lateral tuning (with specific kp, ki, kf values) with `configure_torque_tune`, switching all Mazda vehicles to torque-based lateral control, which is a significant behavioral change to steering control that could affect vehicle safety if the torque tune parameters are not validated for these specific cars.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change replaces the previously used PID lateral tuning (with specific kp, ki, kf values) with `configure_torque_tune`, switching all Mazda vehicles to torque-based lateral control, which is a significant behavioral change to steering control that could affect vehicle safety if the torque tune parameters are not validated for these specific cars.\"}",
+  "response_id": "gen-1795192978-x8uIHUcUYeuctwUgXHuU",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 3499,
+  "completion_tokens": 91,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.011862,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3499,
+    "completion_tokens": 91,
+    "total_tokens": 3590,
+    "cost": 0.011862,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.011862,
+      "upstream_inference_prompt_cost": 0.010497,
+      "upstream_inference_completions_cost": 0.001365
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.383,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:43:01+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

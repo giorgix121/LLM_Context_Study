@@ -1,0 +1,5 @@
+{
+  "commit": "6855f653bb82e19ce02137ca2a8b02f4992f0234",
+  "chars": 298,
+  "text": "Set `MLFlowLogger` status to FAILED when training raises an error (#12292)\n\nCo-authored-by: Ritsuki Yamada <ritsuki.yamada@uzabase.com>\nCo-authored-by: Adrian Wälchli <aedu.waelchli@gmail.com>\nCo-authored-by: Jirka <jirka.borovec@seznam.cz>\nCo-authored-by: Carlos Mocholí <carlossmocholi@gmail.com>"
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564145-VJnoNtzS1jafwrgVP0j6",
+    "object": "chat.completion",
+    "created": 1795564145,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change in coordinator.py replaces the logic that stored only RSSI values with storing full iBeaconAdvertisement objects, and modifies `_async_update_rssi` to call `ibeacon_advertisement.update_rssi(service_info.rssi)` on a potentially shared or stale object reference without re-parsing, which may lead to incorrect state updates or race conditions if the advertisement object is not thread-safe or immutable as expected by the new library version.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6043,
+      "completion_tokens": 102,
+      "total_tokens": 6145,
+      "cost": 0.00095439,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00095439,
+        "upstream_inference_prompt_cost": 0.00090645,
+        "upstream_inference_completions_cost": 4.794e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

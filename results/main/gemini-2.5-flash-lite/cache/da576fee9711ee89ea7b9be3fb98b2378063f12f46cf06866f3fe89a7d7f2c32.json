@@ -1,0 +1,65 @@
+{
+  "cache_key": "da576fee9711ee89ea7b9be3fb98b2378063f12f46cf06866f3fe89a7d7f2c32",
+  "sample_id": "case095",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "A new `preemptible` attribute is added to the `CloudCompute` class with a default value of `False`, which is unlikely to introduce functional defects as it's an internal argument for now.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"A new `preemptible` attribute is added to the `CloudCompute` class with a default value of `False`, which is unlikely to introduce functional defects as it's an internal argument for now.\"}",
+  "response_id": "gen-1790928254-xs9pAFqUxrhodGXbgc6E",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 3067,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0003291,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3067,
+    "completion_tokens": 56,
+    "total_tokens": 3123,
+    "cost": 0.0003291,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003291,
+      "upstream_inference_prompt_cost": 0.0003067,
+      "upstream_inference_completions_cost": 2.24e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.661,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T08:04:15+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

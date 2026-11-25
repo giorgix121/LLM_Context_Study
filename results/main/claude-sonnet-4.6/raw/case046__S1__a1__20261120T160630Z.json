@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191570-O2dr4CBPmabuEKkdakts",
+    "object": "chat.completion",
+    "created": 1795191570,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "I need to assess whether `self.mac_or_serial` in `ONVIFBaseEntity` behaves identically to `self.device.info.mac or self.device.info.serial_number`.\n\nThe key question is: does `mac_or_serial` property in `ONVIFBaseEntity` return the same value as `self.device.info.mac or self.device.info.serial_number`?\n\nIf `mac_or_serial` is a property defined in the base class that returns exactly `self.device.info.mac or self.device.info.serial_number`, then this is a safe refactor. However, if it returns something different (e.g., normalized, formatted differently, or has different fallback logic), the unique_id would change, potentially causing entity duplication or loss of entity history in Home Assistant.\n\nWithout seeing the base class implementation, there's a risk that `mac_or_serial` could return a different value than the inline expression, which would change the unique_id and break existing entity registrations.\n\n{\"label\": \"RISKY\", \"explanation\": \"If `mac_or_serial` in `ON",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 939,
+      "completion_tokens": 256,
+      "total_tokens": 1195,
+      "cost": 0.006657,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006657,
+        "upstream_inference_prompt_cost": 0.002817,
+        "upstream_inference_completions_cost": 0.00384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

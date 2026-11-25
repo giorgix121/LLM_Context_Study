@@ -1,0 +1,65 @@
+{
+  "cache_key": "7b210383a0e2ccce560c1edc146d5752ae44477d551a90b28b927f789cf6b551",
+  "sample_id": "case062",
+  "strategy": "N2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change unconditionally removes the 'isArchived' key from the item dictionary, which will raise a KeyError if the key is missing in any input data.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change unconditionally removes the 'isArchived' key from the item dictionary, which will raise a KeyError if the key is missing in any input data.\"}",
+  "response_id": "gen-1795188866-eqCrAobg11jPDJz7lL3U",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 1859,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00030047,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1859,
+    "completion_tokens": 46,
+    "total_tokens": 1905,
+    "cost": 0.00030047,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00030047,
+      "upstream_inference_prompt_cost": 0.00027885,
+      "upstream_inference_completions_cost": 2.162e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.403,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:34:27+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

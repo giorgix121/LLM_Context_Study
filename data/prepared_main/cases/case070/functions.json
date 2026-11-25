@@ -1,0 +1,15 @@
+[
+  {
+    "name": "OrganizationMeasurementsMeta.get",
+    "before": {
+      "start": 17,
+      "end": 40,
+      "code": "    def get(self, request: Request, organization: Organization) -> Response:\n        try:\n            params = self.get_snuba_params(request, organization)\n        except NoProjects:\n            return Response({})\n\n        with self.handle_query_errors():\n            metric_meta = get_custom_measurements(\n                project_ids=params[\"project_id\"],\n                organization_id=organization.id,\n                start=params[\"start\"],\n                end=params[\"end\"],\n                use_case_id=UseCaseKey.PERFORMANCE,\n            )\n\n        with start_span(op=\"transform\", description=\"metric meta\"):\n            result = {\n                item[\"name\"]: {\n                    \"functions\": METRIC_FUNCTION_LIST_BY_TYPE[item[\"type\"]],\n                }\n                for item in metric_meta\n            }\n\n        return Response(result)"
+    },
+    "after": {
+      "start": 17,
+      "end": 41,
+      "code": "    def get(self, request: Request, organization: Organization) -> Response:\n        try:\n            params = self.get_snuba_params(request, organization)\n        except NoProjects:\n            return Response({})\n\n        with self.handle_query_errors():\n            metric_meta = get_custom_measurements(\n                project_ids=params[\"project_id\"],\n                organization_id=organization.id,\n                start=params[\"start\"],\n                end=params[\"end\"],\n                use_case_id=UseCaseKey.PERFORMANCE,\n            )\n\n        with start_span(op=\"transform\", description=\"metric meta\"):\n            result = {\n                item[\"name\"]: {\n                    \"functions\": METRIC_FUNCTION_LIST_BY_TYPE[item[\"type\"]],\n                    \"unit\": item[\"unit\"],\n                }\n                for item in metric_meta\n            }\n\n        return Response(result)"
+    }
+  }
+]

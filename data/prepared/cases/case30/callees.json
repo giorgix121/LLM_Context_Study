@@ -1,0 +1,38 @@
+{
+  "found": 4,
+  "included": 4,
+  "functions": [
+    {
+      "name": "BraviaTVCoordinator.async_update_sources",
+      "path": "homeassistant/components/braviatv/coordinator.py",
+      "start": 150,
+      "end": 162,
+      "code": "    async def async_update_sources(self) -> None:\n        \"\"\"Update sources.\"\"\"\n        self.source_list = []\n        self.source_map = {}\n\n        externals = await self.client.get_external_status()\n        self._sources_extend(externals, \"input\")\n\n        apps = await self.client.get_app_list()\n        self._sources_extend(apps, \"app\")\n\n        channels = await self.client.get_content_list_all(\"tv\")\n        self._sources_extend(channels, \"channel\")",
+      "called_by": "BraviaTVCoordinator._async_update_data"
+    },
+    {
+      "name": "BraviaTVCoordinator.async_update_volume",
+      "path": "homeassistant/components/braviatv/coordinator.py",
+      "start": 164,
+      "end": 171,
+      "code": "    async def async_update_volume(self) -> None:\n        \"\"\"Update volume information.\"\"\"\n        volume_info = await self.client.get_volume_info()\n        volume_level = volume_info.get(\"volume\")\n        if volume_level is not None:\n            self.volume_level = volume_level / 100\n            self.volume_muted = volume_info.get(\"mute\", False)\n            self.volume_target = volume_info.get(\"target\")",
+      "called_by": "BraviaTVCoordinator._async_update_data"
+    },
+    {
+      "name": "BraviaTVCoordinator.async_update_playing",
+      "path": "homeassistant/components/braviatv/coordinator.py",
+      "start": 173,
+      "end": 198,
+      "code": "    async def async_update_playing(self) -> None:\n        \"\"\"Update current playing information.\"\"\"\n        playing_info = await self.client.get_playing_info()\n        self.media_title = playing_info.get(\"title\")\n        self.media_uri = playing_info.get(\"uri\")\n        self.media_duration = playing_info.get(\"durationSec\")\n        if program_title := playing_info.get(\"programTitle\"):\n            self.media_title = f\"{self.media_title}: {program_title}\"\n        if self.media_uri:\n            source = self.source_map.get(self.media_uri, {})\n            self.source = source.get(\"title\")\n            self.is_channel = self.media_uri[:2] == \"tv\"\n            if self.is_channel:\n                self.media_content_id = playing_info.get(\"dispNum\")\n                self.media_content_type = MediaType.CHANNEL\n            else:\n                self.media_content_id = self.media_uri\n                self.media_content_type = None\n        else:\n            self.source = None\n            self.is_channel = False\n            self.media_content_id = None\n            self.media_content_type = None\n        if not playing_info:\n            self.media_title = \"Smart TV\"\n            self.media_content_type = MediaType.APP",
+      "called_by": "BraviaTVCoordinator._async_update_data"
+    },
+    {
+      "name": "Debouncer.__init__",
+      "path": "homeassistant/helpers/debounce.py",
+      "start": 17,
+      "end": 42,
+      "code": "    def __init__(\n        self,\n        hass: HomeAssistant,\n        logger: Logger,\n        *,\n        cooldown: float,\n        immediate: bool,\n        function: Callable[[], _R_co] | None = None,\n    ) -> None:\n        \"\"\"Initialize debounce.\n\n        immediate: indicate if the function needs to be called right away and\n                   wait <cooldown> until executing next invocation.\n        function: optional and can be instantiated later.\n        \"\"\"\n        self.hass = hass\n        self.logger = logger\n        self._function = function\n        self.cooldown = cooldown\n        self.immediate = immediate\n        self._timer_task: asyncio.TimerHandle | None = None\n        self._execute_at_end_of_timer: bool = False\n        self._execute_lock = asyncio.Lock()\n        self._job: HassJob[[], _R_co] | None = (\n            None if function is None else HassJob(function)\n        )",
+      "called_by": "BraviaTVCoordinator.__init__"
+    }
+  ]
+}

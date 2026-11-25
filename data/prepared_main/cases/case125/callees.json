@@ -1,0 +1,62 @@
+{
+  "found": 7,
+  "included": 7,
+  "functions": [
+    {
+      "name": "_async_device_as_dict",
+      "path": "homeassistant/components/mqtt/diagnostics.py",
+      "start": 73,
+      "end": 126,
+      "code": "@callback\ndef _async_device_as_dict(hass: HomeAssistant, device: DeviceEntry) -> dict[str, Any]:\n    \"\"\"Represent an MQTT device as a dictionary.\"\"\"\n\n    # Gather information how this MQTT device is represented in Home Assistant\n    entity_registry = er.async_get(hass)\n    data: dict[str, Any] = {\n        \"id\": device.id,\n        \"name\": device.name,\n        \"name_by_user\": device.name_by_user,\n        \"disabled\": device.disabled,\n        \"disabled_by\": device.disabled_by,\n        \"entities\": [],\n    }\n\n    entities = er.async_entries_for_device(\n        entity_registry,\n        device_id=device.id,\n        include_disabled_entities=True,\n    )\n\n    for entity_entry in entities:\n        state = hass.states.get(entity_entry.entity_id)\n        state_dict = None\n        if state:\n            state_dict = dict(state.as_dict())\n\n            # The context doesn't provide useful information in this case.\n            state_dict.pop(\"context\", None)\n\n            entity_domain = split_entity_id(state.entity_id)[0]\n\n            # Retract some sensitive state attributes\n            if entity_domain == device_tracker.DOMAIN:\n                state_dict[\"attributes\"] = async_redact_data(\n                    state_dict[\"attributes\"], REDACT_STATE_DEVICE_TRACKER\n                )\n\n        data[\"entities\"].append(\n            {\n                \"device_class\": entity_entry.device_class,\n                \"disabled_by\": entity_entry.disabled_by,\n                \"disabled\": entity_entry.disabled,\n                \"entity_category\": entity_entry.entity_category,\n                \"entity_id\": entity_entry.entity_id,\n                \"icon\": entity_entry.icon,\n                \"original_device_class\": entity_entry.original_device_class,\n                \"original_icon\": entity_entry.original_icon,\n                \"state\": state_dict,\n                \"unit_of_measurement\": entity_entry.unit_of_measurement,\n            }\n        )\n\n    return data",
+      "called_by": "_async_get_diagnostics"
+    },
+    {
+      "name": "is_connected",
+      "path": "homeassistant/components/mqtt/__init__.py",
+      "start": 581,
+      "end": 585,
+      "code": "def is_connected(hass: HomeAssistant) -> bool:\n    \"\"\"Return if MQTT client is connected.\"\"\"\n    mqtt_data: MqttData = hass.data[DATA_MQTT]\n    assert mqtt_data.client is not None\n    return mqtt_data.client.connected",
+      "called_by": "_async_get_diagnostics"
+    },
+    {
+      "name": "info_for_config_entry",
+      "path": "homeassistant/components/mqtt/debug_info.py",
+      "start": 220,
+      "end": 231,
+      "code": "def info_for_config_entry(hass):\n    \"\"\"Get debug info for all entities and triggers.\"\"\"\n    mqtt_info = {\"entities\": [], \"triggers\": []}\n    mqtt_debug_info = hass.data[DATA_MQTT_DEBUG_INFO]\n\n    for entity_id in mqtt_debug_info[\"entities\"]:\n        mqtt_info[\"entities\"].append(_info_for_entity(hass, entity_id))\n\n    for trigger_key in mqtt_debug_info[\"triggers\"]:\n        mqtt_info[\"triggers\"].append(_info_for_trigger(hass, trigger_key))\n\n    return mqtt_info",
+      "called_by": "_async_get_diagnostics"
+    },
+    {
+      "name": "info_for_device",
+      "path": "homeassistant/components/mqtt/debug_info.py",
+      "start": 234,
+      "end": 255,
+      "code": "def info_for_device(hass, device_id):\n    \"\"\"Get debug info for a device.\"\"\"\n    mqtt_info = {\"entities\": [], \"triggers\": []}\n    entity_registry = er.async_get(hass)\n\n    entries = er.async_entries_for_device(\n        entity_registry, device_id, include_disabled_entities=True\n    )\n    mqtt_debug_info = hass.data[DATA_MQTT_DEBUG_INFO]\n    for entry in entries:\n        if entry.entity_id not in mqtt_debug_info[\"entities\"]:\n            continue\n\n        mqtt_info[\"entities\"].append(_info_for_entity(hass, entry.entity_id))\n\n    for trigger_key, trigger in mqtt_debug_info[\"triggers\"].items():\n        if trigger[\"device_id\"] != device_id:\n            continue\n\n        mqtt_info[\"triggers\"].append(_info_for_trigger(hass, trigger_key))\n\n    return mqtt_info",
+      "called_by": "_async_get_diagnostics"
+    },
+    {
+      "name": "async_redact_data",
+      "path": "homeassistant/components/diagnostics/util.py",
+      "start": 14,
+      "end": 16,
+      "code": "@overload\ndef async_redact_data(data: Mapping, to_redact: Iterable[Any]) -> dict:  # type: ignore[misc]\n    ...",
+      "called_by": "_async_get_diagnostics"
+    },
+    {
+      "name": "async_get",
+      "path": "homeassistant/helpers/device_registry.py",
+      "start": 679,
+      "end": 682,
+      "code": "@callback\ndef async_get(hass: HomeAssistant) -> DeviceRegistry:\n    \"\"\"Get device registry.\"\"\"\n    return cast(DeviceRegistry, hass.data[DATA_REGISTRY])",
+      "called_by": "_async_get_diagnostics"
+    },
+    {
+      "name": "async_entries_for_config_entry",
+      "path": "homeassistant/helpers/device_registry.py",
+      "start": 710,
+      "end": 719,
+      "code": "@callback\ndef async_entries_for_config_entry(\n    registry: DeviceRegistry, config_entry_id: str\n) -> list[DeviceEntry]:\n    \"\"\"Return entries that match a config entry.\"\"\"\n    return [\n        device\n        for device in registry.devices.values()\n        if config_entry_id in device.config_entries\n    ]",
+      "called_by": "_async_get_diagnostics"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193419-jsmqXSMOtCG8bEjMU53e",
+    "object": "chat.completion",
+    "created": 1795193419,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Changing the editable install check from 'lightning' to 'lightning-app' and the git directory check from 'lightning' to 'lightning_app' could cause the wheel packaging logic to never trigger (or always skip) for users with the original 'lightning' editable install, breaking cloud deployment for those setups.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 505,
+      "completion_tokens": 87,
+      "total_tokens": 592,
+      "cost": 0.00282,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00282,
+        "upstream_inference_prompt_cost": 0.001515,
+        "upstream_inference_completions_cost": 0.001305
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

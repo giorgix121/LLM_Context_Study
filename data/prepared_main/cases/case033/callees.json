@@ -1,0 +1,54 @@
+{
+  "found": 6,
+  "included": 6,
+  "functions": [
+    {
+      "name": "decode_str",
+      "path": "src/sentry/eventstream/kafka/protocol.py",
+      "start": 122,
+      "end": 124,
+      "code": "def decode_str(value: Optional[bytes]) -> str:\n    assert isinstance(value, bytes)\n    return value.decode(\"utf-8\")",
+      "called_by": "get_task_kwargs_for_message_from_headers"
+    },
+    {
+      "name": "decode_optional_str",
+      "path": "src/sentry/eventstream/kafka/protocol.py",
+      "start": 127,
+      "end": 130,
+      "code": "def decode_optional_str(value: Optional[bytes]) -> Optional[str]:\n    if value is None:\n        return None\n    return decode_str(value)",
+      "called_by": "get_task_kwargs_for_message_from_headers"
+    },
+    {
+      "name": "decode_int",
+      "path": "src/sentry/eventstream/kafka/protocol.py",
+      "start": 133,
+      "end": 135,
+      "code": "def decode_int(value: Optional[bytes]) -> int:\n    assert isinstance(value, bytes)\n    return int(value)",
+      "called_by": "get_task_kwargs_for_message_from_headers"
+    },
+    {
+      "name": "decode_optional_int",
+      "path": "src/sentry/eventstream/kafka/protocol.py",
+      "start": 138,
+      "end": 141,
+      "code": "def decode_optional_int(value: Optional[bytes]) -> Optional[int]:\n    if value is None:\n        return None\n    return decode_int(value)",
+      "called_by": "get_task_kwargs_for_message_from_headers"
+    },
+    {
+      "name": "decode_bool",
+      "path": "src/sentry/eventstream/kafka/protocol.py",
+      "start": 144,
+      "end": 145,
+      "code": "def decode_bool(value: bytes) -> bool:\n    return bool(int(decode_str(value)))",
+      "called_by": "get_task_kwargs_for_message_from_headers"
+    },
+    {
+      "name": "decode_optional_list_str",
+      "path": "src/sentry/eventstream/kafka/protocol.py",
+      "start": 148,
+      "end": 156,
+      "code": "def decode_optional_list_str(value: Optional[str]) -> Optional[Sequence[Any]]:\n    if value is None:\n        return None\n\n    parsed = json.loads(value)\n    if not isinstance(parsed, list):\n        raise ValueError(f\"'{value}' could not be parsed into an instance of list.\")\n\n    return cast(Sequence[Any], json.loads(value))",
+      "called_by": "get_task_kwargs_for_message_from_headers"
+    }
+  ]
+}

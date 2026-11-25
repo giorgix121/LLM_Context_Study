@@ -1,0 +1,65 @@
+{
+  "cache_key": "e4e6f3e3f035b5e842bd3dd4709324ccea2248cefc3aa106a236c0889f5549f6",
+  "sample_id": "case087",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The changes are type hint updates (making is_regression optional and adding a return type) that do not alter runtime behavior or introduce functional defects.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The changes are type hint updates (making is_regression optional and adding a return type) that do not alter runtime behavior or introduce functional defects.\"}",
+  "response_id": "gen-1795189634-N9DF93qJi38kEmkvxSkC",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 360,
+  "completion_tokens": 43,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 7.421e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 360,
+    "completion_tokens": 43,
+    "total_tokens": 403,
+    "cost": 7.421e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.421e-05,
+      "upstream_inference_prompt_cost": 5.4e-05,
+      "upstream_inference_completions_cost": 2.021e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.467,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:47:15+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

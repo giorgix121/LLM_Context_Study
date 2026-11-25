@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795046860-cNhXiDzGlLzSUhqK51Mu",
+    "object": "chat.completion",
+    "created": 1795046860,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change adds a new parameter `view_func` to the `proxy_request_if_needed()` function call, but without seeing the function definition, it's unclear if this parameter is expected or if the function signature has been updated to accept it, risking a TypeError at runtime.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 477,
+      "completion_tokens": 87,
+      "total_tokens": 564,
+      "cost": 0.000912,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000912,
+        "upstream_inference_prompt_cost": 0.000477,
+        "upstream_inference_completions_cost": 0.000435
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

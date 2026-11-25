@@ -1,0 +1,5 @@
+{
+  "commit": "4a1ad3e87a425dc5113baeedb1662c1217ae20c1",
+  "chars": 377,
+  "text": "[Workflow] Support \"retry_exceptions\" of Ray tasks (#26913)\n\n* support 'retry_exceptions'\n\nSigned-off-by: Siyuan Zhuang <suquark@gmail.com>\n\n* add test\n\nSigned-off-by: Siyuan Zhuang <suquark@gmail.com>\n\n* add doc\n\nSigned-off-by: Siyuan Zhuang <suquark@gmail.com>\n\n* fix\n\nSigned-off-by: Siyuan Zhuang <suquark@gmail.com>\n\n* typo\n\nSigned-off-by: Siyuan Zhuang <suquark@gmail.com>"
+}

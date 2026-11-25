@@ -1,0 +1,15 @@
+[
+  {
+    "name": "AsyncHyperBandScheduler.on_trial_add",
+    "before": {
+      "start": 121,
+      "end": 136,
+      "code": "    def on_trial_add(self, trial_runner: \"trial_runner.TrialRunner\", trial: Trial):\n        if not self._metric or not self._metric_op:\n            raise ValueError(\n                \"{} has been instantiated without a valid `metric` ({}) or \"\n                \"`mode` ({}) parameter. Either pass these parameters when \"\n                \"instantiating the scheduler, or pass them as parameters \"\n                \"to `tune.run()`\".format(\n                    self.__class__.__name__, self._metric, self._mode\n                )\n            )\n\n        sizes = np.array([len(b._rungs) for b in self._brackets])\n        probs = np.e ** (sizes - sizes.max())\n        normalized = probs / probs.sum()\n        idx = np.random.choice(len(self._brackets), p=normalized)\n        self._trial_info[trial.trial_id] = self._brackets[idx]"
+    },
+    "after": {
+      "start": 121,
+      "end": 136,
+      "code": "    def on_trial_add(self, trial_runner: \"trial_runner.TrialRunner\", trial: Trial):\n        if not self._metric or not self._metric_op:\n            raise ValueError(\n                \"{} has been instantiated without a valid `metric` ({}) or \"\n                \"`mode` ({}) parameter. Either pass these parameters when \"\n                \"instantiating the scheduler, or pass them as parameters \"\n                \"to `tune.TuneConfig()`\".format(\n                    self.__class__.__name__, self._metric, self._mode\n                )\n            )\n\n        sizes = np.array([len(b._rungs) for b in self._brackets])\n        probs = np.e ** (sizes - sizes.max())\n        normalized = probs / probs.sum()\n        idx = np.random.choice(len(self._brackets), p=normalized)\n        self._trial_info[trial.trial_id] = self._brackets[idx]"
+    }
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "cache_key": "f1e130ecf728f21b95e1d7089c9100f67a52cb16b2684bf0a1e64bc453c4de47",
+  "sample_id": "case124",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Changing the editable-install check from 'lightning' to 'lightning-app' (with a hyphen) means the egg-info directory looked up is 'lightning-app.egg-info', but Python packaging typically uses underscores or the original project name format, so this rename may never match an actual egg-info directory, causing the function to always return empty and silently skip wheel packaging for editable installs.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Changing the editable-install check from 'lightning' to 'lightning-app' (with a hyphen) means the egg-info directory looked up is 'lightning-app.egg-info', but Python packaging typically uses underscores or the original project name format, so this rename may never match an actual egg-info directory, causing the function to always return empty and silently skip wheel packaging for editable installs.\"}",
+  "response_id": "gen-1795192637-KdAXvwIQoUFQo64A5edT",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 6106,
+  "completion_tokens": 108,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.019938,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 6106,
+    "completion_tokens": 108,
+    "total_tokens": 6214,
+    "cost": 0.019938,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.019938,
+      "upstream_inference_prompt_cost": 0.018318,
+      "upstream_inference_completions_cost": 0.00162
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.878,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:37:21+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

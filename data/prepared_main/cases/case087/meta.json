@@ -1,0 +1,4 @@
+{
+  "sample_id": "case087",
+  "path": "src/sentry/eventstream/kafka/postprocessworker.py"
+}

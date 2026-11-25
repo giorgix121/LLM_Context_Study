@@ -1,0 +1,5 @@
+{
+  "commit": "e5998e6bf2169e484df07e2bbacf98ed21f19624",
+  "chars": 378,
+  "text": "Make the SLURM Preemption/Timeout Signal Configurable (#14626)\n\n* Add parameter to change the preemption signal\n* Make the signal connector use the custom signal from SLURMEnvironment\n\nSigned-off-by: Max Ehrlich <max.ehr@gmail.com>\nCo-authored-by: pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>\nCo-authored-by: Adrian Wälchli <aedu.waelchli@gmail.com>"
+}

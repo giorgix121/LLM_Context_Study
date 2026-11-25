@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192283-bP3d3fRY8ini3YajGxcJ",
+    "object": "chat.completion",
+    "created": 1795192283,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The counter initialization for non-fwdCamera configurations starts at 0 and is only incremented on loopback confirmation, so the very first steering command sent before any loopback is received will always use idx=0 regardless of the camera's current counter, potentially causing a GM EPS counter gap fault; additionally, the counter is no longer bounded/reset (no modulo on the counter itself, only on idx), which is a behavioral change from the previous approach of deriving idx directly from the CS counter.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5621,
+      "completion_tokens": 124,
+      "total_tokens": 5745,
+      "cost": 0.018723,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.018723,
+        "upstream_inference_prompt_cost": 0.016863,
+        "upstream_inference_completions_cost": 0.00186
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

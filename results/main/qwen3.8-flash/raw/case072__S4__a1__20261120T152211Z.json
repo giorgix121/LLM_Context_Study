@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189191-SifwrK2V0G19dqWtoRYh",
+    "object": "chat.completion",
+    "created": 1795189191,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new `_alter_column_collation_sql` method uses `self.sql_alter_column_collate`, which is not defined in the PostgreSQL backend class and likely does not exist in the base class, causing an AttributeError when collation changes are attempted.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3367,
+      "completion_tokens": 63,
+      "total_tokens": 3430,
+      "cost": 0.00053466,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00053466,
+        "upstream_inference_prompt_cost": 0.00050505,
+        "upstream_inference_completions_cost": 2.961e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

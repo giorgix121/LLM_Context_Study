@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Service.__init__",
+    "before": {
+      "start": 4,
+      "end": 5,
+      "code": "    def __init__(self, debug=False):\n        self.debug = debug"
+    },
+    "after": {
+      "start": 4,
+      "end": 5,
+      "code": "    def __init__(self, debug: bool = False) -> None:\n        self.debug = debug"
+    }
+  }
+]

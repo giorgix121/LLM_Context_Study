@@ -1,0 +1,15 @@
+[
+  {
+    "name": "_patch_cuda_is_available",
+    "before": {
+      "start": 81,
+      "end": 95,
+      "code": "@contextmanager\ndef _patch_cuda_is_available() -> Generator:\n    \"\"\"Context manager that safely patches :func:`torch.cuda.is_available` with its NVML-based version if\n    possible.\"\"\"\n    if hasattr(torch._C, \"_cuda_getDeviceCount\") and _device_count_nvml() >= 0 and not _TORCH_GREATER_EQUAL_1_13:\n        # we can safely patch is_available if both torch has CUDA compiled and the NVML count is succeeding\n        # otherwise, patching is_available could lead to attribute errors or infinite recursion\n        orig_check = torch.cuda.is_available\n        torch.cuda.is_available = is_cuda_available\n        try:\n            yield\n        finally:\n            torch.cuda.is_available = orig_check\n    else:\n        yield"
+    },
+    "after": {
+      "start": 81,
+      "end": 95,
+      "code": "@contextmanager\ndef _patch_cuda_is_available() -> Generator:\n    \"\"\"Context manager that safely patches :func:`torch.cuda.is_available` with its NVML-based version if\n    possible.\"\"\"\n    if hasattr(torch._C, \"_cuda_getDeviceCount\") and _device_count_nvml() >= 0:\n        # we can safely patch is_available if both torch has CUDA compiled and the NVML count is succeeding\n        # otherwise, patching is_available could lead to attribute errors or infinite recursion\n        orig_check = torch.cuda.is_available\n        torch.cuda.is_available = is_cuda_available\n        try:\n            yield\n        finally:\n            torch.cuda.is_available = orig_check\n    else:\n        yield"
+    }
+  }
+]

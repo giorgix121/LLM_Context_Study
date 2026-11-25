@@ -1,0 +1,18 @@
+{
+  "source": "https://zenodo.org/records/7708984/files/defectors.zip?download=1",
+  "member": "jit_bug_prediction_splits/time/test.parquet.gzip",
+  "access": "direct ZIP member access (HTTP range requests)",
+  "downloaded_at": "2026-10-02T05:41:40+00:00",
+  "member_bytes": 4232539,
+  "member_sha256": "61635792623c6baabe0ec6b6b4136d5c268e1e9ff58da086b92e8e26b98e4a9e",
+  "zip_entry": {
+    "archive_size": 2223303371,
+    "method": 8,
+    "flags": 0,
+    "crc32": 1465758184,
+    "compressed_size": 4222256,
+    "uncompressed_size": 4232539,
+    "header_offset": 104288623,
+    "data_offset": 104288701
+  }
+}

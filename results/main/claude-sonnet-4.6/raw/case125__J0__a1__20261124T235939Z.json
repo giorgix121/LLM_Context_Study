@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564998-HYpGlTzUCA86b65Ey6mj",
+    "object": "chat.completion",
+    "created": 1795564998,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"This refactoring consolidates multiple `hass.data` keys into a single `MqttData` dataclass, with consistent access patterns throughout; the logic is preserved and the changes are mechanical substitutions with no behavioral alterations.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 12433,
+      "completion_tokens": 68,
+      "total_tokens": 12501,
+      "cost": 0.038319,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.038319,
+        "upstream_inference_prompt_cost": 0.037299,
+        "upstream_inference_completions_cost": 0.00102
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

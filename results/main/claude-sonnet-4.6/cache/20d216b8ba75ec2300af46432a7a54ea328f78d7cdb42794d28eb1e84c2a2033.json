@@ -1,0 +1,65 @@
+{
+  "cache_key": "20d216b8ba75ec2300af46432a7a54ea328f78d7cdb42794d28eb1e84c2a2033",
+  "sample_id": "case068",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Changing the billing outcome category from `DataCategory.TRANSACTION_PROCESSED` to `DataCategory.TRANSACTION` alters what is reported for billing/quota tracking, which could cause transactions to be counted under the wrong category, potentially affecting billing calculations and quota enforcement.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Changing the billing outcome category from `DataCategory.TRANSACTION_PROCESSED` to `DataCategory.TRANSACTION` alters what is reported for billing/quota tracking, which could cause transactions to be counted under the wrong category, potentially affecting billing calculations and quota enforcement.\"}",
+  "response_id": "gen-1795192053-gJj6ehLqQE6h1lZZIwgX",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 908,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.003804,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 908,
+    "completion_tokens": 72,
+    "total_tokens": 980,
+    "cost": 0.003804,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003804,
+      "upstream_inference_prompt_cost": 0.002724,
+      "upstream_inference_completions_cost": 0.00108
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.305,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:27:35+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

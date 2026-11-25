@@ -1,0 +1,24 @@
+{
+  "commit": "481e2eefd4d434b42a6f1bbdcc98499a4aac2328",
+  "files_in_commit": 3,
+  "target_index": 1,
+  "target_status": "modified",
+  "chars": 3004,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "src/sentry/api/endpoints/organization_profiling_profiles.py",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 6,
+      "patch": "@@ -71,8 +71,6 @@ def get(self, request: Request, organization: Organization) -> Response:\n             return Response([])\n \n         kwargs = {\"params\": params}\n-        if \"Accept-Encoding\" in request.headers:\n-            kwargs[\"headers\"] = {\"Accept-Encoding\": request.headers.get(\"Accept-Encoding\")}\n \n         return self.paginate(\n             request,\n@@ -143,8 +141,6 @@ def get(self, request: Request, organization: Organization) -> StreamingHttpResp\n             return Response([])\n \n         kwargs = {\"params\": params}\n-        if \"Accept-Encoding\" in request.headers:\n-            kwargs[\"headers\"] = {\"Accept-Encoding\": request.headers.get(\"Accept-Encoding\")}\n \n         return proxy_profiling_service(\"GET\", f\"/organizations/{organization.id}/filters\", **kwargs)\n \n@@ -174,8 +170,6 @@ def get(self, request: Request, organization: Organization) -> StreamingHttpResp\n             )\n \n         kwargs = {\"params\": params}\n-        if \"Accept-Encoding\" in request.headers:\n-            kwargs[\"headers\"] = {\"Accept-Encoding\": request.headers.get(\"Accept-Encoding\")}\n \n         return proxy_profiling_service(\"GET\", f\"/organizations/{organization.id}/stats\", **kwargs)\n "
+    },
+    {
+      "path": "src/sentry/profiles/utils.py",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 16,
+      "patch": "@@ -5,7 +5,7 @@\n import brotli  # type: ignore\n import urllib3\n from django.conf import settings\n-from django.http import StreamingHttpResponse\n+from django.http import HttpResponse\n from parsimonious.exceptions import ParseError\n from urllib3.response import HTTPResponse\n \n@@ -54,6 +54,7 @@ def increment(  # type: ignore\n     ),\n     timeout=30,\n     maxsize=10,\n+    headers={\"Accept-Encoding\": \"br, gzip\"},\n )\n \n \n@@ -64,7 +65,7 @@ def get_from_profiling_service(\n     headers: Optional[Dict[Any, Any]] = None,\n     json_data: Any = None,\n ) -> HTTPResponse:\n-    kwargs: Dict[str, Any] = {\"headers\": {}, \"preload_content\": False}\n+    kwargs: Dict[str, Any] = {\"headers\": {}}\n     if params:\n         params = {\n             key: value.isoformat() if isinstance(value, datetime) else value\n@@ -93,24 +94,14 @@ def proxy_profiling_service(\n     path: str,\n     params: Optional[Dict[str, Any]] = None,\n     headers: Optional[Dict[str, str]] = None,\n-) -> StreamingHttpResponse:\n+) -> HttpResponse:\n     profiling_response = get_from_profiling_service(method, path, params=params, headers=headers)\n-\n-    def stream():  # type: ignore\n-        yield from profiling_response.stream(decode_content=False)\n-\n-    response = StreamingHttpResponse(\n-        streaming_content=stream(),  # type: ignore\n+    return HttpResponse(\n+        content=profiling_response.data,\n         status=profiling_response.status,\n-        content_type=profiling_response.headers.get(\"Content_type\", \"application/json\"),\n+        content_type=profiling_response.headers.get(\"Content-Type\", \"application/json\"),\n     )\n \n-    for h in [\"Content-Encoding\", \"Vary\"]:\n-        if h in profiling_response.headers:\n-            response[h] = profiling_response.headers[h]\n-\n-    return response\n-\n \n PROFILE_FILTERS = {\n     \"android_api_level\","
+    }
+  ]
+}

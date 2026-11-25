@@ -1,0 +1,5 @@
+{
+  "commit": "832933fc29efb9edaf251241feaec5c5880c6c5a",
+  "chars": 514,
+  "text": "feat(session-replay): adds banner for session replay waitlist (#40797)\n\nThis PR adds a banner to the logic page to show a banner with a link to\njoin the waitlist for Session Replay. Note that we purposely don't show\nthis to self-hosted users.\n\n<img width=\"1023\" alt=\"Screen Shot 2022-10-31 at 10 36 05 PM\"\nsrc=\"https://user-images.githubusercontent.com/8533851/199115003-ebfe7a72-40ab-4784-b541-c74e91a2b981.png\">\n\nI added a CSS style to hide the banner if the screen is so narrow that\nit wouldn't fit on one line."
+}

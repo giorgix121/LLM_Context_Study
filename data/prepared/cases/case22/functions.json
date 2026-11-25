@@ -1,0 +1,41 @@
+[
+  {
+    "name": "async_setup_entry",
+    "before": {
+      "start": 19,
+      "end": 45,
+      "code": "async def async_setup_entry(\n    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback\n) -> None:\n    \"\"\"Set up device tracker for iBeacon Tracker component.\"\"\"\n    coordinator: IBeaconCoordinator = hass.data[DOMAIN]\n\n    @callback\n    def _async_device_new(\n        unique_id: str,\n        identifier: str,\n        parsed: iBeaconAdvertisement,\n    ) -> None:\n        \"\"\"Signal a new device.\"\"\"\n        async_add_entities(\n            [\n                IBeaconTrackerEntity(\n                    coordinator,\n                    identifier,\n                    unique_id,\n                    parsed,\n                )\n            ]\n        )\n\n    entry.async_on_unload(\n        async_dispatcher_connect(hass, SIGNAL_IBEACON_DEVICE_NEW, _async_device_new)\n    )"
+    },
+    "after": {
+      "start": 19,
+      "end": 45,
+      "code": "async def async_setup_entry(\n    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback\n) -> None:\n    \"\"\"Set up device tracker for iBeacon Tracker component.\"\"\"\n    coordinator: IBeaconCoordinator = hass.data[DOMAIN]\n\n    @callback\n    def _async_device_new(\n        unique_id: str,\n        identifier: str,\n        ibeacon_advertisement: iBeaconAdvertisement,\n    ) -> None:\n        \"\"\"Signal a new device.\"\"\"\n        async_add_entities(\n            [\n                IBeaconTrackerEntity(\n                    coordinator,\n                    identifier,\n                    unique_id,\n                    ibeacon_advertisement,\n                )\n            ]\n        )\n\n    entry.async_on_unload(\n        async_dispatcher_connect(hass, SIGNAL_IBEACON_DEVICE_NEW, _async_device_new)\n    )"
+    }
+  },
+  {
+    "name": "IBeaconTrackerEntity.__init__",
+    "before": {
+      "start": 51,
+      "end": 61,
+      "code": "    def __init__(\n        self,\n        coordinator: IBeaconCoordinator,\n        identifier: str,\n        device_unique_id: str,\n        parsed: iBeaconAdvertisement,\n    ) -> None:\n        \"\"\"Initialize an iBeacon tracker entity.\"\"\"\n        super().__init__(coordinator, identifier, device_unique_id, parsed)\n        self._attr_unique_id = device_unique_id\n        self._active = True"
+    },
+    "after": {
+      "start": 51,
+      "end": 63,
+      "code": "    def __init__(\n        self,\n        coordinator: IBeaconCoordinator,\n        identifier: str,\n        device_unique_id: str,\n        ibeacon_advertisement: iBeaconAdvertisement,\n    ) -> None:\n        \"\"\"Initialize an iBeacon tracker entity.\"\"\"\n        super().__init__(\n            coordinator, identifier, device_unique_id, ibeacon_advertisement\n        )\n        self._attr_unique_id = device_unique_id\n        self._active = True"
+    }
+  },
+  {
+    "name": "IBeaconTrackerEntity._async_seen",
+    "before": {
+      "start": 78,
+      "end": 86,
+      "code": "    @callback\n    def _async_seen(\n        self,\n        parsed: iBeaconAdvertisement,\n    ) -> None:\n        \"\"\"Update state.\"\"\"\n        self._active = True\n        self._parsed = parsed\n        self.async_write_ha_state()"
+    },
+    "after": {
+      "start": 80,
+      "end": 88,
+      "code": "    @callback\n    def _async_seen(\n        self,\n        ibeacon_advertisement: iBeaconAdvertisement,\n    ) -> None:\n        \"\"\"Update state.\"\"\"\n        self._active = True\n        self._ibeacon_advertisement = ibeacon_advertisement\n        self.async_write_ha_state()"
+    }
+  }
+]

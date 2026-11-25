@@ -1,0 +1,65 @@
+{
+  "cache_key": "7403e20487418e096f0cb6c1ce75696cb829b2e35c9d97c1412d3a52d080449a",
+  "sample_id": "case117",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change removes the ability for monoliths to publish to the region-to-control Kafka topic, potentially breaking existing functionality if that option was previously enabled.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change removes the ability for monoliths to publish to the region-to-control Kafka topic, potentially breaking existing functionality if that option was previously enabled.\"}",
+  "response_id": "gen-1790928281-SFS1BWZ7sb6ZpgMdg8Ad",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 341,
+  "completion_tokens": 43,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 5.13e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 341,
+    "completion_tokens": 43,
+    "total_tokens": 384,
+    "cost": 5.13e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.13e-05,
+      "upstream_inference_prompt_cost": 3.41e-05,
+      "upstream_inference_completions_cost": 1.72e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.716,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T08:04:41+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

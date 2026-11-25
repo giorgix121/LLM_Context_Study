@@ -1,0 +1,65 @@
+{
+  "cache_key": "d4375e4e6cbc49e65c21cd11243ef76e4217d63905cc188b9ddcad55cc51dcc8",
+  "sample_id": "case033",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change introduces a new 'queue' key into task_state and kwargs, but the existing test case for version 1 headers does not include a 'queue' header, which may cause KeyError or unexpected behavior if the consumer strictly expects this field or if downstream logic relies on its presence without proper fallback handling in all code paths.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a new 'queue' key into task_state and kwargs, but the existing test case for version 1 headers does not include a 'queue' header, which may cause KeyError or unexpected behavior if the consumer strictly expects this field or if downstream logic relies on its presence without proper fallback handling in all code paths.\"}",
+  "response_id": "gen-1795188306-C08AYZuGZYbOM8HGbTYv",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 3165,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00051188,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3165,
+    "completion_tokens": 79,
+    "total_tokens": 3244,
+    "cost": 0.00051188,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00051188,
+      "upstream_inference_prompt_cost": 0.00047475,
+      "upstream_inference_completions_cost": 3.713e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.02,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:25:08+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

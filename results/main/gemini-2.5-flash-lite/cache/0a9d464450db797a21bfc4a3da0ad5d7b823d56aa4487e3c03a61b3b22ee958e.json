@@ -1,0 +1,66 @@
+{
+  "cache_key": "0a9d464450db797a21bfc4a3da0ad5d7b823d56aa4487e3c03a61b3b22ee958e",
+  "sample_id": "case06",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change removes a redundant validation for 'max_retries' and adds a new 'retry_exceptions' parameter to WorkflowStepRuntimeOptions, which is a safe addition as it only introduces new functionality without altering existing logic.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change removes a redundant validation for 'max_retries' and adds a new 'retry_exceptions' parameter to WorkflowStepRuntimeOptions, which is a safe addition as it only introduces new functionality without altering existing logic.\"\n}\n```",
+  "response_id": "gen-1790923438-uB4saHP18qCQFpuTvuWN",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 3355,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0003635,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3355,
+    "completion_tokens": 70,
+    "total_tokens": 3425,
+    "cost": 0.0003635,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003635,
+      "upstream_inference_prompt_cost": 0.0003355,
+      "upstream_inference_completions_cost": 2.8e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.718,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T06:43:59+00:00",
+  "run_id": "20261002T063748Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  },
+  "reused_from": "results/gemini-2.5-flash-lite/cache/0a9d464450db797a21bfc4a3da0ad5d7b823d56aa4487e3c03a61b3b22ee958e.json"
+}

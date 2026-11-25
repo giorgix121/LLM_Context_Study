@@ -1,0 +1,65 @@
+{
+  "cache_key": "935b3821d5be88c82fedf84a4cc5b7757262c3b67fc1c05c9e2e0cf7a06dc03c",
+  "sample_id": "case146",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The `run_formatters` function now has a default argument `black_path` with a sentinel value, which could lead to unexpected behavior if the sentinel is not handled correctly or if `shutil.which('black')` returns `None`.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The `run_formatters` function now has a default argument `black_path` with a sentinel value, which could lead to unexpected behavior if the sentinel is not handled correctly or if `shutil.which('black')` returns `None`.\"}",
+  "response_id": "gen-1790928410-EznHKORTpsXHraq7EdG1",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 337,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 5.93e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 337,
+    "completion_tokens": 64,
+    "total_tokens": 401,
+    "cost": 5.93e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.93e-05,
+      "upstream_inference_prompt_cost": 3.37e-05,
+      "upstream_inference_completions_cost": 2.56e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.541,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T08:06:51+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "packages",
+      "path": "localstack/packages/api.py",
+      "start": 274,
+      "end": 295,
+      "code": "def packages(\n    service: Optional[str] = None,\n    name: Optional[str] = \"default\",\n    should_load: Callable[[], bool] = None,\n):\n    \"\"\"\n    Decorator for marking methods that create Package instances as a PackagePlugin.\n    Methods marked with this decorator are discoverable as a PluginSpec within the namespace \"localstack.packages\",\n    with the name \"<service>:<name>\". If service is not explicitly specified, then the parent module name is used as\n    service name.\n    \"\"\"\n\n    def wrapper(fn):\n        _service = service or getmodule(fn).__name__.split(\".\")[-2]\n\n        @functools.wraps(fn)\n        def factory() -> PackagesPlugin:\n            return PackagesPlugin(service=_service, get_packages=fn, should_load=should_load)\n\n        return PluginSpec(PLUGIN_NAMESPACE, f\"{_service}:{name}\", factory=factory)\n\n    return wrapper",
+      "called_by": "elasticsearch_package"
+    }
+  ]
+}

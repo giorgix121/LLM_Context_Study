@@ -1,0 +1,5 @@
+{
+  "commit": "ca1917ec80e6a167111ba441154188aa53c9b79b",
+  "chars": 205,
+  "text": "Include app templates to the lightning and app packages (#13731)\n\n* Include app templates to the package\n\nCo-authored-by: mansy <mansy@lightning.ai>\nCo-authored-by: Adrian Wälchli <aedu.waelchli@gmail.com>"
+}

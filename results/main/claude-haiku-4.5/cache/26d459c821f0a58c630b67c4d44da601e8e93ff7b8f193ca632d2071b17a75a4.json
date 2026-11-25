@@ -1,0 +1,65 @@
+{
+  "cache_key": "26d459c821f0a58c630b67c4d44da601e8e93ff7b8f193ca632d2071b17a75a4",
+  "sample_id": "case034",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change removes all PID tuning parameters (kiBP, kpBP, kpV, kiV, kf) for all Mazda models and replaces them with a single call to `configure_torque_tune()`, which could result in different steering behavior if the torque controller configuration doesn't match the previous PID parameters.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change removes all PID tuning parameters (kiBP, kpBP, kpV, kiV, kf) for all Mazda models and replaces them with a single call to `configure_torque_tune()`, which could result in different steering behavior if the torque controller configuration doesn't match the previous PID parameters.\"\n}\n```",
+  "response_id": "gen-1795187987-zQG6RfzXHFYotb98cFCF",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 998,
+  "completion_tokens": 102,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001508,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 998,
+    "completion_tokens": 102,
+    "total_tokens": 1100,
+    "cost": 0.001508,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001508,
+      "upstream_inference_prompt_cost": 0.000998,
+      "upstream_inference_completions_cost": 0.00051
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.455,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:19:48+00:00",
+  "run_id": "20261120T151736Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

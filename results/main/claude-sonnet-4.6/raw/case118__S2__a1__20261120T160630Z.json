@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795190970-t28YRApQVEulKvMPEGl3",
+    "object": "chat.completion",
+    "created": 1795190970,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The device name is changed from `entry.title` (a stable, user-editable config entry title) to `api.smile_name` (a value fetched from the device), which could silently rename existing devices in the registry and may return None or an unexpected value if the API attribute is not populated, and the model field now relies on `api.smile_model` which may not exist in older library versions.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3017,
+      "completion_tokens": 105,
+      "total_tokens": 3122,
+      "cost": 0.010626,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.010626,
+        "upstream_inference_prompt_cost": 0.009051,
+        "upstream_inference_completions_cost": 0.001575
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

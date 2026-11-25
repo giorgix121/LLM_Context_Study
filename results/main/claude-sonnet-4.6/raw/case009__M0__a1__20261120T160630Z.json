@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191183-ObB7a6VNTHUSrDdSWjsP",
+    "object": "chat.completion",
+    "created": 1795191183,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The condition `if expand_context:` always evaluates to True because `expand_context` is a dict with the key 'options' always present, meaning 'options' is unconditionally added to `expand` regardless of whether the query parameter was actually provided.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 404,
+      "completion_tokens": 73,
+      "total_tokens": 477,
+      "cost": 0.002307,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002307,
+        "upstream_inference_prompt_cost": 0.001212,
+        "upstream_inference_completions_cost": 0.001095
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

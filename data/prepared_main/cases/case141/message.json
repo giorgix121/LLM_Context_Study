@@ -1,0 +1,5 @@
+{
+  "commit": "5cd890d8f700ad70b70a33cb086962bc736e338d",
+  "chars": 170,
+  "text": "feat(discover): Add discover homepage query endpoint (#39153)\n\nAdds `/api/0/:org-id/discover/homepage/` as a private endpoint. This\nendpoint supports GET, PUT, and DELETE"
+}

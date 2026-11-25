@@ -1,0 +1,65 @@
+{
+  "cache_key": "d29e49a62adb16a1187f2dd02fce419930c2d5912410f8c04babef3708811ddd",
+  "sample_id": "case012",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The diff renames public methods to private methods (adding underscore prefix) without providing public wrapper methods, which will break all external code calling these methods directly as shown in the other modified files that had to be updated to use the new `convert()` API instead.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The diff renames public methods to private methods (adding underscore prefix) without providing public wrapper methods, which will break all external code calling these methods directly as shown in the other modified files that had to be updated to use the new `convert()` API instead.\"\n}\n```",
+  "response_id": "gen-1795564343-cXiC5Ao8XbTRwDjInHwW",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 2361,
+  "completion_tokens": 81,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.002766,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2361,
+    "completion_tokens": 81,
+    "total_tokens": 2442,
+    "cost": 0.002766,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.002766,
+      "upstream_inference_prompt_cost": 0.002361,
+      "upstream_inference_completions_cost": 0.000405
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.498,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:52:25+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

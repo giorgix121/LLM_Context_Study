@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "run_async",
+      "path": "python/ray/workflow/api.py",
+      "start": 138,
+      "end": 202,
+      "code": "@PublicAPI(stability=\"alpha\")\ndef run_async(\n    dag: DAGNode,\n    *args,\n    workflow_id: Optional[str] = None,\n    metadata: Optional[Dict[str, Any]] = None,\n    **kwargs,\n) -> ray.ObjectRef:\n    \"\"\"Run a workflow asynchronously.\n\n    If the workflow with the given id already exists, it will be resumed.\n\n    Args:\n        workflow_id: A unique identifier that can be used to resume the\n            workflow. If not specified, a random id will be generated.\n        metadata: The metadata to add to the workflow. It has to be able\n            to serialize to json.\n\n    Returns:\n       The running result as ray.ObjectRef.\n\n    \"\"\"\n    _ensure_workflow_initialized()\n    if not isinstance(dag, DAGNode):\n        raise TypeError(\"Input should be a DAG.\")\n    input_data = DAGInputData(*args, **kwargs)\n    validate_user_metadata(metadata)\n    metadata = metadata or {}\n\n    if workflow_id is None:\n        # Workflow ID format: {Entry workflow UUID}.{Unix time to nanoseconds}\n        workflow_id = f\"{str(uuid.uuid4())}.{time.time():.9f}\"\n\n    state = workflow_state_from_dag(dag, input_data, workflow_id)\n    logger.info(f'Workflow job created. [id=\"{workflow_id}\"].')\n\n    context = workflow_context.WorkflowStepContext(workflow_id=workflow_id)\n    with workflow_context.workflow_step_context(context):\n        # checkpoint the workflow\n        ws = WorkflowStorage(workflow_id)\n        ws.save_workflow_user_metadata(metadata)\n\n        job_id = ray.get_runtime_context().job_id.hex()\n\n        try:\n            ws.get_entrypoint_step_id()\n            wf_exists = True\n        except Exception:\n            # The workflow does not exist. We must checkpoint entry workflow.\n            ws.save_workflow_execution_state(\"\", state)\n            wf_exists = False\n        workflow_manager = workflow_access.get_management_actor()\n        if ray.get(workflow_manager.is_workflow_non_terminating.remote(workflow_id)):\n            raise RuntimeError(\n                f\"Workflow '{workflow_id}' is already running or pending.\"\n            )\n        if wf_exists:\n            return resume_async(workflow_id)\n        ignore_existing = ws.load_workflow_status() == WorkflowStatus.NONE\n        ray.get(\n            workflow_manager.submit_workflow.remote(\n                workflow_id, state, ignore_existing=ignore_existing\n            )\n        )\n        return workflow_manager.execute_workflow.remote(job_id, context)",
+      "calls": "workflow_state_from_dag"
+    },
+    {
+      "name": "execute_workflow_local",
+      "path": "python/ray/workflow/debug_utils.py",
+      "start": 11,
+      "end": 25,
+      "code": "def execute_workflow_local(dag: DAGNode, workflow_id: str, *args, **kwargs):\n    \"\"\"Execute the workflow locally.\"\"\"\n    from ray.workflow.workflow_state_from_dag import workflow_state_from_dag\n\n    job_id = ray.get_runtime_context().job_id.hex()\n    context = WorkflowStepContext(workflow_id=workflow_id)\n    with workflow_step_context(context):\n        wf_store = get_workflow_storage()\n        state = workflow_state_from_dag(\n            dag, DAGInputData(*args, **kwargs), workflow_id=workflow_id\n        )\n        executor = WorkflowExecutor(state)\n        fut = executor.get_task_output_async(state.output_task_id)\n        asyncio_run(executor.run_until_complete(job_id, context, wf_store))\n        return asyncio_run(fut)",
+      "calls": "workflow_state_from_dag"
+    },
+    {
+      "name": "_workflow_step_executor",
+      "path": "python/ray/workflow/step_executor.py",
+      "start": 50,
+      "end": 101,
+      "code": "def _workflow_step_executor(\n    func: Callable,\n    context: \"WorkflowStepContext\",\n    task_id: \"TaskID\",\n    baked_inputs: \"_BakedWorkflowInputs\",\n    runtime_options: \"WorkflowStepRuntimeOptions\",\n) -> Tuple[Any, Any]:\n    \"\"\"Executor function for workflow step.\n\n    Args:\n        task_id: ID of the step.\n        func: The workflow step function.\n        baked_inputs: The processed inputs for the step.\n        context: Workflow step context. Used to access correct storage etc.\n        runtime_options: Parameters for workflow step execution.\n\n    Returns:\n        Workflow step output.\n    \"\"\"\n    with workflow_context.workflow_step_context(context):\n        store = workflow_storage.get_workflow_storage()\n        # Part 1: resolve inputs\n        args, kwargs = baked_inputs.resolve(store)\n\n        # Part 2: execute the step\n        try:\n            store.save_step_prerun_metadata(task_id, {\"start_time\": time.time()})\n            with workflow_context.workflow_execution():\n                logger.info(f\"{get_step_status_info(WorkflowStatus.RUNNING)}\")\n                output = func(*args, **kwargs)\n            store.save_step_postrun_metadata(task_id, {\"end_time\": time.time()})\n        except Exception as e:\n            # Always checkpoint the exception.\n            store.save_step_output(task_id, None, exception=e)\n            raise e\n\n        if isinstance(output, DAGNode):\n            output = workflow_state_from_dag(output, None, context.workflow_id)\n            execution_metadata = WorkflowExecutionMetadata(is_output_workflow=True)\n        else:\n            execution_metadata = WorkflowExecutionMetadata()\n            if runtime_options.catch_exceptions:\n                output = (output, None)\n\n        # Part 3: save outputs\n        # TODO(suquark): Validate checkpoint options before commit the task.\n        if CheckpointMode(runtime_options.checkpoint) == CheckpointMode.SYNC:\n            if isinstance(output, WorkflowExecutionState):\n                store.save_workflow_execution_state(task_id, output)\n            else:\n                store.save_step_output(task_id, output, exception=None)\n        return execution_metadata, output",
+      "calls": "workflow_state_from_dag"
+    }
+  ]
+}

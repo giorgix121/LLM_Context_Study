@@ -1,0 +1,65 @@
+{
+  "cache_key": "ca787fc057c9ffa12328931d29011ab7fbbf1e0d1c64ccd504425eb6ec9f32c5",
+  "sample_id": "case035",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Assigning the task to a specific queue 'counters-0' may cause failures if that queue is not configured or consumed by any worker, leading to tasks being silently dropped.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Assigning the task to a specific queue 'counters-0' may cause failures if that queue is not configured or consumed by any worker, leading to tasks being silently dropped.\"}",
+  "response_id": "gen-1795189518-vjmBXbzblHlIHDw070hJ",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 1180,
+  "completion_tokens": 50,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0002005,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1180,
+    "completion_tokens": 50,
+    "total_tokens": 1230,
+    "cost": 0.0002005,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0002005,
+      "upstream_inference_prompt_cost": 0.000177,
+      "upstream_inference_completions_cost": 2.35e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.443,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:45:19+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

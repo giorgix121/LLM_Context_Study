@@ -1,0 +1,5 @@
+{
+  "commit": "f6119603912efa4fe28f5da21f3d57f6903a0c77",
+  "chars": 491,
+  "text": "networking: add unmetered cellular toggle (#25902)\n\n* add metered toggle to UI\n\n* add GsmMetered param\n\n* add NMMetered constants\n\n* change LTE connection settings: connection.metered\n\n* change to GsmUnmetered override\n\n* update translations\n\n* debug ui\n\n* remove comment\n\n* Revert \"debug ui\"\n\nThis reverts commit 2ad9e65ea229b814782be9f30cc7664125d7e908.\n\n* 'Force Unmetered Cellular' toggle\n\n* update translations\n\n* remove description\n\n* update translations\n\n* change unmetered to metered"
+}

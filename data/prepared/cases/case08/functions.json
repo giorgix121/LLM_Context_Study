@@ -1,0 +1,15 @@
+[
+  {
+    "name": "ParallelStrategy.__init__",
+    "before": {
+      "start": 35,
+      "end": 45,
+      "code": "    def __init__(\n        self,\n        accelerator: Optional[Accelerator] = None,\n        parallel_devices: Optional[List[torch.device]] = None,\n        cluster_environment: Optional[ClusterEnvironment] = None,\n        checkpoint_io: Optional[CheckpointIO] = None,\n        precision_plugin: Optional[Precision] = None,\n    ):\n        super().__init__(accelerator=accelerator, checkpoint_io=checkpoint_io, precision_plugin=precision_plugin)\n        self.parallel_devices = parallel_devices\n        self.cluster_environment: Optional[ClusterEnvironment] = cluster_environment"
+    },
+    "after": {
+      "start": 35,
+      "end": 45,
+      "code": "    def __init__(\n        self,\n        accelerator: Optional[Accelerator] = None,\n        parallel_devices: Optional[List[torch.device]] = None,\n        cluster_environment: Optional[ClusterEnvironment] = None,\n        checkpoint_io: Optional[CheckpointIO] = None,\n        precision: Optional[Precision] = None,\n    ):\n        super().__init__(accelerator=accelerator, checkpoint_io=checkpoint_io, precision=precision)\n        self.parallel_devices = parallel_devices\n        self.cluster_environment: Optional[ClusterEnvironment] = cluster_environment"
+    }
+  }
+]

@@ -1,0 +1,118 @@
+{
+  "found": 14,
+  "included": 14,
+  "functions": [
+    {
+      "name": "compute_gas_brake",
+      "path": "selfdrive/car/honda/carcontroller.py",
+      "start": 32,
+      "end": 36,
+      "code": "def compute_gas_brake(accel, speed, fingerprint):\n  if fingerprint in HONDA_BOSCH:\n    return compute_gb_honda_bosch(accel, speed)\n  else:\n    return compute_gb_honda_nidec(accel, speed)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "actuator_hysteresis",
+      "path": "selfdrive/car/honda/carcontroller.py",
+      "start": 40,
+      "end": 60,
+      "code": "def actuator_hysteresis(brake, braking, brake_steady, v_ego, car_fingerprint):\n  # hyst params\n  brake_hyst_on = 0.02    # to activate brakes exceed this value\n  brake_hyst_off = 0.005  # to deactivate brakes below this value\n  brake_hyst_gap = 0.01   # don't change brake command for small oscillations within this value\n\n  # *** hysteresis logic to avoid brake blinking. go above 0.1 to trigger\n  if (brake < brake_hyst_on and not braking) or brake < brake_hyst_off:\n    brake = 0.\n  braking = brake > 0.\n\n  # for small brake oscillations within brake_hyst_gap, don't change the brake command\n  if brake == 0.:\n    brake_steady = 0.\n  elif brake > brake_steady + brake_hyst_gap:\n    brake_steady = brake - brake_hyst_gap\n  elif brake < brake_steady - brake_hyst_gap:\n    brake_steady = brake + brake_hyst_gap\n  brake = brake_steady\n\n  return brake, braking, brake_steady",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "brake_pump_hysteresis",
+      "path": "selfdrive/car/honda/carcontroller.py",
+      "start": 63,
+      "end": 77,
+      "code": "def brake_pump_hysteresis(apply_brake, apply_brake_last, last_pump_ts, ts):\n  pump_on = False\n\n  # reset pump timer if:\n  # - there is an increment in brake request\n  # - we are applying steady state brakes and we haven't been running the pump\n  #   for more than 20s (to prevent pressure bleeding)\n  if apply_brake > apply_brake_last or (ts - last_pump_ts > 20. and apply_brake > 0):\n    last_pump_ts = ts\n\n  # once the pump is on, run it for at least 0.2s\n  if ts - last_pump_ts < 0.2 and apply_brake > 0:\n    pump_on = True\n\n  return pump_on, last_pump_ts",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "process_hud_alert",
+      "path": "selfdrive/car/honda/carcontroller.py",
+      "start": 80,
+      "end": 94,
+      "code": "def process_hud_alert(hud_alert):\n  # initialize to no alert\n  fcw_display = 0\n  steer_required = 0\n  acc_alert = 0\n\n  # priority is: FCW, steer required, all others\n  if hud_alert == VisualAlert.fcw:\n    fcw_display = VISUAL_HUD[hud_alert.raw]\n  elif hud_alert in (VisualAlert.steerRequired, VisualAlert.ldw):\n    steer_required = VISUAL_HUD[hud_alert.raw]\n  else:\n    acc_alert = VISUAL_HUD[hud_alert.raw]\n\n  return fcw_display, steer_required, acc_alert",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_brake_command",
+      "path": "selfdrive/car/honda/hondacan.py",
+      "start": 23,
+      "end": 45,
+      "code": "def create_brake_command(packer, apply_brake, pump_on, pcm_override, pcm_cancel_cmd, fcw, idx, car_fingerprint, stock_brake):\n  # TODO: do we loose pressure if we keep pump off for long?\n  brakelights = apply_brake > 0\n  brake_rq = apply_brake > 0\n  pcm_fault_cmd = False\n\n  values = {\n    \"COMPUTER_BRAKE\": apply_brake,\n    \"BRAKE_PUMP_REQUEST\": pump_on,\n    \"CRUISE_OVERRIDE\": pcm_override,\n    \"CRUISE_FAULT_CMD\": pcm_fault_cmd,\n    \"CRUISE_CANCEL_CMD\": pcm_cancel_cmd,\n    \"COMPUTER_BRAKE_REQUEST\": brake_rq,\n    \"SET_ME_1\": 1,\n    \"BRAKE_LIGHTS\": brakelights,\n    \"CHIME\": stock_brake[\"CHIME\"] if fcw else 0,  # send the chime for stock fcw\n    \"FCW\": fcw << 1,  # TODO: Why are there two bits for fcw?\n    \"AEB_REQ_1\": 0,\n    \"AEB_REQ_2\": 0,\n    \"AEB_STATUS\": 0,\n  }\n  bus = get_pt_bus(car_fingerprint)\n  return packer.make_can_msg(\"BRAKE_COMMAND\", bus, values, idx)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_acc_commands",
+      "path": "selfdrive/car/honda/hondacan.py",
+      "start": 48,
+      "end": 81,
+      "code": "def create_acc_commands(packer, enabled, active, accel, gas, idx, stopping, car_fingerprint):\n  commands = []\n  bus = get_pt_bus(car_fingerprint)\n  min_gas_accel = CarControllerParams.BOSCH_GAS_LOOKUP_BP[0]\n\n  control_on = 5 if enabled else 0\n  gas_command = gas if active and accel > min_gas_accel else -30000\n  accel_command = accel if active else 0\n  braking = 1 if active and accel < min_gas_accel else 0\n  standstill = 1 if active and stopping else 0\n  standstill_release = 1 if active and not stopping else 0\n\n  acc_control_values = {\n    # setting CONTROL_ON causes car to set POWERTRAIN_DATA->ACC_STATUS = 1\n    \"CONTROL_ON\": control_on,\n    \"GAS_COMMAND\": gas_command,  # used for gas\n    \"ACCEL_COMMAND\": accel_command,  # used for brakes\n    \"BRAKE_LIGHTS\": braking,\n    \"BRAKE_REQUEST\": braking,\n    \"STANDSTILL\": standstill,\n    \"STANDSTILL_RELEASE\": standstill_release,\n  }\n  commands.append(packer.make_can_msg(\"ACC_CONTROL\", bus, acc_control_values, idx))\n\n  acc_control_on_values = {\n    \"SET_TO_3\": 0x03,\n    \"CONTROL_ON\": enabled,\n    \"SET_TO_FF\": 0xff,\n    \"SET_TO_75\": 0x75,\n    \"SET_TO_30\": 0x30,\n  }\n  commands.append(packer.make_can_msg(\"ACC_CONTROL_ON\", bus, acc_control_on_values, idx))\n\n  return commands",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_steering_control",
+      "path": "selfdrive/car/honda/hondacan.py",
+      "start": 84,
+      "end": 90,
+      "code": "def create_steering_control(packer, apply_steer, lkas_active, car_fingerprint, idx, radar_disabled):\n  values = {\n    \"STEER_TORQUE\": apply_steer if lkas_active else 0,\n    \"STEER_TORQUE_REQUEST\": lkas_active,\n  }\n  bus = get_lkas_cmd_bus(car_fingerprint, radar_disabled)\n  return packer.make_can_msg(\"STEERING_CONTROL\", bus, values, idx)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_bosch_supplemental_1",
+      "path": "selfdrive/car/honda/hondacan.py",
+      "start": 93,
+      "end": 101,
+      "code": "def create_bosch_supplemental_1(packer, car_fingerprint, idx):\n  # non-active params\n  values = {\n    \"SET_ME_X04\": 0x04,\n    \"SET_ME_X80\": 0x80,\n    \"SET_ME_X10\": 0x10,\n  }\n  bus = get_lkas_cmd_bus(car_fingerprint)\n  return packer.make_can_msg(\"BOSCH_SUPPLEMENTAL_1\", bus, values, idx)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_ui_commands",
+      "path": "selfdrive/car/honda/hondacan.py",
+      "start": 104,
+      "end": 164,
+      "code": "def create_ui_commands(packer, CP, enabled, pcm_speed, hud, is_metric, idx, stock_hud):\n  commands = []\n  bus_pt = get_pt_bus(CP.carFingerprint)\n  radar_disabled = CP.carFingerprint in HONDA_BOSCH and CP.openpilotLongitudinalControl\n  bus_lkas = get_lkas_cmd_bus(CP.carFingerprint, radar_disabled)\n\n  if CP.openpilotLongitudinalControl:\n    acc_hud_values = {\n      'CRUISE_SPEED': hud.v_cruise,\n      'ENABLE_MINI_CAR': 1,\n      'HUD_DISTANCE': 0,  # max distance setting on display\n      'IMPERIAL_UNIT': int(not is_metric),\n      'HUD_LEAD': 2 if enabled and hud.lead_visible else 1 if enabled else 0,\n      'SET_ME_X01_2': 1,\n    }\n\n    if CP.carFingerprint in HONDA_BOSCH:\n      acc_hud_values['ACC_ON'] = int(enabled)\n      acc_hud_values['FCM_OFF'] = 1\n      acc_hud_values['FCM_OFF_2'] = 1\n    else:\n      acc_hud_values['PCM_SPEED'] = pcm_speed * CV.MS_TO_KPH\n      acc_hud_values['PCM_GAS'] = hud.pcm_accel\n      acc_hud_values['SET_ME_X01'] = 1\n      acc_hud_values['FCM_OFF'] = stock_hud['FCM_OFF']\n      acc_hud_values['FCM_OFF_2'] = stock_hud['FCM_OFF_2']\n      acc_hud_values['FCM_PROBLEM'] = stock_hud['FCM_PROBLEM']\n      acc_hud_values['ICONS'] = stock_hud['ICONS']\n    commands.append(packer.make_can_msg(\"ACC_HUD\", bus_pt, acc_hud_values, idx))\n\n  lkas_hud_values = {\n    'SET_ME_X41': 0x41,\n    'STEERING_REQUIRED': hud.steer_required,\n    'SOLID_LANES': hud.lanes_visible,\n    'BEEP': 0,\n  }\n\n  if CP.carFingerprint in HONDA_BOSCH_RADARLESS:\n    lkas_hud_values['LANE_LINES'] = 3\n    lkas_hud_values['DASHED_LANES'] = hud.lanes_visible\n\n  if not (CP.flags & HondaFlags.BOSCH_EXT_HUD):\n    lkas_hud_values['SET_ME_X48'] = 0x48\n\n  if CP.flags & HondaFlags.BOSCH_EXT_HUD and not CP.openpilotLongitudinalControl:\n    commands.append(packer.make_can_msg('LKAS_HUD_A', bus_lkas, lkas_hud_values, idx))\n    commands.append(packer.make_can_msg('LKAS_HUD_B', bus_lkas, lkas_hud_values, idx))\n  else:\n    commands.append(packer.make_can_msg('LKAS_HUD', bus_lkas, lkas_hud_values, idx))\n\n  if radar_disabled and CP.carFingerprint in HONDA_BOSCH:\n    radar_hud_values = {\n      'CMBS_OFF': 0x01,\n      'SET_TO_1': 0x01,\n    }\n    commands.append(packer.make_can_msg('RADAR_HUD', bus_pt, radar_hud_values, idx))\n\n    if CP.carFingerprint == CAR.CIVIC_BOSCH:\n      commands.append(packer.make_can_msg(\"LEGACY_BRAKE_COMMAND\", bus_pt, {}, idx))\n\n  return commands",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "spam_buttons_command",
+      "path": "selfdrive/car/honda/hondacan.py",
+      "start": 167,
+      "end": 174,
+      "code": "def spam_buttons_command(packer, button_val, idx, car_fingerprint):\n  values = {\n    'CRUISE_BUTTONS': button_val,\n    'CRUISE_SETTING': 0,\n  }\n  # send buttons to camera on radarless cars\n  bus = 2 if car_fingerprint in HONDA_BOSCH_RADARLESS else get_pt_bus(car_fingerprint)\n  return packer.make_can_msg(\"SCM_BUTTONS\", bus, values, idx)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "create_gas_interceptor_command",
+      "path": "selfdrive/car/__init__.py",
+      "start": 133,
+      "end": 151,
+      "code": "def create_gas_interceptor_command(packer, gas_amount, idx):\n  # Common gas pedal msg generator\n  enable = gas_amount > 0.001\n\n  values = {\n    \"ENABLE\": enable,\n    \"COUNTER_PEDAL\": idx & 0xF,\n  }\n\n  if enable:\n    values[\"GAS_COMMAND\"] = gas_amount * 255.\n    values[\"GAS_COMMAND2\"] = gas_amount * 255.\n\n  dat = packer.make_can_msg(\"GAS_COMMAND\", 0, values)[2]\n\n  checksum = crc8_pedal(dat[:-1])\n  values[\"CHECKSUM_PEDAL\"] = checksum\n\n  return packer.make_can_msg(\"GAS_COMMAND\", 0, values)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "clip",
+      "path": "common/numpy_fast.py",
+      "start": 1,
+      "end": 2,
+      "code": "def clip(x, lo, hi):\n  return max(lo, min(hi, x))",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "interp",
+      "path": "common/numpy_fast.py",
+      "start": 4,
+      "end": 16,
+      "code": "def interp(x, xp, fp):\n  N = len(xp)\n\n  def get_interp(xv):\n    hi = 0\n    while hi < N and xv > xp[hi]:\n      hi += 1\n    low = hi - 1\n    return fp[-1] if hi == N and xv > xp[low] else (\n      fp[0] if hi == 0 else\n      (xv - xp[low]) * (fp[hi] - fp[low]) / (xp[hi] - xp[low]) + fp[low])\n\n  return [get_interp(v) for v in x] if hasattr(x, '__iter__') else get_interp(x)",
+      "called_by": "CarController.update"
+    },
+    {
+      "name": "rate_limit",
+      "path": "selfdrive/controls/lib/drive_helpers.py",
+      "start": 51,
+      "end": 52,
+      "code": "def rate_limit(new_value, last_value, dw_step, up_step):\n  return clip(new_value, last_value + dw_step, last_value + up_step)",
+      "called_by": "CarController.update"
+    }
+  ]
+}

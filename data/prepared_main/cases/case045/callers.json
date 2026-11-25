@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "ListenerManager.has_listeners",
+      "path": "airflow/listeners/listener.py",
+      "start": 44,
+      "end": 46,
+      "code": "    @property\n    def has_listeners(self) -> bool:\n        return len(self.pm.get_plugins()) > 0",
+      "calls": "get_plugins"
+    },
+    {
+      "name": "ListenerManager.clear",
+      "path": "airflow/listeners/listener.py",
+      "start": 60,
+      "end": 63,
+      "code": "    def clear(self):\n        \"\"\"Remove registered plugins\"\"\"\n        for plugin in self.pm.get_plugins():\n            self.pm.unregister(plugin)",
+      "calls": "get_plugins"
+    }
+  ]
+}

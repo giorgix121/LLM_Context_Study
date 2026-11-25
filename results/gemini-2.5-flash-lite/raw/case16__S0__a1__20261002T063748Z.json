@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1790923257-Eg9odVZrR8yIfoHrShhX",
+    "object": "chat.completion",
+    "created": 1790923257,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change renames SIGUSR1 to a more generic sigusr and dynamically determines the signal to use, which could lead to unexpected behavior if the environment's requeue_signal is not properly handled or if SIGUSR1 is expected on non-SLURM systems.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 700,
+      "completion_tokens": 79,
+      "total_tokens": 779,
+      "cost": 0.0001016,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001016,
+        "upstream_inference_prompt_cost": 7e-05,
+        "upstream_inference_completions_cost": 3.16e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

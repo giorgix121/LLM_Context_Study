@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193873-9XH42oYGOC3GAigJT7O9",
+    "object": "chat.completion",
+    "created": 1795193873,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The selector change from partial link text matching by display name to a `data-key` attribute selector means callers must now pass the tab's internal key rather than its visible label, which will break any existing test code that still passes a human-readable name string to `go_to_subtab`.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 384,
+      "completion_tokens": 78,
+      "total_tokens": 462,
+      "cost": 0.002322,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002322,
+        "upstream_inference_prompt_cost": 0.001152,
+        "upstream_inference_completions_cost": 0.00117
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

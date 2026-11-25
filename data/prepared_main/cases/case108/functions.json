@@ -1,0 +1,15 @@
+[
+  {
+    "name": "get_or_create_persisted_build",
+    "before": {
+      "start": 116,
+      "end": 146,
+      "code": "def get_or_create_persisted_build(\n    project: Project, config: appconnect.AppStoreConnectConfig, build: appconnect.BuildInfo\n) -> AppConnectBuild:\n    \"\"\"Fetches the sentry-internal :class:`AppConnectBuild`.\n\n    The build corresponds to the :class:`appconnect.BuildInfo` as returned by the\n    AppStore Connect API. If no build exists yet, a new \"pending\" build is created.\n    \"\"\"\n    try:\n        build_state = AppConnectBuild.objects.get(\n            project=project,\n            app_id=int(build.app_id),\n            platform=build.platform,\n            bundle_short_version=build.version,\n            bundle_version=build.build_number,\n        )\n    except AppConnectBuild.DoesNotExist:\n        build_state = AppConnectBuild(\n            project=project,\n            app_id=int(build.app_id),\n            app_id_str=build.app_id,\n            bundle_id=config.bundleId,\n            platform=build.platform,\n            bundle_short_version=build.version,\n            bundle_version=build.build_number,\n            uploaded_to_appstore=build.uploaded_date,\n            first_seen=timezone.now(),\n            fetched=False,\n        )\n        build_state.save()\n    return build_state"
+    },
+    "after": {
+      "start": 116,
+      "end": 145,
+      "code": "def get_or_create_persisted_build(\n    project: Project, config: appconnect.AppStoreConnectConfig, build: appconnect.BuildInfo\n) -> AppConnectBuild:\n    \"\"\"Fetches the sentry-internal :class:`AppConnectBuild`.\n\n    The build corresponds to the :class:`appconnect.BuildInfo` as returned by the\n    AppStore Connect API. If no build exists yet, a new \"pending\" build is created.\n    \"\"\"\n    try:\n        build_state = AppConnectBuild.objects.get(\n            project=project,\n            app_id_str=build.app_id,\n            platform=build.platform,\n            bundle_short_version=build.version,\n            bundle_version=build.build_number,\n        )\n    except AppConnectBuild.DoesNotExist:\n        build_state = AppConnectBuild(\n            project=project,\n            app_id_str=build.app_id,\n            bundle_id=config.bundleId,\n            platform=build.platform,\n            bundle_short_version=build.version,\n            bundle_version=build.build_number,\n            uploaded_to_appstore=build.uploaded_date,\n            first_seen=timezone.now(),\n            fetched=False,\n        )\n        build_state.save()\n    return build_state"
+    }
+  }
+]

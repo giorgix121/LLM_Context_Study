@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189276-w35ca6aUHlt0UPflgzzB",
+    "object": "chat.completion",
+    "created": 1795189276,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The fallback `switchbot.get_device(address)` likely returns a different object type (e.g., a SwitchBot device instance) than the expected `BLEDevice` from `bluetooth.async_ble_device_from_address`, which would cause attribute errors or logic failures when passed to `SwitchbotDataUpdateCoordinator` and `cls(device=ble_device, ...)`.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1965,
+      "completion_tokens": 85,
+      "total_tokens": 2050,
+      "cost": 0.000197484,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000197484,
+        "upstream_inference_prompt_cost": 0.000157534,
+        "upstream_inference_completions_cost": 3.995e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

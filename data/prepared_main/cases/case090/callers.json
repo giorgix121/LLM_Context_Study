@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "check_train_batch_size",
+      "path": "utils/autobatch.py",
+      "start": 15,
+      "end": 18,
+      "code": "def check_train_batch_size(model, imgsz=640, amp=True):\n    # Check YOLOv5 training batch size\n    with torch.cuda.amp.autocast(amp):\n        return autobatch(deepcopy(model).train(), imgsz)  # compute optimal batch size",
+      "calls": "autobatch"
+    }
+  ]
+}

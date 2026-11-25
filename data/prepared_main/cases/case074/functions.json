@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Poetry.__init__",
+    "before": {
+      "start": 26,
+      "end": 41,
+      "code": "    def __init__(\n        self,\n        file: Path,\n        local_config: dict[str, Any],\n        package: ProjectPackage,\n        locker: Locker,\n        config: Config,\n    ) -> None:\n        from poetry.repositories.pool import Pool\n\n        super().__init__(file, local_config, package)\n\n        self._locker = locker\n        self._config = config\n        self._pool = Pool()\n        self._plugin_manager: PluginManager | None = None"
+    },
+    "after": {
+      "start": 26,
+      "end": 43,
+      "code": "    def __init__(\n        self,\n        file: Path,\n        local_config: dict[str, Any],\n        package: ProjectPackage,\n        locker: Locker,\n        config: Config,\n        disable_cache: bool = False,\n    ) -> None:\n        from poetry.repositories.pool import Pool\n\n        super().__init__(file, local_config, package)\n\n        self._locker = locker\n        self._config = config\n        self._pool = Pool()\n        self._plugin_manager: PluginManager | None = None\n        self._disable_cache = disable_cache"
+    }
+  },
+  {
+    "name": "Poetry.disable_cache",
+    "before": null,
+    "after": {
+      "start": 57,
+      "end": 59,
+      "code": "    @property\n    def disable_cache(self) -> bool:\n        return self._disable_cache"
+    }
+  }
+]

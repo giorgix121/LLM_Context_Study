@@ -1,0 +1,65 @@
+{
+  "cache_key": "e8b8bc9dc4fa81a4f844b2cd98ee2372dd4d4d722d85ab730e6450b02c8493eb",
+  "sample_id": "case115",
+  "strategy": "S5",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change only renames a parameter from `service_type` to `search_target` in the `SsdpSearchListener` constructor, which is a non-functional change that does not affect the component's behavior.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\"label\": \"NON-RISKY\", \"explanation\": \"The change only renames a parameter from `service_type` to `search_target` in the `SsdpSearchListener` constructor, which is a non-functional change that does not affect the component's behavior.\"}\n```",
+  "response_id": "gen-1790927642-8D6bccoRrrewO99OPp7k",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 678406,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.067867,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 678406,
+    "completion_tokens": 66,
+    "total_tokens": 678472,
+    "cost": 0.067867,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.067867,
+      "upstream_inference_prompt_cost": 0.0678406,
+      "upstream_inference_completions_cost": 2.64e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 10.206,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T07:54:12+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

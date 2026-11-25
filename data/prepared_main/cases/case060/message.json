@@ -1,0 +1,5 @@
+{
+  "commit": "2396247ce5f9acbb942f811122bdd801d021741e",
+  "chars": 81,
+  "text": "ref(metrics): Add organization_id argument to reverse_resolve [sns-1548] (#37910)"
+}

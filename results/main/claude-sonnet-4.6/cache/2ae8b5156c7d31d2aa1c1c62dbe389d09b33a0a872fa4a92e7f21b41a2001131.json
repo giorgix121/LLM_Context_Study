@@ -1,0 +1,65 @@
+{
+  "cache_key": "2ae8b5156c7d31d2aa1c1c62dbe389d09b33a0a872fa4a92e7f21b41a2001131",
+  "sample_id": "case093",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The attribute name changed from the name-mangled `_ModelSiloLimit__silo_limit` (set by Python's name mangling on a private attribute `__silo_limit` inside `ModelSiloLimit`) to `silo_limit`, which may not match the actual attribute name on `_meta`, causing the `hasattr` check to always return `False` and incorrectly re-decorating already-decorated models.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The attribute name changed from the name-mangled `_ModelSiloLimit__silo_limit` (set by Python's name mangling on a private attribute `__silo_limit` inside `ModelSiloLimit`) to `silo_limit`, which may not match the actual attribute name on `_meta`, causing the `hasattr` check to always return `False` and incorrectly re-decorating already-decorated models.\"}",
+  "response_id": "gen-1795192960-qnChdhbxurEkiwiZqAlg",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 292,
+  "completion_tokens": 112,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.002556,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 292,
+    "completion_tokens": 112,
+    "total_tokens": 404,
+    "cost": 0.002556,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.002556,
+      "upstream_inference_prompt_cost": 0.000876,
+      "upstream_inference_completions_cost": 0.00168
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.182,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:42:43+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

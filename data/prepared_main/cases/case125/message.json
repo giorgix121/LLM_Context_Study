@@ -1,0 +1,5 @@
+{
+  "commit": "1f410e884abc948f21505227902e689913bdc97a",
+  "chars": 759,
+  "text": "Make hass.data[\"mqtt\"] an instance of a DataClass (#77972)\n\n* Use dataclass to reference hass.data globals\n\n* Add discovery_registry_hooks to dataclass\n\n* Move discovery registry hooks to dataclass\n\n* Add device triggers to dataclass\n\n* Cleanup DEVICE_TRIGGERS const\n\n* Add last_discovery to data_class\n\n* Simplify typing for class `Subscription`\n\n* Follow up on comment\n\n* Redo suggested typing change to sasisfy mypy\n\n* Restore typing\n\n* Add mypy version to CI check logging\n\n* revert changes to ci.yaml\n\n* Add docstr for protocol\n\nCo-authored-by: Marc Mueller <30130371+cdce8p@users.noreply.github.com>\n\n* Mypy update after merging #78399\n\n* Remove mypy ignore\n\n* Correct return type\n\nCo-authored-by: Marc Mueller <30130371+cdce8p@users.noreply.github.com>"
+}

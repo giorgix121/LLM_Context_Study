@@ -1,0 +1,15 @@
+[
+  {
+    "name": "FritzboxDataUpdateCoordinator._update_fritz_devices",
+    "before": {
+      "start": 34,
+      "end": 64,
+      "code": "    def _update_fritz_devices(self) -> dict[str, FritzhomeDevice]:\n        \"\"\"Update all fritzbox device data.\"\"\"\n        try:\n            self.fritz.update_devices()\n        except requests.exceptions.ConnectionError as ex:\n            raise UpdateFailed from ex\n        except requests.exceptions.HTTPError:\n            # If the device rebooted, login again\n            try:\n                self.fritz.login()\n            except LoginError as ex:\n                raise ConfigEntryAuthFailed from ex\n            self.fritz.update_devices()\n\n        devices = self.fritz.get_devices()\n        data = {}\n        for device in devices:\n            # assume device as unavailable, see #55799\n            if (\n                device.has_powermeter\n                and device.present\n                and hasattr(device, \"voltage\")\n                and device.voltage <= 0\n                and device.power <= 0\n                and device.energy <= 0\n            ):\n                LOGGER.debug(\"Assume device %s as unavailable\", device.name)\n                device.present = False\n\n            data[device.ain] = device\n        return data"
+    },
+    "after": {
+      "start": 34,
+      "end": 65,
+      "code": "    def _update_fritz_devices(self) -> dict[str, FritzhomeDevice]:\n        \"\"\"Update all fritzbox device data.\"\"\"\n        try:\n            self.fritz.update_devices()\n        except requests.exceptions.ConnectionError as ex:\n            raise UpdateFailed from ex\n        except requests.exceptions.HTTPError:\n            # If the device rebooted, login again\n            try:\n                self.fritz.login()\n            except LoginError as ex:\n                raise ConfigEntryAuthFailed from ex\n            self.fritz.update_devices()\n\n        devices = self.fritz.get_devices()\n        data = {}\n        for device in devices:\n            # assume device as unavailable, see #55799\n            if (\n                device.has_powermeter\n                and device.present\n                and isinstance(device.voltage, int)\n                and device.voltage <= 0\n                and isinstance(device.power, int)\n                and device.power <= 0\n                and device.energy <= 0\n            ):\n                LOGGER.debug(\"Assume device %s as unavailable\", device.name)\n                device.present = False\n\n            data[device.ain] = device\n        return data"
+    }
+  }
+]

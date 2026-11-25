@@ -1,0 +1,15 @@
+[
+  {
+    "name": "RedisRateLimiter.validate",
+    "before": {
+      "start": 65,
+      "end": 69,
+      "code": "    def validate(self) -> None:\n        try:\n            self.client.ping()\n        except Exception as e:\n            raise InvalidConfiguration(str(e))"
+    },
+    "after": {
+      "start": 65,
+      "end": 70,
+      "code": "    def validate(self) -> None:\n        try:\n            self.client.ping()\n            self.client.connection_pool.disconnect()\n        except Exception as e:\n            raise InvalidConfiguration(str(e))"
+    }
+  }
+]

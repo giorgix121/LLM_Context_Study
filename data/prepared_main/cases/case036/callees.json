@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "proxy_request_if_needed",
+      "path": "src/sentry/api_gateway/api_gateway.py",
+      "start": 21,
+      "end": 31,
+      "code": "def proxy_request_if_needed(request: Request, view_func, view_kwargs) -> HttpResponseBase | None:\n    \"\"\"\n    Main execution flow for the API Gateway\n    returns None if proxying is not required\n    \"\"\"\n    if not _request_should_be_proxied(request, view_func, view_kwargs):\n        return None\n\n    # Request should be proxied at this point\n    org_slug = view_kwargs.get(\"organization_slug\")\n    return proxy_request(request, org_slug)",
+      "called_by": "ApiGatewayMiddleware.process_view"
+    }
+  ]
+}

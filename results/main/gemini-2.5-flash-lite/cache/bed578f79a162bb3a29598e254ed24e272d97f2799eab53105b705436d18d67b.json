@@ -1,0 +1,65 @@
+{
+  "cache_key": "bed578f79a162bb3a29598e254ed24e272d97f2799eab53105b705436d18d67b",
+  "sample_id": "case059",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change correctly registers the dispatcher connection with `entry.async_on_unload` to ensure proper cleanup when the entry is unloaded.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change correctly registers the dispatcher connection with `entry.async_on_unload` to ensure proper cleanup when the entry is unloaded.\"\n}\n```",
+  "response_id": "gen-1790927141-aytQGmTKYEMXg61iAk5y",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 3322,
+  "completion_tokens": 52,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000353,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3322,
+    "completion_tokens": 52,
+    "total_tokens": 3374,
+    "cost": 0.000353,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000353,
+      "upstream_inference_prompt_cost": 0.0003322,
+      "upstream_inference_completions_cost": 2.08e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.597,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T07:45:42+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

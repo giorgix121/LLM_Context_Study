@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "_get_commands",
+      "path": "homeassistant/components/rfxtrx/device_action.py",
+      "start": 70,
+      "end": 76,
+      "code": "def _get_commands(\n    hass: HomeAssistant, device_id: str, action_type: str\n) -> tuple[dict[str, str], Callable[..., None]]:\n    device = async_get_device_object(hass, device_id)\n    send_fun = getattr(device, action_type)\n    commands = getattr(device, ACTION_SELECTION[action_type], {})\n    return commands, send_fun",
+      "called_by": "async_validate_action_config"
+    }
+  ]
+}

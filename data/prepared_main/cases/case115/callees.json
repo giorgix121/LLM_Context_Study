@@ -1,0 +1,38 @@
+{
+  "found": 4,
+  "included": 4,
+  "functions": [
+    {
+      "name": "YeelightScanner._async_wait_connected",
+      "path": "homeassistant/components/yeelight/scanner.py",
+      "start": 111,
+      "end": 113,
+      "code": "    async def _async_wait_connected(self):\n        \"\"\"Wait for the listeners to be up and connected.\"\"\"\n        await asyncio.gather(*(event.wait() for event in self._connected_events))",
+      "called_by": "YeelightScanner.async_setup"
+    },
+    {
+      "name": "YeelightScanner._async_build_source_set",
+      "path": "homeassistant/components/yeelight/scanner.py",
+      "start": 115,
+      "end": 127,
+      "code": "    async def _async_build_source_set(self) -> set[IPv4Address]:\n        \"\"\"Build the list of ssdp sources.\"\"\"\n        adapters = await network.async_get_adapters(self._hass)\n        sources: set[IPv4Address] = set()\n        if network.async_only_default_interface_enabled(adapters):\n            sources.add(IPv4Address(\"0.0.0.0\"))\n            return sources\n\n        return {\n            source_ip\n            for source_ip in await network.async_get_enabled_source_ips(self._hass)\n            if isinstance(source_ip, IPv4Address) and not source_ip.is_loopback\n        }",
+      "called_by": "YeelightScanner.async_setup"
+    },
+    {
+      "name": "YeelightScanner.async_scan",
+      "path": "homeassistant/components/yeelight/scanner.py",
+      "start": 138,
+      "end": 143,
+      "code": "    @callback\n    def async_scan(self, _: datetime | None = None) -> None:\n        \"\"\"Send discovery packets.\"\"\"\n        _LOGGER.debug(\"Yeelight scanning\")\n        for listener in self._listeners:\n            listener.async_search()",
+      "called_by": "YeelightScanner.async_setup"
+    },
+    {
+      "name": "async_track_time_interval",
+      "path": "homeassistant/helpers/event.py",
+      "start": 1351,
+      "end": 1386,
+      "code": "@callback\n@bind_hass\ndef async_track_time_interval(\n    hass: HomeAssistant,\n    action: Callable[[datetime], Coroutine[Any, Any, None] | None],\n    interval: timedelta,\n) -> CALLBACK_TYPE:\n    \"\"\"Add a listener that fires repetitively at every timedelta interval.\"\"\"\n    remove: CALLBACK_TYPE\n    interval_listener_job: HassJob[[datetime], None]\n\n    job = HassJob(action)\n\n    def next_interval() -> datetime:\n        \"\"\"Return the next interval.\"\"\"\n        return dt_util.utcnow() + interval\n\n    @callback\n    def interval_listener(now: datetime) -> None:\n        \"\"\"Handle elapsed intervals.\"\"\"\n        nonlocal remove\n        nonlocal interval_listener_job\n\n        remove = async_track_point_in_utc_time(\n            hass, interval_listener_job, next_interval()\n        )\n        hass.async_run_hass_job(job, now)\n\n    interval_listener_job = HassJob(interval_listener)\n    remove = async_track_point_in_utc_time(hass, interval_listener_job, next_interval())\n\n    def remove_listener() -> None:\n        \"\"\"Remove interval listener.\"\"\"\n        remove()\n\n    return remove_listener",
+      "called_by": "YeelightScanner.async_setup"
+    }
+  ]
+}

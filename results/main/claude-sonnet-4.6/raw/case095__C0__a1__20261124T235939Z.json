@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565287-WbaYHN4MZnmOAerMrhRa",
+    "object": "chat.completion",
+    "created": 1795565287,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Setting `self.preemptible = False` as a plain instance attribute in `__post_init__` means it will not be included in `asdict()` (used by `to_dict()`), but it also bypasses the dataclass field mechanism, so any code that serializes or copies the dataclass may silently drop or mishandle this attribute, and future uses of `preemptible` could behave inconsistently.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5120,
+      "completion_tokens": 112,
+      "total_tokens": 5232,
+      "cost": 0.01704,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01704,
+        "upstream_inference_prompt_cost": 0.01536,
+        "upstream_inference_completions_cost": 0.00168
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "27927338871dcb76b76e7fda825d181c028c670ecbe153b50576f0916e2916e1",
+  "sample_id": "case023",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a new optional filter for event IDs to the attachment retrieval, which is a common and expected feature for filtering data.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds a new optional filter for event IDs to the attachment retrieval, which is a common and expected feature for filtering data.\"}",
+  "response_id": "gen-1795048409-naszeRwCVa1g1Yeskmzu",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 913,
+  "completion_tokens": 40,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0001073,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 913,
+    "completion_tokens": 40,
+    "total_tokens": 953,
+    "cost": 0.0001073,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001073,
+      "upstream_inference_prompt_cost": 9.13e-05,
+      "upstream_inference_completions_cost": 1.6e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.413,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:33:29+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

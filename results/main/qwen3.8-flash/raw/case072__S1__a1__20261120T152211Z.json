@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189714-f9JveYnyVx3WUHoievbu",
+    "object": "chat.completion",
+    "created": 1795189714,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new `_alter_column_collation_sql` method appends a `USING` clause to the collation change SQL, but PostgreSQL's `ALTER COLUMN ... SET COLLATION` syntax does not support a `USING` clause, which will result in a database error when changing collations on fields that also require type casting.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2378,
+      "completion_tokens": 80,
+      "total_tokens": 2458,
+      "cost": 0.0003943,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003943,
+        "upstream_inference_prompt_cost": 0.0003567,
+        "upstream_inference_completions_cost": 3.76e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

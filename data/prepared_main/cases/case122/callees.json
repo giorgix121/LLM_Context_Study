@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "Accelerator.setup_environment",
+      "path": "src/pytorch_lightning/accelerators/accelerator.py",
+      "start": 31,
+      "end": 40,
+      "code": "    def setup_environment(self, root_device: torch.device) -> None:\n        \"\"\"\n        .. deprecated:: v1.8.0\n            This hook was deprecated in v1.8.0 and will be removed in v1.10.0. Please use ``setup_device()`` instead.\n        \"\"\"\n        rank_zero_deprecation(\n            \"`Accelerator.setup_environment` has been deprecated in deprecated in v1.8.0 and will be removed in\"\n            \" v1.10.0. Please use ``setup_device()`` instead.\"\n        )\n        self.setup_device(root_device)",
+      "called_by": "CPUAccelerator.setup_environment"
+    }
+  ]
+}

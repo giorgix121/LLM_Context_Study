@@ -1,0 +1,38 @@
+{
+  "found": 4,
+  "included": 4,
+  "functions": [
+    {
+      "name": "process_builds",
+      "path": "src/sentry/tasks/app_store_connect.py",
+      "start": 148,
+      "end": 174,
+      "code": "def process_builds(\n    project: Project,\n    config: appconnect.AppStoreConnectConfig,\n    to_process: List[appconnect.BuildInfo],\n) -> List[Tuple[appconnect.BuildInfo, AppConnectBuild]]:\n    \"\"\"Returns a list of builds whose dSYMs need to be updated or fetched.\n\n    This will create a new \"pending\" :class:`AppConnectBuild` for any :class:`appconnect.BuildInfo`\n    that cannot be found in the DB. These pending :class:`AppConnectBuild`s are immediately saved\n    upon creation.\n    \"\"\"\n\n    pending_builds = []\n\n    with sentry_sdk.start_span(\n        op=\"appconnect-update-builds\", description=\"Update AppStoreConnect builds in database\"\n    ):\n        for build in to_process:\n            build_state = get_or_create_persisted_build(project, config, build)\n            if not build_state.fetched:\n                pending_builds.append((build, build_state))\n\n    LatestAppConnectBuildsCheck.objects.create_or_update(\n        project=project, source_id=config.id, values={\"last_checked\": timezone.now()}\n    )\n\n    return pending_builds",
+      "calls": "get_or_create_persisted_build"
+    },
+    {
+      "name": "TestUpdateDsyms.test_create_new_persisted_build",
+      "path": "tests/sentry/tasks/test_app_store_connect.py",
+      "start": 129,
+      "end": 168,
+      "code": "    @pytest.mark.django_db\n    def test_create_new_persisted_build(self, default_project, config, build):\n        returned_build = get_or_create_persisted_build(default_project, config, build)\n\n        expected_build = AppConnectBuild(\n            project=default_project,\n            app_id_str=build.app_id,\n            bundle_id=config.bundleId,\n            platform=build.platform,\n            bundle_short_version=build.version,\n            bundle_version=build.build_number,\n            uploaded_to_appstore=build.uploaded_date,\n            first_seen=timezone.now(),\n            fetched=False,\n        )\n\n        assert returned_build.fetched == expected_build.fetched\n        assert returned_build.project == expected_build.project\n        assert returned_build.app_id_str == expected_build.app_id_str\n        assert returned_build.bundle_id == expected_build.bundle_id\n        assert returned_build.platform == expected_build.platform\n        assert returned_build.bundle_short_version == expected_build.bundle_short_version\n        assert returned_build.bundle_version == expected_build.bundle_version\n        assert returned_build.uploaded_to_appstore == expected_build.uploaded_to_appstore\n\n        saved_build = AppConnectBuild.objects.get(\n            project=default_project,\n            app_id_str=build.app_id,\n            platform=build.platform,\n            bundle_short_version=build.version,\n            bundle_version=build.build_number,\n        )\n\n        assert saved_build.fetched == expected_build.fetched\n        assert saved_build.project == expected_build.project\n        assert saved_build.app_id_str == expected_build.app_id_str\n        assert saved_build.bundle_id == expected_build.bundle_id\n        assert saved_build.platform == expected_build.platform\n        assert saved_build.bundle_short_version == expected_build.bundle_short_version\n        assert saved_build.bundle_version == expected_build.bundle_version",
+      "calls": "get_or_create_persisted_build"
+    },
+    {
+      "name": "TestUpdateDsyms.test_get_persisted_build",
+      "path": "tests/sentry/tasks/test_app_store_connect.py",
+      "start": 171,
+      "end": 196,
+      "code": "    @pytest.mark.django_db\n    def test_get_persisted_build(self, default_project, config, build):\n        seen = datetime(2020, 2, 20)\n\n        AppConnectBuild.objects.create(\n            project=default_project,\n            app_id_str=build.app_id,\n            bundle_id=config.bundleId,\n            platform=build.platform,\n            bundle_short_version=build.version,\n            bundle_version=build.build_number,\n            uploaded_to_appstore=build.uploaded_date,\n            first_seen=seen,\n            fetched=True,\n        )\n\n        existing_build = get_or_create_persisted_build(default_project, config, build)\n\n        assert existing_build.fetched\n        assert existing_build.project == default_project\n        assert existing_build.app_id_str == build.app_id\n        assert existing_build.bundle_id == config.bundleId\n        assert existing_build.platform == build.platform\n        assert existing_build.bundle_short_version == build.version\n        assert existing_build.bundle_version == build.build_number\n        assert existing_build.uploaded_to_appstore == build.uploaded_date",
+      "calls": "get_or_create_persisted_build"
+    },
+    {
+      "name": "TestUpdateDsyms.test_get_persisted_build_preserves_existing_fetched",
+      "path": "tests/sentry/tasks/test_app_store_connect.py",
+      "start": 198,
+      "end": 223,
+      "code": "    @pytest.mark.django_db\n    def test_get_persisted_build_preserves_existing_fetched(self, default_project, config, build):\n        seen = datetime(2020, 2, 20)\n\n        AppConnectBuild.objects.create(\n            project=default_project,\n            app_id_str=build.app_id,\n            bundle_id=config.bundleId,\n            platform=build.platform,\n            bundle_short_version=build.version,\n            bundle_version=build.build_number,\n            uploaded_to_appstore=build.uploaded_date,\n            first_seen=seen,\n            fetched=False,\n        )\n\n        existing_build = get_or_create_persisted_build(default_project, config, build)\n\n        assert not existing_build.fetched\n        assert existing_build.project == default_project\n        assert existing_build.app_id_str == build.app_id\n        assert existing_build.bundle_id == config.bundleId\n        assert existing_build.platform == build.platform\n        assert existing_build.bundle_short_version == build.version\n        assert existing_build.bundle_version == build.build_number\n        assert existing_build.uploaded_to_appstore == build.uploaded_date",
+      "calls": "get_or_create_persisted_build"
+    }
+  ]
+}

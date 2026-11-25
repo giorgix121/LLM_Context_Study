@@ -1,0 +1,65 @@
+{
+  "cache_key": "2cdf03c5f89dbc3c1de53ea7007d8e375461bf10d1e632713fa1cb63a01fbcc8",
+  "sample_id": "case138",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The function `_resolve_last_org_slug` was renamed to `_resolve_last_org` and now returns the organization object instead of its slug, which could break downstream logic expecting a slug.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The function `_resolve_last_org_slug` was renamed to `_resolve_last_org` and now returns the organization object instead of its slug, which could break downstream logic expecting a slug.\"}",
+  "response_id": "gen-1790928076-6V9XHbpMtmTVJnTOvyPC",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 5440,
+  "completion_tokens": 55,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000566,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 5440,
+    "completion_tokens": 55,
+    "total_tokens": 5495,
+    "cost": 0.000566,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000566,
+      "upstream_inference_prompt_cost": 0.000544,
+      "upstream_inference_completions_cost": 2.2e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.823,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T08:01:17+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

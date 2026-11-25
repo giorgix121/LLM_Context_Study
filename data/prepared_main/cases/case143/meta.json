@@ -1,0 +1,4 @@
+{
+  "sample_id": "case143",
+  "path": "src/sentry/snuba/metrics/mqb_query_transformer.py"
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564811-7m5mgO58i4dczf4nt0Y9",
+    "object": "chat.completion",
+    "created": 1795564811,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The counter initialization branch (`if not self.sent_lka_steering_cmd`) runs inside the `elif` (STEER_STEP) block but does not send a message on that first frame, so `lka_steering_cmd_counter` is set but `sent_lka_steering_cmd` remains False, meaning the counter could be re-initialized on subsequent STEER_STEP frames before the first loopback confirmation arrives, potentially causing a counter discontinuity and an EPS fault.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1897,
+      "completion_tokens": 126,
+      "total_tokens": 2023,
+      "cost": 0.007581,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007581,
+        "upstream_inference_prompt_cost": 0.005691,
+        "upstream_inference_completions_cost": 0.00189
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

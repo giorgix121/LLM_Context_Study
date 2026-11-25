@@ -1,0 +1,65 @@
+{
+  "cache_key": "2bcf917261c16dab7f5777022ca9c6cd3c3c5cf9fcf0c845c24eed26b69c07cb",
+  "sample_id": "case034",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change replaces hardcoded PID lateral tuning parameters with a call to `configure_torque_tune`, which likely switches the control mode from PID to torque-based, potentially causing incorrect steering behavior if the vehicle's safety model or hardware does not support this new tuning method.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change replaces hardcoded PID lateral tuning parameters with a call to `configure_torque_tune`, which likely switches the control mode from PID to torque-based, potentially causing incorrect steering behavior if the vehicle's safety model or hardware does not support this new tuning method.\"}",
+  "response_id": "gen-1795188802-Yeoxb2IWgI79Xu1ZGOuK",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 2502,
+  "completion_tokens": 66,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00040632,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2502,
+    "completion_tokens": 66,
+    "total_tokens": 2568,
+    "cost": 0.00040632,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00040632,
+      "upstream_inference_prompt_cost": 0.0003753,
+      "upstream_inference_completions_cost": 3.102e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.013,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:33:24+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

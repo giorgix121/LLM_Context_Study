@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193582-8Jou1nEaXjENrhPNAols",
+    "object": "chat.completion",
+    "created": 1795193582,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The counter is now incremented on every loopback confirmation regardless of whether a steering command was actually sent in that cycle, which can cause the internal `lka_steering_cmd_counter` to diverge from the actual transmitted message counter, potentially producing counter gaps that trigger GM EPS faults.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8396,
+      "completion_tokens": 78,
+      "total_tokens": 8474,
+      "cost": 0.026358,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.026358,
+        "upstream_inference_prompt_cost": 0.025188,
+        "upstream_inference_completions_cost": 0.00117
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

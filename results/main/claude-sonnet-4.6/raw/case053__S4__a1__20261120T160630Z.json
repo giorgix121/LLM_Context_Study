@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193553-ew10xvZ7BImQldiUkF4g",
+    "object": "chat.completion",
+    "created": 1795193553,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The original code called `results.reset(metrics=True)` which performs a partial reset preserving non-metric state, while the new `reset_results()` calls `results.reset()` with no arguments (full reset) and additionally clears `_batch_idx`, `_split_idx`, and `_current_fx`, potentially discarding state that should be preserved at epoch end and altering behavior for subsequent training steps.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 978,
+      "completion_tokens": 108,
+      "total_tokens": 1086,
+      "cost": 0.004554,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004554,
+        "upstream_inference_prompt_cost": 0.002934,
+        "upstream_inference_completions_cost": 0.00162
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

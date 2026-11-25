@@ -1,0 +1,54 @@
+{
+  "found": 6,
+  "included": 6,
+  "functions": [
+    {
+      "name": "ProjectProfilingBaseEndpoint.get_profiling_params",
+      "path": "src/sentry/api/endpoints/project_profiling_profile.py",
+      "start": 26,
+      "end": 34,
+      "code": "    def get_profiling_params(self, request: Request, project: Project) -> Dict[str, Any]:\n        try:\n            params: Dict[str, Any] = parse_profile_filters(request.query_params.get(\"query\", \"\"))\n        except InvalidSearchQuery as err:\n            raise ParseError(detail=str(err))\n\n        params.update(self.get_filter_params(request, project))\n\n        return params",
+      "called_by": "ProjectProfilingPaginatedBaseEndpoint.get"
+    },
+    {
+      "name": "ProjectProfilingPaginatedBaseEndpoint.get_data_fn",
+      "path": "src/sentry/api/endpoints/project_profiling_profile.py",
+      "start": 41,
+      "end": 43,
+      "code": "    @abstractmethod\n    def get_data_fn(self, request: Request, project: Project, kwargs: Dict[str, Any]) -> Any:\n        raise NotImplementedError",
+      "called_by": "ProjectProfilingPaginatedBaseEndpoint.get"
+    },
+    {
+      "name": "ProjectProfilingPaginatedBaseEndpoint.get_on_result",
+      "path": "src/sentry/api/endpoints/project_profiling_profile.py",
+      "start": 45,
+      "end": 46,
+      "code": "    def get_on_result(self) -> Any:\n        return None",
+      "called_by": "ProjectProfilingPaginatedBaseEndpoint.get"
+    },
+    {
+      "name": "Endpoint.paginate",
+      "path": "src/sentry/api/base.py",
+      "start": 331,
+      "end": 385,
+      "code": "    def paginate(\n        self,\n        request,\n        on_results=None,\n        paginator=None,\n        paginator_cls=Paginator,\n        default_per_page=100,\n        max_per_page=100,\n        cursor_cls=Cursor,\n        response_cls=Response,\n        response_kwargs=None,\n        **paginator_kwargs,\n    ):\n        assert (paginator and not paginator_kwargs) or (paginator_cls and paginator_kwargs)\n\n        if response_kwargs is None:\n            response_kwargs = {}\n\n        per_page = self.get_per_page(request, default_per_page, max_per_page)\n\n        input_cursor = self.get_cursor_from_request(request, cursor_cls=cursor_cls)\n\n        if not paginator:\n            paginator = paginator_cls(**paginator_kwargs)\n\n        try:\n            with sentry_sdk.start_span(\n                op=\"base.paginate.get_result\",\n                description=type(self).__name__,\n            ) as span:\n                span.set_data(\"Limit\", per_page)\n                set_measurement(\"query.per_page\", per_page)\n                sentry_sdk.set_tag(\"query.per_page\", per_page)\n                sentry_sdk.set_tag(\n                    \"query.per_page.grouped\", format_grouped_length(per_page, [1, 10, 50, 100])\n                )\n                cursor_result = paginator.get_result(limit=per_page, cursor=input_cursor)\n        except BadPaginationError as e:\n            raise ParseError(detail=str(e))\n\n        # map results based on callback\n        if on_results:\n            with sentry_sdk.start_span(\n                op=\"base.paginate.on_results\",\n                description=type(self).__name__,\n            ):\n                results = on_results(cursor_result.results)\n        else:\n            results = cursor_result.results\n\n        response = response_cls(results, **response_kwargs)\n\n        self.add_cursor_headers(request, response, cursor_result)\n\n        return response",
+      "called_by": "ProjectProfilingPaginatedBaseEndpoint.get"
+    },
+    {
+      "name": "GenericOffsetPaginator.__init__",
+      "path": "src/sentry/api/paginator.py",
+      "start": 476,
+      "end": 477,
+      "code": "    def __init__(self, data_fn):\n        self.data_fn = data_fn",
+      "called_by": "ProjectProfilingPaginatedBaseEndpoint.get"
+    },
+    {
+      "name": "proxy_profiling_service",
+      "path": "src/sentry/profiles/utils.py",
+      "start": 92,
+      "end": 103,
+      "code": "def proxy_profiling_service(\n    method: str,\n    path: str,\n    params: Optional[Dict[str, Any]] = None,\n    headers: Optional[Dict[str, str]] = None,\n) -> HttpResponse:\n    profiling_response = get_from_profiling_service(method, path, params=params, headers=headers)\n    return HttpResponse(\n        content=profiling_response.data,\n        status=profiling_response.status,\n        content_type=profiling_response.headers.get(\"Content-Type\", \"application/json\"),\n    )",
+      "called_by": "ProjectProfilingTransactionIDProfileIDEndpoint.get"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "commit": "5de11e1410b432d632e8c0d1d8ca0945811a56f0",
+  "files_in_commit": 4,
+  "target_index": 0,
+  "target_status": "modified",
+  "chars": 1398,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "airflow/api_connexion/openapi/v1.yaml",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 3,
+      "patch": "@@ -3332,9 +3332,6 @@ components:\n \n         *New in version 2.1.0*\n       properties:\n-        number:\n-          type: string\n-          description: The plugin number\n         name:\n           type: string\n           description: The name of the plugin"
+    },
+    {
+      "path": "airflow/api_connexion/schemas/plugin_schema.py",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 6,
+      "patch": "@@ -23,16 +23,15 @@\n class PluginSchema(Schema):\n     \"\"\"Plugin schema\"\"\"\n \n-    number = fields.Int()\n     name = fields.String()\n     hooks = fields.List(fields.String())\n     executors = fields.List(fields.String())\n-    macros = fields.List(fields.String())\n-    flask_blueprints = fields.List(fields.String())\n-    appbuilder_views = fields.List(fields.String())\n+    macros = fields.List(fields.Dict())\n+    flask_blueprints = fields.List(fields.Dict())\n+    appbuilder_views = fields.List(fields.Dict())\n     appbuilder_menu_items = fields.List(fields.Dict())\n-    global_operator_extra_links = fields.List(fields.String())\n-    operator_extra_links = fields.List(fields.String())\n+    global_operator_extra_links = fields.List(fields.Dict())\n+    operator_extra_links = fields.List(fields.Dict())\n     source = fields.String()\n \n "
+    },
+    {
+      "path": "airflow/www/static/js/types/api-generated.ts",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 2,
+      "patch": "@@ -1371,8 +1371,6 @@ export interface components {\n      * *New in version 2.1.0*\n      */\n     PluginCollectionItem: {\n-      /** @description The plugin number */\n-      number?: string;\n       /** @description The name of the plugin */\n       name?: string;\n       /** @description The plugin hooks */"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193239-r1IL6FHJ3opK08plCnt1",
+    "object": "chat.completion",
+    "created": 1795193239,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "I need to evaluate whether replacing `f\"'{key}'\"` with `enclose_param(key)` for s3_keys introduces a functional defect.\n\nThe key question is: what does `enclose_param` do compared to the simple single-quote wrapping?\n\nThe old code wraps each key in single quotes: `'key_value'`\n\nThe new code uses `enclose_param`, which is already used for `self.pattern` in the same function. This function likely wraps the value in single quotes as well, but may also handle escaping of special characters (like single quotes within the key name).\n\nIf `enclose_param` wraps in single quotes similarly to `f\"'{key}'\"`, the behavior is functionally equivalent for normal keys. The change would actually be an improvement for keys containing special characters (like single quotes), making it more robust.\n\nThe risk would be if `enclose_param` wraps in a different type of quote (e.g., double quotes) or adds additional formatting that breaks the Snowflake `files=()` syntax. However, since `enclose_param` is already used for `pattern` in the same",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1140,
+      "completion_tokens": 256,
+      "total_tokens": 1396,
+      "cost": 0.00726,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00726,
+        "upstream_inference_prompt_cost": 0.00342,
+        "upstream_inference_completions_cost": 0.00384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

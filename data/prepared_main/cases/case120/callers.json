@@ -1,0 +1,70 @@
+{
+  "found": 8,
+  "included": 8,
+  "functions": [
+    {
+      "name": "_get_task_kwargs",
+      "path": "src/sentry/eventstream/kafka/consumer_strategy.py",
+      "start": 51,
+      "end": 64,
+      "code": "def _get_task_kwargs(message: Message[KafkaPayload]) -> Optional[Mapping[str, Any]]:\n    use_kafka_headers = options.get(\"post-process-forwarder:kafka-headers\")\n\n    if use_kafka_headers:\n        try:\n            with _sampled_eventstream_timer(instance=\"get_task_kwargs_for_message_from_headers\"):\n                return get_task_kwargs_for_message_from_headers(message.payload.headers)\n        except Exception as error:\n            logger.warning(\"Could not forward message: %s\", error, exc_info=True)\n            with metrics.timer(_DURATION_METRIC, instance=\"get_task_kwargs_for_message\"):\n                return get_task_kwargs_for_message(message.payload.value)\n    else:\n        with metrics.timer(_DURATION_METRIC, instance=\"get_task_kwargs_for_message\"):\n            return get_task_kwargs_for_message(message.payload.value)",
+      "calls": "get_task_kwargs_for_message"
+    },
+    {
+      "name": "_get_task_kwargs",
+      "path": "src/sentry/eventstream/kafka/postprocessworker.py",
+      "start": 42,
+      "end": 55,
+      "code": "def _get_task_kwargs(message: Message) -> Optional[Mapping[str, Any]]:\n    use_kafka_headers = options.get(\"post-process-forwarder:kafka-headers\")\n\n    if use_kafka_headers:\n        try:\n            with _sampled_eventstream_timer(instance=\"get_task_kwargs_for_message_from_headers\"):\n                return get_task_kwargs_for_message_from_headers(message.headers())\n        except Exception as error:\n            logger.error(\"Could not forward message: %s\", error, exc_info=True)\n            with metrics.timer(_DURATION_METRIC, instance=\"get_task_kwargs_for_message\"):\n                return get_task_kwargs_for_message(message.value())\n    else:\n        with metrics.timer(_DURATION_METRIC, instance=\"get_task_kwargs_for_message\"):\n            return get_task_kwargs_for_message(message.value())",
+      "calls": "get_task_kwargs_for_message"
+    },
+    {
+      "name": "test_get_task_kwargs_for_message_invalid_payload",
+      "path": "tests/sentry/eventstream/kafka/test_protocol.py",
+      "start": 14,
+      "end": 17,
+      "code": "@override_options({\"post-process-forwarder:rapidjson\": False})\ndef test_get_task_kwargs_for_message_invalid_payload():\n    with pytest.raises(InvalidPayload):\n        get_task_kwargs_for_message('{\"format\": \"invalid\"}')",
+      "calls": "get_task_kwargs_for_message"
+    },
+    {
+      "name": "test_get_task_kwargs_for_message_invalid_version",
+      "path": "tests/sentry/eventstream/kafka/test_protocol.py",
+      "start": 20,
+      "end": 23,
+      "code": "@override_options({\"post-process-forwarder:rapidjson\": False})\ndef test_get_task_kwargs_for_message_invalid_version():\n    with pytest.raises(InvalidVersion):\n        get_task_kwargs_for_message(json.dumps([0, \"insert\", {}]))",
+      "calls": "get_task_kwargs_for_message"
+    },
+    {
+      "name": "test_get_task_kwargs_for_message_version_1",
+      "path": "tests/sentry/eventstream/kafka/test_protocol.py",
+      "start": 26,
+      "end": 57,
+      "code": "@pytest.mark.django_db\ndef test_get_task_kwargs_for_message_version_1():\n    event_data = {\n        \"project_id\": 1,\n        \"group_id\": 2,\n        \"event_id\": \"00000000000010008080808080808080\",\n        \"message\": \"message\",\n        \"platform\": \"python\",\n        \"datetime\": \"2018-07-20T21:04:27.600640Z\",\n        \"data\": {\n            \"logentry\": {\"formatted\": \"message\"},\n            \"platform\": \"python\",\n            \"timestamp\": 1532120667.60064,\n        },\n        \"extra\": {},\n        \"primary_hash\": \"49f68a5c8493ec2c0bf489821c21fc3b\",\n    }\n\n    task_state = {\"is_new\": True, \"is_regression\": False, \"is_new_group_environment\": True}\n\n    kwargs = get_task_kwargs_for_message(json.dumps([1, \"insert\", event_data, task_state]))\n    assert kwargs.pop(\"project_id\") == 1\n    assert kwargs.pop(\"event_id\") == \"00000000000010008080808080808080\"\n    assert kwargs.pop(\"group_id\") == 2\n    assert kwargs.pop(\"primary_hash\") == \"49f68a5c8493ec2c0bf489821c21fc3b\"\n\n    assert kwargs.pop(\"is_new\") is True\n    assert kwargs.pop(\"is_regression\") is False\n    assert kwargs.pop(\"is_new_group_environment\") is True\n    assert kwargs.pop(\"group_states\") is None\n\n    assert not kwargs, f\"unexpected values remaining: {kwargs!r}\"",
+      "calls": "get_task_kwargs_for_message"
+    },
+    {
+      "name": "test_get_task_kwargs_for_message_version_1_skip_consume",
+      "path": "tests/sentry/eventstream/kafka/test_protocol.py",
+      "start": 60,
+      "end": 64,
+      "code": "@override_options({\"post-process-forwarder:rapidjson\": False})\ndef test_get_task_kwargs_for_message_version_1_skip_consume():\n    assert (\n        get_task_kwargs_for_message(json.dumps([1, \"insert\", {}, {\"skip_consume\": True}])) is None\n    )",
+      "calls": "get_task_kwargs_for_message"
+    },
+    {
+      "name": "test_get_task_kwargs_for_message_version_1_unsupported_operation",
+      "path": "tests/sentry/eventstream/kafka/test_protocol.py",
+      "start": 67,
+      "end": 69,
+      "code": "@override_options({\"post-process-forwarder:rapidjson\": False})\ndef test_get_task_kwargs_for_message_version_1_unsupported_operation():\n    assert get_task_kwargs_for_message(json.dumps([1, \"delete\", {}])) is None",
+      "calls": "get_task_kwargs_for_message"
+    },
+    {
+      "name": "test_get_task_kwargs_for_message_version_1_unexpected_operation",
+      "path": "tests/sentry/eventstream/kafka/test_protocol.py",
+      "start": 72,
+      "end": 75,
+      "code": "@override_options({\"post-process-forwarder:rapidjson\": False})\ndef test_get_task_kwargs_for_message_version_1_unexpected_operation():\n    with pytest.raises(UnexpectedOperation):\n        get_task_kwargs_for_message(json.dumps([1, \"invalid\", {}, {}]))",
+      "calls": "get_task_kwargs_for_message"
+    }
+  ]
+}

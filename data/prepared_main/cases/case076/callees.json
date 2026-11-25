@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "_device_count_nvml",
+      "path": "src/lightning_lite/accelerators/cuda.py",
+      "start": 166,
+      "end": 176,
+      "code": "def _device_count_nvml() -> int:\n    \"\"\"Implementation copied from upstream: https://github.com/pytorch/pytorch/pull/84879.\"\"\"\n    try:\n        raw_cnt = _raw_device_count_nvml()\n        if raw_cnt <= 0:\n            return raw_cnt\n        return len(set(range(raw_cnt)).intersection(_parse_visible_devices()))\n    except OSError:\n        return -1\n    except AttributeError:\n        return -1",
+      "called_by": "_patch_cuda_is_available"
+    }
+  ]
+}

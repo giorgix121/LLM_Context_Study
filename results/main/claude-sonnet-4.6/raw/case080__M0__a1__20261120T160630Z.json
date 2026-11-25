@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192797-9o4zLJL9nvx1XDbyziEt",
+    "object": "chat.completion",
+    "created": 1795192797,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change correctly handles mapped sensors by skipping the `reschedule` property check (which isn't available before unmapping) and instead falling through to the `TaskReschedule` table lookup, with a proper early-return if no reschedule record exists.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 606,
+      "completion_tokens": 75,
+      "total_tokens": 681,
+      "cost": 0.002943,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002943,
+        "upstream_inference_prompt_cost": 0.001818,
+        "upstream_inference_completions_cost": 0.001125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

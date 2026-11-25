@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564204-05nVfgzKUzmg4InU27ih",
+    "object": "chat.completion",
+    "created": 1795564204,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The refactoring of `_alter_column_type_sql` and the introduction of `_using_sql` changes how SQL fragments are constructed, specifically by moving the `USING` clause logic into a helper that is now also used in `_alter_column_collation_sql`, which could lead to incorrect SQL generation if the conditions for applying the cast differ between type-only alterations and collation alterations.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2082,
+      "completion_tokens": 89,
+      "total_tokens": 2171,
+      "cost": 0.00035413,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00035413,
+        "upstream_inference_prompt_cost": 0.0003123,
+        "upstream_inference_completions_cost": 4.183e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

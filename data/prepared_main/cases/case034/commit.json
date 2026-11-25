@@ -1,0 +1,17 @@
+{
+  "commit": "347455325e5cd67e0697708ac980782aec2c3b33",
+  "files_in_commit": 2,
+  "target_index": 0,
+  "target_status": "modified",
+  "chars": 151,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "selfdrive/test/process_replay/ref_commit",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -1 +1 @@\n-ee36966d20fa63ed4b9488bbc75d61e95e464cb7\n\\ No newline at end of file\n+2da0446f3cc0c4fd705f7b199ed1d9e6341fc466\n\\ No newline at end of file"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "retrieved_at": "2026-11-20T16:56:51+00:00",
+  "source": "https://openrouter.ai/api/v1/models/anthropic/claude-sonnet-4.6/endpoints",
+  "model": "anthropic/claude-sonnet-4.6",
+  "provider": "Anthropic",
+  "provider_tag": "anthropic",
+  "endpoint_model": "anthropic/claude-4.6-sonnet-20260217",
+  "status": 0,
+  "uptime_last_30m": 100,
+  "price_prompt_per_token": 3e-06,
+  "price_completion_per_token": 1.5e-05,
+  "price_cache_read_per_token": 3e-07,
+  "supported_parameters": [
+    "reasoning",
+    "include_reasoning",
+    "max_tokens",
+    "temperature",
+    "top_p",
+    "stop",
+    "tools",
+    "tool_choice",
+    "structured_outputs",
+    "response_format",
+    "verbosity",
+    "reasoning_effort"
+  ]
+}

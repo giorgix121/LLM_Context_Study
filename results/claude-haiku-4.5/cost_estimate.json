@@ -1,0 +1,59 @@
+{
+  "created_at": "2026-10-02T05:49:51+00:00",
+  "per_strategy": [
+    {
+      "strategy": "S0",
+      "requests": 30,
+      "mean_prompt_chars": 1338,
+      "est_input_tokens_total": 13392,
+      "est_cost_usd": 0.028392,
+      "worst_case_usd": 0.058486
+    },
+    {
+      "strategy": "S1",
+      "requests": 30,
+      "mean_prompt_chars": 5140,
+      "est_input_tokens_total": 51406,
+      "est_cost_usd": 0.06640599999999999,
+      "worst_case_usd": 0.115501
+    },
+    {
+      "strategy": "S2",
+      "requests": 30,
+      "mean_prompt_chars": 13252,
+      "est_input_tokens_total": 132533,
+      "est_cost_usd": 0.147533,
+      "worst_case_usd": 0.237196
+    }
+  ],
+  "estimated_total_usd": 0.242331,
+  "worst_case_total_usd": 0.41118299999999997,
+  "pricing": {
+    "retrieved_at": "2026-10-02T05:49:51+00:00",
+    "source": "https://openrouter.ai/api/v1/models/anthropic/claude-haiku-4.5/endpoints",
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "provider_tag": "anthropic",
+    "endpoint_model": "anthropic/claude-4.5-haiku-20251001",
+    "status": 0,
+    "uptime_last_30m": 99.98628257887518,
+    "price_prompt_per_token": 1e-06,
+    "price_completion_per_token": 5e-06,
+    "price_cache_read_per_token": 1e-07,
+    "supported_parameters": [
+      "max_tokens",
+      "top_p",
+      "temperature",
+      "stop",
+      "reasoning",
+      "include_reasoning",
+      "tools",
+      "tool_choice",
+      "top_k",
+      "structured_outputs",
+      "response_format"
+    ]
+  },
+  "budget_cap_usd": 3.0,
+  "budget_cap_source": "run_execute.log"
+}

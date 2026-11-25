@@ -1,0 +1,4 @@
+{
+  "sample_id": "case106",
+  "path": "src/sentry/utils/silo/decorate_models_by_relation.py"
+}

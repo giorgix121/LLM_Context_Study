@@ -1,0 +1,17 @@
+{
+  "commit": "27511adbcaf9bed8fc5eb209906c3a6b9784dec0",
+  "files_in_commit": 2,
+  "target_index": 0,
+  "target_status": "modified",
+  "chars": 1370,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "python/ray/data/tests/test_dataset_formats.py",
+      "status": "modified",
+      "additions": 22,
+      "deletions": 1,
+      "patch": "@@ -1,5 +1,6 @@\n import os\n import shutil\n+from distutils.version import LooseVersion\n from functools import partial\n from io import BytesIO\n from typing import Any, Dict, List, Union\n@@ -3080,7 +3081,7 @@ def test_csv_read_with_column_type_specified(shutdown_only, tmp_path):\n             ),\n         )\n \n-    # Parsing scientific notation in double shoud work.\n+    # Parsing scientific notation in double should work.\n     ds = ray.data.read_csv(\n         file_path,\n         convert_options=csv.ConvertOptions(\n@@ -3102,6 +3103,26 @@ def test_csv_read_filter_no_file(shutdown_only, tmp_path):\n         ray.data.read_csv(path)\n \n \n+@pytest.mark.skipif(\n+    LooseVersion(pa.__version__) < LooseVersion(\"7.0.0\"),\n+    reason=\"invalid_row_handler was added in pyarrow 7.0.0\",\n+)\n+def test_csv_invalid_file_handler(shutdown_only, tmp_path):\n+    from pyarrow import csv\n+\n+    invalid_txt = \"f1,f2\\n2,3\\nx\\n4,5\"\n+    invalid_file = os.path.join(tmp_path, \"invalid.csv\")\n+    with open(invalid_file, \"wt\") as f:\n+        f.write(invalid_txt)\n+\n+    ray.data.read_csv(\n+        invalid_file,\n+        parse_options=csv.ParseOptions(\n+            delimiter=\",\", invalid_row_handler=lambda i: \"skip\"\n+        ),\n+    )\n+\n+\n class NodeLoggerOutputDatasource(Datasource[Union[ArrowRow, int]]):\n     \"\"\"A writable datasource that logs node IDs of write tasks, for testing.\"\"\"\n "
+    }
+  ]
+}

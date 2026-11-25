@@ -1,0 +1,94 @@
+{
+  "commit": "54320ff1340a15bdb4bc6dc9f7c234b6a0252c82",
+  "files_in_commit": 13,
+  "target_index": 7,
+  "target_status": "modified",
+  "chars": 9608,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "homeassistant/components/unifiprotect/binary_sensor.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "patch": "@@ -271,7 +271,7 @@ class ProtectBinaryEntityDescription(\n         ufp_perm=PermRequired.NO_WRITE,\n     ),\n     ProtectBinaryEntityDescription(\n-        key=\"motion\",\n+        key=\"motion_enabled\",\n         name=\"Motion Detection\",\n         icon=\"mdi:walk\",\n         entity_category=EntityCategory.DIAGNOSTIC,\n@@ -383,7 +383,9 @@ async def _add_new_device(device: ProtectAdoptableDeviceModel) -> None:\n             entities += _async_motion_entities(data, ufp_device=device)\n         async_add_entities(entities)\n \n-    async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    entry.async_on_unload(\n+        async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    )\n \n     entities: list[ProtectDeviceEntity] = async_all_device_entities(\n         data,"
+    },
+    {
+      "path": "homeassistant/components/unifiprotect/button.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "patch": "@@ -92,7 +92,9 @@ async def _add_new_device(device: ProtectAdoptableDeviceModel) -> None:\n         )\n         async_add_entities(entities)\n \n-    async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    entry.async_on_unload(\n+        async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    )\n \n     entities: list[ProtectDeviceEntity] = async_all_device_entities(\n         data,"
+    },
+    {
+      "path": "homeassistant/components/unifiprotect/camera.py",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 2,
+      "patch": "@@ -120,8 +120,12 @@ async def _add_new_device(device: ProtectAdoptableDeviceModel) -> None:\n         entities = _async_camera_entities(data, ufp_device=device)\n         async_add_entities(entities)\n \n-    async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n-    async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_CHANNELS), _add_new_device)\n+    entry.async_on_unload(\n+        async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    )\n+    entry.async_on_unload(\n+        async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_CHANNELS), _add_new_device)\n+    )\n \n     entities = _async_camera_entities(data)\n     async_add_entities(entities)"
+    },
+    {
+      "path": "homeassistant/components/unifiprotect/data.py",
+      "status": "modified",
+      "additions": 17,
+      "deletions": 17,
+      "patch": "@@ -4,17 +4,17 @@\n from collections.abc import Callable, Generator, Iterable\n from datetime import timedelta\n import logging\n-from typing import Any\n+from typing import Any, Union\n \n from pyunifiprotect import ProtectApiClient\n from pyunifiprotect.data import (\n+    NVR,\n     Bootstrap,\n     Event,\n     EventType,\n     Liveview,\n     ModelType,\n     ProtectAdoptableDeviceModel,\n-    ProtectModelWithId,\n     WSSubscriptionMessage,\n )\n from pyunifiprotect.exceptions import ClientError, NotAuthorized\n@@ -27,7 +27,6 @@\n from .const import (\n     CONF_DISABLE_RTSP,\n     DEVICES_THAT_ADOPT,\n-    DEVICES_WITH_ENTITIES,\n     DISPATCH_ADOPT,\n     DISPATCH_CHANNELS,\n     DOMAIN,\n@@ -39,6 +38,7 @@\n )\n \n _LOGGER = logging.getLogger(__name__)\n+ProtectDeviceType = Union[ProtectAdoptableDeviceModel, NVR]\n \n \n @callback\n@@ -68,7 +68,7 @@ def __init__(\n         self._entry = entry\n         self._hass = hass\n         self._update_interval = update_interval\n-        self._subscriptions: dict[str, list[Callable[[ProtectModelWithId], None]]] = {}\n+        self._subscriptions: dict[str, list[Callable[[ProtectDeviceType], None]]] = {}\n         self._pending_camera_ids: set[str] = set()\n         self._unsub_interval: CALLBACK_TYPE | None = None\n         self._unsub_websocket: CALLBACK_TYPE | None = None\n@@ -152,7 +152,7 @@ def _async_process_ws_message(self, message: WSSubscriptionMessage) -> None:\n             return\n \n         obj = message.new_obj\n-        if obj.model in DEVICES_WITH_ENTITIES:\n+        if isinstance(obj, (ProtectAdoptableDeviceModel, NVR)):\n             self._async_signal_device_update(obj)\n             if (\n                 obj.model == ModelType.CAMERA\n@@ -211,41 +211,41 @@ def _async_process_updates(self, updates: Bootstrap | None) -> None:\n \n     @callback\n     def async_subscribe_device_id(\n-        self, device_id: str, update_callback: Callable[[ProtectModelWithId], None]\n+        self, mac: str, update_callback: Callable[[ProtectDeviceType], None]\n     ) -> CALLBACK_TYPE:\n         \"\"\"Add an callback subscriber.\"\"\"\n         if not self._subscriptions:\n             self._unsub_interval = async_track_time_interval(\n                 self._hass, self.async_refresh, self._update_interval\n             )\n-        self._subscriptions.setdefault(device_id, []).append(update_callback)\n+        self._subscriptions.setdefault(mac, []).append(update_callback)\n \n         def _unsubscribe() -> None:\n-            self.async_unsubscribe_device_id(device_id, update_callback)\n+            self.async_unsubscribe_device_id(mac, update_callback)\n \n         return _unsubscribe\n \n     @callback\n     def async_unsubscribe_device_id(\n-        self, device_id: str, update_callback: Callable[[ProtectModelWithId], None]\n+        self, mac: str, update_callback: Callable[[ProtectDeviceType], None]\n     ) -> None:\n         \"\"\"Remove a callback subscriber.\"\"\"\n-        self._subscriptions[device_id].remove(update_callback)\n-        if not self._subscriptions[device_id]:\n-            del self._subscriptions[device_id]\n+        self._subscriptions[mac].remove(update_callback)\n+        if not self._subscriptions[mac]:\n+            del self._subscriptions[mac]\n         if not self._subscriptions and self._unsub_interval:\n             self._unsub_interval()\n             self._unsub_interval = None\n \n     @callback\n-    def _async_signal_device_update(self, device: ProtectModelWithId) -> None:\n+    def _async_signal_device_update(self, device: ProtectDeviceType) -> None:\n         \"\"\"Call the callbacks for a device_id.\"\"\"\n-        device_id = device.id\n-        if not self._subscriptions.get(device_id):\n+\n+        if not self._subscriptions.get(device.mac):\n             return\n \n-        _LOGGER.debug(\"Updating device: %s\", device_id)\n-        for update_callback in self._subscriptions[device_id]:\n+        _LOGGER.debug(\"Updating device: %s (%s)\", device.name, device.mac)\n+        for update_callback in self._subscriptions[device.mac]:\n             update_callback(device)\n \n "
+    },
+    {
+      "path": "homeassistant/components/unifiprotect/entity.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -215,7 +215,7 @@ async def async_added_to_hass(self) -> None:\n         await super().async_added_to_hass()\n         self.async_on_remove(\n             self.data.async_subscribe_device_id(\n-                self.device.id, self._async_updated_event\n+                self.device.mac, self._async_updated_event\n             )\n         )\n "
+    },
+    {
+      "path": "homeassistant/components/unifiprotect/light.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "patch": "@@ -42,7 +42,9 @@ async def _add_new_device(device: ProtectAdoptableDeviceModel) -> None:\n         ):\n             async_add_entities([ProtectLight(data, device)])\n \n-    async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    entry.async_on_unload(\n+        async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    )\n \n     entities = []\n     for device in data.api.bootstrap.lights.values():"
+    },
+    {
+      "path": "homeassistant/components/unifiprotect/lock.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "patch": "@@ -40,7 +40,9 @@ async def _add_new_device(device: ProtectAdoptableDeviceModel) -> None:\n         if isinstance(device, Doorlock):\n             async_add_entities([ProtectLock(data, device)])\n \n-    async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    entry.async_on_unload(\n+        async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    )\n \n     entities = []\n     for device in data.api.bootstrap.doorlocks.values():"
+    },
+    {
+      "path": "homeassistant/components/unifiprotect/number.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "patch": "@@ -206,7 +206,9 @@ async def _add_new_device(device: ProtectAdoptableDeviceModel) -> None:\n         )\n         async_add_entities(entities)\n \n-    async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    entry.async_on_unload(\n+        async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    )\n \n     entities: list[ProtectDeviceEntity] = async_all_device_entities(\n         data,"
+    },
+    {
+      "path": "homeassistant/components/unifiprotect/select.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "patch": "@@ -336,7 +336,9 @@ async def _add_new_device(device: ProtectAdoptableDeviceModel) -> None:\n         )\n         async_add_entities(entities)\n \n-    async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    entry.async_on_unload(\n+        async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    )\n \n     entities: list[ProtectDeviceEntity] = async_all_device_entities(\n         data,"
+    },
+    {
+      "path": "homeassistant/components/unifiprotect/sensor.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "patch": "@@ -613,7 +613,9 @@ async def _add_new_device(device: ProtectAdoptableDeviceModel) -> None:\n             entities += _async_motion_entities(data, ufp_device=device)\n         async_add_entities(entities)\n \n-    async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    entry.async_on_unload(\n+        async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    )\n \n     entities: list[ProtectDeviceEntity] = async_all_device_entities(\n         data,"
+    },
+    {
+      "path": "homeassistant/components/unifiprotect/switch.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "patch": "@@ -318,7 +318,9 @@ async def _add_new_device(device: ProtectAdoptableDeviceModel) -> None:\n         )\n         async_add_entities(entities)\n \n-    async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    entry.async_on_unload(\n+        async_dispatcher_connect(hass, _ufpd(entry, DISPATCH_ADOPT), _add_new_device)\n+    )\n \n     entities: list[ProtectDeviceEntity] = async_all_device_entities(\n         data,"
+    },
+    {
+      "path": "tests/components/unifiprotect/test_init.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 3,
+      "patch": "@@ -109,11 +109,10 @@ async def test_reload(hass: HomeAssistant, ufp: MockUFPFixture):\n     assert ufp.api.async_disconnect_ws.called\n \n \n-async def test_unload(hass: HomeAssistant, ufp: MockUFPFixture):\n+async def test_unload(hass: HomeAssistant, ufp: MockUFPFixture, light: Light):\n     \"\"\"Test unloading of unifiprotect entry.\"\"\"\n \n-    await hass.config_entries.async_setup(ufp.entry.entry_id)\n-    await hass.async_block_till_done()\n+    await init_entry(hass, ufp, [light])\n     assert ufp.entry.state == ConfigEntryState.LOADED\n \n     await hass.config_entries.async_unload(ufp.entry.entry_id)"
+    }
+  ]
+}

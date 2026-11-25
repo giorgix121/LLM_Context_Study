@@ -1,0 +1,65 @@
+{
+  "cache_key": "1f34e4916eb9163d5f87a74ca0897f4d339bd5e429b1940ce4980ad104a8de34",
+  "sample_id": "case005",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change intentionally removes `PrecisionType.MIXED` from the supported precision tuple for DeepSpeed, which is a deliberate fix to prevent users from incorrectly using `precision='mixed'` with DeepSpeed (which should use `precision=16` instead), and is consistent with the accompanying changes across the codebase.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change intentionally removes `PrecisionType.MIXED` from the supported precision tuple for DeepSpeed, which is a deliberate fix to prevent users from incorrectly using `precision='mixed'` with DeepSpeed (which should use `precision=16` instead), and is consistent with the accompanying changes across the codebase.\"}",
+  "response_id": "gen-1795565306-HrlNMWbN4sP0p44apl6r",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2248,
+  "completion_tokens": 91,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.008109,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2248,
+    "completion_tokens": 91,
+    "total_tokens": 2339,
+    "cost": 0.008109,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.008109,
+      "upstream_inference_prompt_cost": 0.006744,
+      "upstream_inference_completions_cost": 0.001365
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.552,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-25T00:08:29+00:00",
+  "run_id": "20261124T235939Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

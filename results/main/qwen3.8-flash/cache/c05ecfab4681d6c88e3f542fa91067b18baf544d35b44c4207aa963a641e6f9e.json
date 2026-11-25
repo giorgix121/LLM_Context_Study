@@ -1,0 +1,65 @@
+{
+  "cache_key": "c05ecfab4681d6c88e3f542fa91067b18baf544d35b44c4207aa963a641e6f9e",
+  "sample_id": "case002",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit introduces a dependency on `pandaStates` for determining the number of pandas in `controlsd.py`, but moves the initialization of `self.sm` before the check for `CI is None`, potentially causing issues if `sm` is passed as an argument or if `pandaStates` is not available when expected, and the logic change in `get_fw_versions` to skip queries based on bus index might incorrectly filter valid ECUs if `num_pandas` is misinterpreted or defaults are inconsistent.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The commit introduces a dependency on `pandaStates` for determining the number of pandas in `controlsd.py`, but moves the initialization of `self.sm` before the check for `CI is None`, potentially causing issues if `sm` is passed as an argument or if `pandaStates` is not available when expected, and the logic change in `get_fw_versions` to skip queries based on bus index might incorrectly filter valid ECUs if `num_pandas` is misinterpreted or defaults are inconsistent.\"}",
+  "response_id": "gen-1795564201-t95efhQMAvkL8UJjlzRt",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 4124,
+  "completion_tokens": 117,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00067359,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 4124,
+    "completion_tokens": 117,
+    "total_tokens": 4241,
+    "cost": 0.00067359,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00067359,
+      "upstream_inference_prompt_cost": 0.0006186,
+      "upstream_inference_completions_cost": 5.499e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.992,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:50:04+00:00",
+  "run_id": "20261124T234127Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

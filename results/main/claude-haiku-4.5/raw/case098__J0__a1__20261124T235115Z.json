@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564434-foJ1iD4Lyd2wGAIffqba",
+    "object": "chat.completion",
+    "created": 1795564434,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The commit removes `# type: ignore` comments and adds `raise NotImplementedError` statements in multiple code paths, which changes runtime behavior by potentially raising exceptions where code previously silently continued, particularly in `_load_from_checkpoint`, `_to_lite_strategy`, and `_total_steps` methods.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 10013,
+      "completion_tokens": 94,
+      "total_tokens": 10107,
+      "cost": 0.010483,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.010483,
+        "upstream_inference_prompt_cost": 0.010013,
+        "upstream_inference_completions_cost": 0.00047
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

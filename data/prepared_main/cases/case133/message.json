@@ -1,0 +1,5 @@
+{
+  "commit": "2ed48a9b28f10784a5b8fc27ddae5ae299b43deb",
+  "chars": 513,
+  "text": "Add configuration entities and device actions for Inovelli Blue Series switch to ZHA (#79106)\n\n* Add Inovelli configutation entities to ZHA\n\n* add device actions\n\n* fix attribute name collision\n\n* add device action tests\n\n* disable remote protection per Inovelli request\n\n* expect_reply to false\n\n* update test for expect_reply change\n\n* inovelli feedback\n\n* translation keys and strings\n\n* clean up numbers\n\n* prevent double events\n\n* remove individual LED defaults per inovelli\n\n* redundant check\n\n* update test"
+}

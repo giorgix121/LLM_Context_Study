@@ -1,0 +1,65 @@
+{
+  "cache_key": "71a0b7bb4fb5214190fa33ad0c423f5fbf4dc6e1e80779f55f693792fbbeb7cd",
+  "sample_id": "case038",
+  "strategy": "S5",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change replaces a `ValueError` with a `logger.warning` for a condition where `config.multiagent.policies_to_train` contains a policy ID not defined in `config.multiagent.policies`, which is a less strict error handling and unlikely to introduce functional defects.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change replaces a `ValueError` with a `logger.warning` for a condition where `config.multiagent.policies_to_train` contains a policy ID not defined in `config.multiagent.policies`, which is a less strict error handling and unlikely to introduce functional defects.\"}",
+  "response_id": "gen-1790927243-NvGWpj907aehPUW7eipJ",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 662602,
+  "completion_tokens": 73,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0662894,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 662602,
+    "completion_tokens": 73,
+    "total_tokens": 662675,
+    "cost": 0.0662894,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0662894,
+      "upstream_inference_prompt_cost": 0.0662602,
+      "upstream_inference_completions_cost": 2.92e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 10.053,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T07:47:33+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "2fcde6c2bc7f31987bf52b32ce4b52e5f67c063194089b2af8e135a6da1b9ff1",
+  "sample_id": "case060",
+  "strategy": "J0",
+  "status": "invalid_output",
+  "predicted_label": null,
+  "explanation": null,
+  "validation_error": "not valid JSON (Expecting value)",
+  "fenced_json": false,
+  "raw_content": "JSON format: {\"label\": \"RISKY\" or \"NON-RISKY\", \"explanation\": \"<one short sentence>\"}\n```json\n{\"label\": \"RISKY\", \"explanation\": \"The `reverse_resolve` function in multiple indexer implementations now requires an `org_id` argument, which is not consistently passed in the modified code, potentially leading to `TypeError` exceptions.\"}\n```",
+  "response_id": "gen-1795563638-0lbTo6hBbGJiZR77le82",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 7235,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0007571,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 7235,
+    "completion_tokens": 84,
+    "total_tokens": 7319,
+    "cost": 0.0007571,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0007571,
+      "upstream_inference_prompt_cost": 0.0007235,
+      "upstream_inference_completions_cost": 3.36e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.547,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:40:38+00:00",
+  "run_id": "20261124T233752Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192751-YtLURQauQiE5uB99jYfi",
+    "object": "chat.completion",
+    "created": 1795192751,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"Removing the forwarding of the Accept-Encoding header means the proxy will use its default encoding negotiation, which is a minor behavioral change but unlikely to cause functional defects since the backend service will still respond with valid (possibly uncompressed) data.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2147,
+      "completion_tokens": 72,
+      "total_tokens": 2219,
+      "cost": 0.007521,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007521,
+        "upstream_inference_prompt_cost": 0.006441,
+        "upstream_inference_completions_cost": 0.00108
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

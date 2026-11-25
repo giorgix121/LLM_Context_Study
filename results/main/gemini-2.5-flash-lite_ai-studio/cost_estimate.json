@@ -1,0 +1,50 @@
+{
+  "created_at": "2026-11-24T23:37:52+00:00",
+  "per_strategy": [
+    {
+      "strategy": "C0",
+      "requests": 146,
+      "mean_prompt_chars": 19095,
+      "est_input_tokens_total": 929313,
+      "est_cost_usd": 0.09877129999999999,
+      "worst_case_usd": 0.1543444
+    },
+    {
+      "strategy": "J0",
+      "requests": 146,
+      "mean_prompt_chars": 19038,
+      "est_input_tokens_total": 926558,
+      "est_cost_usd": 0.0984958,
+      "worst_case_usd": 0.1539304
+    }
+  ],
+  "budget_cap_usd": 33.0,
+  "estimated_total_usd": 0.19726709999999997,
+  "worst_case_total_usd": 0.30827479999999996,
+  "pricing": {
+    "retrieved_at": "2026-11-24T23:37:52+00:00",
+    "source": "https://openrouter.ai/api/v1/models/google/gemini-2.5-flash-lite/endpoints",
+    "model": "google/gemini-2.5-flash-lite@ai-studio",
+    "provider": "Google AI Studio",
+    "provider_tag": "google-ai-studio",
+    "endpoint_model": "google/gemini-2.5-flash-lite",
+    "status": 0,
+    "uptime_last_30m": 100,
+    "price_prompt_per_token": 1e-07,
+    "price_completion_per_token": 4e-07,
+    "price_cache_read_per_token": 1e-08,
+    "supported_parameters": [
+      "reasoning",
+      "include_reasoning",
+      "structured_outputs",
+      "response_format",
+      "max_tokens",
+      "temperature",
+      "top_p",
+      "seed",
+      "tools",
+      "tool_choice",
+      "stop"
+    ]
+  }
+}

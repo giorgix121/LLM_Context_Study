@@ -1,0 +1,65 @@
+{
+  "cache_key": "5f2125e91a7f9bdd49d0abbfa7ea47dc889016d42f534e26c57faf1244a777b3",
+  "sample_id": "case047",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit changes the stored value in `_last_ibeacon_advertisement_by_unique_id` from an integer RSSI to an `iBeaconAdvertisement` object, but the logic for determining if a device is 'new' (`unique_id not in self._last_rssi_by_unique_id`) and the subsequent update logic in `_async_update_rssi` may behave incorrectly if the new object's state or comparison semantics differ from the previous integer-based tracking, potentially causing missed updates or incorrect availability states.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\n\"label\": \"RISKY\",\n\"explanation\": \"The commit changes the stored value in `_last_ibeacon_advertisement_by_unique_id` from an integer RSSI to an `iBeaconAdvertisement` object, but the logic for determining if a device is 'new' (`unique_id not in self._last_rssi_by_unique_id`) and the subsequent update logic in `_async_update_rssi` may behave incorrectly if the new object's state or comparison semantics differ from the previous integer-based tracking, potentially causing missed updates or incorrect availability states.\"\n}",
+  "response_id": "gen-1795564111-rx094AcdayL0dNKIGPO5",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 6034,
+  "completion_tokens": 117,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00096009,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 6034,
+    "completion_tokens": 117,
+    "total_tokens": 6151,
+    "cost": 0.00096009,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00096009,
+      "upstream_inference_prompt_cost": 0.0009051,
+      "upstream_inference_completions_cost": 5.499e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.602,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:48:35+00:00",
+  "run_id": "20261124T234127Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

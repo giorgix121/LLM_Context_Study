@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192470-1YYkQJ5h7Jl4TgBphFT4",
+    "object": "chat.completion",
+    "created": 1795192470,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The method signature changed from `name` (partial link text) to `key` (data-key attribute), so any existing callers passing a display name string will now fail to find the tab element, potentially breaking tests silently or raising NoSuchElementException.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 384,
+      "completion_tokens": 71,
+      "total_tokens": 455,
+      "cost": 0.002217,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002217,
+        "upstream_inference_prompt_cost": 0.001152,
+        "upstream_inference_completions_cost": 0.001065
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

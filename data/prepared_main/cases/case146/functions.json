@@ -1,0 +1,24 @@
+[
+  {
+    "name": "find_formatters",
+    "before": null,
+    "after": {
+      "start": 160,
+      "end": 161,
+      "code": "def find_formatters():\n    return {\"black_path\": shutil.which(\"black\")}"
+    }
+  },
+  {
+    "name": "run_formatters",
+    "before": {
+      "start": 160,
+      "end": 168,
+      "code": "def run_formatters(written_files):\n    \"\"\"\n    Run the black formatter on the specified files.\n    \"\"\"\n    if black_path := shutil.which(\"black\"):\n        subprocess.run(\n            [black_path, \"--fast\", \"--\", *written_files],\n            capture_output=True,\n        )"
+    },
+    "after": {
+      "start": 164,
+      "end": 175,
+      "code": "def run_formatters(written_files, black_path=(sentinel := object())):\n    \"\"\"\n    Run the black formatter on the specified files.\n    \"\"\"\n    # Use a sentinel rather than None, as which() returns None when not found.\n    if black_path is sentinel:\n        black_path = shutil.which(\"black\")\n    if black_path:\n        subprocess.run(\n            [black_path, \"--fast\", \"--\", *written_files],\n            capture_output=True,\n        )"
+    }
+  }
+]

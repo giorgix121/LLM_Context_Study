@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564783-oI0uosoDvsNvq5f4BUDv",
+    "object": "chat.completion",
+    "created": 1795564783,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The serialization logic for mapped operators was inverted: `include_deps=op.deps is MappedOperator.deps_for(BaseOperator)` (include when using default deps) was changed to `include_deps=op.deps != MappedOperator.deps_for(BaseOperator)` (include when NOT using default deps), which reverses when deps are serialized and could cause mapped sensors to lose their `ReadyToRescheduleDep` during serialization/deserialization.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6397,
+      "completion_tokens": 127,
+      "total_tokens": 6524,
+      "cost": 0.021096,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.021096,
+        "upstream_inference_prompt_cost": 0.019191,
+        "upstream_inference_completions_cost": 0.001905
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

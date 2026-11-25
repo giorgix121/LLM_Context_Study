@@ -1,0 +1,62 @@
+{
+  "found": 7,
+  "included": 7,
+  "functions": [
+    {
+      "name": "DatabaseSchemaEditor._field_data_type",
+      "path": "django/db/backends/postgresql/schema.py",
+      "start": 68,
+      "end": 74,
+      "code": "    def _field_data_type(self, field):\n        if field.is_relation:\n            return field.rel_db_type(self.connection)\n        return self.connection.data_types.get(\n            field.get_internal_type(),\n            field.db_type(self.connection),\n        )",
+      "called_by": "DatabaseSchemaEditor._using_sql"
+    },
+    {
+      "name": "DatabaseSchemaEditor._field_base_data_types",
+      "path": "django/db/backends/postgresql/schema.py",
+      "start": 76,
+      "end": 81,
+      "code": "    def _field_base_data_types(self, field):\n        # Yield base data types for array fields.\n        if field.base_field.get_internal_type() == \"ArrayField\":\n            yield from self._field_base_data_types(field.base_field)\n        else:\n            yield self._field_data_type(field.base_field)",
+      "called_by": "DatabaseSchemaEditor._using_sql"
+    },
+    {
+      "name": "strip_quotes",
+      "path": "django/db/backends/utils.py",
+      "start": 285,
+      "end": 292,
+      "code": "def strip_quotes(table_name):\n    \"\"\"\n    Strip quotes off of quoted table names to make them safe for use in index\n    names, sequence names, etc. For example '\"USER\".\"TABLE\"' (an Oracle naming\n    scheme) becomes 'USER\".\"TABLE'.\n    \"\"\"\n    has_quotes = table_name.startswith('\"') and table_name.endswith('\"')\n    return table_name[1:-1] if has_quotes else table_name",
+      "called_by": "DatabaseSchemaEditor._alter_column_type_sql"
+    },
+    {
+      "name": "BaseDatabaseSchemaEditor.execute",
+      "path": "django/db/backends/base/schema.py",
+      "start": 170,
+      "end": 199,
+      "code": "    def execute(self, sql, params=()):\n        \"\"\"Execute the given SQL statement, with optional parameters.\"\"\"\n        # Don't perform the transactional DDL check if SQL is being collected\n        # as it's not going to be executed anyway.\n        if (\n            not self.collect_sql\n            and self.connection.in_atomic_block\n            and not self.connection.features.can_rollback_ddl\n        ):\n            raise TransactionManagementError(\n                \"Executing DDL statements while in a transaction on databases \"\n                \"that can't perform a rollback is prohibited.\"\n            )\n        # Account for non-string statement objects.\n        sql = str(sql)\n        # Log the command we're running, then run it\n        logger.debug(\n            \"%s; (params %r)\", sql, params, extra={\"params\": params, \"sql\": sql}\n        )\n        if self.collect_sql:\n            ending = \"\" if sql.rstrip().endswith(\";\") else \";\"\n            if params is not None:\n                self.collected_sql.append(\n                    (sql % tuple(map(self.quote_value, params))) + ending\n                )\n            else:\n                self.collected_sql.append(sql + ending)\n        else:\n            with self.connection.cursor() as cursor:\n                cursor.execute(sql, params)",
+      "called_by": "DatabaseSchemaEditor._alter_column_type_sql"
+    },
+    {
+      "name": "BaseDatabaseSchemaEditor.quote_name",
+      "path": "django/db/backends/base/schema.py",
+      "start": 201,
+      "end": 202,
+      "code": "    def quote_name(self, name):\n        return self.connection.ops.quote_name(name)",
+      "called_by": "DatabaseSchemaEditor._alter_column_type_sql"
+    },
+    {
+      "name": "BaseDatabaseSchemaEditor._alter_column_type_sql",
+      "path": "django/db/backends/base/schema.py",
+      "start": 1208,
+      "end": 1228,
+      "code": "    def _alter_column_type_sql(self, model, old_field, new_field, new_type):\n        \"\"\"\n        Hook to specialize column type alteration for different backends,\n        for cases when a creation type is different to an alteration type\n        (e.g. SERIAL in PostgreSQL, PostGIS fields).\n\n        Return a two-tuple of: an SQL fragment of (sql, params) to insert into\n        an ALTER TABLE statement and a list of extra (sql, params) tuples to\n        run once the field is altered.\n        \"\"\"\n        return (\n            (\n                self.sql_alter_column_type\n                % {\n                    \"column\": self.quote_name(new_field.column),\n                    \"type\": new_type,\n                },\n                [],\n            ),\n            [],\n        )",
+      "called_by": "DatabaseSchemaEditor._alter_column_type_sql"
+    },
+    {
+      "name": "BaseDatabaseSchemaEditor._collate_sql",
+      "path": "django/db/backends/base/schema.py",
+      "start": 1744,
+      "end": 1745,
+      "code": "    def _collate_sql(self, collation):\n        return \"COLLATE \" + self.quote_name(collation)",
+      "called_by": "DatabaseSchemaEditor._alter_column_collation_sql"
+    }
+  ]
+}

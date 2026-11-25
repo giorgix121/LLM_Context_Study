@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565053-LA3HqyJKZYBj0Bop4m9T",
+    "object": "chat.completion",
+    "created": 1795565053,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The refactored `_flatten_dict` no longer converts `None` values to the string `\\\"None\\\"`, changing the behavior for `None` values passed to loggers (e.g., WandB, MLflow) which may not handle raw `None` in config updates the same way as the string representation.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 10014,
+      "completion_tokens": 84,
+      "total_tokens": 10098,
+      "cost": 0.031302,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.031302,
+        "upstream_inference_prompt_cost": 0.030042,
+        "upstream_inference_completions_cost": 0.00126
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "run_id": "20261124T233752Z",
+  "finished_at": "2026-11-24T23:41:26+00:00",
+  "halt_reason": null,
+  "completed": 292,
+  "failed": 0,
+  "attempts": 295,
+  "charged_usd_reported": 0.1823575,
+  "attempts_with_unknown_cost": 2,
+  "key_usage_before": 1284.792831487,
+  "key_usage_after": 1284.975188987,
+  "key_usage_delta": 0.18235749999985273,
+  "reconciled": true,
+  "tolerance_usd": 0.00364715,
+  "budget_cap_usd": 33.0
+}

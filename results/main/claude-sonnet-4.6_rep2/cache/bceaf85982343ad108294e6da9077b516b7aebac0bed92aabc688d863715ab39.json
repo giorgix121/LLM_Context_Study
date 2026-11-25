@@ -1,0 +1,65 @@
+{
+  "cache_key": "bceaf85982343ad108294e6da9077b516b7aebac0bed92aabc688d863715ab39",
+  "sample_id": "case133",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The `entity.Entity` base class already handles `_attr_name` via its own `name` property, so overriding it here with a manual `hasattr` check bypasses the standard HA entity attribute resolution order and could cause inconsistent behavior or shadow future framework changes, while also potentially returning `_attr_name` even when the parent class logic would have correctly deferred to other mechanisms.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The `entity.Entity` base class already handles `_attr_name` via its own `name` property, so overriding it here with a manual `hasattr` check bypasses the standard HA entity attribute resolution order and could cause inconsistent behavior or shadow future framework changes, while also potentially returning `_attr_name` even when the parent class logic would have correctly deferred to other mechanisms.\"}",
+  "response_id": "gen-1795193906-9L0o6zSd4pOOv0UagZU9",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 226,
+  "completion_tokens": 101,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.002193,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 226,
+    "completion_tokens": 101,
+    "total_tokens": 327,
+    "cost": 0.002193,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.002193,
+      "upstream_inference_prompt_cost": 0.000678,
+      "upstream_inference_completions_cost": 0.001515
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.42,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:58:29+00:00",
+  "run_id": "20261120T165651Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

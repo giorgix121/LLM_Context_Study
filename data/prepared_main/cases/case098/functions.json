@@ -1,0 +1,28 @@
+[
+  {
+    "name": "_LiteModule.state_dict#2",
+    "before": {
+      "start": 114,
+      "end": 116,
+      "code": "    @overload\n    def state_dict(self, *, prefix: str = ..., keep_vars: bool = ...) -> T_destination:\n        ..."
+    },
+    "after": {
+      "start": 114,
+      "end": 116,
+      "code": "    @overload\n    def state_dict(self, *, prefix: str = ..., keep_vars: bool = ...) -> Dict[str, Any]:\n        ..."
+    }
+  },
+  {
+    "name": "_LiteModule.state_dict#3",
+    "before": {
+      "start": 118,
+      "end": 125,
+      "code": "    def state_dict(\n        self, destination: Optional[T_destination] = None, prefix: str = \"\", keep_vars: bool = False\n    ) -> Optional[T_destination]:\n        return self._original_module.state_dict(\n            destination=destination,  # type: ignore[type-var]\n            prefix=prefix,\n            keep_vars=keep_vars,\n        )"
+    },
+    "after": {
+      "start": 118,
+      "end": 125,
+      "code": "    def state_dict(\n        self, destination: Optional[T_destination] = None, prefix: str = \"\", keep_vars: bool = False\n    ) -> Optional[Dict[str, Any]]:\n        return self._original_module.state_dict(\n            destination=destination,  # type: ignore[type-var]\n            prefix=prefix,\n            keep_vars=keep_vars,\n        )"
+    }
+  }
+]

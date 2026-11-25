@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795194235-AFZqQspPPpnVX8NMrZev",
+    "object": "chat.completion",
+    "created": 1795194235,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new `async_update` method only calls `async_update_uv_index_data()`, so sensors whose data comes from `async_update_protection_data()` (e.g., safe exposure time sensors) will never refresh their underlying data when the generic update service is invoked, potentially leaving them stale or causing errors.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 286,
+      "completion_tokens": 89,
+      "total_tokens": 375,
+      "cost": 0.002193,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002193,
+        "upstream_inference_prompt_cost": 0.000858,
+        "upstream_inference_completions_cost": 0.001335
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "commit": "ac369f5570d0a492d08ac9c2ba6622e451d7e131",
+  "chars": 155,
+  "text": "Fix incorrect `precision=\"mixed\"` being used with `DeepSpeedStrategy` and `IPUStrategy` (#14041)\n\nCo-authored-by: Carlos Mocholí <carlossmocholi@gmail.com>"
+}

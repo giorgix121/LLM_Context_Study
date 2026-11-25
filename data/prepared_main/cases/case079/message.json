@@ -1,0 +1,5 @@
+{
+  "commit": "28e18881a9ad2298169c78ad9ae109191e201c2f",
+  "chars": 99,
+  "text": "Mark stage argument in hooks as required (#14064)\n\nCo-authored-by: rohitgr7 <rohitgr1998@gmail.com>"
+}

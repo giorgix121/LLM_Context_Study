@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564851-ScJoJUjXp3yxMMvsA6SE",
+    "object": "chat.completion",
+    "created": 1795564851,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change simply adds a `disable_cache` boolean parameter with a default of `False` to `Poetry.__init__`, stores it, and exposes it via a property, which is a straightforward, backward-compatible addition that threads an existing flag through to the executor/authenticator.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1439,
+      "completion_tokens": 79,
+      "total_tokens": 1518,
+      "cost": 0.005502,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005502,
+        "upstream_inference_prompt_cost": 0.004317,
+        "upstream_inference_completions_cost": 0.001185
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

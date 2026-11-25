@@ -1,0 +1,65 @@
+{
+  "cache_key": "e48277a842e4e72b40e0419c4a624fb121d41b5d421f37e158d189ddf633e0ed",
+  "sample_id": "case144",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "A new helper function `is_saas` is introduced, which simply returns the value of a Django setting, adding no new logic or potential for defects.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"A new helper function `is_saas` is introduced, which simply returns the value of a Django setting, adding no new logic or potential for defects.\"}",
+  "response_id": "gen-1795048567-MU5auAmeCJwDXUHhLdnj",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 287,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 4.71e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 287,
+    "completion_tokens": 46,
+    "total_tokens": 333,
+    "cost": 4.71e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.71e-05,
+      "upstream_inference_prompt_cost": 2.87e-05,
+      "upstream_inference_completions_cost": 1.84e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.478,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:36:08+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

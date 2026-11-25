@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193404-F8XkR3Nkd5SKV4j6uUWW",
+    "object": "chat.completion",
+    "created": 1795193404,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change updates the tab-finding selector from a CSS class/partial link text approach to ARIA role attributes (`role=\\\"tablist\\\"` and `role=\\\"tab\\\"` with `data-key`), which is a straightforward UI locator update that reflects a DOM structure change and does not alter functional logic.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3043,
+      "completion_tokens": 84,
+      "total_tokens": 3127,
+      "cost": 0.010389,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.010389,
+        "upstream_inference_prompt_cost": 0.009129,
+        "upstream_inference_completions_cost": 0.00126
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

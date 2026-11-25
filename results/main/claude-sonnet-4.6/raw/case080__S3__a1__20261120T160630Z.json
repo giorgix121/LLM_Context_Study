@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193727-CGfxqNVPnZ8oQs10Wia0",
+    "object": "chat.completion",
+    "created": 1795193727,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"A mapped sensor that actually uses reschedule mode will now proceed past the early-exit check and reach the TaskReschedule query, but if it has a reschedule record it will be handled correctly; however, a mapped non-sensor (is_mapped=True, no reschedule intent) will also skip the early exit and unnecessarily hit the database, and more critically, a mapped sensor in reschedule mode with a future reschedule_date will correctly fail—but the logic conflates 'mapped' with 'might be a reschedule sensor', meaning any mapped task (including non-sensor mapped tasks) bypasses the fast-pass and could be incorrectly blocked if somehow a TaskReschedule row exists for it, introducing a subtle correctness risk.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1760,
+      "completion_tokens": 182,
+      "total_tokens": 1942,
+      "cost": 0.00801,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00801,
+        "upstream_inference_prompt_cost": 0.00528,
+        "upstream_inference_completions_cost": 0.00273
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

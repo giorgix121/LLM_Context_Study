@@ -1,0 +1,65 @@
+{
+  "cache_key": "25803f5fc6c6cc095a79c4a36327fa21b63d30e5398677f9c525e9d59c54f36c",
+  "sample_id": "case063",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change converts a positional argument to a keyword argument (`project_id=project.project_id`), which is a safe refactoring that maintains the same functionality while improving code clarity and consistency with the API's intended usage pattern.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change converts a positional argument to a keyword argument (`project_id=project.project_id`), which is a safe refactoring that maintains the same functionality while improving code clarity and consistency with the API's intended usage pattern.\"\n}\n```",
+  "response_id": "gen-1795564288-DOvoIegTIOnaRT5NgfdU",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 5253,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.005648,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 5253,
+    "completion_tokens": 79,
+    "total_tokens": 5332,
+    "cost": 0.005648,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.005648,
+      "upstream_inference_prompt_cost": 0.005253,
+      "upstream_inference_completions_cost": 0.000395
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.332,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:51:29+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

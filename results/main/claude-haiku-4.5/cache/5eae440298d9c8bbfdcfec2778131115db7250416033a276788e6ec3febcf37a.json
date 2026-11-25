@@ -1,0 +1,66 @@
+{
+  "cache_key": "5eae440298d9c8bbfdcfec2778131115db7250416033a276788e6ec3febcf37a",
+  "sample_id": "case09",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The condition `if expand_context:` will always be True since a non-empty dictionary is always truthy, making the logic flawed—it should check if the options list is non-empty instead, and the expand_context parameter is passed to ProjectSummarySerializer without verification that it accepts this parameter.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The condition `if expand_context:` will always be True since a non-empty dictionary is always truthy, making the logic flawed—it should check if the options list is non-empty instead, and the expand_context parameter is passed to ProjectSummarySerializer without verification that it accepts this parameter.\"\n}\n```",
+  "response_id": "gen-1790920201-Yp8JFPrqPEMc94KKsYNq",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 4535,
+  "completion_tokens": 92,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.004995,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 4535,
+    "completion_tokens": 92,
+    "total_tokens": 4627,
+    "cost": 0.004995,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.004995,
+      "upstream_inference_prompt_cost": 0.004535,
+      "upstream_inference_completions_cost": 0.00046
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.619,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T05:50:02+00:00",
+  "run_id": "20261002T054951Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  },
+  "reused_from": "results/claude-haiku-4.5/cache/5eae440298d9c8bbfdcfec2778131115db7250416033a276788e6ec3febcf37a.json"
+}

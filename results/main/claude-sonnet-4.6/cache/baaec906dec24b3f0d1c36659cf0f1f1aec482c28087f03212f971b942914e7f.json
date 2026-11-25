@@ -1,0 +1,65 @@
+{
+  "cache_key": "baaec906dec24b3f0d1c36659cf0f1f1aec482c28087f03212f971b942914e7f",
+  "sample_id": "case132",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The else branch was changed from `get_public_name_from_mri(metric_mri)` (which converts the MRI to a human-readable public name) to `metric_mri` (which returns the raw internal MRI string), altering the output when `operation` is `None` and potentially breaking callers that expect a public name.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The else branch was changed from `get_public_name_from_mri(metric_mri)` (which converts the MRI to a human-readable public name) to `metric_mri` (which returns the raw internal MRI string), altering the output when `operation` is `None` and potentially breaking callers that expect a public name.\"}",
+  "response_id": "gen-1795192268-P7uaoeJijYu0flEer5rM",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 576,
+  "completion_tokens": 94,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.003138,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 576,
+    "completion_tokens": 94,
+    "total_tokens": 670,
+    "cost": 0.003138,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003138,
+      "upstream_inference_prompt_cost": 0.001728,
+      "upstream_inference_completions_cost": 0.00141
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.599,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:31:11+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

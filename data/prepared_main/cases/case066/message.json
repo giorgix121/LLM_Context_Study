@@ -1,0 +1,5 @@
+{
+  "commit": "1a1f352479d6dbff21d73d3c51b1e5d5188e00e3",
+  "chars": 186,
+  "text": "Add Airflow specific warning classes (#25799)\n\nAdding `RemoveInAirflow3DeprecationWarning` and `AirflowProviderDeprecationWarning`\n\nCloses: https://github.com/apache/airflow/issues/22356"
+}

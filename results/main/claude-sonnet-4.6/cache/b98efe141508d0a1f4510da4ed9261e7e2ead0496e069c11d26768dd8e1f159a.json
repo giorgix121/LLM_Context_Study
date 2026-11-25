@@ -1,0 +1,65 @@
+{
+  "cache_key": "b98efe141508d0a1f4510da4ed9261e7e2ead0496e069c11d26768dd8e1f159a",
+  "sample_id": "case117",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Removing the `is_mono_with_producer` path from `_should_produce_to_kafka` silently disables Kafka publishing in MONOLITH mode even when the `hc.region-to-control.monolith-publish` option is enabled, which could break region-to-control message delivery in monolith deployments that relied on that feature flag.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Removing the `is_mono_with_producer` path from `_should_produce_to_kafka` silently disables Kafka publishing in MONOLITH mode even when the `hc.region-to-control.monolith-publish` option is enabled, which could break region-to-control message delivery in monolith deployments that relied on that feature flag.\"}",
+  "response_id": "gen-1795192262-Ia5GUizZkLp24jIb9V3U",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1200,
+  "completion_tokens": 99,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.005085,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1200,
+    "completion_tokens": 99,
+    "total_tokens": 1299,
+    "cost": 0.005085,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.005085,
+      "upstream_inference_prompt_cost": 0.0036,
+      "upstream_inference_completions_cost": 0.001485
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.835,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:31:06+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

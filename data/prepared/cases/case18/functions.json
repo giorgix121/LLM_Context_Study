@@ -1,0 +1,24 @@
+[
+  {
+    "name": "ActionConnectorPipeline.__init__",
+    "before": {
+      "start": 17,
+      "end": 19,
+      "code": "    def __init__(self, ctx: ConnectorContext, connectors: List[Connector]):\n        super().__init__(ctx)\n        self.connectors = connectors"
+    },
+    "after": {
+      "start": 17,
+      "end": 18,
+      "code": "    def __init__(self, ctx: ConnectorContext, connectors: List[Connector]):\n        super().__init__(ctx, connectors)"
+    }
+  },
+  {
+    "name": "ActionConnectorPipeline.is_training",
+    "before": {
+      "start": 21,
+      "end": 24,
+      "code": "    def is_training(self, is_training: bool):\n        self._is_training = is_training\n        for c in self.connectors:\n            c.is_training(is_training)"
+    },
+    "after": null
+  }
+]

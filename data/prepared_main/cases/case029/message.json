@@ -1,0 +1,5 @@
+{
+  "commit": "c1aff5c96d67399d7ace245b0d9706e82d12d648",
+  "chars": 742,
+  "text": "ci: use flake8-pie (#6164)\n\nRelates-to: #4776 \n\nAdding the hook leads to four new warnings for the repo.\n-\n[PIE803](https://github.com/sbdchd/flake8-pie#pie803-prefer-logging-interpolation):\nprefer-logging-interpolation\nThis check produces false positives (`debug()` calls are always flagged\nas if they belong to a logger). PR ignores such instances and fixes the\nrest.\n-\n[PIE786](https://github.com/sbdchd/flake8-pie#pie786-precise-exception-handlers):\nprecise-exception-handlers\nPR ignores instances where the intention is indeed to catch any\nexceptions and fixes the rest.\n-\n[PIE798](https://github.com/sbdchd/flake8-pie#pie798-no-unnecessary-class):\nno-unnecessary-class\nAll instances are ignored via an additional entry in flake8 config."
+}

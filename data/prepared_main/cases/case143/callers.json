@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "tranform_mqb_query_to_metrics_query",
+      "path": "src/sentry/snuba/metrics/mqb_query_transformer.py",
+      "start": 233,
+      "end": 259,
+      "code": "def tranform_mqb_query_to_metrics_query(query: Query) -> MetricsQuery:\n    # Validate that we only support this transformation for the generic_metrics dataset\n    if query.match.name not in {\"generic_metrics_distributions\", \"generic_metrics_sets\"}:\n        raise MQBQueryTransformationException(\n            f\"Unsupported entity name for {query.match.name} MQB to MetricsQuery \" f\"Transformation\"\n        )\n\n    if query.having:\n        raise MQBQueryTransformationException(\n            \"Having clauses are not supported by the metrics layer\"\n        )\n    # Handle groupby\n    groupby, include_series, interval = _transform_groupby(query.groupby)\n\n    mq_dict = {\n        \"select\": _transform_select(query.select),\n        \"groupby\": groupby,\n        \"limit\": query.limit,\n        \"offset\": query.offset,\n        \"include_totals\": True,\n        \"include_series\": include_series,\n        \"granularity\": query.granularity if query.granularity is not None else Granularity(3600),\n        \"orderby\": _transform_orderby(query.orderby),\n        \"interval\": interval,\n        **_get_mq_dict_params_from_where(query.where),\n    }\n    return MetricsQuery(**mq_dict)",
+      "calls": "_get_mq_dict_params_from_where"
+    }
+  ]
+}

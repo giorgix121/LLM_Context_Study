@@ -1,0 +1,65 @@
+{
+  "cache_key": "b2fc7e9327e9a1e6002cff6e50662e33064f4eea654fcf43c1df33e85e8cfb37",
+  "sample_id": "case127",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The refactored code changes the return statement from `c.reorder_categories(cat.categories)` to `Categorical(c, c.unique().categories.take(take_codes))`, which constructs a new Categorical with different semantics - passing `c` as the first argument to Categorical constructor (which expects codes) rather than reordering the original categorical's categories, potentially causing incorrect code-to-category mappings.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The refactored code changes the return statement from `c.reorder_categories(cat.categories)` to `Categorical(c, c.unique().categories.take(take_codes))`, which constructs a new Categorical with different semantics - passing `c` as the first argument to Categorical constructor (which expects codes) rather than reordering the original categorical's categories, potentially causing incorrect code-to-category mappings.\"\n}\n```",
+  "response_id": "gen-1795047935-touuV70Y3GM4Z6gmkVQ0",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 2874,
+  "completion_tokens": 121,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.003479,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2874,
+    "completion_tokens": 121,
+    "total_tokens": 2995,
+    "cost": 0.003479,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003479,
+      "upstream_inference_prompt_cost": 0.002874,
+      "upstream_inference_completions_cost": 0.000605
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.025,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:25:37+00:00",
+  "run_id": "20261119T002019Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

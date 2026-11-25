@@ -1,0 +1,11 @@
+[
+  {
+    "name": "HassIO.get_resolution_info",
+    "before": null,
+    "after": {
+      "start": 193,
+      "end": 199,
+      "code": "    @api_data\n    def get_resolution_info(self):\n        \"\"\"Return data for Supervisor resolution center.\n\n        This method return a coroutine.\n        \"\"\"\n        return self.send_command(\"/resolution/info\", method=\"get\")"
+    }
+  }
+]

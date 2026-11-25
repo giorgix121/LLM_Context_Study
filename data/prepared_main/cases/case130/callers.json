@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "hash_values",
+      "path": "src/sentry/utils/hashlib.py",
+      "start": 52,
+      "end": 62,
+      "code": "def hash_values(\n    values: Iterable[Any],\n    seed: Optional[str] = None,\n    algorithm: Callable[[], hashlib._Hash] = _md5,\n) -> str:\n    h = _md5()\n    if seed is not None:\n        h.update((\"%s\\xff\" % seed).encode(\"utf-8\"))\n    for value in values:\n        hash_value(h, value)\n    return h.hexdigest()",
+      "calls": "hash_value"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "name": "S3ToSnowflakeOperator.execute",
+    "before": {
+      "start": 105,
+      "end": 137,
+      "code": "    def execute(self, context: Any) -> None:\n        snowflake_hook = SnowflakeHook(\n            snowflake_conn_id=self.snowflake_conn_id,\n            warehouse=self.warehouse,\n            database=self.database,\n            role=self.role,\n            schema=self.schema,\n            authenticator=self.authenticator,\n            session_parameters=self.session_parameters,\n        )\n\n        if self.schema:\n            into = f\"{self.schema}.{self.table}\"\n        else:\n            into = self.table\n        if self.columns_array:\n            into = f\"{into}({','.join(self.columns_array)})\"\n\n        sql_parts = [\n            f\"COPY INTO {into}\",\n            f\"FROM @{self.stage}/{self.prefix or ''}\",\n        ]\n        if self.s3_keys:\n            files = \", \".join(f\"'{key}'\" for key in self.s3_keys)\n            sql_parts.append(f\"files=({files})\")\n        sql_parts.append(f\"file_format={self.file_format}\")\n        if self.pattern:\n            sql_parts.append(f\"pattern={enclose_param(self.pattern)}\")\n        copy_query = \"\\n\".join(sql_parts)\n\n        self.log.info('Executing COPY command...')\n        snowflake_hook.run(copy_query, self.autocommit)\n        self.log.info(\"COPY command completed\")"
+    },
+    "after": {
+      "start": 105,
+      "end": 137,
+      "code": "    def execute(self, context: Any) -> None:\n        snowflake_hook = SnowflakeHook(\n            snowflake_conn_id=self.snowflake_conn_id,\n            warehouse=self.warehouse,\n            database=self.database,\n            role=self.role,\n            schema=self.schema,\n            authenticator=self.authenticator,\n            session_parameters=self.session_parameters,\n        )\n\n        if self.schema:\n            into = f\"{self.schema}.{self.table}\"\n        else:\n            into = self.table\n        if self.columns_array:\n            into = f\"{into}({','.join(self.columns_array)})\"\n\n        sql_parts = [\n            f\"COPY INTO {into}\",\n            f\"FROM @{self.stage}/{self.prefix or ''}\",\n        ]\n        if self.s3_keys:\n            files = \", \".join(map(enclose_param, self.s3_keys))\n            sql_parts.append(f\"files=({files})\")\n        sql_parts.append(f\"file_format={self.file_format}\")\n        if self.pattern:\n            sql_parts.append(f\"pattern={enclose_param(self.pattern)}\")\n        copy_query = \"\\n\".join(sql_parts)\n\n        self.log.info('Executing COPY command...')\n        snowflake_hook.run(copy_query, self.autocommit)\n        self.log.info(\"COPY command completed\")"
+    }
+  }
+]

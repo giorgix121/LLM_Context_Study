@@ -1,0 +1,38 @@
+{
+  "found": 4,
+  "included": 4,
+  "functions": [
+    {
+      "name": "AcceleratorConnector._check_and_init_precision",
+      "path": "src/pytorch_lightning/trainer/connectors/accelerator_connector.py",
+      "start": 680,
+      "end": 736,
+      "code": "    def _check_and_init_precision(self) -> PrecisionPlugin:\n        self._validate_precision_choice()\n        if isinstance(self._precision_plugin_flag, PrecisionPlugin):\n            return self._precision_plugin_flag\n\n        if isinstance(self.accelerator, IPUAccelerator):\n            return IPUPrecisionPlugin(self._precision_flag)  # type: ignore\n        if isinstance(self.accelerator, HPUAccelerator):\n            return HPUPrecisionPlugin(self._precision_flag)  # type: ignore\n        if isinstance(self.accelerator, TPUAccelerator):\n            if self._precision_flag == 32:\n                return TPUPrecisionPlugin()\n            elif self._precision_flag in (16, \"bf16\"):\n                if self._precision_flag == 16:\n                    rank_zero_warn(\n                        \"You passed `Trainer(accelerator='tpu', precision=16)` but AMP\"\n                        \" is not supported with TPUs. Using `precision='bf16'` instead.\"\n                    )\n                return TPUBf16PrecisionPlugin()\n        if isinstance(self.strategy, DeepSpeedStrategy):\n            return DeepSpeedPrecisionPlugin(\n                self._precision_flag, self._amp_type_flag, self._amp_level_flag  # type: ignore\n            )\n\n        if self._precision_flag == 32:\n            return PrecisionPlugin()\n        if self._precision_flag == 64:\n            return DoublePrecisionPlugin()\n\n        if self._precision_flag == 16 and self._accelerator_flag == \"cpu\":\n            rank_zero_warn(\n                \"You passed `Trainer(accelerator='cpu', precision=16)` but native AMP is not supported on CPU.\"\n                \" Using `precision='bf16'` instead.\"\n            )\n            self._precision_flag = \"bf16\"\n\n        if self._precision_flag in (16, \"bf16\"):\n            rank_zero_info(\n                f\"Using 16bit {self._amp_type_flag.value} Automatic Mixed Precision (AMP)\"  # type: ignore\n                if self._precision_flag == 16\n                else \"Using bfloat16 Automatic Mixed Precision (AMP)\"\n            )\n\n            if self._amp_type_flag == AMPType.NATIVE:\n                device = \"cpu\" if self._accelerator_flag == \"cpu\" else \"cuda\"\n\n                if isinstance(self.strategy, (DDPShardedStrategy, DDPSpawnShardedStrategy)):\n                    return ShardedNativeMixedPrecisionPlugin(self._precision_flag, device)\n                if isinstance(self.strategy, (DDPFullyShardedStrategy, DDPFullyShardedNativeStrategy)):\n                    return FullyShardedNativeMixedPrecisionPlugin(self._precision_flag, device)\n                return NativeMixedPrecisionPlugin(self._precision_flag, device)\n\n            if self._amp_type_flag == AMPType.APEX:\n                self._amp_level_flag = self._amp_level_flag or \"O2\"\n                return ApexMixedPrecisionPlugin(self._amp_level_flag)\n\n        raise RuntimeError(\"No precision set\")",
+      "calls": "DeepSpeedPrecisionPlugin.__init__"
+    },
+    {
+      "name": "test_invalid_precision_with_deepspeed_precision",
+      "path": "tests/tests_pytorch/plugins/precision/test_deepspeed_precision.py",
+      "start": 22,
+      "end": 24,
+      "code": "def test_invalid_precision_with_deepspeed_precision():\n    with pytest.raises(ValueError, match=\"is not supported. `precision` must be one of\"):\n        DeepSpeedPrecisionPlugin(precision=64, amp_type=\"native\")",
+      "calls": "DeepSpeedPrecisionPlugin.__init__"
+    },
+    {
+      "name": "test_deepspeed_precision_apex_not_installed",
+      "path": "tests/tests_pytorch/plugins/precision/test_deepspeed_precision.py",
+      "start": 27,
+      "end": 32,
+      "code": "def test_deepspeed_precision_apex_not_installed(monkeypatch):\n    import pytorch_lightning.plugins.precision.deepspeed as deepspeed_apex\n\n    monkeypatch.setattr(deepspeed_apex, \"_APEX_AVAILABLE\", False)\n    with pytest.raises(MisconfigurationException, match=\"You have asked for Apex AMP but `apex` is not installed.\"):\n        DeepSpeedPrecisionPlugin(precision=16, amp_type=\"apex\")",
+      "calls": "DeepSpeedPrecisionPlugin.__init__"
+    },
+    {
+      "name": "test_deepspeed_precision_apex_default_level",
+      "path": "tests/tests_pytorch/plugins/precision/test_deepspeed_precision.py",
+      "start": 35,
+      "end": 39,
+      "code": "@mock.patch(\"pytorch_lightning.plugins.precision.deepspeed._APEX_AVAILABLE\", return_value=True)\ndef test_deepspeed_precision_apex_default_level(_):\n    precision_plugin = DeepSpeedPrecisionPlugin(precision=16, amp_type=\"apex\")\n    assert isinstance(precision_plugin, DeepSpeedPrecisionPlugin)\n    assert precision_plugin.amp_level == \"O2\"",
+      "calls": "DeepSpeedPrecisionPlugin.__init__"
+    }
+  ]
+}

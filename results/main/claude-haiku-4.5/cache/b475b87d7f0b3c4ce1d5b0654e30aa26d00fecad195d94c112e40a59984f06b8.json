@@ -1,0 +1,65 @@
+{
+  "cache_key": "b475b87d7f0b3c4ce1d5b0654e30aa26d00fecad195d94c112e40a59984f06b8",
+  "sample_id": "case109",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change removes the `inspect` import and passes no argument to `find_stack_level()` instead of `inspect.currentframe()`, which aligns with reverting a caching optimization and should maintain equivalent functionality since `find_stack_level()` can obtain the current frame internally.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change removes the `inspect` import and passes no argument to `find_stack_level()` instead of `inspect.currentframe()`, which aligns with reverting a caching optimization and should maintain equivalent functionality since `find_stack_level()` can obtain the current frame internally.\"\n}\n```",
+  "response_id": "gen-1795188029-JqJXtwtjBzDPTLlbfmv7",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 392,
+  "completion_tokens": 91,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000847,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 392,
+    "completion_tokens": 91,
+    "total_tokens": 483,
+    "cost": 0.000847,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000847,
+      "upstream_inference_prompt_cost": 0.000392,
+      "upstream_inference_completions_cost": 0.000455
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.493,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:20:31+00:00",
+  "run_id": "20261120T151736Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

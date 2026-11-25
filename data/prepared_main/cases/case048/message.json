@@ -1,0 +1,5 @@
+{
+  "commit": "eea47195444b53f100d83a2a67ecba149b0acc1d",
+  "chars": 84,
+  "text": "Fix Yale Access Bluetooth not being available again after being unavailable (#81320)"
+}

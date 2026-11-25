@@ -1,0 +1,5 @@
+{
+  "commit": "a29baf93c8ed65b74842283ed235965a5ed040a2",
+  "chars": 442,
+  "text": "[Datasets] Add `.iter_torch_batches()` and `.iter_tf_batches()` APIs. (#26689)\n\nThis PR adds .iter_torch_batches() and .iter_tf_batches() convenience APIs, which takes care of ML framework tensor conversion, the narrow tensor waste for the .iter_batches() call (\"numpy\" format), and unifies batch formats around two options: a single tensor for simple/pure-tensor/single-column datasets, and a dictionary of tensors for multi-column datasets."
+}

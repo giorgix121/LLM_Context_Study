@@ -1,0 +1,65 @@
+{
+  "cache_key": "50cc2909b92ba93641f86d4e3795b1f81dcad4bcb9fb32aaf3c9e2ec6150b741",
+  "sample_id": "case067",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Removing the Accept-Encoding header forwarding from multiple profiling endpoints may cause the profiling service to receive requests without proper encoding negotiation, potentially breaking content negotiation or causing unexpected behavior in downstream services.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"Removing the Accept-Encoding header forwarding from multiple profiling endpoints may cause the profiling service to receive requests without proper encoding negotiation, potentially breaking content negotiation or causing unexpected behavior in downstream services.\"\n}\n```",
+  "response_id": "gen-1795187930-CXATb1PPYZbJgHAtwSsB",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 674,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001024,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 674,
+    "completion_tokens": 70,
+    "total_tokens": 744,
+    "cost": 0.001024,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001024,
+      "upstream_inference_prompt_cost": 0.000674,
+      "upstream_inference_completions_cost": 0.00035
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.562,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:18:51+00:00",
+  "run_id": "20261120T151736Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

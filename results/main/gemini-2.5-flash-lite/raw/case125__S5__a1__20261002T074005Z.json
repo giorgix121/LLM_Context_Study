@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1790927784-04GTtIWrBHGqeqTSspUx",
+    "object": "chat.completion",
+    "created": 1790927784,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"label\": \"NON-RISKY\", \"explanation\": \"The change replaces `hass.data[DATA_MQTT]` with `hass.data[DATA_MQTT].client`, which is a more specific way to access the MQTT client instance, likely improving code clarity without altering functionality.\"}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 683173,
+      "completion_tokens": 64,
+      "total_tokens": 683237,
+      "cost": 0.0683429,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0683429,
+        "upstream_inference_prompt_cost": 0.0683173,
+        "upstream_inference_completions_cost": 2.56e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

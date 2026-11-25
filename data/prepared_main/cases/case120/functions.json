@@ -1,0 +1,15 @@
+[
+  {
+    "name": "get_task_kwargs_for_message",
+    "before": {
+      "start": 96,
+      "end": 118,
+      "code": "def get_task_kwargs_for_message(value: str) -> Optional[Mapping[str, Any]]:\n    \"\"\"\n    Decodes a message body, returning a dictionary of keyword arguments that\n    can be applied to a post-processing task, or ``None`` if no task should be\n    dispatched.\n    \"\"\"\n\n    metrics.timing(\"eventstream.events.size.data\", len(value))\n    payload = json.loads(value, use_rapid_json=True)\n\n    try:\n        version = payload[0]\n    except Exception:\n        raise InvalidPayload(\"Received event payload with unexpected structure\")\n\n    try:\n        handler = version_handlers[int(version)]\n    except (ValueError, KeyError):\n        raise InvalidVersion(\n            f\"Received event payload with unexpected version identifier: {version}\"\n        )\n\n    return handler(*payload[1:])"
+    },
+    "after": {
+      "start": 96,
+      "end": 118,
+      "code": "def get_task_kwargs_for_message(value: bytes) -> Optional[Mapping[str, Any]]:\n    \"\"\"\n    Decodes a message body, returning a dictionary of keyword arguments that\n    can be applied to a post-processing task, or ``None`` if no task should be\n    dispatched.\n    \"\"\"\n\n    metrics.timing(\"eventstream.events.size.data\", len(value))\n    payload = json.loads(value, use_rapid_json=True)\n\n    try:\n        version = payload[0]\n    except Exception:\n        raise InvalidPayload(\"Received event payload with unexpected structure\")\n\n    try:\n        handler = version_handlers[int(version)]\n    except (ValueError, KeyError):\n        raise InvalidVersion(\n            f\"Received event payload with unexpected version identifier: {version}\"\n        )\n\n    return handler(*payload[1:])"
+    }
+  }
+]

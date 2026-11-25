@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795194483-B2Hdis4kkIpt1vzNvQoz",
+    "object": "chat.completion",
+    "created": 1795194483,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at the diff, the key change is in the `sort=False` branch of `recode_for_groupby`. The new code uses `np.int8` for `all_codes`, which can only hold values up to 127. If a categorical has more than 128 categories, `all_codes` will overflow, causing incorrect behavior in `np.setdiff1d` comparisons against `unique_notnan_codes` (which uses the actual dtype from `c.codes`, typically `int8` or `int16` depending on category count). This could produce wrong results for categoricals with more than 128 categories.\n\n{\"label\": \"RISKY\", \"explanation\": \"Using `dtype=np.int8` for `all_codes` limits it to 127 max, causing integer overflow and incorrect `setdiff1d` results when a Categorical has more than 128 categories.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2875,
+      "completion_tokens": 204,
+      "total_tokens": 3079,
+      "cost": 0.011685,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.011685,
+        "upstream_inference_prompt_cost": 0.008625,
+        "upstream_inference_completions_cost": 0.00306
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

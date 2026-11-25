@@ -1,0 +1,65 @@
+{
+  "cache_key": "e97ec22740ac88bc6779e74621f9aa00320f0904ccb360d327865f4ddc2828b0",
+  "sample_id": "case031",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The original code caught `AttributeError` to handle cases where `scope.span` is `None` (accessing `.span_id` on `None` raises `AttributeError`), but the new code only checks `scope.span is not None` before the context manager exits — however, `sentry_sdk.configure_scope()` could also raise other exceptions or `scope` itself could be `None` in some SDK versions, and more importantly the refactor is functionally equivalent only if `scope.span` is the sole source of `AttributeError`; if `scope` itself lacks a `span` attribute in some SDK version, the new code will raise an unhandled `AttributeError` instead of gracefully falling back.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The original code caught `AttributeError` to handle cases where `scope.span` is `None` (accessing `.span_id` on `None` raises `AttributeError`), but the new code only checks `scope.span is not None` before the context manager exits — however, `sentry_sdk.configure_scope()` could also raise other exceptions or `scope` itself could be `None` in some SDK versions, and more importantly the refactor is functionally equivalent only if `scope.span` is the sole source of `AttributeError`; if `scope` itself lacks a `span` attribute in some SDK version, the new code will raise an unhandled `AttributeError` instead of gracefully falling back.\"}",
+  "response_id": "gen-1795191929-CvgxVNFan46edxoSF4Px",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 347,
+  "completion_tokens": 174,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.003651,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 347,
+    "completion_tokens": 174,
+    "total_tokens": 521,
+    "cost": 0.003651,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003651,
+      "upstream_inference_prompt_cost": 0.001041,
+      "upstream_inference_completions_cost": 0.00261
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 5.033,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:25:34+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "sample_id": "case14",
+  "path": "src/sentry/api/endpoints/organization_vitals_overview.py"
+}

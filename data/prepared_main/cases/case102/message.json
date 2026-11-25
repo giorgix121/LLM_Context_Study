@@ -1,0 +1,5 @@
+{
+  "commit": "a882713d1b8fc6f30ba7e8717252334d6720caa9",
+  "chars": 756,
+  "text": "chore(hybrid-cloud): Refactor Organization ORM out of views and auth (#40362)\n\nFor hybrid cloud, the organization and related models will not exist in the control silo, but will be necessary for certain auth related flows.  This change is the first of many to make the core auth flows compatible with a split silo world by introducing a service object that captures existing needs for an organization arond the `get_active_organization` method.  Behavior should remain identical, except that the pure ORM object is not available in many places.  Those places have been updated to use a new thinner model object that corresponds with future control silo's data availability.\n\nCo-authored-by: getsantry[bot] <66042841+getsantry[bot]@users.noreply.github.com>"
+}

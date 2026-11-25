@@ -1,0 +1,65 @@
+{
+  "cache_key": "abdbf54e5defd9f4b3f1f487e697195e6309711bad73b6fe78fd9b5b34242b5b",
+  "sample_id": "case080",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a safety check for mapped sensors by detecting when a task is mapped and skipping the reschedule property check (which doesn't exist on mapped tasks), then providing an appropriate fallback with a different passing reason, which correctly handles the edge case without altering existing behavior for non-mapped tasks.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change adds a safety check for mapped sensors by detecting when a task is mapped and skipping the reschedule property check (which doesn't exist on mapped tasks), then providing an appropriate fallback with a different passing reason, which correctly handles the edge case without altering existing behavior for non-mapped tasks.\"\n}\n```",
+  "response_id": "gen-1795187973-mn0w0QngKH778j3v1VDR",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 605,
+  "completion_tokens": 93,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00107,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 605,
+    "completion_tokens": 93,
+    "total_tokens": 698,
+    "cost": 0.00107,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00107,
+      "upstream_inference_prompt_cost": 0.000605,
+      "upstream_inference_completions_cost": 0.000465
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.481,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:19:34+00:00",
+  "run_id": "20261120T151736Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

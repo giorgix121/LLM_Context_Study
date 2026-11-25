@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "SlowCSVDatasource._read_stream",
+      "path": "python/ray/data/tests/test_dataset.py",
+      "start": 52,
+      "end": 55,
+      "code": "    def _read_stream(self, f: \"pa.NativeFile\", path: str, **reader_args):\n        for block in CSVDatasource._read_stream(self, f, path, **reader_args):\n            time.sleep(3)\n            yield block",
+      "calls": "CSVDatasource._read_stream"
+    },
+    {
+      "name": "FlakyCSVDatasource._read_stream",
+      "path": "python/ray/data/tests/test_dataset.py",
+      "start": 4743,
+      "end": 4749,
+      "code": "    def _read_stream(self, f: \"pa.NativeFile\", path: str, **reader_args):\n        count = self.counter.increment.remote()\n        if ray.get(count) == 1:\n            raise ValueError(\"oops\")\n        else:\n            for block in CSVDatasource._read_stream(self, f, path, **reader_args):\n                yield block",
+      "calls": "CSVDatasource._read_stream"
+    },
+    {
+      "name": "MySource._read_stream",
+      "path": "python/ray/data/tests/test_optimize.py",
+      "start": 40,
+      "end": 44,
+      "code": "    def _read_stream(self, f, path: str, **reader_args):\n        count = self.counter.increment.remote()\n        ray.get(count)\n        for block in super()._read_stream(f, path, **reader_args):\n            yield block",
+      "calls": "CSVDatasource._read_stream"
+    }
+  ]
+}

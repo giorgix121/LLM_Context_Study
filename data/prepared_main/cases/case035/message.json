@@ -1,0 +1,5 @@
+{
+  "commit": "a66b41b7dc533ad5a29093613e6494c11c00cd1a",
+  "chars": 585,
+  "text": "ref(celery): Remove partitioned queues (#39634)\n\nPartitioned queues no more. Queues for `counters` and `triggers` weren't\nreally partitioned because `create_partitioned_queues` was looping over\n`range(1)` so there were always only `counters-0` and `triggers-0`\n(confirmed in\n[metrics](https://app.datadoghq.com/dashboard/j6i-rfz-67y/queue-status?fullscreen_end_ts=1664992112394&fullscreen_paused=false&fullscreen_section=overview&fullscreen_start_ts=1664977712394&fullscreen_widget=87139323&from_ts=1664975117626&to_ts=1664989517626&live=true)).\nThis PR removes the partitioning logic."
+}

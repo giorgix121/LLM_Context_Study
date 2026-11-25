@@ -1,0 +1,5 @@
+{
+  "commit": "605e214b07cabd4d85e200bd2db3497f0f6d3560",
+  "chars": 153,
+  "text": "feat(discover): add custom perf metric unit to measurements-meta response (#38748)\n\nAdds the custom performance metric unit to measurements-meta response"
+}

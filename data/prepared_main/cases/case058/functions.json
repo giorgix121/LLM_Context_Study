@@ -1,0 +1,28 @@
+[
+  {
+    "name": "GPSLoggerEntity.async_added_to_hass",
+    "before": {
+      "start": 125,
+      "end": 159,
+      "code": "    async def async_added_to_hass(self):\n        \"\"\"Register state update callback.\"\"\"\n        await super().async_added_to_hass()\n        self._unsub_dispatcher = async_dispatcher_connect(\n            self.hass, TRACKER_UPDATE, self._async_receive_data\n        )\n\n        # don't restore if we got created with data\n        if self._location is not None:\n            return\n\n        if (state := await self.async_get_last_state()) is None:\n            self._location = (None, None)\n            self._accuracy = None\n            self._attributes = {\n                ATTR_ALTITUDE: None,\n                ATTR_ACTIVITY: None,\n                ATTR_DIRECTION: None,\n                ATTR_PROVIDER: None,\n                ATTR_SPEED: None,\n            }\n            self._battery = None\n            return\n\n        attr = state.attributes\n        self._location = (attr.get(ATTR_LATITUDE), attr.get(ATTR_LONGITUDE))\n        self._accuracy = attr.get(ATTR_GPS_ACCURACY)\n        self._attributes = {\n            ATTR_ALTITUDE: attr.get(ATTR_ALTITUDE),\n            ATTR_ACTIVITY: attr.get(ATTR_ACTIVITY),\n            ATTR_DIRECTION: attr.get(ATTR_DIRECTION),\n            ATTR_PROVIDER: attr.get(ATTR_PROVIDER),\n            ATTR_SPEED: attr.get(ATTR_SPEED),\n        }\n        self._battery = attr.get(ATTR_BATTERY_LEVEL)"
+    },
+    "after": {
+      "start": 125,
+      "end": 159,
+      "code": "    async def async_added_to_hass(self) -> None:\n        \"\"\"Register state update callback.\"\"\"\n        await super().async_added_to_hass()\n        self._unsub_dispatcher = async_dispatcher_connect(\n            self.hass, TRACKER_UPDATE, self._async_receive_data\n        )\n\n        # don't restore if we got created with data\n        if self._location is not None:\n            return\n\n        if (state := await self.async_get_last_state()) is None:\n            self._location = (None, None)\n            self._accuracy = None\n            self._attributes = {\n                ATTR_ALTITUDE: None,\n                ATTR_ACTIVITY: None,\n                ATTR_DIRECTION: None,\n                ATTR_PROVIDER: None,\n                ATTR_SPEED: None,\n            }\n            self._battery = None\n            return\n\n        attr = state.attributes\n        self._location = (attr.get(ATTR_LATITUDE), attr.get(ATTR_LONGITUDE))\n        self._accuracy = attr.get(ATTR_GPS_ACCURACY)\n        self._attributes = {\n            ATTR_ALTITUDE: attr.get(ATTR_ALTITUDE),\n            ATTR_ACTIVITY: attr.get(ATTR_ACTIVITY),\n            ATTR_DIRECTION: attr.get(ATTR_DIRECTION),\n            ATTR_PROVIDER: attr.get(ATTR_PROVIDER),\n            ATTR_SPEED: attr.get(ATTR_SPEED),\n        }\n        self._battery = attr.get(ATTR_BATTERY_LEVEL)"
+    }
+  },
+  {
+    "name": "GPSLoggerEntity.async_will_remove_from_hass",
+    "before": {
+      "start": 161,
+      "end": 164,
+      "code": "    async def async_will_remove_from_hass(self):\n        \"\"\"Clean up after entity before removal.\"\"\"\n        await super().async_will_remove_from_hass()\n        self._unsub_dispatcher()"
+    },
+    "after": {
+      "start": 161,
+      "end": 164,
+      "code": "    async def async_will_remove_from_hass(self) -> None:\n        \"\"\"Clean up after entity before removal.\"\"\"\n        await super().async_will_remove_from_hass()\n        self._unsub_dispatcher()"
+    }
+  }
+]

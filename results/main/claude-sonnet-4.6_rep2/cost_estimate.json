@@ -1,0 +1,51 @@
+{
+  "created_at": "2026-11-20T16:56:51+00:00",
+  "per_strategy": [
+    {
+      "strategy": "S0",
+      "requests": 146,
+      "mean_prompt_chars": 1314,
+      "est_input_tokens_total": 63996,
+      "est_cost_usd": 0.410988,
+      "worst_case_usd": 0.848541
+    },
+    {
+      "strategy": "S2",
+      "requests": 146,
+      "mean_prompt_chars": 13384,
+      "est_input_tokens_total": 651392,
+      "est_cost_usd": 2.173176,
+      "worst_case_usd": 3.49179
+    }
+  ],
+  "budget_cap_usd": 26.0,
+  "estimated_total_usd": 2.5841640000000003,
+  "worst_case_total_usd": 4.340331,
+  "pricing": {
+    "retrieved_at": "2026-11-20T16:56:51+00:00",
+    "source": "https://openrouter.ai/api/v1/models/anthropic/claude-sonnet-4.6/endpoints",
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "provider_tag": "anthropic",
+    "endpoint_model": "anthropic/claude-4.6-sonnet-20260217",
+    "status": 0,
+    "uptime_last_30m": 100,
+    "price_prompt_per_token": 3e-06,
+    "price_completion_per_token": 1.5e-05,
+    "price_cache_read_per_token": 3e-07,
+    "supported_parameters": [
+      "reasoning",
+      "include_reasoning",
+      "max_tokens",
+      "temperature",
+      "top_p",
+      "stop",
+      "tools",
+      "tool_choice",
+      "structured_outputs",
+      "response_format",
+      "verbosity",
+      "reasoning_effort"
+    ]
+  }
+}

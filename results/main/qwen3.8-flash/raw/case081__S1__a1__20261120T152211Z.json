@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189530-XbTh94YPOYWtvLyPYR5B",
+    "object": "chat.completion",
+    "created": 1795189530,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The removal of the duplicate `super().__init__()` call and the typo fix in `process_group_backend` are correct, but calling the private method `optimizer._clear_cache()` introduces a dependency on internal fairscale implementation details that may not exist or behave consistently across versions.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3168,
+      "completion_tokens": 70,
+      "total_tokens": 3238,
+      "cost": 0.0005081,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0005081,
+        "upstream_inference_prompt_cost": 0.0004752,
+        "upstream_inference_completions_cost": 3.29e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

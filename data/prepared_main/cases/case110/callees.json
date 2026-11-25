@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "_is_srun_used",
+      "path": "src/lightning_lite/plugins/environments/slurm.py",
+      "start": 191,
+      "end": 192,
+      "code": "def _is_srun_used() -> bool:\n    return \"SLURM_NTASKS\" in os.environ and SLURMEnvironment.job_name() != \"bash\"",
+      "called_by": "SLURMEnvironment._validate_srun_used"
+    }
+  ]
+}

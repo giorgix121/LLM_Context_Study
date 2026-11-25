@@ -1,0 +1,5 @@
+{
+  "commit": "770a8148c9ceb583053578af0480e815af01614f",
+  "chars": 40,
+  "text": "adds fallback behavior for non-ms shells"
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565318-h32MdUPGVmrTLzs5fsjv",
+    "object": "chat.completion",
+    "created": 1795565318,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"In `async_step_authorize`, `self.client.pair()` is called unconditionally every time the form is shown (including after a failed auth attempt), but when `use_psk=True` the PSK flow doesn't need pairing and calling it could cause unexpected errors or side effects; additionally, if `pair()` raises `BraviaTVError` after a failed auth retry, the flow aborts instead of re-showing the form with the auth error.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8173,
+      "completion_tokens": 119,
+      "total_tokens": 8292,
+      "cost": 0.026304,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.026304,
+        "upstream_inference_prompt_cost": 0.024519,
+        "upstream_inference_completions_cost": 0.001785
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

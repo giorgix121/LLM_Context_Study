@@ -1,0 +1,15 @@
+[
+  {
+    "name": "JiraServerClient.get_project_key_for_id",
+    "before": {
+      "start": 129,
+      "end": 136,
+      "code": "    def get_project_key_for_id(self, project_id):\n        if not project_id:\n            return \"\"\n        projects = self.get_projects_list()\n        for project in projects:\n            if project[\"id\"] == project_id:\n                return project[\"key\"].encode(\"utf-8\")\n        return \"\""
+    },
+    "after": {
+      "start": 129,
+      "end": 136,
+      "code": "    def get_project_key_for_id(self, project_id) -> str:\n        if not project_id:\n            return \"\"\n        projects = self.get_projects_list()\n        for project in projects:\n            if project[\"id\"] == project_id:\n                return project[\"key\"]\n        return \"\""
+    }
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189778-FXm2G1ZgEJsE4VNoQAwM",
+    "object": "chat.completion",
+    "created": 1795189778,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change replaces `which` with `command -v`, but `command` is a shell builtin and not an executable file, so `subprocess.call([\\\"command\\\", \\\"-v\\\", \\\"srun\\\"])` will raise a FileNotFoundError (caught by the new try/except) or fail to find srun even if it exists, effectively breaking the detection logic on systems where `which` was previously working.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1193,
+      "completion_tokens": 98,
+      "total_tokens": 1291,
+      "cost": 0.00022501,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00022501,
+        "upstream_inference_prompt_cost": 0.00017895,
+        "upstream_inference_completions_cost": 4.606e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

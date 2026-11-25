@@ -1,0 +1,15 @@
+[
+  {
+    "name": "_FxValidator.check_logging",
+    "before": {
+      "start": 176,
+      "end": 186,
+      "code": "    @classmethod\n    def check_logging(cls, fx_name: str) -> None:\n        \"\"\"Check if the given hook is allowed to log.\"\"\"\n        if fx_name not in cls.functions:\n            raise RuntimeError(\n                f\"Logging inside `{fx_name}` is not implemented.\"\n                \" Please, open an issue in `https://github.com/PyTorchLightning/pytorch-lightning/issues`.\"\n            )\n\n        if cls.functions[fx_name] is None:\n            raise MisconfigurationException(f\"You can't `self.log()` inside `{fx_name}`.\")"
+    },
+    "after": {
+      "start": 176,
+      "end": 186,
+      "code": "    @classmethod\n    def check_logging(cls, fx_name: str) -> None:\n        \"\"\"Check if the given hook is allowed to log.\"\"\"\n        if fx_name not in cls.functions:\n            raise RuntimeError(\n                f\"Logging inside `{fx_name}` is not implemented.\"\n                \" Please, open an issue in `https://github.com/Lightning-AI/lightning/issues`.\"\n            )\n\n        if cls.functions[fx_name] is None:\n            raise MisconfigurationException(f\"You can't `self.log()` inside `{fx_name}`.\")"
+    }
+  }
+]

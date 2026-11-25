@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564936-LHTDDQELXRnoR0jcwbaM",
+    "object": "chat.completion",
+    "created": 1795564936,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The `test_customer_domain_feature` test enables `organizations:customer-domains` globally (not scoped to an org), but the production code only appends the feature when `last_org` is non-None, meaning an unauthenticated/no-active-org request will never get the feature even if the flag is globally enabled, creating a mismatch between test expectations and actual behavior.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1490,
+      "completion_tokens": 103,
+      "total_tokens": 1593,
+      "cost": 0.006015,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006015,
+        "upstream_inference_prompt_cost": 0.00447,
+        "upstream_inference_completions_cost": 0.001545
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

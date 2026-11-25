@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "GoogleBaseHook.get_credentials",
+      "path": "airflow/providers/google/common/hooks/base_google.py",
+      "start": 267,
+      "end": 270,
+      "code": "    def get_credentials(self) -> google.auth.credentials.Credentials:\n        \"\"\"Returns the Credentials object for Google API\"\"\"\n        credentials, _ = self.get_credentials_and_project_id()\n        return credentials",
+      "called_by": "CloudVideoIntelligenceHook.get_conn"
+    }
+  ]
+}

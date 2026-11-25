@@ -1,0 +1,5 @@
+{
+  "commit": "00233de292ec1b0e881fedb94c938abda4db5d6b",
+  "chars": 499,
+  "text": "[core] default memory threshold for release tests (#28640)\n\nNoticed that the release tests are using a lower memory threshold. This comes from Anyscale setting a specific value that can change based on what it needs. Anyscale recently made a change to respect the override that is set in the cluster env. This PR overrides the memory threshold so it will always use the value we set, regardless of what is set by Anyscale for its other clusters.\n\nSigned-off-by: Clarence Ng <clarence.wyng@gmail.com>"
+}

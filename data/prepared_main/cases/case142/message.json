@@ -1,0 +1,5 @@
+{
+  "commit": "01d05f66fe5a189209538650dce319b2f7e192ee",
+  "chars": 206,
+  "text": "auto-detect pigeon or quectel (#25991)\n\n* auto-detect pigeon or quectel\n\n* persistent\n\n* fix sim\n\n* fix process replay\n\n* fix locationd unit tests\n\n* fix that\n\nCo-authored-by: Comma Device <device@comma.ai>"
+}

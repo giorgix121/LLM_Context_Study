@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795047624-9X7keapGYklvG1XzcOp7",
+    "object": "chat.completion",
+    "created": 1795047624,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change replaces `app_id=int(build.app_id)` with `app_id_str=build.app_id` in the database query, which will fail to find existing builds if the database schema expects an integer `app_id` field rather than a string `app_id_str` field, potentially causing duplicate build records to be created.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5751,
+      "completion_tokens": 106,
+      "total_tokens": 5857,
+      "cost": 0.006281,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006281,
+        "upstream_inference_prompt_cost": 0.005751,
+        "upstream_inference_completions_cost": 0.00053
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

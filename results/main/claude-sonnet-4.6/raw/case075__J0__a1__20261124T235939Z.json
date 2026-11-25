@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565249-rj0RoPyEPXeC5A0CCahF",
+    "object": "chat.completion",
+    "created": 1795565249,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"In `trainable.py`, when `restore()` receives a `Checkpoint` object it calls `_restore_from_checkpoint_obj` which uses `as_directory()` as a context manager, but the base class implementation returns inside that context, meaning the temporary directory may be cleaned up before the restore is fully utilized; additionally, the `FunctionTrainable` override of `_restore_from_checkpoint_obj` stores the temp directory path in `self.temp_checkpoint_dir` and calls `self.restore()` with it, but the temp directory could be deleted after the `with` block exits in the base class version, creating inconsistent behavior between trainable types.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6730,
+      "completion_tokens": 162,
+      "total_tokens": 6892,
+      "cost": 0.02262,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.02262,
+        "upstream_inference_prompt_cost": 0.02019,
+        "upstream_inference_completions_cost": 0.00243
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

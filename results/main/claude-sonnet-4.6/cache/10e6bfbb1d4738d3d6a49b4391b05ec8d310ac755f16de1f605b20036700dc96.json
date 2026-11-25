@@ -1,0 +1,65 @@
+{
+  "cache_key": "10e6bfbb1d4738d3d6a49b4391b05ec8d310ac755f16de1f605b20036700dc96",
+  "sample_id": "case036",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The new `_request_should_be_proxied` logic returns `False` when `view_class` or `silo_limit` is `None`, meaning endpoints without a `silo_limit` attribute (e.g., plain function-based views or endpoints missing the decorator) will never be proxied, silently dropping proxy behavior that the old code would have applied based solely on `organization_slug` presence and non-MONOLITH mode.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The new `_request_should_be_proxied` logic returns `False` when `view_class` or `silo_limit` is `None`, meaning endpoints without a `silo_limit` attribute (e.g., plain function-based views or endpoints missing the decorator) will never be proxied, silently dropping proxy behavior that the old code would have applied based solely on `organization_slug` presence and non-MONOLITH mode.\"}",
+  "response_id": "gen-1795565040-Um4qpIP5uTOaRBfI3Kzo",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1682,
+  "completion_tokens": 114,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.006756,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1682,
+    "completion_tokens": 114,
+    "total_tokens": 1796,
+    "cost": 0.006756,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.006756,
+      "upstream_inference_prompt_cost": 0.005046,
+      "upstream_inference_completions_cost": 0.00171
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.013,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-25T00:04:03+00:00",
+  "run_id": "20261124T235939Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

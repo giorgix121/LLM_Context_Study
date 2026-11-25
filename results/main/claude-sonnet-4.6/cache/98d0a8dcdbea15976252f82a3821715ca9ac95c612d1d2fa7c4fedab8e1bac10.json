@@ -1,0 +1,65 @@
+{
+  "cache_key": "98d0a8dcdbea15976252f82a3821715ca9ac95c612d1d2fa7c4fedab8e1bac10",
+  "sample_id": "case123",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The GitLab `get_commit_context` sorts all blame ranges by `committed_date` and picks the last one, but since the GitLab API is now called with `range[start]=lineno&range[end]=lineno`, it should return only the blame for that specific line; however, the datetime parsing uses `%Y-%m-%dT%H:%M:%S.%fZ` which will raise a `ValueError` if the microseconds component is absent (e.g., `2015-11-14T10:12:32.000Z` has milliseconds not microseconds, though `.000Z` may parse as microseconds — but any timestamp without a fractional part will fail), potentially causing unhandled exceptions in production.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The GitLab `get_commit_context` sorts all blame ranges by `committed_date` and picks the last one, but since the GitLab API is now called with `range[start]=lineno&range[end]=lineno`, it should return only the blame for that specific line; however, the datetime parsing uses `%Y-%m-%dT%H:%M:%S.%fZ` which will raise a `ValueError` if the microseconds component is absent (e.g., `2015-11-14T10:12:32.000Z` has milliseconds not microseconds, though `.000Z` may parse as microseconds — but any timestamp without a fractional part will fail), potentially causing unhandled exceptions in production.\"}",
+  "response_id": "gen-1795565168-YWwvJ1G2q8mIsMsViIzk",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 4423,
+  "completion_tokens": 179,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.015954,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 4423,
+    "completion_tokens": 179,
+    "total_tokens": 4602,
+    "cost": 0.015954,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.015954,
+      "upstream_inference_prompt_cost": 0.013269,
+      "upstream_inference_completions_cost": 0.002685
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 4.634,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-25T00:06:13+00:00",
+  "run_id": "20261124T235939Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

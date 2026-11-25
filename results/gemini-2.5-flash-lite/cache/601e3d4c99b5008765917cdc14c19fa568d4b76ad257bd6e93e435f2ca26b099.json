@@ -1,0 +1,65 @@
+{
+  "cache_key": "601e3d4c99b5008765917cdc14c19fa568d4b76ad257bd6e93e435f2ca26b099",
+  "sample_id": "case20",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change introduces a new 'queue' field to the task_state dictionary, which is then passed to the basic_protocol_handler, potentially altering downstream processing logic if not handled consistently.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change introduces a new 'queue' field to the task_state dictionary, which is then passed to the basic_protocol_handler, potentially altering downstream processing logic if not handled consistently.\"\n}\n```",
+  "response_id": "gen-1790923265-oMoq1RRmN2SHKUb0KlRN",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 2760,
+  "completion_tokens": 61,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0003004,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2760,
+    "completion_tokens": 61,
+    "total_tokens": 2821,
+    "cost": 0.0003004,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003004,
+      "upstream_inference_prompt_cost": 0.000276,
+      "upstream_inference_completions_cost": 2.44e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.097,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T06:41:06+00:00",
+  "run_id": "20261002T063748Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

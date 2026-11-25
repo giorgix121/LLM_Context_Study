@@ -1,0 +1,5 @@
+{
+  "commit": "5bf9d5084fe38d864c1b5075145d2e778c431a5b",
+  "chars": 276,
+  "text": "[RLlib] Pass input dict into action connectors, because sometimes input data is useful for adapting output actions. (#28588)\n\nBased on user feedback. Input data is sometimes useful for adapting outputs, for example action masks.\n\nSigned-off-by: Jun Gong <jungong@anyscale.com>"
+}

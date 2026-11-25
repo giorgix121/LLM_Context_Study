@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565336-0XxoSYVN8ujYsCskvegT",
+    "object": "chat.completion",
+    "created": 1795565336,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The `postgres_v2.py` change adds an `assert obj.organization_id == org_id` which will raise an AssertionError (rather than returning None or raising a handled exception) if the resolved object's organization doesn't match the provided org_id, potentially causing runtime crashes in production if IDs are ever mismatched or if assertions are disabled.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7556,
+      "completion_tokens": 94,
+      "total_tokens": 7650,
+      "cost": 0.024078,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.024078,
+        "upstream_inference_prompt_cost": 0.022668,
+        "upstream_inference_completions_cost": 0.00141
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

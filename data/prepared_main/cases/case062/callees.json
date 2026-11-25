@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "generate_sorted_urls",
+      "path": "src/sentry/replays/post_process.py",
+      "start": 61,
+      "end": 64,
+      "code": "def generate_sorted_urls(url_groups: List[Tuple[int, List[str]]]) -> Generator[None, None, str]:\n    \"\"\"Return a flat list of ordered urls.\"\"\"\n    for _, url_group in sorted(url_groups, key=lambda item: item[0]):\n        yield from url_group",
+      "called_by": "generate_normalized_output"
+    },
+    {
+      "name": "dict_unique_list",
+      "path": "src/sentry/replays/post_process.py",
+      "start": 67,
+      "end": 80,
+      "code": "def dict_unique_list(items: Sequence[Tuple[str, str]]) -> Dict[str, List[str]]:\n    \"\"\"Populate a dictionary with the first key, value pair seen.\n\n    There is a potential for duplicate keys to exist in the result set.  When we filter these keys\n    in Clickhouse we will filter by the first value so we ignore subsequent updates to the key.\n    This function ensures what is displayed matches what was filtered.\n    \"\"\"\n    result = collections.defaultdict(set)\n    for key, value in items:\n        result[key].add(value)\n\n    for key, value in result.items():\n        result[key] = list(value)\n    return result",
+      "called_by": "generate_normalized_output"
+    }
+  ]
+}

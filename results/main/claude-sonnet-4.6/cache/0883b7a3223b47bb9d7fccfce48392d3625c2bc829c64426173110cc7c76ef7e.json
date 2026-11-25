@@ -1,0 +1,65 @@
+{
+  "cache_key": "0883b7a3223b47bb9d7fccfce48392d3625c2bc829c64426173110cc7c76ef7e",
+  "sample_id": "case129",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Adding `movflags=frag_keyframe` changes the MP4 output from a standard (non-fragmented) file to a fragmented MP4, which may produce files incompatible with players or post-processing tools that expect a normal moov atom, and combining it with `min_frag_duration` (whose units may not match what FFmpeg expects) could result in malformed or unplayable recordings.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Adding `movflags=frag_keyframe` changes the MP4 output from a standard (non-fragmented) file to a fragmented MP4, which may produce files incompatible with players or post-processing tools that expect a normal moov atom, and combining it with `min_frag_duration` (whose units may not match what FFmpeg expects) could result in malformed or unplayable recordings.\"}",
+  "response_id": "gen-1795191407-mA6K2l8eMNDHYqCjlcF3",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 3651,
+  "completion_tokens": 107,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.012558,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3651,
+    "completion_tokens": 107,
+    "total_tokens": 3758,
+    "cost": 0.012558,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.012558,
+      "upstream_inference_prompt_cost": 0.010953,
+      "upstream_inference_completions_cost": 0.001605
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.298,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:16:50+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

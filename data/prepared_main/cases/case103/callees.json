@@ -1,0 +1,118 @@
+{
+  "found": 14,
+  "included": 14,
+  "functions": [
+    {
+      "name": "_get_version_info",
+      "path": "src/sentry/web/client_config.py",
+      "start": 24,
+      "end": 36,
+      "code": "def _get_version_info():\n    current = sentry.VERSION\n\n    latest = options.get(\"sentry:latest_version\") or current\n    upgrade_available = parse_version(latest) > parse_version(current)\n    build = sentry.__build__ or current\n\n    return {\n        \"current\": current,\n        \"latest\": latest,\n        \"build\": build,\n        \"upgradeAvailable\": upgrade_available,\n    }",
+      "called_by": "get_client_config"
+    },
+    {
+      "name": "_needs_upgrade",
+      "path": "src/sentry/web/client_config.py",
+      "start": 39,
+      "end": 63,
+      "code": "def _needs_upgrade():\n    version_configured = options.get(\"sentry:version-configured\")\n    if not version_configured:\n        # If we were never previously upgraded (being a new install)\n        # we want to force an upgrade, even if the values are set.\n        return True\n\n    smtp_disabled = not is_smtp_enabled()\n\n    # Check all required options to see if they've been set\n    for key in options.filter(flag=options.FLAG_REQUIRED):\n        # ignore required flags which can be empty\n        if key.flags & options.FLAG_ALLOW_EMPTY:\n            continue\n        # Ignore mail.* keys if smtp is disabled\n        if smtp_disabled and key.name[:5] == \"mail.\":\n            continue\n        if not options.isset(key.name):\n            return True\n\n    if version_configured != sentry.get_version():\n        # Everything looks good, but version changed, so let's bump it\n        options.set(\"sentry:version-configured\", sentry.get_version())\n\n    return False",
+      "called_by": "get_client_config"
+    },
+    {
+      "name": "_get_statuspage",
+      "path": "src/sentry/web/client_config.py",
+      "start": 66,
+      "end": 70,
+      "code": "def _get_statuspage():\n    id = settings.STATUS_PAGE_ID\n    if id is None:\n        return None\n    return {\"id\": id, \"api_host\": settings.STATUS_PAGE_API_HOST}",
+      "called_by": "get_client_config"
+    },
+    {
+      "name": "_get_public_dsn",
+      "path": "src/sentry/web/client_config.py",
+      "start": 73,
+      "end": 95,
+      "code": "def _get_public_dsn():\n\n    if settings.SENTRY_FRONTEND_DSN:\n        return settings.SENTRY_FRONTEND_DSN\n\n    if settings.IS_DEV and not settings.SENTRY_USE_RELAY:\n        return \"\"\n\n    project_id = settings.SENTRY_FRONTEND_PROJECT or settings.SENTRY_PROJECT\n    if project_id is None:\n        return None\n\n    cache_key = f\"dsn:{project_id}\"\n\n    result = cache.get(cache_key)\n    if result is None:\n        key = project_key_service.get_project_key(project_id, ProjectKeyRole.store)\n        if key:\n            result = key.dsn_public\n        else:\n            result = \"\"\n        cache.set(cache_key, result, 60)\n    return result",
+      "called_by": "get_client_config"
+    },
+    {
+      "name": "_delete_activeorg",
+      "path": "src/sentry/web/client_config.py",
+      "start": 98,
+      "end": 100,
+      "code": "def _delete_activeorg(session):\n    if session and \"activeorg\" in session:\n        del session[\"activeorg\"]",
+      "called_by": "get_client_config"
+    },
+    {
+      "name": "_resolve_last_org",
+      "path": "src/sentry/web/client_config.py",
+      "start": 103,
+      "end": 117,
+      "code": "def _resolve_last_org(session, user):\n    last_org_slug = session[\"activeorg\"] if session and \"activeorg\" in session else None\n    if not last_org_slug:\n        return None\n    try:\n        last_org = Organization.objects.get_from_cache(slug=last_org_slug)\n        if user is not None and not isinstance(user, AnonymousUser):\n            try:\n                get_cached_organization_member(user.id, last_org.id)\n                return last_org\n            except OrganizationMember.DoesNotExist:\n                return None\n    except Organization.DoesNotExist:\n        pass\n    return None",
+      "called_by": "get_client_config"
+    },
+    {
+      "name": "generate_organization_url",
+      "path": "src/sentry/api/utils.py",
+      "start": 227,
+      "end": 231,
+      "code": "def generate_organization_url(org_slug: str) -> str:\n    org_url_template: str = options.get(\"system.organization-url-template\")\n    if not org_url_template:\n        return options.get(\"system.url-prefix\")  # type: ignore[no-any-return]\n    return org_url_template.replace(\"{hostname}\", generate_organization_hostname(org_slug))",
+      "called_by": "get_client_config"
+    },
+    {
+      "name": "generate_region_url",
+      "path": "src/sentry/api/utils.py",
+      "start": 234,
+      "end": 239,
+      "code": "def generate_region_url() -> str:\n    region_url_template: str = options.get(\"system.region-api-url-template\")\n    region = options.get(\"system.region\") or None\n    if not region_url_template or not region:\n        return options.get(\"system.url-prefix\")  # type: ignore[no-any-return]\n    return region_url_template.replace(\"{region}\", region)",
+      "called_by": "get_client_config"
+    },
+    {
+      "name": "is_active_superuser",
+      "path": "src/sentry/auth/superuser.py",
+      "start": 71,
+      "end": 75,
+      "code": "def is_active_superuser(request):\n    if is_system_auth(getattr(request, \"auth\", None)):\n        return True\n    su = getattr(request, \"superuser\", None) or Superuser(request)\n    return su.is_active",
+      "called_by": "get_client_config"
+    },
+    {
+      "name": "get_frontend_app_asset_url",
+      "path": "src/sentry/utils/assets.py",
+      "start": 4,
+      "end": 16,
+      "code": "def get_frontend_app_asset_url(module: str, key: str) -> str:\n    \"\"\"\n    Returns an asset URL that is unversioned. These assets should have a\n    `Cache-Control: max-age=0, must-revalidate` so that clients must validate with the origin\n    server before using their locally cached asset.\n\n    Example:\n      {% frontend_app_asset_url 'sentry' 'sentry.css' %}\n      =>  \"/_static/dist/sentry/sentry.css\"\n    \"\"\"\n    args = (settings.STATIC_FRONTEND_APP_URL.rstrip(\"/\"), module, key.lstrip(\"/\"))\n\n    return \"{}/{}/{}\".format(*args)",
+      "called_by": "get_client_config"
+    },
+    {
+      "name": "has_user_registration",
+      "path": "src/sentry/utils/auth.py",
+      "start": 347,
+      "end": 350,
+      "code": "def has_user_registration():\n    from sentry import features, options\n\n    return features.has(\"auth:register\") and options.get(\"auth.allow-registration\")",
+      "called_by": "get_client_config"
+    },
+    {
+      "name": "is_self_hosted",
+      "path": "src/sentry/utils/settings.py",
+      "start": 47,
+      "end": 54,
+      "code": "def is_self_hosted():\n    # Backcompat for rename to support old consumers, particularly single-tenant.\n    from django.conf import settings\n\n    try:\n        return settings.SENTRY_SELF_HOSTED\n    except AttributeError:\n        return settings.SENTRY_ONPREMISE",
+      "called_by": "get_client_config"
+    },
+    {
+      "name": "get_support_mail",
+      "path": "src/sentry/utils/support.py",
+      "start": 1,
+      "end": 5,
+      "code": "def get_support_mail():\n    \"\"\"Returns the most appropriate support email address\"\"\"\n    from sentry.options import get\n\n    return get(\"system.support-email\") or get(\"system.admin-email\") or None",
+      "called_by": "get_client_config"
+    },
+    {
+      "name": "serialize",
+      "path": "src/sentry/api/serializers/base.py",
+      "start": 34,
+      "end": 85,
+      "code": "def serialize(\n    objects: Union[Any, Sequence[Any]],\n    user: Optional[Any] = None,\n    serializer: Optional[Any] = None,\n    **kwargs: Any,\n) -> Any:\n    \"\"\"\n    Turn a model (or list of models) into a python object made entirely of primitives.\n\n    :param objects: A list of objects\n    :param user: The user who will be viewing the objects. Omit to view as `AnonymousUser`.\n    :param serializer: The `Serializer` class who's logic we'll use to serialize\n        `objects` (see below.) Omit to just look up the Serializer in the\n        registry by the `objects`'s type.\n    :param kwargs Any\n    :returns A list of the serialized versions of `objects`.\n    \"\"\"\n    if user is None:\n        user = AnonymousUser()\n\n    if not objects:\n        return objects\n    # sets aren't predictable, so generally you should use a list, but it's\n    # supported out of convenience\n    elif not isinstance(objects, (list, tuple, set, frozenset)):\n        return serialize([objects], user=user, serializer=serializer, **kwargs)[0]\n\n    if serializer is None:\n        # find the first object that is in the registry\n        for o in objects:\n            try:\n                serializer = registry[type(o)]\n                break\n            except KeyError:\n                pass\n        else:\n            return objects\n\n    with sentry_sdk.start_span(op=\"serialize\", description=type(serializer).__name__) as span:\n        span.set_data(\"Object Count\", len(objects))\n\n        with sentry_sdk.start_span(op=\"serialize.get_attrs\", description=type(serializer).__name__):\n            attrs = serializer.get_attrs(\n                # avoid passing NoneType's to the serializer as they're allowed and\n                # filtered out of serialize()\n                item_list=[o for o in objects if o is not None],\n                user=user,\n                **kwargs,\n            )\n\n        with sentry_sdk.start_span(op=\"serialize.iterate\", description=type(serializer).__name__):\n            return [serializer(o, attrs=attrs.get(o, {}), user=user, **kwargs) for o in objects]",
+      "called_by": "get_client_config"
+    }
+  ]
+}

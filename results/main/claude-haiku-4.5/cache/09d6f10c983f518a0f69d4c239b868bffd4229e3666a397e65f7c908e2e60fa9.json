@@ -1,0 +1,65 @@
+{
+  "cache_key": "09d6f10c983f518a0f69d4c239b868bffd4229e3666a397e65f7c908e2e60fa9",
+  "sample_id": "case090",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The commit only adds emoji warning symbols (⚠️) to existing warning messages and relocates the `emojis()` function from `utils/general.py` to `utils/__init__.py` with platform-dependent emoji handling, which are cosmetic/logging changes with no functional impact on core logic.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The commit only adds emoji warning symbols (⚠️) to existing warning messages and relocates the `emojis()` function from `utils/general.py` to `utils/__init__.py` with platform-dependent emoji handling, which are cosmetic/logging changes with no functional impact on core logic.\"\n}\n```",
+  "response_id": "gen-1795564629-bPKddWfSjgOpzxiE8Vgz",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 7082,
+  "completion_tokens": 96,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.007562,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 7082,
+    "completion_tokens": 96,
+    "total_tokens": 7178,
+    "cost": 0.007562,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.007562,
+      "upstream_inference_prompt_cost": 0.007082,
+      "upstream_inference_completions_cost": 0.00048
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.149,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:57:11+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

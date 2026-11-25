@@ -1,0 +1,65 @@
+{
+  "cache_key": "ceef048a098829b266ead6a982fe51ca2fb0ecb660af3cae636ccfc9e7bf5cf8",
+  "sample_id": "case034",
+  "strategy": "N2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change removes explicit PID tuning parameters for all Mazda models and relies on a centralized `configure_torque_tune()` method, which could apply different tuning values if that method's behavior changes or if the base configuration differs from the removed hardcoded values.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change removes explicit PID tuning parameters for all Mazda models and relies on a centralized `configure_torque_tune()` method, which could apply different tuning values if that method's behavior changes or if the base configuration differs from the removed hardcoded values.\"\n}\n```",
+  "response_id": "gen-1795046686-6s2zp0W6YIGOcF66iarc",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 2999,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.003429,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2999,
+    "completion_tokens": 86,
+    "total_tokens": 3085,
+    "cost": 0.003429,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003429,
+      "upstream_inference_prompt_cost": 0.002999,
+      "upstream_inference_completions_cost": 0.00043
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.673,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:04:47+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

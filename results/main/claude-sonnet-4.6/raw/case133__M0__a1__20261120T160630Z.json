@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192173-3krH1e29NggHTmO0dloI",
+    "object": "chat.completion",
+    "created": 1795192173,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The added check for `_attr_name` overrides the existing `_name`-based return value, but since `_attr_name` is a standard HA entity attribute that defaults to `UNDEFINED` (not `None`), the `is not None` guard may not correctly filter out the unset sentinel, potentially causing the wrong name to be returned or masking the intended `_name` value.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 358,
+      "completion_tokens": 103,
+      "total_tokens": 461,
+      "cost": 0.002619,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002619,
+        "upstream_inference_prompt_cost": 0.001074,
+        "upstream_inference_completions_cost": 0.001545
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

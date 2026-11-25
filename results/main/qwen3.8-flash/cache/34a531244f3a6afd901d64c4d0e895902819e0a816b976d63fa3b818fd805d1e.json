@@ -1,0 +1,65 @@
+{
+  "cache_key": "34a531244f3a6afd901d64c4d0e895902819e0a816b976d63fa3b818fd805d1e",
+  "sample_id": "case059",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change properly registers the dispatcher connection for cleanup using async_on_unload, which is a standard best practice to prevent resource leaks and does not introduce functional defects.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change properly registers the dispatcher connection for cleanup using async_on_unload, which is a standard best practice to prevent resource leaks and does not introduce functional defects.\"}",
+  "response_id": "gen-1795189040-zXEGgSCrqAdWDLDqz6LT",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 280,
+  "completion_tokens": 47,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 6.409e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 280,
+    "completion_tokens": 47,
+    "total_tokens": 327,
+    "cost": 6.409e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 6.409e-05,
+      "upstream_inference_prompt_cost": 4.2e-05,
+      "upstream_inference_completions_cost": 2.209e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.038,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:37:22+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "a926b81c5de010e200f1ecf032b254bc076a5629e7b73c2f8f0aab7e72b8ae36",
+  "sample_id": "case015",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The `get_notification_title` signature changed to require `provider` as a mandatory positional argument, which will break any existing callers (subclasses or call sites) that invoke it with only the optional `context` keyword argument using the old signature.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The `get_notification_title` signature changed to require `provider` as a mandatory positional argument, which will break any existing callers (subclasses or call sites) that invoke it with only the optional `context` keyword argument using the old signature.\"}",
+  "response_id": "gen-1795192588-4DA8FeoetbBaOix7A4qH",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 4727,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.015231,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 4727,
+    "completion_tokens": 70,
+    "total_tokens": 4797,
+    "cost": 0.015231,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.015231,
+      "upstream_inference_prompt_cost": 0.014181,
+      "upstream_inference_completions_cost": 0.00105
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.836,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:36:31+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

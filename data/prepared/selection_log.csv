@@ -1,0 +1,250 @@
+order,dataset_row,repo,commit,filepath,label,decision,reason
+1,4573,lightning,925edbca077b1c222bfc6a3beeb007e5dee53a3c,src\pytorch_lightning\trainer\trainer.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+2,6237,ray,b5687a1aaa3dc72dfde9758e730607a4ab22afe4,doc\source\ray-air\examples\torch_image_batch_pretrained.py,NON-RISKY,excluded,edit outside functions (BEFORE line 42)
+3,5642,ray,f5c5215fe63bed31c9f5a7216abd64dd2fa6521e,python\ray\_private\utils.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+4,9993,ansible,7e634f54c3b98372152a722ddf85919cf3f5fe86,lib\ansible\plugins\lookup\csvfile.py,NON-RISKY,excluded,edit outside functions (BEFORE line 7)
+5,4575,lightning,94e567e6f0dbe3e06feebc8fdf4bdc807182fa96,src\pytorch_lightning\core\datamodule.py,NON-RISKY,excluded,edit outside functions (AFTER line 21)
+6,4607,core,842cb18d3948709fcb1579535d38cfc28356dfda,homeassistant\const.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+7,8202,sentry,0bb56c8219da72344b694a801e56cfde0a11f509,src\sentry\utils\metrics.py,NON-RISKY,selected,
+8,1348,cpython,f28ec34c5c69f45dc0db8bc26df69bc7defe9c9d,Tools\scripts\parse_html5_entities.py,NON-RISKY,excluded,edit outside functions (BEFORE line 5)
+9,7322,core,ca0cd19dc917db915d3a3cd4d4dc18622a6745e1,homeassistant\components\esphome\__init__.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+10,6560,sentry,cfa8c360cc4a9242cb325acfdd985bdc43cd3cba,src\sentry\eventstore\base.py,NON-RISKY,excluded,edit outside functions (BEFORE line 127)
+11,4209,lightning,807f9d8c9652f989edda80de226cf2078cd141c8,src\pytorch_lightning\strategies\ipu.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+12,1490,lightning,daf7cec01e526c7503b99bfbf9e4c2048b8c8514,src\pytorch_lightning\plugins\environments\cluster_environment.py,NON-RISKY,excluded,edit outside functions (BEFORE line 15)
+13,9112,sentry,be379770e90f6b7f97109f1cbdffd1e4749402ba,src\sentry\integrations\msteams\actions\notification.py,NON-RISKY,excluded,edit outside functions (AFTER line 3)
+14,4127,ray,45cdd3872e59324803b49e1cd097349d6bf4b9be,python\ray\data\datasource\tfrecords_datasource.py,NON-RISKY,excluded,edit outside functions (BEFORE line 1)
+15,2230,lightning,28e18881a9ad2298169c78ad9ae109191e201c2f,src\pytorch_lightning\callbacks\finetuning.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+16,9714,sentry,16cd8b7ef8649ebd155eba02a3ebd2da97f8a6a5,src\sentry\api\endpoints\organization_member\requests\invite\details.py,NON-RISKY,excluded,edit outside functions (BEFORE line 16)
+17,371,openpilot,7bf70bf7d8aaccd23ad0b0a9af8235eb939a617e,selfdrive\car\car_helpers.py,NON-RISKY,selected,
+18,1868,lightning,e9a6b834370251252d0e6c9767cac8bd7c81407b,examples\app_components\python\component_tracer.py,NON-RISKY,excluded,edit outside functions (BEFORE line 1)
+19,4279,lightning,ca1917ec80e6a167111ba441154188aa53c9b79b,src\lightning_app\__setup__.py,NON-RISKY,selected,
+20,2081,lightning,d1a3a3ebf543629fc38783d9f5e39f2bfb6b37d7,src\pytorch_lightning\utilities\exceptions.py,NON-RISKY,excluded,edit outside functions (AFTER line 30)
+21,9141,core,3240f8f93864b6bae9272bb011082bf04a031780,homeassistant\components\zwave_js\const.py,NON-RISKY,excluded,edit outside functions (BEFORE line 24)
+22,7515,sentry,7018428bb6a5b817ce6d82b8c827f6b72248726b,src\sentry\conf\server.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+23,311,localstack,a954ecac44a34f35b7b961aa4e775cc3860b444b,localstack\services\kinesis\kinesis_mock_server.py,RISKY,excluded,edit outside functions (BEFORE line 5)
+24,7473,core,a8f1cc0d330372f60e50954b7cf049fcf9a18762,homeassistant\components\wled\light.py,NON-RISKY,selected,
+25,9203,sentry,c265d028329daf83a45530e2f5e2173eb586d7f8,src\sentry\search\events\datasets\metrics.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+26,3423,ray,4ab97399cda80be1e146946c43d6fb2926248b28,python\ray\serve\controller.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+27,2924,core,5cb8749ae32a694f6b766bcc4423c33fee2f57da,homeassistant\loader.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+28,6459,sentry,1848b813ea01bcbd226e4e9b050b3538eed8c459,src\sentry\sentry_metrics\indexer\postgres\postgres_v2.py,NON-RISKY,excluded,edit outside functions (BEFORE line 18)
+29,1667,airflow,6e66dd7776707936345927f8fccee3ddb7f23a2b,airflow\providers\google\cloud\hooks\bigtable.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+30,8622,sentry,6d128d97bb02172208ac7871e4570f71099890e3,src\sentry\api\endpoints\organization_codeowners_associations.py,NON-RISKY,excluded,edit outside functions (BEFORE line 5)
+31,4057,lightning,ac369f5570d0a492d08ac9c2ba6622e451d7e131,src\pytorch_lightning\plugins\precision\deepspeed.py,NON-RISKY,selected,
+32,5673,ray,4a1ad3e87a425dc5113baeedb1662c1217ae20c1,python\ray\workflow\workflow_state_from_dag.py,NON-RISKY,selected,
+33,3619,lightning,32cb774a5c0cdbc4e4594cd4b99a71174637aa4f,src\lightning_lite\strategies\__init__.py,NON-RISKY,excluded,edit outside functions (AFTER line 17)
+34,7405,core,a8f1cc0d330372f60e50954b7cf049fcf9a18762,homeassistant\components\bosch_shc\binary_sensor.py,NON-RISKY,excluded,commit already sampled (at most one file change per commit)
+35,6006,ray,fa37ddc584f5e245c589ca1442e50064a0086ca8,doc\source\serve\doc_code\branching_input.py,NON-RISKY,selected,
+36,3405,lightning,d15bd1520e8595ea15ae419a318c6c03425279be,src\lightning_lite\strategies\parallel.py,NON-RISKY,selected,
+37,7460,sentry,7b063776de68bbb373c6cc115307e7646de741f3,src\sentry\api\endpoints\organization_projects.py,NON-RISKY,selected,
+38,3864,lightning,cd31ba3f87d51b1e09e466c34b9b530809b38ddd,docs\source-app\code_samples\quickstart\app\app_0.py,NON-RISKY,excluded,edit outside functions (BEFORE line 3)
+39,3342,lightning,c1db77e691334258c9cd7a1b470ada807498cbae,src\pytorch_lightning\_graveyard\__init__.py,NON-RISKY,excluded,"diff creates the file (@@ -0,0): file addition"
+40,6443,core,d0ac1073a0f48f4d1c0dac62a8a8c1ddf1078a38,homeassistant\components\pushover\__init__.py,RISKY,selected,
+41,1678,airflow,6e66dd7776707936345927f8fccee3ddb7f23a2b,airflow\providers\google\cloud\hooks\gcs.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+42,3430,django,b3db6c8dcb5145f7d45eff517bcd96460475c879,django\db\models\sql\query.py,NON-RISKY,excluded,"diff > 8,000 chars"
+43,8731,ansible,3d6a60b481befeb783fc5a2879f88f2e71f5d8e5,lib\ansible\modules\dnf.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+44,4894,ray,42864d711d1eb2013a83670efc284ad22a62b929,rllib\algorithms\a2c\a2c.py,NON-RISKY,excluded,edit outside functions (BEFORE line 54)
+45,1257,sentry,35ec251212b82e5d9468062a3ab5945d8e739002,src\sentry\snuba\metrics\fields\snql.py,RISKY,excluded,edit outside functions (BEFORE line 1)
+46,8457,core,6f02f7c6cee268f3adebf78a37ae698770a981d6,homeassistant\components\fritzbox\sensor.py,NON-RISKY,excluded,edit outside functions (BEFORE line 90)
+47,2372,airflow,ce0a6e51c2d4ee87e008e28897b2450778b51003,airflow\models\taskmixin.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+48,313,localstack,a954ecac44a34f35b7b961aa4e775cc3860b444b,localstack\services\kinesis\plugins.py,RISKY,excluded,"diff creates the file (@@ -0,0): file addition"
+49,3774,lightning,b340859df9d9cdc8f55f4557566754b25971888d,src\lightning_app\components\__init__.py,NON-RISKY,excluded,edit outside functions (AFTER line 7)
+50,3270,core,662aee17a66c2edccce16e5149b6fe87be225b6f,homeassistant\components\scrape\__init__.py,RISKY,excluded,edit outside functions (AFTER line 2)
+51,5519,ray,184b405a0512fd7593da1d4a6aee5b50de615504,rllib\models\temp_spec_classes.py,NON-RISKY,excluded,"diff creates the file (@@ -0,0): file addition"
+52,5357,ray,03c7bca133a1f5917817862c8b386e3c4eb34115,rllib\evaluation\rollout_worker.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+53,3407,lightning,d15bd1520e8595ea15ae419a318c6c03425279be,src\lightning_lite\strategies\single_tpu.py,NON-RISKY,excluded,commit already sampled (at most one file change per commit)
+54,6528,sentry,2fbf550ec05c8501cbc9eca62e73526e717dcbdf,src\sentry\integrations\jira\client.py,NON-RISKY,excluded,edit outside functions (BEFORE line 19)
+55,3253,pandas,709f274245dc2f3fe2d91ad53a4cfa57f9d41d59,pandas\core\indexes\interval.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+56,6289,ray,b7d4ae541d2a7e1a84df010ab34a6edbcaa3adcd,python\ray\train\tensorflow\tensorflow_trainer.py,NON-RISKY,excluded,edit outside functions (BEFORE line 1)
+57,0,localstack,033177254070e511b1be88366995a526b3c676c9,localstack\services\dynamodb\utils.py,RISKY,selected,
+58,9266,sentry,d089ec4a50b7c5f727daf2b4ac64330759bc13bc,src\sentry\relay\config\__init__.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+59,1310,core,2c43606922b30e303c65339bde83ca54495220f9,homeassistant\components\mqtt\__init__.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+60,5270,pandas,d8fb17cfb8d2e0aef68d785a5b674936460d541f,pandas\core\reshape\merge.py,NON-RISKY,excluded,"diff > 8,000 chars"
+61,3569,pandas,4d7cfc436f8a7bc65c11770aa16f05e875b74077,pandas\plotting\_matplotlib\hist.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+62,2224,airflow,1a1f352479d6dbff21d73d3c51b1e5d5188e00e3,airflow\www\security.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+63,6157,core,c197e1765a9b53772b586e6ee87ffae2180a576f,homeassistant\components\octoprint\camera.py,RISKY,excluded,"diff creates the file (@@ -0,0): file addition"
+64,6083,ray,028684032b8d344f6556d295100d50d476b68b53,python\ray\experimental\state\api.py,NON-RISKY,excluded,"diff > 8,000 chars"
+65,890,poetry,584aaee5f8da9f950f98d1ef0ebc06fe835e5d96,src\poetry\utils\constants.py,NON-RISKY,excluded,"diff creates the file (@@ -0,0): file addition"
+66,2909,lightning,dd2a1c5d29533a6681c245070ed48995e2aa797f,src\pytorch_lightning\plugins\precision\precision_plugin.py,NON-RISKY,excluded,"diff > 8,000 chars"
+67,1018,poetry,7e58d53699b962ec8e32bc371ee31a9762042c1e,src\poetry\inspection\info.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+68,9725,core,78e66b6cbe2ce34f8cc77c5ada50947957e615ee,homeassistant\components\enphase_envoy\diagnostics.py,NON-RISKY,excluded,"diff creates the file (@@ -0,0): file addition"
+69,739,lightning,44216fdd691bbf219a9afe4eec5bfd2d568b222f,src\pytorch_lightning\utilities\__init__.py,NON-RISKY,excluded,edit outside functions (BEFORE line 36)
+70,6835,sentry,7d22386c6796180a2ec4e4096da53800d29e30f3,src\sentry\api\endpoints\organization_tags.py,NON-RISKY,excluded,edit outside functions (BEFORE line 9)
+71,8071,sentry,65a8902f054db07b1ccaff50996794f756ae85f2,src\sentry\api\endpoints\monitor_checkins.py,NON-RISKY,excluded,edit outside functions (AFTER line 1)
+72,1064,lightning,63a9ab4ae298f1e32e6a3a289f67bf49a60786fc,src\pytorch_lightning\utilities\__init__.py,NON-RISKY,excluded,edit outside functions (BEFORE line 32)
+73,6789,sentry,c5dc9584aa22338e4a10cc767589870e46a47fef,src\sentry\event_manager.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+74,9192,core,a5b8ec7113afa68157a085d2c05b00bca1b6d525,homeassistant\util\unit_conversion.py,NON-RISKY,selected,
+75,880,lightning,4acb10f981a5adfca55498f81e7cc8a719aa465a,src\lightning_app\utilities\commands\base.py,RISKY,selected,
+76,1065,lightning,63a9ab4ae298f1e32e6a3a289f67bf49a60786fc,src\pytorch_lightning\utilities\imports.py,NON-RISKY,excluded,edit outside functions (BEFORE line 136)
+77,6750,sentry,7d7474d65b8445bc9f2393bea30e8348fc7b105b,src\sentry\utils\compat\__init__.py,NON-RISKY,excluded,edit outside functions (BEFORE line 2)
+78,7185,sentry,1c73540aaf8d3e8088fa0cb038440e72f65be66b,src\sentry\api\endpoints\organization_vitals_overview.py,NON-RISKY,selected,
+79,5933,sentry,21bf2ff99d3352c7cc8b7901fb3b4c264a71a8e8,src\sentry\sentry_metrics\indexer\cloudspanner\cloudspanner_model.py,NON-RISKY,excluded,edit outside functions (BEFORE line 3)
+80,5731,ray,5282ab49491fb8bf85b5b41405010245899368aa,python\ray\_private\runtime_env\packaging.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+81,6199,ray,e63fd2af2e6efdc8d427b8634c3ac6b98484bd9c,python\setup.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+82,5819,sentry,8b13ba0e01744d88632d6b8cff185f5644b40c0a,src\sentry\search\events\builder.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+83,1426,pandas,850da579152cee0c97a272e2c8844ee492003c65,pandas\core\indexes\base.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+84,5430,pandas,2f8d0a36703e81e4dca52ca9fe4f58c910c1b304,pandas\core\dtypes\concat.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+85,5585,ray,e4352305dd3a6c64f73a114f41201c1822cbf1a0,python\ray\serve\http_proxy.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+86,3117,lightning,24c26f7db298e7fd83e4a37459a46d9043763b0e,src\lightning_lite\strategies\parallel.py,NON-RISKY,excluded,edit outside functions (BEFORE line 25)
+87,6342,ray,799311b2f7a6f396f16ea0b5393c0451dcf99e76,doc\source\ray-air\doc_code\checkpoint_usage.py,NON-RISKY,excluded,edit outside functions (BEFORE line 26)
+88,5085,ray,9fe3c815ec5d5ee24539251ac0f1b0f53e64730a,python\ray\serve\controller.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+89,8998,core,2742bf86e3724c64c3eefa5c3a5b0a13be840f30,homeassistant\components\mqtt\mixins.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+90,2403,airflow,9c59831ee78f14de96421c74986933c494407afa,airflow\providers\amazon\aws\secrets\secrets_manager.py,NON-RISKY,excluded,edit outside functions (BEFORE line 23)
+91,596,openpilot,8d98d8c6578830e28ea8f39fce3844a7e493c019,selfdrive\car\chrysler\interface.py,NON-RISKY,excluded,edit outside functions (BEFORE line 5)
+92,7226,core,146ff83a1612c8d8d3fe6641cefc1aeda439671a,homeassistant\components\rest\entity.py,NON-RISKY,excluded,edit outside functions (BEFORE line 13)
+93,242,lightning,0fb31ed614e73be903f9d8b339247bae24440566,src\lightning_app\components\python\tracer.py,RISKY,excluded,edit outside functions (BEFORE line 5)
+94,7047,core,49c793b1a2a5e110b210d81729c18c1f5a419352,pylint\plugins\hass_enforce_type_hints.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+95,6739,sentry,7d7474d65b8445bc9f2393bea30e8348fc7b105b,src\sentry\integrations\aws_lambda\utils.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+96,9916,sentry,6c1cb91778860eeb8141f9d7df788519c5ef9319,src\sentry\api_gateway\__init__.py,NON-RISKY,excluded,"diff creates the file (@@ -0,0): file addition"
+97,3986,lightning,208bf6faa87fca8d9015655f478c9048cba9840e,docs\source-lit\examples\model_server_app\locust_component.py,NON-RISKY,excluded,"diff creates the file (@@ -0,0): file addition"
+98,5493,pandas,2f8d0a36703e81e4dca52ca9fe4f58c910c1b304,pandas\io\pytables.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+99,2937,lightning,3daa4c9cc034836c7a4a80759f27ad882b75db76,src\pytorch_lightning\core\module.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+100,4897,ray,42864d711d1eb2013a83670efc284ad22a62b929,rllib\algorithms\alpha_star\alpha_star.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+101,2808,ray,e50165492587556dac318418a0121e72bf93baa7,rllib\algorithms\mbmpo\mbmpo.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+102,4489,ray,3f26bce16ee22fa84b32faa476325dd3704d6c12,python\ray\data\preprocessors\imputer.py,NON-RISKY,excluded,edit outside functions (AFTER line 10)
+103,3012,ray,8bde3f5dd751fa2b66f230a399776237507b9be2,python\ray\_private\worker.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+104,2068,lightning,d1a3a3ebf543629fc38783d9f5e39f2bfb6b37d7,src\pytorch_lightning\trainer\connectors\callback_connector.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+105,7466,core,a8f1cc0d330372f60e50954b7cf049fcf9a18762,homeassistant\components\tado\sensor.py,NON-RISKY,excluded,commit already sampled (at most one file change per commit)
+106,3542,ray,1d5fef2004017c12a1b2eb4734dd3a3d75c6aa24,python\ray\_private\prometheus_exporter.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+107,6345,ray,799311b2f7a6f396f16ea0b5393c0451dcf99e76,doc\source\ray-air\examples\xgboost_starter.py,NON-RISKY,excluded,edit outside functions (BEFORE line 10)
+108,6632,sentry,5986c239f6c3524a9068a842cdae152e3ed59a9a,src\sentry\notifications\notifications\activity\base.py,NON-RISKY,selected,
+109,3870,ray,af488e1cc20a240cdd6b56950fb1053561061b59,python\ray\serve\_private\replica.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+110,5099,pandas,62757c43ba506c62edeed300def524d6071dd79b,pandas\plotting\_matplotlib\core.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+111,2413,airflow,9c59831ee78f14de96421c74986933c494407afa,airflow\providers\databricks\hooks\databricks_base.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+112,2216,airflow,1a1f352479d6dbff21d73d3c51b1e5d5188e00e3,airflow\utils\log\stackdriver_task_handler.py,NON-RISKY,excluded,edit outside functions (BEFORE line 27)
+113,9275,sentry,fb3ba82bf8ea2156103d67154251dbe4fcb49ff4,src\sentry\tasks\post_process.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+114,1511,lightning,e5998e6bf2169e484df07e2bbacf98ed21f19624,src\pytorch_lightning\trainer\connectors\signal_connector.py,RISKY,selected,
+115,9999,ansible,4115ddd135a0445092c9f9a7b5904942ceedd57c,lib\ansible\plugins\loader.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+116,2336,airflow,8a34d25049a060a035d4db4a49cd4a0d0b07fb0b,airflow\providers\snowflake\transfers\s3_to_snowflake.py,NON-RISKY,selected,
+117,5003,ray,5bf9d5084fe38d864c1b5075145d2e778c431a5b,rllib\connectors\action\pipeline.py,NON-RISKY,selected,
+118,1966,lightning,1c33d57b0a961fdfccadf90598eb954fe0420573,src\pytorch_lightning\_graveyard\legacy_import_unpickler.py,NON-RISKY,excluded,edit outside functions (BEFORE line 3)
+119,5622,ray,05e623ecc22788cfe3b8ebe7933135350d3e0a2d,python\ray\serve\schema.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+120,2382,lightning,24189c2e9f9e8a922bbf11824e1859e6f94f0c5c,src\pytorch_lightning\trainer\trainer.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+121,6057,ray,c1c09455e05f0c14af234faa1c442eadfcfbac5b,python\ray\air\util\tensor_extensions\arrow.py,NON-RISKY,excluded,"diff > 8,000 chars"
+122,6109,ray,725074d28b8fff0c57ccee3ab909692765c55745,python\ray\client_builder.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+123,6770,sentry,05ffe4df7f0018cb0990fbd25fc838d0187ccca5,src\sentry\api\endpoints\auth_index.py,NON-RISKY,excluded,edit outside functions (AFTER line 27)
+124,6956,sentry,ad4d7cfa1fe784330aec02c9174dc55e0f9ceffa,src\sentry\eventstream\kafka\postprocessworker.py,NON-RISKY,excluded,edit outside functions (BEFORE line 29)
+125,942,lightning,51ab51a731fb56010113df5a304eaf28dc3a35f7,src\lightning_app\core\app.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+126,2971,ray,d7459391b5c2527582cbc15804d9ff44bebee458,dashboard\modules\snapshot\snapshot_head.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+127,2566,airflow,f6b48ac6dfaf931a5433ec16369302f68f038c65,airflow\providers\google\cloud\operators\cloud_memorystore.py,NON-RISKY,excluded,"diff > 8,000 chars"
+128,9754,core,24c26dc03267da84e3c17d747ecb7143b54e8489,homeassistant\components\tomorrowio\sensor.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+129,4775,ray,89f7f2a567108c501282d7b2f41b6a836efc9062,doc\source\ray-air\examples\torch_image_batch_pretrained.py,NON-RISKY,excluded,edit outside functions (BEFORE line 33)
+130,5271,ray,74f28f9270361657a3ff053f07569e53bec1d022,python\ray\util\client_connect.py,NON-RISKY,excluded,edit outside functions (AFTER line 2)
+131,6745,sentry,7d7474d65b8445bc9f2393bea30e8348fc7b105b,src\sentry\middleware\health.py,NON-RISKY,excluded,edit outside functions (BEFORE line 7)
+132,7535,core,0b97dcf0bd64b538f7dabc5de8203048b8645d1b,homeassistant\components\device_tracker\legacy.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+133,5441,ray,8a6d2db1d3e95b4644e82c333ade05825122fb79,python\ray\serve\_private\deployment_state.py,NON-RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+134,4601,lightning,ec0d6d28937e49feeed6d972fda0bdcb6a401c07,src\lightning_app\__version__.py,NON-RISKY,excluded,edit outside functions (BEFORE line 1)
+135,3084,lightning,822a7f50af8c1b83384e31e95eb79d663d520aa7,src\lightning_lite\strategies\xla.py,NON-RISKY,selected,
+139,1548,lightning,e9c571d39fb80b10c6462703e7ba35052511d41c,src\pytorch_lightning\accelerators\hpu.py,RISKY,excluded,edit outside functions (BEFORE line 21)
+141,1312,core,2c43606922b30e303c65339bde83ca54495220f9,homeassistant\components\recorder\websocket_api.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+157,1254,sentry,35bd28dd4409689dc99106474cf045a8c9023fd6,src\sentry\integrations\gitlab\integration.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+163,335,airflow,2388bd72ba4b0012b0540a43aa9f0001840ff285,airflow\migrations\versions\0002_1_5_0_create_is_encrypted.py,RISKY,excluded,edit outside functions (BEFORE line 30)
+175,1101,airflow,7efdeed5eccbf5cb709af40c8c66757e59c957ed,airflow\migrations\versions\0118_2_4_2_add_missing_autoinc_fab.py,RISKY,excluded,"diff creates the file (@@ -0,0): file addition"
+179,4311,sentry,bdcd185bc020080da29961b9c60a5a0dabd3ab03,src\sentry\utils\committers.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+180,1173,sentry,2ec3b969c2a736271de51bfd78290df4b10cb256,src\sentry\tasks\sentry_apps.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+186,1462,lightning,d013bcc5bf23475578f9f3699f33824596174110,src\pytorch_lightning\accelerators\mps.py,RISKY,excluded,edit outside functions (BEFORE line 14)
+189,233,yolov5,c4c0ee8fc35937cfa940fdaaaf6b9660f5b355f5,utils\general.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+198,915,lightning,4eb7766f3c222b95216f5e2831894a5143f70882,src\pytorch_lightning\strategies\ipu.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+208,2993,sentry,9417dc8c873f100c6f08b0abb5d39e0eed78dfcb,src\sentry\event_manager.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+213,1955,core,48744bfd6828511cef5cbd9678b0e8e708ba54ef,homeassistant\components\rainmachine\sensor.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+215,879,lightning,4acb10f981a5adfca55498f81e7cc8a719aa465a,src\lightning_app\utilities\cli_helpers.py,RISKY,excluded,commit already sampled (at most one file change per commit)
+218,1118,lightning,75e6c9109c7fe81f8e2c4937cf2e0d848546fd48,src\lightning_app\utilities\cluster_logs.py,RISKY,excluded,edit outside functions (BEFORE line 5)
+249,1300,sentry,3caca8f2eace81edf9a18fd825f16186e53eb755,src\sentry\eventstream\kafka\synchronized.py,RISKY,excluded,"diff > 8,000 chars"
+252,4855,sentry,dbe3af0d04185d6d6105dc846d0b9a45a58bc2ab,src\sentry\models\release.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+258,110,pandas,0106c26529900bad0561efb9c9180f7f016365b0,pandas\io\json\_table_schema.py,RISKY,excluded,edit outside functions (BEFORE line 8)
+267,78,pandas,0106c26529900bad0561efb9c9180f7f016365b0,pandas\core\internals\managers.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+269,6598,core,dbb556a8122ef1081f0155e30e99a61db264e5ca,homeassistant\components\unifiprotect\services.py,RISKY,excluded,edit outside functions (BEFORE line 28)
+274,1395,django,c0fc1b5302f5d9d82e2255fb5758321fbac34949,django\forms\fields.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+289,3943,core,727eccfec4a537e245227bc4c581480c4ec0a145,homeassistant\const.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+291,4930,ansible,cb2e434dd2359a9fe1c00e75431f4abeff7381e8,lib\ansible\cli\galaxy.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+292,4667,sentry,ce3e457ef18fe0046d6aca0b545eac55eae8f17c,src\sentry\eventstream\kafka\protocol.py,RISKY,selected,
+295,4261,core,7aa53feff4ad347dbca228447464a95d70e48f93,homeassistant\components\dsmr_reader\sensor.py,RISKY,excluded,edit outside functions (BEFORE line 13)
+302,5074,core,95fc641949d59504d386399f9f9a1a6c1080ed6b,homeassistant\components\energy\sensor.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+306,107,pandas,0106c26529900bad0561efb9c9180f7f016365b0,pandas\io\formats\css.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+310,1322,core,2cfdc15c380772be23f4af6c04518b9c527f1f07,homeassistant\components\switchbot\switch.py,RISKY,excluded,edit outside functions (AFTER line 7)
+315,308,localstack,a954ecac44a34f35b7b961aa4e775cc3860b444b,localstack\services\es\plugins.py,RISKY,selected,
+318,312,localstack,a954ecac44a34f35b7b961aa4e775cc3860b444b,localstack\services\kinesis\packages.py,RISKY,excluded,commit already sampled (at most one file change per commit)
+324,106,pandas,0106c26529900bad0561efb9c9180f7f016365b0,pandas\io\excel\_base.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+327,3541,sentry,a5f9fa8fdee50493eaeffaa02f4666814e5fbdf2,src\sentry\snuba\events.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+329,1294,sentry,3a7c72d622b1fe64fa26ef568e20493be7bbee9e,src\sentry\dynamic_sampling\rules_generator.py,RISKY,excluded,edit outside functions (AFTER line 15)
+334,1731,ray,c3ff77f5a13395631a2af580ea4429ceb5dfea13,python\ray\data\read_api.py,RISKY,excluded,"diff > 8,000 chars"
+335,1260,core,2667f0b792b1f936aeb5958cc40d5dee26350bf6,homeassistant\components\plugwise\const.py,RISKY,excluded,edit outside functions (BEFORE line 51)
+342,51,poetry,1215ba8f339a03701d4f87105c3bb4c54f34b7b0,src\poetry\repositories\http.py,RISKY,excluded,edit outside functions (BEFORE line 18)
+344,193,ray,081ce2fe4e88ae5f36aa0a6b45fb7048c01947c7,python\ray\data\_internal\pandas_block.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+353,1890,sentry,6c7094a1270c5b25b524b8e4907f461d603a7e6c,src\sentry\search\events\datasets\filter_aliases.py,RISKY,excluded,"diff > 8,000 chars"
+358,201,core,02731efc4cb3f7ee94b0c08aecc10e3a5209dbf4,homeassistant\components\ibeacon\device_tracker.py,RISKY,selected,
+359,795,core,13d3f4c3b2ec7f2a40c8316e7bf41d3148582d44,homeassistant\components\guardian\__init__.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+371,1551,lightning,e9c571d39fb80b10c6462703e7ba35052511d41c,src\pytorch_lightning\profilers\pytorch.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+388,1463,lightning,d013bcc5bf23475578f9f3699f33824596174110,src\pytorch_lightning\accelerators\tpu.py,RISKY,excluded,edit outside functions (BEFORE line 20)
+394,399,sentry,0f1cc80d4168b258494f9f6987901ad831df90de,src\sentry\utils\snuba.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+399,3957,core,731f6180289c191112ea49cc2d6b2c5321edcfcf,homeassistant\components\ssdp\__init__.py,RISKY,excluded,"diff > 8,000 chars"
+413,457,core,0c76e3a97e6bc36a5693565bce37b255561010b3,homeassistant\components\bluetooth\scanner.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+421,6597,core,dbb556a8122ef1081f0155e30e99a61db264e5ca,homeassistant\components\unifiprotect\data.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+423,1002,lightning,555257a4ba0e8b7b7f76687b0c6209962de1602f,src\lightning_app\utilities\cli_helpers.py,RISKY,excluded,edit outside functions (AFTER line 1)
+426,1415,lightning,c81a71c90807cbad40e0bb317241440200bbbf43,src\lightning_app\cli\lightning_cli.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+436,1119,lightning,75e6c9109c7fe81f8e2c4937cf2e0d848546fd48,src\lightning_app\utilities\data_structures.py,RISKY,excluded,"diff creates the file (@@ -0,0): file addition"
+437,1474,lightning,d579733b081e0e082557ee8271ccbd3b1209270f,src\lightning_app\utilities\cli_helpers.py,RISKY,selected,
+458,2931,sentry,91ad8aabd416f38eb4c35f8dd1918454480fbc0f,src\sentry\types\issues.py,RISKY,excluded,edit outside functions (AFTER line 13)
+461,97,core,00b0fa6cdfb7066b5b08317f566c68552ce7ac2a,homeassistant\components\zha\core\channels\helpers.py,RISKY,excluded,"diff creates the file (@@ -0,0): file addition"
+463,2674,sentry,8924afea5a0f27735eaed8dbe205d9d5c9f3fde7,src\sentry\tagstore\snuba\backend.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+479,1134,core,22d6ce967d8ddf2ef0a6edb92b3341233498463a,homeassistant\components\flume\const.py,RISKY,excluded,edit outside functions (BEFORE line 11)
+484,6724,core,e58531f118a0f49db747c2011341d8004ebae8d0,homeassistant\components\mqtt\discovery.py,RISKY,excluded,edit outside functions (BEFORE line 10)
+497,2085,pandas,cda0f6bee2a6520729247f92eef9f722ad2487ec,pandas\io\formats\style.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+510,206,core,02731efc4cb3f7ee94b0c08aecc10e3a5209dbf4,homeassistant\components\ibeacon\sensor.py,RISKY,excluded,commit already sampled (at most one file change per commit)
+513,5073,core,95fc641949d59504d386399f9f9a1a6c1080ed6b,homeassistant\components\energy\data.py,RISKY,excluded,edit outside functions (BEFORE line 90)
+514,1244,lightning,8f0a64dab6413ab495e0edce47d81afc6f14060c,src\lightning_lite\strategies\launchers\xla.py,RISKY,excluded,"diff creates the file (@@ -0,0): file addition"
+515,142,transformers,2322eb8e2f9765cb73f59b324cc46a0e9cfe803f,src\transformers\models\funnel\modeling_tf_funnel.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+517,189,ray,081ce2fe4e88ae5f36aa0a6b45fb7048c01947c7,python\ray\data\_internal\arrow_ops\transform_polars.py,RISKY,excluded,edit outside functions (BEFORE line 10)
+544,1649,lightning,f98de623fddce7441681956fb8fe3b3203e79e87,src\lightning_app\cli\commands\connection.py,RISKY,excluded,edit outside functions (AFTER line 9)
+559,5510,sentry,fea1cb703497ee937fcc813fc65082836a3c896b,src\sentry\integrations\gitlab\webhooks.py,RISKY,excluded,edit outside functions (BEFORE line 13)
+560,1543,lightning,e9c571d39fb80b10c6462703e7ba35052511d41c,src\lightning_lite\accelerators\tpu.py,RISKY,excluded,edit outside functions (BEFORE line 14)
+563,6818,core,ee32e0eb3f8017bc1fc5578d73ee753e059ed686,homeassistant\components\huisbaasje\__init__.py,RISKY,excluded,edit outside functions (BEFORE line 6)
+569,34,poetry,1215ba8f339a03701d4f87105c3bb4c54f34b7b0,src\poetry\masonry\builders\editable.py,RISKY,excluded,edit outside functions (BEFORE line 16)
+574,1179,sentry,2f6716c264bbd916c2773edb8b75cf2e9b26c51b,src\sentry\services\base.py,RISKY,selected,
+592,112,pandas,0106c26529900bad0561efb9c9180f7f016365b0,pandas\io\parsers\base_parser.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+600,1432,pandas,85246fe460e93d2b891a1c116bcef3cb1a698664,pandas\plotting\_matplotlib\style.py,RISKY,excluded,edit outside functions (AFTER line 15)
+617,914,lightning,4eb7766f3c222b95216f5e2831894a5143f70882,src\pytorch_lightning\loggers\tensorboard.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+620,1087,lightning,6a72a15a62bfa1d1836ba94c41b47aae68e27401,src\lightning_app\utilities\cli_helpers.py,RISKY,selected,
+638,3140,core,635c2f3738de1abebe0eed86ff18c8926136583b,homeassistant\components\bluetooth\scanner.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+639,208,ray,081ce2fe4e88ae5f36aa0a6b45fb7048c01947c7,python\ray\data\read_api.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+665,6546,core,d75e449c525e4d6096bef10ea4f53cf2729f0806,homeassistant\components\zha\core\device.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+673,6600,core,dbcb269111f6dc5d9e0f0ed4e1c336bfa5c5c549,homeassistant\components\switchbot\__init__.py,RISKY,selected,
+676,551,airflow,39c91697a5b4e8a6f05c0fc8cb0c93b18b8bfcd1,airflow\www\utils.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+677,113,pandas,0106c26529900bad0561efb9c9180f7f016365b0,pandas\io\parsers\c_parser_wrapper.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+684,237,yolov5,c8e52304cf5c34653570c5c3953ba061bc33c1af,segment\val.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+688,1075,lightning,6855f653bb82e19ce02137ca2a8b02f4992f0234,src\pytorch_lightning\loggers\tensorboard.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+690,565,ray,2b62bba7c4014c8d943b197bf8396df7dd0f82e3,python\ray\train\huggingface\huggingface_trainer.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+691,2685,core,577f7904b55619fb868cbfec7fe9db4dbded5150,homeassistant\components\recorder\migration.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+708,4979,sentry,e15af7965b42dbe5d97e69f2e9ead24f6ab41874,src\sentry\api\base.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+709,1081,lightning,6a72a15a62bfa1d1836ba94c41b47aae68e27401,examples\app_commands_and_api\command.py,RISKY,excluded,commit already sampled (at most one file change per commit)
+711,197,core,02731efc4cb3f7ee94b0c08aecc10e3a5209dbf4,homeassistant\components\ibeacon\coordinator.py,RISKY,excluded,commit already sampled (at most one file change per commit)
+715,1046,lightning,62ca073a419c2ba551a15c3212f9aab7791da1ee,src\lightning_lite\strategies\fairscale.py,RISKY,excluded,edit outside functions (BEFORE line 20)
+718,314,localstack,a954ecac44a34f35b7b961aa4e775cc3860b444b,localstack\services\opensearch\plugins.py,RISKY,excluded,commit already sampled (at most one file change per commit)
+720,1408,sentry,4992db3403f1200d8c1ddaec0588394d99facd8c,src\sentry\snuba\metrics_enhanced_performance.py,RISKY,selected,
+723,10,pandas,0106c26529900bad0561efb9c9180f7f016365b0,pandas\core\algorithms.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+725,3839,core,7042d6d35be54865b1252c0b28a50cce1a92eabc,homeassistant\components\esphome\bluetooth\descriptor.py,RISKY,excluded,"diff creates the file (@@ -0,0): file addition"
+728,723,lightning,44216fdd691bbf219a9afe4eec5bfd2d568b222f,src\lightning_app\__init__.py,RISKY,excluded,edit outside functions (BEFORE line 32)
+731,5056,core,951047d94e9b426e1626edeb9d425cdd2a578656,homeassistant\components\tilt_ble\const.py,RISKY,excluded,"diff creates the file (@@ -0,0): file addition"
+744,1074,sentry,26987ba21158b2d2c36121152a9f3544e2d40079,src\sentry\notifications\notifications\rules.py,RISKY,excluded,edit outside functions (BEFORE line 25)
+747,1386,lightning,be1eb5e86d07fe22b53a59184089aac569875117,src\lightning_app\core\app.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+751,218,poetry,3bdc39721f1c91cc2af375cff7e8bb97271fb25e,src\poetry\utils\env.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+752,6727,core,e58531f118a0f49db747c2011341d8004ebae8d0,homeassistant\components\mqtt\util.py,RISKY,excluded,edit outside functions (AFTER line 18)
+756,336,airflow,2388bd72ba4b0012b0540a43aa9f0001840ff285,airflow\migrations\versions\0023_1_8_2_add_max_tries_column_to_task_instance.py,RISKY,excluded,edit outside functions (BEFORE line 28)
+777,6306,core,ca5a9c945649f7de9cf58a09f41a33f5ba89b037,homeassistant\components\openuv\sensor.py,RISKY,selected,
+797,6866,core,f5120872aa33ab234934042b58acaf7239a96c38,homeassistant\generated\config_flows.py,RISKY,excluded,edit outside functions (AFTER line 257)
+800,1363,lightning,b936fd4380cee0880f430255f63f9f68831d3db7,src\lightning_app\core\flow.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+822,4664,sentry,ce3e457ef18fe0046d6aca0b545eac55eae8f17c,src\sentry\eventstream\kafka\backend.py,RISKY,excluded,commit already sampled (at most one file change per commit)
+830,4294,core,7c460cc641f16077943585473be40a416783b924,homeassistant\components\braviatv\__init__.py,RISKY,excluded,edit outside functions (BEFORE line 14)
+842,1683,ray,be92ab6ae929582a00d4a0820a649a88f262070d,python\ray\train\torch\train_loop_utils.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+849,41,pandas,0106c26529900bad0561efb9c9180f7f016365b0,pandas\core\dtypes\concat.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+861,1070,lightning,6855f653bb82e19ce02137ca2a8b02f4992f0234,src\pytorch_lightning\loggers\comet.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+863,1460,lightning,d013bcc5bf23475578f9f3699f33824596174110,src\pytorch_lightning\accelerators\hpu.py,RISKY,excluded,edit outside functions (AFTER line 19)
+864,4935,sentry,dec6a2d3a89b304530627070b660c5fee61e2444,src\sentry\snuba\metrics\fields\base.py,RISKY,excluded,"diff > 8,000 chars"
+870,117,pandas,0106c26529900bad0561efb9c9180f7f016365b0,pandas\io\sql.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+872,4382,sentry,c1c0a777a4f99b87f025c1283303d96fe109cfb6,src\sentry\services\hybrid_cloud\__init__.py,RISKY,excluded,"diff > 8,000 chars"
+886,2962,sentry,92a3cddf001ab0f3ee4421a2da978568d0f798f2,src\sentry\api\urls.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+891,1470,lightning,d579733b081e0e082557ee8271ccbd3b1209270f,src\lightning_app\cli\cmd_apps.py,RISKY,excluded,commit already sampled (at most one file change per commit)
+896,12,pandas,0106c26529900bad0561efb9c9180f7f016365b0,pandas\core\arraylike.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+900,114,pandas,0106c26529900bad0561efb9c9180f7f016365b0,pandas\io\parsers\readers.py,RISKY,excluded,"combined BEFORE+AFTER > 24,000 chars"
+918,4747,sentry,d314d19e59a082f47949ffd7ab45349c4e308217,src\sentry\eventstream\kafka\postprocessworker.py,RISKY,selected,
+923,48,pandas,0106c26529900bad0561efb9c9180f7f016365b0,pandas\core\generic.py,RISKY,excluded,"diff > 8,000 chars"
+929,4299,core,7c460cc641f16077943585473be40a416783b924,homeassistant\components\braviatv\coordinator.py,RISKY,selected,

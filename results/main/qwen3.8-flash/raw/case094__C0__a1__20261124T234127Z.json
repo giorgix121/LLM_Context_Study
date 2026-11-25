@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564172-35ZzBKQboQn1ikEL6XpH",
+    "object": "chat.completion",
+    "created": 1795564172,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n\"label\": \"RISKY\",\n\"explanation\": \"The change adds 'committedDate' to the GraphQL query, which is required by the new logic in `get_commit_context` that sorts blame ranges by this date; if the API response does not include this field or if the format differs from the expected ISO 8601 string, it could lead to runtime errors or incorrect owner assignment.\"\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6546,
+      "completion_tokens": 86,
+      "total_tokens": 6632,
+      "cost": 0.00102232,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00102232,
+        "upstream_inference_prompt_cost": 0.0009819,
+        "upstream_inference_completions_cost": 4.042e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

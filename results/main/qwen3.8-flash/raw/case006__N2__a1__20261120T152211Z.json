@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189292-rDP89wR7mnzZZkgCC7sj",
+    "object": "chat.completion",
+    "created": 1795189292,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The removal of the validation check for 'max_retries' allows invalid values (such as non-integers or negative numbers other than -1) to be passed directly to the workflow step options, potentially causing runtime errors or undefined behavior in the execution engine.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4073,
+      "completion_tokens": 65,
+      "total_tokens": 4138,
+      "cost": 0.0006415,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0006415,
+        "upstream_inference_prompt_cost": 0.00061095,
+        "upstream_inference_completions_cost": 3.055e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

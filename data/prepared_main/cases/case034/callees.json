@@ -1,0 +1,54 @@
+{
+  "found": 6,
+  "included": 6,
+  "functions": [
+    {
+      "name": "gen_empty_fingerprint",
+      "path": "selfdrive/car/__init__.py",
+      "start": 40,
+      "end": 41,
+      "code": "def gen_empty_fingerprint():\n  return {i: {} for i in range(0, 4)}",
+      "called_by": "CarInterface.get_params"
+    },
+    {
+      "name": "scale_rot_inertia",
+      "path": "selfdrive/car/__init__.py",
+      "start": 58,
+      "end": 59,
+      "code": "def scale_rot_inertia(mass, wheelbase):\n  return CivicParams.ROTATIONAL_INERTIA * mass * wheelbase ** 2 / (CivicParams.MASS * CivicParams.WHEELBASE ** 2)",
+      "called_by": "CarInterface.get_params"
+    },
+    {
+      "name": "scale_tire_stiffness",
+      "path": "selfdrive/car/__init__.py",
+      "start": 64,
+      "end": 72,
+      "code": "def scale_tire_stiffness(mass, wheelbase, center_to_front, tire_stiffness_factor=1.0):\n  center_to_rear = wheelbase - center_to_front\n  tire_stiffness_front = (CivicParams.TIRE_STIFFNESS_FRONT * tire_stiffness_factor) * mass / CivicParams.MASS * \\\n                         (center_to_rear / wheelbase) / (CivicParams.CENTER_TO_REAR / CivicParams.WHEELBASE)\n\n  tire_stiffness_rear = (CivicParams.TIRE_STIFFNESS_REAR * tire_stiffness_factor) * mass / CivicParams.MASS * \\\n                        (center_to_front / wheelbase) / (CivicParams.CENTER_TO_FRONT / CivicParams.WHEELBASE)\n\n  return tire_stiffness_front, tire_stiffness_rear",
+      "called_by": "CarInterface.get_params"
+    },
+    {
+      "name": "get_safety_config",
+      "path": "selfdrive/car/__init__.py",
+      "start": 158,
+      "end": 163,
+      "code": "def get_safety_config(safety_model, safety_param = None):\n  ret = car.CarParams.SafetyConfig.new_message()\n  ret.safetyModel = safety_model\n  if safety_param is not None:\n    ret.safetyParam = safety_param\n  return ret",
+      "called_by": "CarInterface.get_params"
+    },
+    {
+      "name": "CarInterfaceBase.get_std_params",
+      "path": "selfdrive/car/interfaces.py",
+      "start": 104,
+      "end": 135,
+      "code": "  @staticmethod\n  def get_std_params(candidate, fingerprint):\n    ret = car.CarParams.new_message()\n    ret.carFingerprint = candidate\n\n    # standard ALC params\n    ret.steerControlType = car.CarParams.SteerControlType.torque\n    ret.minSteerSpeed = 0.\n    ret.wheelSpeedFactor = 1.0\n    ret.maxLateralAccel = get_torque_params(candidate)['MAX_LAT_ACCEL_MEASURED']\n\n    ret.pcmCruise = True     # openpilot's state is tied to the PCM's cruise state on most cars\n    ret.minEnableSpeed = -1. # enable is done by stock ACC, so ignore this\n    ret.steerRatioRear = 0.  # no rear steering, at least on the listed cars aboveA\n    ret.openpilotLongitudinalControl = False\n    ret.stopAccel = -2.0\n    ret.stoppingDecelRate = 0.8 # brake_travel/s while trying to stop\n    ret.vEgoStopping = 0.5\n    ret.vEgoStarting = 0.5\n    ret.stoppingControl = True\n    ret.longitudinalTuning.deadzoneBP = [0.]\n    ret.longitudinalTuning.deadzoneV = [0.]\n    ret.longitudinalTuning.kf = 1.\n    ret.longitudinalTuning.kpBP = [0.]\n    ret.longitudinalTuning.kpV = [1.]\n    ret.longitudinalTuning.kiBP = [0.]\n    ret.longitudinalTuning.kiV = [1.]\n    # TODO estimate car specific lag, use .15s for now\n    ret.longitudinalActuatorDelayLowerBound = 0.15\n    ret.longitudinalActuatorDelayUpperBound = 0.15\n    ret.steerLimitTimer = 1.0\n    return ret",
+      "called_by": "CarInterface.get_params"
+    },
+    {
+      "name": "CarInterfaceBase.configure_torque_tune",
+      "path": "selfdrive/car/interfaces.py",
+      "start": 137,
+      "end": 147,
+      "code": "  @staticmethod\n  def configure_torque_tune(candidate, tune, steering_angle_deadzone_deg=0.0, use_steering_angle=True):\n    params = get_torque_params(candidate)\n\n    tune.init('torque')\n    tune.torque.useSteeringAngle = use_steering_angle\n    tune.torque.kp = 1.0 / params['LAT_ACCEL_FACTOR']\n    tune.torque.kf = 1.0 / params['LAT_ACCEL_FACTOR']\n    tune.torque.ki = 0.1 / params['LAT_ACCEL_FACTOR']\n    tune.torque.friction = params['FRICTION']\n    tune.torque.steeringAngleDeadzoneDeg = steering_angle_deadzone_deg",
+      "called_by": "CarInterface.get_params"
+    }
+  ]
+}

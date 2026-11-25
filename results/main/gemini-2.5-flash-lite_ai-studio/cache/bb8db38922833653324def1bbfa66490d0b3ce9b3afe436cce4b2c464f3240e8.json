@@ -1,0 +1,65 @@
+{
+  "cache_key": "bb8db38922833653324def1bbfa66490d0b3ce9b3afe436cce4b2c464f3240e8",
+  "sample_id": "case056",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change corrects a typo in a log message, which does not affect the operator's functionality.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change corrects a typo in a log message, which does not affect the operator's functionality.\"}",
+  "response_id": "gen-1795187808-8zxsLdZV6zij67UqfnSA",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 303,
+  "completion_tokens": 34,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 4.39e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 303,
+    "completion_tokens": 34,
+    "total_tokens": 337,
+    "cost": 4.39e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.39e-05,
+      "upstream_inference_prompt_cost": 3.03e-05,
+      "upstream_inference_completions_cost": 1.36e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.323,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:16:48+00:00",
+  "run_id": "20261120T151513Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

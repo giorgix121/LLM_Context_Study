@@ -1,0 +1,65 @@
+{
+  "cache_key": "4aa4dc7a468f4f2141c9c38554c089c020a2984f00affd00b7a9a47fac1b9892",
+  "sample_id": "case022",
+  "strategy": "N2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change only updates an error message string from `tune.run()` to `tune.TuneConfig()` to reflect the current Ray Tune API, with no functional logic affected.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change only updates an error message string from `tune.run()` to `tune.TuneConfig()` to reflect the current Ray Tune API, with no functional logic affected.\"}",
+  "response_id": "gen-1795191465-7MhwCbUDwqsGNXIYful9",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 6895,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.02157,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 6895,
+    "completion_tokens": 59,
+    "total_tokens": 6954,
+    "cost": 0.02157,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.02157,
+      "upstream_inference_prompt_cost": 0.020685,
+      "upstream_inference_completions_cost": 0.000885
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.781,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:17:48+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

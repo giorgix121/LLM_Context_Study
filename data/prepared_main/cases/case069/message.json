@@ -1,0 +1,5 @@
+{
+  "commit": "0badbb8b1e4b75361ccde8277238f67ebc050b59",
+  "chars": 183,
+  "text": "[Serve][docs] Refresh http-guide (#27779)\n\n- Moved most code snippet to doc_code\n- Added section about DAGDriver\n- Added section discussing when should you use each abstraction layer."
+}

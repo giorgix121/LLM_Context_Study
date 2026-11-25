@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "convert",
+      "path": "homeassistant/util/speed.py",
+      "start": 50,
+      "end": 64,
+      "code": "def convert(value: float, unit_1: str, unit_2: str) -> float:\n    \"\"\"Convert one unit of measurement to another.\"\"\"\n    if unit_1 not in VALID_UNITS:\n        raise ValueError(UNIT_NOT_RECOGNIZED_TEMPLATE.format(unit_1, SPEED))\n    if unit_2 not in VALID_UNITS:\n        raise ValueError(UNIT_NOT_RECOGNIZED_TEMPLATE.format(unit_2, SPEED))\n\n    if not isinstance(value, Number):\n        raise TypeError(f\"{value} is not of numeric type\")\n\n    if unit_1 == unit_2:\n        return value\n\n    meters_per_second = value / UNIT_CONVERSION[unit_1]\n    return meters_per_second * UNIT_CONVERSION[unit_2]",
+      "called_by": "BaseClimaCellWeatherEntity.extra_state_attributes"
+    }
+  ]
+}

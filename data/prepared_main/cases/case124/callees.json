@@ -1,0 +1,46 @@
+{
+  "found": 5,
+  "included": 5,
+  "functions": [
+    {
+      "name": "download_frontend",
+      "path": "src/lightning_app/utilities/packaging/lightning_utils.py",
+      "start": 29,
+      "end": 44,
+      "code": "def download_frontend(root: str = _PROJECT_ROOT):\n    \"\"\"Downloads an archive file for a specific release of the Lightning frontend and extracts it to the correct\n    directory.\"\"\"\n    build_dir = \"build\"\n    frontend_dir = pathlib.Path(root, \"src\", \"lightning_app\", \"ui\")\n    download_dir = tempfile.mkdtemp()\n\n    shutil.rmtree(frontend_dir, ignore_errors=True)\n\n    response = urllib.request.urlopen(LIGHTNING_FRONTEND_RELEASE_URL)\n\n    file = tarfile.open(fileobj=response, mode=\"r|gz\")\n    file.extractall(path=download_dir)\n\n    shutil.move(os.path.join(download_dir, build_dir), frontend_dir)\n    print(\"The Lightning UI has successfully been downloaded!\")",
+      "called_by": "_prepare_lightning_wheels_and_requirements"
+    },
+    {
+      "name": "_prepare_wheel",
+      "path": "src/lightning_app/utilities/packaging/lightning_utils.py",
+      "start": 53,
+      "end": 69,
+      "code": "def _prepare_wheel(path):\n    with open(\"log.txt\", \"w\") as logfile:\n        with subprocess.Popen(\n            [\"rm\", \"-r\", \"dist\"], stdout=logfile, stderr=logfile, bufsize=0, close_fds=True, cwd=path\n        ) as proc:\n            proc.wait()\n        with subprocess.Popen(\n            [\"python\", \"setup.py\", \"sdist\"],\n            stdout=logfile,\n            stderr=logfile,\n            bufsize=0,\n            close_fds=True,\n            cwd=path,\n        ) as proc:\n            proc.wait()\n\n    os.remove(\"log.txt\")",
+      "called_by": "_prepare_lightning_wheels_and_requirements"
+    },
+    {
+      "name": "_copy_tar",
+      "path": "src/lightning_app/utilities/packaging/lightning_utils.py",
+      "start": 72,
+      "end": 79,
+      "code": "def _copy_tar(project_root, dest: Path) -> str:\n    dist_dir = os.path.join(project_root, \"dist\")\n    tar_files = os.listdir(dist_dir)\n    assert len(tar_files) == 1\n    tar_name = tar_files[0]\n    tar_path = os.path.join(dist_dir, tar_name)\n    shutil.copy(tar_path, dest)\n    return tar_name",
+      "called_by": "_prepare_lightning_wheels_and_requirements"
+    },
+    {
+      "name": "get_dir_name",
+      "path": "src/lightning_app/utilities/git.py",
+      "start": 21,
+      "end": 25,
+      "code": "def get_dir_name(cwd=None) -> str:\n    github_repository = execute_git_command([\"config\", \"--get\", \"remote.origin.url\"], cwd=cwd)\n    if github_repository and \"github.com\" in github_repository:\n        return github_repository.split(\"/\")[-1].split(\".\")[0]\n    raise RuntimeError(\"Only work with github repositories.\")",
+      "called_by": "_prepare_lightning_wheels_and_requirements"
+    },
+    {
+      "name": "check_github_repository",
+      "path": "src/lightning_app/utilities/git.py",
+      "start": 28,
+      "end": 34,
+      "code": "def check_github_repository(cwd=None) -> bool:\n    \"\"\"Checks if the active directory is a GitHub repository.\"\"\"\n    github_repository = execute_git_command([\"config\", \"--get\", \"remote.origin.url\"], cwd=cwd)\n\n    if not github_repository or \"github.com\" not in github_repository:\n        return False\n    return True",
+      "called_by": "_prepare_lightning_wheels_and_requirements"
+    }
+  ]
+}

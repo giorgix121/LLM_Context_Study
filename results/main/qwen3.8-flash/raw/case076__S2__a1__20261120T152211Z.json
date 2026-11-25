@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189647-sD7h6KZSG3Wpv1NYAT8B",
+    "object": "chat.completion",
+    "created": 1795189647,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Removing the `_TORCH_GREATER_EQUAL_1_13` check allows patching `torch.cuda.is_available` on PyTorch 1.13+, where the native implementation already avoids creating a CUDA context, potentially causing redundant NVML calls or unexpected behavior changes.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3305,
+      "completion_tokens": 70,
+      "total_tokens": 3375,
+      "cost": 0.00052865,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00052865,
+        "upstream_inference_prompt_cost": 0.00049575,
+        "upstream_inference_completions_cost": 3.29e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

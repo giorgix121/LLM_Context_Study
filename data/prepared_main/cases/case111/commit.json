@@ -1,0 +1,73 @@
+{
+  "commit": "6855f653bb82e19ce02137ca2a8b02f4992f0234",
+  "files_in_commit": 10,
+  "target_index": 2,
+  "target_status": "modified",
+  "chars": 6224,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "src/pytorch_lightning/CHANGELOG.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "patch": "@@ -77,6 +77,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).\n - Removed fall-back to `LightningEnvironment` when number of SLURM tasks does not correspond to number of processes in Trainer ([#14300](https://github.com/Lightning-AI/lightning/pull/14300))\n \n \n+- The `MLFlowLogger.finalize()` now sets the status to `FAILED` when an exception occurred in `Trainer`, and sets the status to `FINISHED` on successful completion ([#12292](https://github.com/Lightning-AI/lightning/pull/12292))\n+\n+\n+\n ### Deprecated\n \n - Deprecated `LightningDeepSpeedModule` ([#14000](https://github.com/Lightning-AI/lightning/pull/14000))"
+    },
+    {
+      "path": "src/pytorch_lightning/loggers/comet.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "patch": "@@ -346,6 +346,10 @@ def finalize(self, status: str) -> None:\n         This happens automatically in the :meth:`~CometLogger.experiment` property, when\n         ``self._experiment`` is set to ``None``, i.e. ``self.reset_experiment()``.\n         \"\"\"\n+        if self._experiment is None:\n+            # When using multiprocessing, finalize() should be a no-op on the main process, as no experiment has been\n+            # initialized there\n+            return\n         self.experiment.end()\n         self.reset_experiment()\n "
+    },
+    {
+      "path": "src/pytorch_lightning/loggers/mlflow.py",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 3,
+      "patch": "@@ -254,9 +254,13 @@ def log_metrics(self, metrics: Mapping[str, float], step: Optional[int] = None)\n             self.experiment.log_metric(self.run_id, k, v, timestamp_ms, step)\n \n     @rank_zero_only\n-    def finalize(self, status: str = \"FINISHED\") -> None:\n-        super().finalize(status)\n-        status = \"FINISHED\" if status == \"success\" else status\n+    def finalize(self, status: str = \"success\") -> None:\n+        if not self._initialized:\n+            return\n+        if status == \"success\":\n+            status = \"FINISHED\"\n+        elif status == \"failed\":\n+            status = \"FAILED\"\n         if self.experiment.get_run(self.run_id):\n             self.experiment.set_terminated(self.run_id, status)\n "
+    },
+    {
+      "path": "src/pytorch_lightning/loggers/neptune.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "patch": "@@ -427,6 +427,10 @@ def log_metrics(self, metrics: Dict[str, Union[Tensor, float]], step: Optional[i\n \n     @rank_zero_only\n     def finalize(self, status: str) -> None:\n+        if not self._run_instance:\n+            # When using multiprocessing, finalize() should be a no-op on the main process, as no experiment has been\n+            # initialized there\n+            return\n         if status:\n             self.run[self._construct_path_with_prefix(\"status\")] = status\n "
+    },
+    {
+      "path": "src/pytorch_lightning/loggers/tensorboard.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "patch": "@@ -271,7 +271,10 @@ def finalize(self, status: str) -> None:\n         if self._experiment is not None:\n             self.experiment.flush()\n             self.experiment.close()\n-        self.save()\n+\n+        if status == \"success\":\n+            # saving hparams happens independent of experiment manager\n+            self.save()\n \n     @property\n     def name(self) -> str:"
+    },
+    {
+      "path": "src/pytorch_lightning/loggers/wandb.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "patch": "@@ -552,8 +552,11 @@ def use_artifact(self, artifact: str, artifact_type: Optional[str] = None) -> \"w\n \n     @rank_zero_only\n     def finalize(self, status: str) -> None:\n+        if status != \"success\":\n+            # Currently, checkpoints only get logged on success\n+            return\n         # log checkpoints as artifacts\n-        if self._checkpoint_callback:\n+        if self._checkpoint_callback and self._experiment is not None:\n             self._scan_and_log_checkpoints(self._checkpoint_callback)\n \n     def _scan_and_log_checkpoints(self, checkpoint_callback: \"ReferenceType[Checkpoint]\") -> None:"
+    },
+    {
+      "path": "src/pytorch_lightning/trainer/trainer.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "patch": "@@ -644,12 +644,16 @@ def _call_and_handle_interrupt(self, trainer_fn: Callable, *args: Any, **kwargs:\n             if not self.interrupted:\n                 self.state.status = TrainerStatus.INTERRUPTED\n                 self._call_callback_hooks(\"on_exception\", exception)\n+                for logger in self.loggers:\n+                    logger.finalize(\"failed\")\n         except BaseException as exception:\n             self.state.status = TrainerStatus.INTERRUPTED\n             if distributed_available() and self.world_size > 1:\n                 # try syncing remaining processes, kill otherwise\n                 self.strategy.reconciliate_processes(traceback.format_exc())\n             self._call_callback_hooks(\"on_exception\", exception)\n+            for logger in self.loggers:\n+                logger.finalize(\"failed\")\n             self._teardown()\n             # teardown might access the stage so we reset it after\n             self.state.stage = None"
+    },
+    {
+      "path": "tests/tests_pytorch/loggers/test_mlflow.py",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 0,
+      "patch": "@@ -259,3 +259,21 @@ def test_mlflow_logger_experiment_calls(client, mlflow, time, tmpdir):\n     logger._mlflow_client.create_experiment.assert_called_once_with(\n         name=\"test\", artifact_location=\"my_artifact_location\"\n     )\n+\n+\n+@mock.patch(\"pytorch_lightning.loggers.mlflow.mlflow\")\n+@mock.patch(\"pytorch_lightning.loggers.mlflow.MlflowClient\")\n+def test_mlflow_logger_finalize_when_exception(*_):\n+    logger = MLFlowLogger(\"test\")\n+\n+    # Pretend we are on the main process and failing\n+    assert logger._mlflow_client\n+    assert not logger._initialized\n+    logger.finalize(\"failed\")\n+    logger.experiment.set_terminated.assert_not_called()\n+\n+    # Pretend we are in a worker process and failing\n+    _ = logger.experiment\n+    assert logger._initialized\n+    logger.finalize(\"failed\")\n+    logger.experiment.set_terminated.assert_called_once_with(logger.run_id, \"FAILED\")"
+    },
+    {
+      "path": "tests/tests_pytorch/trainer/test_trainer.py",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 1,
+      "patch": "@@ -21,7 +21,7 @@\n from copy import deepcopy\n from pathlib import Path\n from re import escape\n-from unittest.mock import ANY, call, patch\n+from unittest.mock import ANY, call, Mock, patch\n \n import cloudpickle\n import pytest\n@@ -2191,3 +2191,20 @@ def test_trainer_save_checkpoint_no_model_attached():\n     assert trainer.model is None\n     with pytest.raises(AttributeError, match=\"Saving a checkpoint is only possible if a model is attached\"):\n         trainer.save_checkpoint(\"checkpoint.ckpt\")\n+\n+\n+def test_trainer_calls_logger_finalize_on_exception(tmpdir):\n+    class CustomModel(BoringModel):\n+        def on_fit_start(self):\n+            super().on_fit_start()\n+            raise Exception(\"logger-finalize\")\n+\n+    model = CustomModel()\n+    logger = TensorBoardLogger(save_dir=tmpdir)\n+    logger.finalize = Mock()\n+    trainer = Trainer(logger=logger)\n+\n+    with pytest.raises(Exception, match=\"logger-finalize\"):\n+        trainer.fit(model)\n+\n+    logger.finalize.assert_called_once_with(\"failed\")"
+    }
+  ]
+}

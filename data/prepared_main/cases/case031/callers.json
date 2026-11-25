@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "GitHubClientMixin.get_assignees",
+      "path": "src/sentry/integrations/github/client.py",
+      "start": 78,
+      "end": 81,
+      "code": "    def get_assignees(self, repo: str) -> Sequence[JSONData]:\n        # Explicitly typing to satisfy mypy.\n        assignees: Sequence[JSONData] = self.get_with_pagination(f\"/repos/{repo}/assignees\")\n        return assignees",
+      "calls": "GitHubClientMixin.get_with_pagination"
+    }
+  ]
+}

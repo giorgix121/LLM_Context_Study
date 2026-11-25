@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "VaultBackend.get_response",
+      "path": "airflow/providers/hashicorp/secrets/vault.py",
+      "start": 157,
+      "end": 168,
+      "code": "    def get_response(self, conn_id: str) -> Optional[dict]:\n        \"\"\"\n        Get data from Vault\n\n        :rtype: dict\n        :return: The data from the Vault path if exists\n        \"\"\"\n        if self.connections_path is None:\n            return None\n\n        secret_path = self.build_path(self.connections_path, conn_id)\n        return self.vault_client.get_secret(secret_path=secret_path)",
+      "called_by": "VaultBackend.get_conn_uri"
+    }
+  ]
+}

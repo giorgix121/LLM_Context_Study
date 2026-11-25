@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "find_stack_level",
+      "path": "pandas/util/_exceptions.py",
+      "start": 28,
+      "end": 49,
+      "code": "def find_stack_level() -> int:\n    \"\"\"\n    Find the first place in the stack that is not inside pandas\n    (tests notwithstanding).\n    \"\"\"\n\n    import pandas as pd\n\n    pkg_dir = os.path.dirname(pd.__file__)\n    test_dir = os.path.join(pkg_dir, \"tests\")\n\n    # https://stackoverflow.com/questions/17407119/python-inspect-stack-is-slow\n    frame = inspect.currentframe()\n    n = 0\n    while frame:\n        fname = inspect.getfile(frame)\n        if fname.startswith(pkg_dir) and not fname.startswith(test_dir):\n            frame = frame.f_back\n            n += 1\n        else:\n            break\n    return n",
+      "called_by": "__getattr__"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "commit": "35bd28dd4409689dc99106474cf045a8c9023fd6",
+  "chars": 114,
+  "text": "feat(commit-context): Support GitLab (#39381)\n\n## Objective:\nAdd Commit Context feature to the GitLab integration."
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189264-Kiia0fkz0mersrKnqtOG",
+    "object": "chat.completion",
+    "created": 1795189264,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a dependency on the private attribute `_attr_name` which may not be initialized in all subclasses or contexts, potentially causing AttributeError if `hasattr` returns False but the property is accessed later, or logic errors if `_attr_name` is set to None explicitly while `_name` holds the actual name.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6300,
+      "completion_tokens": 77,
+      "total_tokens": 6377,
+      "cost": 0.00098119,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00098119,
+        "upstream_inference_prompt_cost": 0.000945,
+        "upstream_inference_completions_cost": 3.619e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

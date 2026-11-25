@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "dumps",
+      "path": "src/sentry/utils/json.py",
+      "start": 98,
+      "end": 102,
+      "code": "def dumps(value: JSONData, escape: bool = False, **kwargs) -> str:\n    # Legacy use. Do not use. Use dumps_htmlsafe\n    if escape:\n        return _default_escaped_encoder.encode(value)\n    return _default_encoder.encode(value)",
+      "called_by": "get_from_profiling_service"
+    }
+  ]
+}

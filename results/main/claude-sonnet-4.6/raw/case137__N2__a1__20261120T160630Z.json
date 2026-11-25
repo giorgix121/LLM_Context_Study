@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191742-pIu0b8ncYv1GHSJvNGc8",
+    "object": "chat.completion",
+    "created": 1795191742,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"When `ast.literal_eval` returns a string, the code re-wraps it with the first character of `out` as a quote, but `out` could be an unquoted string (e.g., a bare word that happens to be a valid Python identifier) or have a different quote style, causing incorrect or malformed output; additionally, the `if isinstance(evaled, string_types)` block is unreachable because it appears after the `except` clause without being inside a `try` block, meaning the function returns `evaled` directly from `ast.literal_eval` and the new logic never executes.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2788,
+      "completion_tokens": 152,
+      "total_tokens": 2940,
+      "cost": 0.010644,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.010644,
+        "upstream_inference_prompt_cost": 0.008364,
+        "upstream_inference_completions_cost": 0.00228
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

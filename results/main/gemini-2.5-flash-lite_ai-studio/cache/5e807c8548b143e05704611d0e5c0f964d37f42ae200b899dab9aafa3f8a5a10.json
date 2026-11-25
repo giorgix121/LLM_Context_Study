@@ -1,0 +1,65 @@
+{
+  "cache_key": "5e807c8548b143e05704611d0e5c0f964d37f42ae200b899dab9aafa3f8a5a10",
+  "sample_id": "case089",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The changes in this commit primarily involve adding version information to log messages and refactoring cloud compute handling, which are unlikely to introduce functional defects.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The changes in this commit primarily involve adding version information to log messages and refactoring cloud compute handling, which are unlikely to introduce functional defects.\"}",
+  "response_id": "gen-1795563626-NHrvWmEvdmpQc4plmmhK",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 10360,
+  "completion_tokens": 42,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0010528,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 10360,
+    "completion_tokens": 42,
+    "total_tokens": 10402,
+    "cost": 0.0010528,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0010528,
+      "upstream_inference_prompt_cost": 0.001036,
+      "upstream_inference_completions_cost": 1.68e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.466,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:40:27+00:00",
+  "run_id": "20261124T233752Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

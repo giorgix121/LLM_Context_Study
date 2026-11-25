@@ -1,0 +1,65 @@
+{
+  "cache_key": "e6ac67be439a27aaec56664f8cae12fe9894c24a671c2c04d905b756ac90584c",
+  "sample_id": "case080",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "For mapped sensors that ARE in reschedule mode, the early-exit guard is now skipped (since `is_mapped` is True), so they proceed to the TaskReschedule check correctly, but for mapped non-sensor tasks (where `reschedule` would be False after unmapping), the code no longer short-circuits at the top and instead falls through to query TaskReschedule, potentially causing unnecessary DB queries or incorrect behavior if a mapped non-sensor task happens to have stale reschedule records.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"For mapped sensors that ARE in reschedule mode, the early-exit guard is now skipped (since `is_mapped` is True), so they proceed to the TaskReschedule check correctly, but for mapped non-sensor tasks (where `reschedule` would be False after unmapping), the code no longer short-circuits at the top and instead falls through to query TaskReschedule, potentially causing unnecessary DB queries or incorrect behavior if a mapped non-sensor task happens to have stale reschedule records.\"}",
+  "response_id": "gen-1795191812-HYY2wPr6fdOkftM9QSOu",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2395,
+  "completion_tokens": 127,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00909,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2395,
+    "completion_tokens": 127,
+    "total_tokens": 2522,
+    "cost": 0.00909,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00909,
+      "upstream_inference_prompt_cost": 0.007185,
+      "upstream_inference_completions_cost": 0.001905
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 4.179,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:23:36+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

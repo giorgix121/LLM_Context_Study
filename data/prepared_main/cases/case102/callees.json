@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "OrganizationMixin.redirect_to_org",
+      "path": "src/sentry/web/frontend/base.py",
+      "start": 170,
+      "end": 183,
+      "code": "    def redirect_to_org(self, request: Request):\n        from sentry import features\n\n        # TODO(dcramer): deal with case when the user cannot create orgs\n        if self.active_organization:\n            url = Organization.get_url(self.active_organization.slug)\n        elif not features.has(\"organizations:create\"):\n            return self.respond(\"sentry/no-organization-access.html\", status=403)\n        else:\n            url = \"/organizations/new/\"\n            if request.subdomain:\n                base = options.get(\"system.url-prefix\")\n                url = f\"{base}{url}\"\n        return HttpResponseRedirect(url)",
+      "called_by": "HomeView.get"
+    },
+    {
+      "name": "is_valid_redirect",
+      "path": "src/sentry/utils/auth.py",
+      "start": 190,
+      "end": 195,
+      "code": "def is_valid_redirect(url: str, allowed_hosts: Optional[Container] = None) -> bool:\n    if not url:\n        return False\n    if url.startswith(get_login_url()):\n        return False\n    return is_safe_url(url, allowed_hosts=allowed_hosts)",
+      "called_by": "HomeView.get"
+    },
+    {
+      "name": "get_client_state_redirect_uri",
+      "path": "src/sentry/utils/client_state.py",
+      "start": 42,
+      "end": 52,
+      "code": "def get_client_state_redirect_uri(organization_slug, fallback_url):\n    if organization_slug:\n        state = get_client_state(\"onboarding\", organization_slug, None)\n        if (\n            state\n            and state.get(\"state\") != \"finished\"\n            and state.get(\"state\") != \"skipped\"\n            and state.get(\"url\")\n        ):\n            return f'/onboarding/{organization_slug}/{state[\"url\"]}'\n    return fallback_url",
+      "called_by": "HomeView.get"
+    }
+  ]
+}

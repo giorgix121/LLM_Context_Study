@@ -1,0 +1,65 @@
+{
+  "cache_key": "5454dfd7cd3f02b5d6d60ddd7badec595797a95718a2f1fb7a9979e056691ec5",
+  "sample_id": "case110",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Changing from `which` to `command -v` alters the command lookup behavior and may fail on systems where `command` is not available as an external executable, causing the FileNotFoundError handler to mask the actual issue rather than properly detecting srun availability.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"Changing from `which` to `command -v` alters the command lookup behavior and may fail on systems where `command` is not available as an external executable, causing the FileNotFoundError handler to mask the actual issue rather than properly detecting srun availability.\"\n}\n```",
+  "response_id": "gen-1795564297-32IC1u9Ja67MQZYXvXNU",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 314,
+  "completion_tokens": 82,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000724,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 314,
+    "completion_tokens": 82,
+    "total_tokens": 396,
+    "cost": 0.000724,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000724,
+      "upstream_inference_prompt_cost": 0.000314,
+      "upstream_inference_completions_cost": 0.00041
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.474,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:51:39+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

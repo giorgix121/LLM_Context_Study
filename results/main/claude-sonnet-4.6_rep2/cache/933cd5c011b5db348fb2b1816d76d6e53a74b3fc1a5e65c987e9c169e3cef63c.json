@@ -1,0 +1,65 @@
+{
+  "cache_key": "933cd5c011b5db348fb2b1816d76d6e53a74b3fc1a5e65c987e9c169e3cef63c",
+  "sample_id": "case109",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change removes an explicit `inspect.currentframe()` argument from `find_stack_level()`, which likely now calls `inspect.currentframe()` internally, making this a refactor with no functional impact on the deprecation warning behavior.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change removes an explicit `inspect.currentframe()` argument from `find_stack_level()`, which likely now calls `inspect.currentframe()` internally, making this a refactor with no functional impact on the deprecation warning behavior.\"}",
+  "response_id": "gen-1795194619-b3iJS1jkZ1enVW7YNxWb",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 300,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00195,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 300,
+    "completion_tokens": 70,
+    "total_tokens": 370,
+    "cost": 0.00195,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00195,
+      "upstream_inference_prompt_cost": 0.0009,
+      "upstream_inference_completions_cost": 0.00105
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.173,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T17:10:21+00:00",
+  "run_id": "20261120T165651Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

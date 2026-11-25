@@ -1,0 +1,5 @@
+{
+  "commit": "4322f538746f4016b4b1d0ded56e43bc84d0a9bb",
+  "chars": 365,
+  "text": "Update mypy version (#15161)\n\n* update mypy version\n* type-ignore-comments\n* more mypy-fix\n* import-fix\n* Update Lite too\n* simpler implementation for flatten dict\n* Fix rich progress\n* Simplify rich test\n* True None\n\nCo-authored-by: pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>\nCo-authored-by: Carlos Mocholí <carlossmocholi@gmail.com>"
+}

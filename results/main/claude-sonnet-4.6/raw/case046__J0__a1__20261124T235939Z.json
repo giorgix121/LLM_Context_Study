@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564956-Ldg4XTthjUJwo39a0vFz",
+    "object": "chat.completion",
+    "created": 1795564956,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The `ONVIFBaseEntity.__init__` signature was changed to remove the `profile` parameter, but `ONVIFCameraEntity` previously passed `profile` to the base class; while `self.profile` is now set locally in `ONVIFCameraEntity.__init__`, any other subclass that previously relied on the base class storing `profile` would silently lose that attribute, and the `stream_options` default now uses `next(iter(RTSP_TRANSPORTS))` which could differ from the previous `None` behavior if downstream code didn't handle `None` the same way.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4336,
+      "completion_tokens": 151,
+      "total_tokens": 4487,
+      "cost": 0.015273,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.015273,
+        "upstream_inference_prompt_cost": 0.013008,
+        "upstream_inference_completions_cost": 0.002265
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "85995382c9a4a1701a02eb6853207855f3e1930e7c75db019a728762936ba094",
+  "sample_id": "case17",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change replaces manual string quoting with `enclose_param()` function, which is already used for `self.pattern` in the same method, ensuring consistent and proper parameter escaping for S3 keys in the Snowflake COPY command.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change replaces manual string quoting with `enclose_param()` function, which is already used for `self.pattern` in the same method, ensuring consistent and proper parameter escaping for S3 keys in the Snowflake COPY command.\"\n}\n```",
+  "response_id": "gen-1790920220-URenh8DMDHqtP93bvupg",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 1106,
+  "completion_tokens": 85,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001531,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1106,
+    "completion_tokens": 85,
+    "total_tokens": 1191,
+    "cost": 0.001531,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001531,
+      "upstream_inference_prompt_cost": 0.001106,
+      "upstream_inference_completions_cost": 0.000425
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.661,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T05:50:22+00:00",
+  "run_id": "20261002T054951Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

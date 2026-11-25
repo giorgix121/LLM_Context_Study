@@ -1,0 +1,65 @@
+{
+  "cache_key": "6c16b445e37b051a179f6d05eb31aa6a23d3a80e0a2a82cdcef0c7c6dff20135",
+  "sample_id": "case10",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The code calls `async_update_entry()` without awaiting it, which is an async function that should be awaited to ensure the config entry is properly updated before proceeding with setup.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The code calls `async_update_entry()` without awaiting it, which is an async function that should be awaited to ensure the config entry is properly updated before proceeding with setup.\"\n}\n```",
+  "response_id": "gen-1790920290-obwKC8MBlJQTKrIDrqAL",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 1411,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001746,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1411,
+    "completion_tokens": 67,
+    "total_tokens": 1478,
+    "cost": 0.001746,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001746,
+      "upstream_inference_prompt_cost": 0.001411,
+      "upstream_inference_completions_cost": 0.000335
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.266,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T05:51:31+00:00",
+  "run_id": "20261002T054951Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

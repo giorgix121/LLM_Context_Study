@@ -1,0 +1,66 @@
+{
+  "cache_key": "9b97ea184a7549821b340f28f560fd31378d90d5f448a337d41b8228ce1d2cb0",
+  "sample_id": "case12",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The diff only renames four private helper methods in TemperatureConverter by adding leading underscores (e.g., `celsius_to_fahrenheit` → `_celsius_to_fahrenheit`) and updates all internal call sites consistently, which is a safe refactoring that makes these methods private without changing functionality.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The diff only renames four private helper methods in TemperatureConverter by adding leading underscores (e.g., `celsius_to_fahrenheit` → `_celsius_to_fahrenheit`) and updates all internal call sites consistently, which is a safe refactoring that makes these methods private without changing functionality.\"\n}\n```",
+  "response_id": "gen-1790920307-jndbIJeeuC01IuILiqiB",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 10019,
+  "completion_tokens": 98,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.010509,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 10019,
+    "completion_tokens": 98,
+    "total_tokens": 10117,
+    "cost": 0.010509,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.010509,
+      "upstream_inference_prompt_cost": 0.010019,
+      "upstream_inference_completions_cost": 0.00049
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.736,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T05:51:49+00:00",
+  "run_id": "20261002T054951Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  },
+  "reused_from": "results/claude-haiku-4.5/cache/9b97ea184a7549821b340f28f560fd31378d90d5f448a337d41b8228ce1d2cb0.json"
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564336-zBOAj3RtQO1FGTNkuRMd",
+    "object": "chat.completion",
+    "created": 1795564336,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The logic change from checking `CS.lka_steering_cmd_counter != self.lka_steering_cmd_counter_last` to checking `CS.loopback_lka_steering_cmd_updated` fundamentally alters the steering command counter synchronization mechanism, and the new initialization logic only applies when `not self.sent_lka_steering_cmd and self.CP.networkLocation == NetworkLocation.fwdCamera`, which could leave the counter uninitialized in other network configurations.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1879,
+      "completion_tokens": 137,
+      "total_tokens": 2016,
+      "cost": 0.002564,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002564,
+        "upstream_inference_prompt_cost": 0.001879,
+        "upstream_inference_completions_cost": 0.000685
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

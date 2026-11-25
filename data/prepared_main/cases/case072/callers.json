@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "PostGISSchemaEditor._alter_column_type_sql",
+      "path": "django/contrib/gis/db/backends/postgis/schema.py",
+      "start": 53,
+      "end": 76,
+      "code": "    def _alter_column_type_sql(self, table, old_field, new_field, new_type):\n        \"\"\"\n        Special case when dimension changed.\n        \"\"\"\n        if not hasattr(old_field, \"dim\") or not hasattr(new_field, \"dim\"):\n            return super()._alter_column_type_sql(table, old_field, new_field, new_type)\n\n        if old_field.dim == 2 and new_field.dim == 3:\n            sql_alter = self.sql_alter_column_to_3d\n        elif old_field.dim == 3 and new_field.dim == 2:\n            sql_alter = self.sql_alter_column_to_2d\n        else:\n            sql_alter = self.sql_alter_column_type\n        return (\n            (\n                sql_alter\n                % {\n                    \"column\": self.quote_name(new_field.column),\n                    \"type\": new_type,\n                },\n                [],\n            ),\n            [],\n        )",
+      "calls": "DatabaseSchemaEditor._alter_column_type_sql"
+    }
+  ]
+}

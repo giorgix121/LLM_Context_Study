@@ -1,0 +1,15 @@
+[
+  {
+    "name": "CSVLogger.finalize",
+    "before": {
+      "start": 209,
+      "end": 211,
+      "code": "    @rank_zero_only\n    def finalize(self, status: str) -> None:\n        self.save()"
+    },
+    "after": {
+      "start": 209,
+      "end": 215,
+      "code": "    @rank_zero_only\n    def finalize(self, status: str) -> None:\n        if self._experiment is None:\n            # When using multiprocessing, finalize() should be a no-op on the main process, as no experiment has been\n            # initialized there\n            return\n        self.save()"
+    }
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "XiaomiSensor.__init__",
+      "path": "homeassistant/components/xiaomi_aqara/sensor.py",
+      "start": 167,
+      "end": 171,
+      "code": "    def __init__(self, device, name, data_key, xiaomi_hub, config_entry):\n        \"\"\"Initialize the XiaomiSensor.\"\"\"\n        self._data_key = data_key\n        self.entity_description = SENSOR_TYPES[data_key]\n        super().__init__(device, name, xiaomi_hub, config_entry)",
+      "called_by": "async_setup_entry"
+    },
+    {
+      "name": "XiaomiDevice.__init__",
+      "path": "homeassistant/components/xiaomi_aqara/__init__.py",
+      "start": 228,
+      "end": 261,
+      "code": "    def __init__(self, device, device_type, xiaomi_hub, config_entry):\n        \"\"\"Initialize the Xiaomi device.\"\"\"\n        self._state = None\n        self._is_available = True\n        self._sid = device[\"sid\"]\n        self._model = device[\"model\"]\n        self._protocol = device[\"proto\"]\n        self._name = f\"{device_type}_{self._sid}\"\n        self._device_name = f\"{self._model}_{self._sid}\"\n        self._type = device_type\n        self._write_to_hub = xiaomi_hub.write_to_hub\n        self._get_from_hub = xiaomi_hub.get_from_hub\n        self._extra_state_attributes = {}\n        self._remove_unavailability_tracker = None\n        self._xiaomi_hub = xiaomi_hub\n        self.parse_data(device[\"data\"], device[\"raw_data\"])\n        self.parse_voltage(device[\"data\"])\n\n        if hasattr(self, \"_data_key\") and self._data_key:  # pylint: disable=no-member\n            self._unique_id = (\n                f\"{self._data_key}{self._sid}\"  # pylint: disable=no-member\n            )\n        else:\n            self._unique_id = f\"{self._type}{self._sid}\"\n\n        self._gateway_id = config_entry.unique_id\n        if config_entry.data[CONF_MAC] == format_mac(self._sid):\n            # this entity belongs to the gateway itself\n            self._is_gateway = True\n            self._device_id = config_entry.unique_id\n        else:\n            # this entity is connected through zigbee\n            self._is_gateway = False\n            self._device_id = self._sid",
+      "called_by": "async_setup_entry"
+    }
+  ]
+}

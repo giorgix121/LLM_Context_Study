@@ -1,0 +1,51 @@
+-
+  project: https://github.com/explosion/spaCy
+  info: "also see linked:pr"
+-
+  project: https://github.com/ansible/ansible
+-
+  project: https://github.com/python/cpython
+-
+  project: https://github.com/django/django
+  link: "https://code.djangoproject.com/query?status=closed&has_patch=1&type=Bug&col=id&col=summary&col=status&col=owner&col=type&col=component&order=priority"
+-
+  project: https://github.com/pandas-dev/pandas
+-
+  project: https://github.com/getsentry/sentry
+  link: https://github.com/getsentry/sentry/pulls?q=is%3Apr+is%3Aclosed+%5Efix+in%3Atitle+
+-
+  project: https://github.com/ultralytics/yolov5
+-
+  project: https://github.com/home-assistant/core
+-
+  project: https://github.com/scikit-learn/scikit-learn
+-
+  project: https://github.com/commaai/openpilot
+-
+  project: https://github.com/encode/django-rest-framework
+-
+  project: https://github.com/getredash/redash
+-
+  project: https://github.com/numpy/numpy
+-
+  project: https://github.com/ray-project/ray
+-
+  project: https://github.com/python-poetry/poetry
+-
+  project: https://github.com/google/jax
+-
+  project: https://github.com/huggingface/transformers
+-
+  project: https://github.com/scrapy/scrapy
+-
+  project: https://github.com/localstack/localstack
+-
+  project: https://github.com/psf/black
+-
+  project: https://github.com/apache/airflow
+-
+  project: https://github.com/pypa/pipenv
+-
+  project: https://github.com/Lightning-AI/lightning
+-
+  project: https://github.com/celery/celery

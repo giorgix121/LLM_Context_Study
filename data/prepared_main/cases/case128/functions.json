@@ -1,0 +1,15 @@
+[
+  {
+    "name": "get_from_profiling_service",
+    "before": {
+      "start": 61,
+      "end": 89,
+      "code": "def get_from_profiling_service(\n    method: str,\n    path: str,\n    params: Optional[Dict[Any, Any]] = None,\n    headers: Optional[Dict[Any, Any]] = None,\n    json_data: Any = None,\n) -> HTTPResponse:\n    kwargs: Dict[str, Any] = {\"headers\": {}}\n    if params:\n        params = {\n            key: value.isoformat() if isinstance(value, datetime) else value\n            for key, value in params.items()\n        }\n        path = f\"{path}?{urlencode(params, doseq=True)}\"\n    if headers:\n        kwargs[\"headers\"].update(headers)\n    if json_data:\n        kwargs[\"headers\"].update(\n            {\n                \"Content-Encoding\": \"br\",\n                \"Content-Type\": \"application/json\",\n            }\n        )\n        kwargs[\"body\"] = brotli.compress(json.dumps(json_data).encode(\"utf-8\"))\n    return _profiling_pool.urlopen(  # type: ignore\n        method,\n        path,\n        **kwargs,\n    )"
+    },
+    "after": {
+      "start": 61,
+      "end": 91,
+      "code": "def get_from_profiling_service(\n    method: str,\n    path: str,\n    params: Optional[Dict[Any, Any]] = None,\n    headers: Optional[Dict[Any, Any]] = None,\n    json_data: Any = None,\n) -> HTTPResponse:\n    kwargs: Dict[str, Any] = {\"headers\": {}}\n    if params:\n        params = {\n            key: value.isoformat() if isinstance(value, datetime) else value\n            for key, value in params.items()\n        }\n        path = f\"{path}?{urlencode(params, doseq=True)}\"\n    if headers:\n        kwargs[\"headers\"].update(headers)\n    if json_data:\n        kwargs[\"headers\"].update(\n            {\n                \"Content-Encoding\": \"br\",\n                \"Content-Type\": \"application/json\",\n            }\n        )\n        kwargs[\"body\"] = brotli.compress(\n            json.dumps(json_data).encode(\"utf-8\"), quality=6, mode=brotli.BrotliEncoderMode.TEXT\n        )\n    return _profiling_pool.urlopen(  # type: ignore\n        method,\n        path,\n        **kwargs,\n    )"
+    }
+  }
+]

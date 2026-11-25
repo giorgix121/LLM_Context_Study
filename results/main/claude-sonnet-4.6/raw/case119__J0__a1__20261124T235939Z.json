@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564931-RdVr59NFdkcfkK9H5IWn",
+    "object": "chat.completion",
+    "created": 1795564931,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The `RunIf` helper's parameter was renamed from `pytorch_lightning` to `pl`, but any existing callers outside this commit that still use `pytorch_lightning=True` will silently pass the unknown keyword argument (absorbed by `**kwargs`) without skipping, potentially running tests that require PyTorch Lightning even when it isn't installed.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4714,
+      "completion_tokens": 90,
+      "total_tokens": 4804,
+      "cost": 0.015492,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.015492,
+        "upstream_inference_prompt_cost": 0.014142,
+        "upstream_inference_completions_cost": 0.00135
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

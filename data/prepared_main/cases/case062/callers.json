@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "process_raw_response",
+      "path": "src/sentry/replays/post_process.py",
+      "start": 5,
+      "end": 7,
+      "code": "def process_raw_response(response: List[Dict[str, Any]], fields: List[str]) -> List[Dict[str, Any]]:\n    \"\"\"Process the response further into the expected output.\"\"\"\n    return list(generate_restricted_fieldset(fields, generate_normalized_output(response)))",
+      "calls": "generate_normalized_output"
+    }
+  ]
+}

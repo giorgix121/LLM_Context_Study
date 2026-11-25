@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "SnowflakeHook.__init__",
+      "path": "airflow/providers/snowflake/hooks/snowflake.py",
+      "start": 143,
+      "end": 153,
+      "code": "    def __init__(self, *args, **kwargs) -> None:\n        super().__init__(*args, **kwargs)\n        self.account = kwargs.pop(\"account\", None)\n        self.warehouse = kwargs.pop(\"warehouse\", None)\n        self.database = kwargs.pop(\"database\", None)\n        self.region = kwargs.pop(\"region\", None)\n        self.role = kwargs.pop(\"role\", None)\n        self.schema = kwargs.pop(\"schema\", None)\n        self.authenticator = kwargs.pop(\"authenticator\", None)\n        self.session_parameters = kwargs.pop(\"session_parameters\", None)\n        self.query_ids: List[str] = []",
+      "called_by": "S3ToSnowflakeOperator.execute"
+    },
+    {
+      "name": "enclose_param",
+      "path": "airflow/providers/snowflake/utils/common.py",
+      "start": 19,
+      "end": 37,
+      "code": "def enclose_param(param: str) -> str:\n    \"\"\"\n    Replace all single quotes in parameter by two single quotes and enclose param in single quote.\n\n    .. seealso::\n        https://docs.snowflake.com/en/sql-reference/data-types-text.html#single-quoted-string-constants\n\n    Examples:\n     .. code-block:: python\n\n        enclose_param(\"without quotes\")  # Returns: 'without quotes'\n        enclose_param(\"'with quotes'\")  # Returns: '''with quotes'''\n        enclose_param(\"Today's sales projections\")  # Returns: 'Today''s sales projections'\n        enclose_param(\"sample/john's.csv\")  # Returns: 'sample/john''s.csv'\n        enclose_param(\".*'awesome'.*[.]csv\")  # Returns: '.*''awesome''.*[.]csv'\n\n    :param param: parameter which required single quotes enclosure.\n    \"\"\"\n    return f\"\"\"'{param.replace(\"'\", \"''\")}'\"\"\"",
+      "called_by": "S3ToSnowflakeOperator.execute"
+    }
+  ]
+}

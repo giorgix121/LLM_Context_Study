@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "main",
+      "path": "classify/predict.py",
+      "start": 212,
+      "end": 214,
+      "code": "def main(opt):\n    check_requirements(exclude=('tensorboard', 'thop'))\n    run(**vars(opt))",
+      "calls": "run"
+    }
+  ]
+}

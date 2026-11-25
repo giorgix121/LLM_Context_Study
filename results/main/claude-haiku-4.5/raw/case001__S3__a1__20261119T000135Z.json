@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795047048-3kqiSCOKIkkOZUNBmwAD",
+    "object": "chat.completion",
+    "created": 1795047048,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change from `stack.pop()` to `del stack[old_len:]` introduces a bug when `add_global_tags` is called within a `global_tags` context manager, as it will delete all tags added after the context manager entry instead of just the context manager's own tags.\"\n}\n```\n\nThe issue is subtle but critical: when `add_global_tags` is called inside a `global_tags` context, the new cleanup logic `del stack[old_len:]` will remove not only the tags added by `global_tags` but also any tags added by `add_global_tags` calls within that context. The old `stack.pop()` only removed the single dict appended by `global_tags`, but the new code removes everything from position `old_len` onwards, which incorrectly deletes tags added by `add_global_tags` that should persist until the context exits.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4671,
+      "completion_tokens": 222,
+      "total_tokens": 4893,
+      "cost": 0.005781,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005781,
+        "upstream_inference_prompt_cost": 0.004671,
+        "upstream_inference_completions_cost": 0.00111
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

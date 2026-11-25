@@ -1,0 +1,65 @@
+{
+  "cache_key": "bc609ab10850d8c6e579c383629e4f7315abec3b3c262200a5ea5979a059c3c4",
+  "sample_id": "case072",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The new `_alter_column_collation_sql` appends `USING %(column)s::%(type)s` to `sql_alter_column_collate`, but `sql_alter_column_collate` does not contain a `%(column)s` or `%(type)s` placeholder for the USING clause in the same way, and the base class signature for `_alter_column_collation_sql` may differ (missing `old_field` parameter), risking a TypeError or malformed SQL when collation changes coincide with type changes.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The new `_alter_column_collation_sql` appends `USING %(column)s::%(type)s` to `sql_alter_column_collate`, but `sql_alter_column_collate` does not contain a `%(column)s` or `%(type)s` placeholder for the USING clause in the same way, and the base class signature for `_alter_column_collation_sql` may differ (missing `old_field` parameter), risking a TypeError or malformed SQL when collation changes coincide with type changes.\"}",
+  "response_id": "gen-1795193120-h1ZzKv6fmPsHxGXnj8Lm",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2932,
+  "completion_tokens": 140,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.010896,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2932,
+    "completion_tokens": 140,
+    "total_tokens": 3072,
+    "cost": 0.010896,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.010896,
+      "upstream_inference_prompt_cost": 0.008796,
+      "upstream_inference_completions_cost": 0.0021
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 4.042,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:45:24+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

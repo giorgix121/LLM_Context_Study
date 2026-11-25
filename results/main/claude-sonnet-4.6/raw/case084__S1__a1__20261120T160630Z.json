@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192922-OkOO4501Y856T8kK0lnC",
+    "object": "chat.completion",
+    "created": 1795192922,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Calling `await switchbot.get_device(address)` as a blocking fallback inside an async Home Assistant setup function may perform I/O on the event loop or return a device object of a different type than expected by `BLEDevice`-typed consumers (coordinator, device class), potentially causing runtime errors or blocking the event loop.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1755,
+      "completion_tokens": 88,
+      "total_tokens": 1843,
+      "cost": 0.006585,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006585,
+        "upstream_inference_prompt_cost": 0.005265,
+        "upstream_inference_completions_cost": 0.00132
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

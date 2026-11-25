@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191777-yvCr7MyXGkxpR5GAnVRb",
+    "object": "chat.completion",
+    "created": 1795191777,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "I need to check if `mac_or_serial` is a property defined in `ONVIFBaseEntity` and whether it behaves identically to `self.device.info.mac or self.device.info.serial_number`.\n\nThe change replaces `self.device.info.mac or self.device.info.serial_number` with `self.mac_or_serial`. If `mac_or_serial` is a property on `ONVIFBaseEntity` that implements the same logic, this is a safe refactor. However, if `mac_or_serial` has different behavior (e.g., different fallback logic, different formatting, or None handling), it could change the unique_id and break existing entity registry entries.\n\nWithout seeing the definition of `mac_or_serial` in `ONVIFBaseEntity`, there's a risk that the property could return a different value than the original expression, which would cause entity ID mismatches for existing installations.\n\n{\"label\": \"RISKY\", \"explanation\": \"If the `mac_or_serial` property on `ONVIFBaseEntity` returns a different value than the original `self.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1105,
+      "completion_tokens": 256,
+      "total_tokens": 1361,
+      "cost": 0.007155,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007155,
+        "upstream_inference_prompt_cost": 0.003315,
+        "upstream_inference_completions_cost": 0.00384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

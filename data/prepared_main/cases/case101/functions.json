@@ -1,0 +1,28 @@
+[
+  {
+    "name": "warn_non_editable",
+    "before": {
+      "start": 45,
+      "end": 51,
+      "code": "def warn_non_editable():\n    get_console().print(\n        \"\\n[error]Breeze is installed in a wrong way.[/]\\n\"\n        \"\\n[error]It should only be installed in editable mode[/]\\n\\n\"\n        \"[info]Please go to Airflow sources and run[/]\\n\\n\"\n        f\"     {NAME} self-upgrade --force --use-current-airflow-sources\\n\"\n    )"
+    },
+    "after": {
+      "start": 45,
+      "end": 51,
+      "code": "def warn_non_editable():\n    get_console().print(\n        \"\\n[error]Breeze is installed in a wrong way.[/]\\n\"\n        \"\\n[error]It should only be installed in editable mode[/]\\n\\n\"\n        \"[info]Please go to Airflow sources and run[/]\\n\\n\"\n        f\"     {NAME} setup self-upgrade --force --use-current-airflow-sources\\n\"\n    )"
+    }
+  },
+  {
+    "name": "warn_dependencies_changed",
+    "before": {
+      "start": 54,
+      "end": 61,
+      "code": "def warn_dependencies_changed():\n    get_console().print(\n        f\"\\n[warning]Breeze dependencies changed since the installation![/]\\n\\n\"\n        f\"[warning]This might cause various problems!![/]\\n\\n\"\n        f\"If you experience problems - reinstall Breeze with:\\n\\n\"\n        f\"    {NAME} self-upgrade --force\\n\"\n        \"\\nThis should usually take couple of seconds.\\n\"\n    )"
+    },
+    "after": {
+      "start": 54,
+      "end": 61,
+      "code": "def warn_dependencies_changed():\n    get_console().print(\n        f\"\\n[warning]Breeze dependencies changed since the installation![/]\\n\\n\"\n        f\"[warning]This might cause various problems!![/]\\n\\n\"\n        f\"If you experience problems - reinstall Breeze with:\\n\\n\"\n        f\"    {NAME} setup self-upgrade --force\\n\"\n        \"\\nThis should usually take couple of seconds.\\n\"\n    )"
+    }
+  }
+]

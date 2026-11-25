@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "ZigbeeChannel.__init__",
+      "path": "homeassistant/components/zha/core/channels/base.py",
+      "start": 120,
+      "end": 140,
+      "code": "    def __init__(self, cluster: zigpy.zcl.Cluster, ch_pool: ChannelPool) -> None:\n        \"\"\"Initialize ZigbeeChannel.\"\"\"\n        self._generic_id = f\"channel_0x{cluster.cluster_id:04x}\"\n        self._ch_pool = ch_pool\n        self._cluster = cluster\n        self._id = f\"{ch_pool.id}:0x{cluster.cluster_id:04x}\"\n        unique_id = ch_pool.unique_id.replace(\"-\", \":\")\n        self._unique_id = f\"{unique_id}:0x{cluster.cluster_id:04x}\"\n        if not hasattr(self, \"_value_attribute\") and self.REPORT_CONFIG:\n            attr = self.REPORT_CONFIG[0].get(\"attr\")\n            if isinstance(attr, str):\n                attribute: ZCLAttributeDef = self.cluster.attributes_by_name.get(attr)\n                if attribute is not None:\n                    self.value_attribute = attribute.id\n                else:\n                    self.value_attribute = None\n            else:\n                self.value_attribute = attr\n        self._status = ChannelStatus.CREATED\n        self._cluster.add_listener(self)\n        self.data_cache: dict[str, Enum] = {}",
+      "called_by": "OppleRemote.__init__"
+    }
+  ]
+}

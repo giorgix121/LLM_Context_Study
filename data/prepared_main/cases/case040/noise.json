@@ -1,0 +1,15 @@
+{
+  "target_chars": 589,
+  "chars": 574,
+  "files": [
+    {
+      "path": "src/pytorch_lightning/plugins/precision/native_amp.py",
+      "chars": 483,
+      "truncated": true
+    }
+  ],
+  "text": "<file path=\"src/pytorch_lightning/plugins/precision/native_amp.py\" truncated=\"yes\">\n# Copyright The PyTorch Lightning team.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n</file>",
+  "donor_sample_id": "case063",
+  "donor_repo": "Lightning-AI/lightning",
+  "donor_commit": "d579733b081e0e082557ee8271ccbd3b1209270f"
+}

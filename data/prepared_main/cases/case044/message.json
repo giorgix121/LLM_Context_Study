@@ -1,0 +1,5 @@
+{
+  "commit": "94a8fe0052635299834b8006904609b2e983490e",
+  "chars": 50,
+  "text": "Remove xiaomi_aqara from mypy ignore list (#73526)"
+}

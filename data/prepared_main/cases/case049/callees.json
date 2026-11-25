@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "_parse_response",
+      "path": "src/sentry/api_gateway/proxy.py",
+      "start": 18,
+      "end": 34,
+      "code": "def _parse_response(response: ExternalResponse) -> StreamingHttpResponse:\n    \"\"\"\n    Convert the Responses class from requests into the drf Response\n    \"\"\"\n\n    def stream_response():  # type: ignore\n        yield from response.iter_content(PROXY_CHUNK_SIZE)\n\n    streamed_response = StreamingHttpResponse(\n        streaming_content=stream_response(),\n        status=response.status_code,\n        content_type=response.headers.pop(\"Content-Type\"),\n    )\n    # Add Headers to response\n    for header, value in response.headers.items():\n        streamed_response[header] = value\n    return streamed_response",
+      "called_by": "proxy_request"
+    },
+    {
+      "name": "SentryAPIException.__init__",
+      "path": "src/sentry/api/exceptions.py",
+      "start": 19,
+      "end": 31,
+      "code": "    def __init__(self, code=None, message=None, detail=None, **kwargs):\n        # Note that we no longer call the base `__init__` here. This is because\n        # DRF now forces all detail messages that subclass `APIException` to a\n        # string, which breaks our format.\n        # https://www.django-rest-framework.org/community/3.0-announcement/#miscellaneous-notes\n        if detail is None:\n            detail = {\n                \"code\": code or self.code,\n                \"message\": message or self.message,\n                \"extra\": kwargs,\n            }\n\n        self.detail = {\"detail\": detail}",
+      "called_by": "proxy_request"
+    },
+    {
+      "name": "get_region_for_organization",
+      "path": "src/sentry/types/region.py",
+      "start": 105,
+      "end": 119,
+      "code": "def get_region_for_organization(organization: Organization) -> Region:\n    \"\"\"Resolve an organization to the region where its data is stored.\n\n    Raises RegionContextError if this Sentry platform instance is configured to\n    run only in monolith mode.\n    \"\"\"\n    mapping = _load_global_regions()\n\n    if not mapping.regions:\n        raise RegionContextError(\"No regions are configured\")\n\n    # Backend representation to be determined. If you are working on code\n    # that depends on this method, you can mock it out in unit tests or\n    # temporarily hard-code a placeholder.\n    raise NotImplementedError",
+      "called_by": "proxy_request"
+    }
+  ]
+}

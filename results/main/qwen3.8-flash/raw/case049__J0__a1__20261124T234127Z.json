@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564121-D75L6eS3F9AUpfaLBJNo",
+    "object": "chat.completion",
+    "created": 1795564121,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The commit introduces a logic error where `request.body` is set to `None` if files are present, which likely breaks multipart form data proxying because the body content (including file boundaries) is discarded instead of being forwarded or handled correctly via the `files` argument.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1205,
+      "completion_tokens": 69,
+      "total_tokens": 1274,
+      "cost": 0.00021318,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00021318,
+        "upstream_inference_prompt_cost": 0.00018075,
+        "upstream_inference_completions_cost": 3.243e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

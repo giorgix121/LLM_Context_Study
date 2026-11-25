@@ -1,0 +1,15 @@
+[
+  {
+    "name": "_adjust_manifest",
+    "before": {
+      "start": 43,
+      "end": 59,
+      "code": "def _adjust_manifest(**__: Any) -> None:\n    manifest_path = os.path.join(_PROJECT_ROOT, \"MANIFEST.in\")\n    assert os.path.isfile(manifest_path)\n    with open(manifest_path) as fp:\n        lines = fp.readlines()\n    lines += [\n        \"recursive-exclude src *.md\" + os.linesep,\n        \"recursive-exclude requirements *.txt\" + os.linesep,\n        \"recursive-include src/lightning_app *.md\" + os.linesep,\n        \"recursive-include requirements/app *.txt\" + os.linesep,\n    ]\n\n    # TODO: remove this once lightning-ui package is ready as a dependency\n    lines += [\"recursive-include src/lightning_app/ui *\" + os.linesep]\n\n    with open(manifest_path, \"w\") as fp:\n        fp.writelines(lines)"
+    },
+    "after": {
+      "start": 43,
+      "end": 60,
+      "code": "def _adjust_manifest(**__: Any) -> None:\n    manifest_path = os.path.join(_PROJECT_ROOT, \"MANIFEST.in\")\n    assert os.path.isfile(manifest_path)\n    with open(manifest_path) as fp:\n        lines = fp.readlines()\n    lines += [\n        \"recursive-exclude src *.md\" + os.linesep,\n        \"recursive-exclude requirements *.txt\" + os.linesep,\n        \"recursive-include src/lightning_app *.md\" + os.linesep,\n        \"recursive-include requirements/app *.txt\" + os.linesep,\n        \"recursive-include src/lightning_app/cli/*-template *\" + os.linesep,  # Add templates\n    ]\n\n    # TODO: remove this once lightning-ui package is ready as a dependency\n    lines += [\"recursive-include src/lightning_app/ui *\" + os.linesep]\n\n    with open(manifest_path, \"w\") as fp:\n        fp.writelines(lines)"
+    }
+  }
+]

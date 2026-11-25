@@ -1,0 +1,65 @@
+{
+  "cache_key": "cffec685b7b3d093d18905c014d75939c0d429b6fce68eceafbb13ea6a88c50d",
+  "sample_id": "case057",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change only moves documentation examples between docstrings without altering any functional code or behavior.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change only moves documentation examples between docstrings without altering any functional code or behavior.\"\n}\n```",
+  "response_id": "gen-1795047986-Q7AjFjVeCI9EYvpSI1Pd",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 437,
+  "completion_tokens": 49,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000682,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 437,
+    "completion_tokens": 49,
+    "total_tokens": 486,
+    "cost": 0.000682,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000682,
+      "upstream_inference_prompt_cost": 0.000437,
+      "upstream_inference_completions_cost": 0.000245
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.079,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:26:27+00:00",
+  "run_id": "20261119T002019Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

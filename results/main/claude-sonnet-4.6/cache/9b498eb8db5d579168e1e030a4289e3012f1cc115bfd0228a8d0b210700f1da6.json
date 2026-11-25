@@ -1,0 +1,65 @@
+{
+  "cache_key": "9b498eb8db5d579168e1e030a4289e3012f1cc115bfd0228a8d0b210700f1da6",
+  "sample_id": "case110",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Using `subprocess.call([\"command\", \"-v\", \"srun\"])` is unreliable because `command` is a shell built-in and not an executable, so on many systems this will raise `FileNotFoundError` (causing `srun_exists` to be silently set to `False`) rather than correctly detecting whether `srun` is available, potentially suppressing the important user warning about missing `srun` usage.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Using `subprocess.call([\\\"command\\\", \\\"-v\\\", \\\"srun\\\"])` is unreliable because `command` is a shell built-in and not an executable, so on many systems this will raise `FileNotFoundError` (causing `srun_exists` to be silently set to `False`) rather than correctly detecting whether `srun` is available, potentially suppressing the important user warning about missing `srun` usage.\"}",
+  "response_id": "gen-1795193228-WS50KajKOEacbZ4MBvx9",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1333,
+  "completion_tokens": 113,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.005694,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1333,
+    "completion_tokens": 113,
+    "total_tokens": 1446,
+    "cost": 0.005694,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.005694,
+      "upstream_inference_prompt_cost": 0.003999,
+      "upstream_inference_completions_cost": 0.001695
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.664,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:47:11+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

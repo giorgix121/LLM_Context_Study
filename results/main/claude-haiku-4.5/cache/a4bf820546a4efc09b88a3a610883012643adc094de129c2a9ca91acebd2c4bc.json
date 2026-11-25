@@ -1,0 +1,65 @@
+{
+  "cache_key": "a4bf820546a4efc09b88a3a610883012643adc094de129c2a9ca91acebd2c4bc",
+  "sample_id": "case083",
+  "strategy": "C0",
+  "status": "invalid_output",
+  "predicted_label": null,
+  "explanation": null,
+  "validation_error": "not valid JSON (Expecting value)",
+  "fenced_json": false,
+  "raw_content": "Looking at the diff in `src/lightning_app/utilities/cli_helpers.py`, I can identify a critical bug:\n\n```python\nrequirements = paths[path][\"post\"].get(\"requirements\", None)\n\n# ... later ...\n\nif description:\n    metadata[\"requirements\"] = requirements\n```\n\nThe problem is on line 74 (in the new code): the condition checks `if description:` but should check `if requirements:`. This means:\n\n1. The `requirements` variable is extracted correctly on line 62\n2. But it's only added to metadata if `description` is truthy, not if `requirements` is truthy\n3. This creates a logical error where requirements are conditionally included based on an unrelated field\n\nThis is a functional defect because:\n- Requirements will be silently dropped if description is falsy/None, even if requirements exist\n- Requirements will be incorrectly included if description exists but requirements don't\n- The feature for \"adding requirements to commands\" (mentioned in CHANGELOG) won't work as intended\n\nThe fix should be `if requirements:` instead of `if description:`.\n\n```json\n{\"label\": \"RISKY\", \"",
+  "response_id": "gen-1795564571-crreOo153pwweCIeKsGK",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "length",
+  "prompt_tokens": 4431,
+  "completion_tokens": 256,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.005711,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 4431,
+    "completion_tokens": 256,
+    "total_tokens": 4687,
+    "cost": 0.005711,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.005711,
+      "upstream_inference_prompt_cost": 0.004431,
+      "upstream_inference_completions_cost": 0.00128
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.515,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:56:14+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

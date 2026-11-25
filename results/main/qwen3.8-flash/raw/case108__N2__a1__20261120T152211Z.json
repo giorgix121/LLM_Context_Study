@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189082-lhmOTEO9ubyxcqIarNcD",
+    "object": "chat.completion",
+    "created": 1795189082,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change removes the `app_id` field from the `AppConnectBuild` constructor in the exception handler, which may cause a database integrity error or missing data if `app_id` is a required non-nullable field, as it was previously populated.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5499,
+      "completion_tokens": 65,
+      "total_tokens": 5564,
+      "cost": 0.0008554,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008554,
+        "upstream_inference_prompt_cost": 0.00082485,
+        "upstream_inference_completions_cost": 3.055e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

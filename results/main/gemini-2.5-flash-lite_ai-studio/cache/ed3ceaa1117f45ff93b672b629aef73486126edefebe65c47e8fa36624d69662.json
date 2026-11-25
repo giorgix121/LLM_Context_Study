@@ -1,0 +1,65 @@
+{
+  "cache_key": "ed3ceaa1117f45ff93b672b629aef73486126edefebe65c47e8fa36624d69662",
+  "sample_id": "case016",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change renames `sigusr1_handlers` to `sigusr_handlers` and introduces logic to dynamically select the signal to handle, which could lead to unexpected behavior if the `requeue_signal` attribute is not correctly set or if the default `SIGUSR1` is not appropriate for the environment.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change renames `sigusr1_handlers` to `sigusr_handlers` and introduces logic to dynamically select the signal to handle, which could lead to unexpected behavior if the `requeue_signal` attribute is not correctly set or if the default `SIGUSR1` is not appropriate for the environment.\"}",
+  "response_id": "gen-1795048579-1ir9D9Yf8U5ShLCwXLHQ",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 2923,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0003227,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2923,
+    "completion_tokens": 76,
+    "total_tokens": 2999,
+    "cost": 0.0003227,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003227,
+      "upstream_inference_prompt_cost": 0.0002923,
+      "upstream_inference_completions_cost": 3.04e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.499,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:36:19+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

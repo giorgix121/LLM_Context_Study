@@ -1,0 +1,65 @@
+{
+  "cache_key": "b1b55296f17aa46f58c8b93231a74a7c8293d09315434e7c011d47cbcf3a5dea",
+  "sample_id": "case099",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit removes the `LightningLite` class implementation from `src/lightning_lite/lite.py` and disables its import in `__init__.py`, but then re-implements it in `src/pytorch_lightning/lite/lite.py` with significant refactoring including changed method signatures (e.g., `_setup_model_and_optimizers` → `setup_module_and_optimizers`, `_run_backward` → `backward`) and exception type changes that could break existing code relying on the original API.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The commit removes the `LightningLite` class implementation from `src/lightning_lite/lite.py` and disables its import in `__init__.py`, but then re-implements it in `src/pytorch_lightning/lite/lite.py` with significant refactoring including changed method signatures (e.g., `_setup_model_and_optimizers` → `setup_module_and_optimizers`, `_run_backward` → `backward`) and exception type changes that could break existing code relying on the original API.\"\n}\n```",
+  "response_id": "gen-1795564659-3jaSjTyD2iL6cWVqRwcZ",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 10551,
+  "completion_tokens": 146,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.011281,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 10551,
+    "completion_tokens": 146,
+    "total_tokens": 10697,
+    "cost": 0.011281,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.011281,
+      "upstream_inference_prompt_cost": 0.010551,
+      "upstream_inference_completions_cost": 0.00073
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.17,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:57:41+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

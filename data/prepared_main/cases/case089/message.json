@@ -1,0 +1,5 @@
+{
+  "commit": "b936fd4380cee0880f430255f63f9f68831d3db7",
+  "chars": 80,
+  "text": "[app] Add CloudCompute ID serializable within the flow and works state  (#14819)"
+}

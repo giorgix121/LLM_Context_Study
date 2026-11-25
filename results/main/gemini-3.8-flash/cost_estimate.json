@@ -1,0 +1,82 @@
+{
+  "created_at": "2026-11-20T15:06:42+00:00",
+  "per_strategy": [
+    {
+      "strategy": "S0",
+      "requests": 146,
+      "mean_prompt_chars": 1314,
+      "est_input_tokens_total": 63996,
+      "est_cost_usd": 0.102747,
+      "worst_case_usd": 0.21213525
+    },
+    {
+      "strategy": "S1",
+      "requests": 146,
+      "mean_prompt_chars": 5111,
+      "est_input_tokens_total": 248806,
+      "est_cost_usd": 0.2413545,
+      "worst_case_usd": 0.4200405
+    },
+    {
+      "strategy": "S2",
+      "requests": 146,
+      "mean_prompt_chars": 13384,
+      "est_input_tokens_total": 651392,
+      "est_cost_usd": 0.543294,
+      "worst_case_usd": 0.8729475
+    },
+    {
+      "strategy": "S3",
+      "requests": 146,
+      "mean_prompt_chars": 7517,
+      "est_input_tokens_total": 365855,
+      "est_cost_usd": 0.32914125,
+      "worst_case_usd": 0.55171875
+    },
+    {
+      "strategy": "S4",
+      "requests": 146,
+      "mean_prompt_chars": 7254,
+      "est_input_tokens_total": 353078,
+      "est_cost_usd": 0.3195585,
+      "worst_case_usd": 0.5373435
+    },
+    {
+      "strategy": "N2",
+      "requests": 146,
+      "mean_prompt_chars": 13354,
+      "est_input_tokens_total": 649959,
+      "est_cost_usd": 0.54221925,
+      "worst_case_usd": 0.8713425
+    }
+  ],
+  "budget_cap_usd": 3.0,
+  "estimated_total_usd": 2.0783145000000003,
+  "worst_case_total_usd": 3.465528,
+  "pricing": {
+    "retrieved_at": "2026-11-20T15:06:42+00:00",
+    "source": "https://openrouter.ai/api/v1/models/google/gemini-3.8-flash/endpoints",
+    "model": "google/gemini-3.8-flash",
+    "provider": "Google AI Studio",
+    "provider_tag": "google-ai-studio",
+    "endpoint_model": "google/gemini-3.8-flash-20260902",
+    "status": 0,
+    "uptime_last_30m": 100,
+    "price_prompt_per_token": 7.5e-07,
+    "price_completion_per_token": 3.75e-06,
+    "price_cache_read_per_token": 7.5e-08,
+    "supported_parameters": [
+      "reasoning",
+      "include_reasoning",
+      "max_tokens",
+      "temperature",
+      "top_p",
+      "seed",
+      "response_format",
+      "structured_outputs",
+      "tool_choice",
+      "tools",
+      "reasoning_effort"
+    ]
+  }
+}

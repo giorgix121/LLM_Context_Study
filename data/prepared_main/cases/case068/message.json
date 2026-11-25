@@ -1,0 +1,5 @@
+{
+  "commit": "29ab130d8f77d5fa4fef3bfd30536517b0fc66ce",
+  "chars": 221,
+  "text": "feat(metrics): Change data category for metrics outcomes (#40509)\n\nData category `transaction` now represents the number of transactions\nfor which metrics were extracted.\n\nCo-authored-by: Jan Michael Auer <mail@jauer.org>"
+}

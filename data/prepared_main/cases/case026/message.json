@@ -1,0 +1,5 @@
+{
+  "commit": "63d98fd8047f61bfcca941ffe9514b5cbc10c9ef",
+  "chars": 85,
+  "text": "ref(redis): Disconnect from redis after service validation and version check (#36415)"
+}

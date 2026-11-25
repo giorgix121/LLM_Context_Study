@@ -1,0 +1,28 @@
+[
+  {
+    "name": "ClientCommand.__init__",
+    "before": {
+      "start": 36,
+      "end": 43,
+      "code": "    def __init__(self, method: Callable, requirements: Optional[List[str]] = None) -> None:\n        self.method = method\n        flow = getattr(method, \"__self__\", None)\n        self.owner = flow.name if flow else None\n        self.requirements = requirements\n        self.models: Optional[Dict[str, BaseModel]] = None\n        self.app_url = None\n        self._state = None"
+    },
+    "after": {
+      "start": 36,
+      "end": 45,
+      "code": "    def __init__(self, method: Callable, requirements: Optional[List[str]] = None) -> None:\n        self.method = method\n        if not self.DESCRIPTION:\n            self.DESCRIPTION = self.method.__doc__ or \"\"\n        flow = getattr(method, \"__self__\", None)\n        self.owner = flow.name if flow else None\n        self.requirements = requirements\n        self.models: Optional[Dict[str, BaseModel]] = None\n        self.app_url = None\n        self._state = None"
+    }
+  },
+  {
+    "name": "_collect_open_api_extras",
+    "before": {
+      "start": 219,
+      "end": 225,
+      "code": "def _collect_open_api_extras(command) -> Dict:\n    if not isinstance(command, ClientCommand):\n        return {}\n    return {\n        \"cls_path\": inspect.getfile(command.__class__),\n        \"cls_name\": command.__class__.__name__,\n    }"
+    },
+    "after": {
+      "start": 221,
+      "end": 230,
+      "code": "def _collect_open_api_extras(command) -> Dict:\n    if not isinstance(command, ClientCommand):\n        if command.__doc__ is not None:\n            return {\"description\": command.__doc__}\n        return {}\n    return {\n        \"cls_path\": inspect.getfile(command.__class__),\n        \"cls_name\": command.__class__.__name__,\n        \"description\": command.DESCRIPTION,\n    }"
+    }
+  }
+]

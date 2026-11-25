@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795190655-Sl8Rvex0mCNZPf7sCT0Z",
+    "object": "chat.completion",
+    "created": 1795190655,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Changing the billing category from TRANSACTION_PROCESSED to TRANSACTION alters which quota is consumed, potentially causing incorrect billing or quota exhaustion for transaction metrics.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3269,
+      "completion_tokens": 42,
+      "total_tokens": 3311,
+      "cost": 0.000269962,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1792,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000269962,
+        "upstream_inference_prompt_cost": 0.000250222,
+        "upstream_inference_completions_cost": 1.974e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

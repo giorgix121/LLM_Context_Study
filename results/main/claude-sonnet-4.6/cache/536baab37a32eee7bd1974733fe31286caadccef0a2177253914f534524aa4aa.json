@@ -1,0 +1,65 @@
+{
+  "cache_key": "536baab37a32eee7bd1974733fe31286caadccef0a2177253914f534524aa4aa",
+  "sample_id": "case075",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change updates the checkpoint access pattern to use the new Ray Tune API (`as_directory()` context manager) instead of directly treating `best_checkpoint` as a path string, which is the correct way to handle the newer checkpoint abstraction.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change updates the checkpoint access pattern to use the new Ray Tune API (`as_directory()` context manager) instead of directly treating `best_checkpoint` as a path string, which is the correct way to handle the newer checkpoint abstraction.\"}",
+  "response_id": "gen-1795192217-E3M1AgExDLJBBf3koWHr",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 955,
+  "completion_tokens": 70,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.003915,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 955,
+    "completion_tokens": 70,
+    "total_tokens": 1025,
+    "cost": 0.003915,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003915,
+      "upstream_inference_prompt_cost": 0.002865,
+      "upstream_inference_completions_cost": 0.00105
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.63,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:30:19+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

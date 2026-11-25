@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795190940-4P9jEFFHzHXX9jMzhCoi",
+    "object": "chat.completion",
+    "created": 1795190940,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at this diff, I need to analyze the change in the `sort=False, observed=False` branch.\n\n**Before:**\n- `cat = c.unique()` — gets unique values as a Categorical\n- Extracts `take_codes` from `cat.codes` (codes relative to `cat.categories`)\n- Reorders categories and adds missing ones\n- Returns `c.reorder_categories(cat.categories)` — same data `c`, just reordered categories\n\n**After:**\n- `all_codes = np.arange(c.categories.nunique(), dtype=np.int8)` — codes relative to `c.categories`\n- `unique_notnan_codes = unique1d(c.codes[c.codes != -1])` — unique codes from `c.codes` (also relative to `c.categories`)\n- Builds `take_codes` as indices into `c.categories`\n- Returns `Categorical(c, c.unique().categories.take(take_codes))` — creates new Categorical from `c` with reordered categories\n\n**Key concern:** `np.int8`",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2199,
+      "completion_tokens": 256,
+      "total_tokens": 2455,
+      "cost": 0.010437,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.010437,
+        "upstream_inference_prompt_cost": 0.006597,
+        "upstream_inference_completions_cost": 0.00384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

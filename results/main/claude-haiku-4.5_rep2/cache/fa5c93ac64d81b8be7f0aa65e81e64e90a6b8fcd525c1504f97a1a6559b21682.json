@@ -1,0 +1,65 @@
+{
+  "cache_key": "fa5c93ac64d81b8be7f0aa65e81e64e90a6b8fcd525c1504f97a1a6559b21682",
+  "sample_id": "case035",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Adding a queue assignment to a task decorator changes task routing behavior and could cause tasks to be processed by different workers than before, potentially breaking existing deployments if the 'counters-0' queue is not properly configured.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"Adding a queue assignment to a task decorator changes task routing behavior and could cause tasks to be processed by different workers than before, potentially breaking existing deployments if the 'counters-0' queue is not properly configured.\"\n}\n```",
+  "response_id": "gen-1795047909-vI0BRCoWpiLd6P4XvD6b",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 255,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000615,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 255,
+    "completion_tokens": 72,
+    "total_tokens": 327,
+    "cost": 0.000615,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000615,
+      "upstream_inference_prompt_cost": 0.000255,
+      "upstream_inference_completions_cost": 0.00036
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.312,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:25:10+00:00",
+  "run_id": "20261119T002019Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

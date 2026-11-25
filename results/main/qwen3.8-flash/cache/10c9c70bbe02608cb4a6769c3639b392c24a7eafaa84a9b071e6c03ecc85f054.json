@@ -1,0 +1,65 @@
+{
+  "cache_key": "10c9c70bbe02608cb4a6769c3639b392c24a7eafaa84a9b071e6c03ecc85f054",
+  "sample_id": "case085",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The new `use_metrics_layer` flag introduces a complex code path that bypasses standard query building and tag resolution, which is acknowledged as incomplete by multiple tests marked with `xfail` due to unsupported features like ordering and grouping.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The new `use_metrics_layer` flag introduces a complex code path that bypasses standard query building and tag resolution, which is acknowledged as incomplete by multiple tests marked with `xfail` due to unsupported features like ordering and grouping.\"}",
+  "response_id": "gen-1795564017-s4n5yZmvdKO2D9KZvxdD",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 9553,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00146115,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 9553,
+    "completion_tokens": 60,
+    "total_tokens": 9613,
+    "cost": 0.00146115,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00146115,
+      "upstream_inference_prompt_cost": 0.00143295,
+      "upstream_inference_completions_cost": 2.82e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.809,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:47:00+00:00",
+  "run_id": "20261124T234127Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

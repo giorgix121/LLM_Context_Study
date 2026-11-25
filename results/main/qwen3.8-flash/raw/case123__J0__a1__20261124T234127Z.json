@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563976-4WGc9idy63mwcZiyeZgE",
+    "object": "chat.completion",
+    "created": 1795563976,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The GitLab integration's `get_commit_context` method uses a strict datetime format string (`%Y-%m-%dT%H:%M:%S.%fZ`) that will raise a ValueError if the API returns dates without microseconds or with different timezone offsets, potentially causing unhandled exceptions.\"\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3815,
+      "completion_tokens": 77,
+      "total_tokens": 3892,
+      "cost": 0.00060844,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00060844,
+        "upstream_inference_prompt_cost": 0.00057225,
+        "upstream_inference_completions_cost": 3.619e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

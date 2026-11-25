@@ -1,0 +1,65 @@
+{
+  "cache_key": "572b89733c7b2bcaf8e70e2d19df34dc5696f0a84b84f29273d76f245b05acaa",
+  "sample_id": "case121",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit removes route-level props that previously determined the current tab and event route status, replacing them with URL-based detection that may fail to correctly identify the current tab if route paths don't match TabPaths values or if router.params.eventId is unreliable, potentially causing incorrect tab highlighting or navigation behavior.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The commit removes route-level props that previously determined the current tab and event route status, replacing them with URL-based detection that may fail to correctly identify the current tab if route paths don't match TabPaths values or if router.params.eventId is unreliable, potentially causing incorrect tab highlighting or navigation behavior.\"\n}\n```",
+  "response_id": "gen-1795564350-O84ucZjD8tpa2itFZ10I",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 8564,
+  "completion_tokens": 93,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.009029,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 8564,
+    "completion_tokens": 93,
+    "total_tokens": 8657,
+    "cost": 0.009029,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.009029,
+      "upstream_inference_prompt_cost": 0.008564,
+      "upstream_inference_completions_cost": 0.000465
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.914,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:52:32+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

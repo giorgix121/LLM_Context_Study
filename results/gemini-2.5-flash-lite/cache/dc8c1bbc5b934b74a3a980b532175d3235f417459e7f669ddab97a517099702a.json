@@ -1,0 +1,65 @@
+{
+  "cache_key": "dc8c1bbc5b934b74a3a980b532175d3235f417459e7f669ddab97a517099702a",
+  "sample_id": "case06",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change removes a redundant validation for `max_retries` and adds `retry_exceptions` to `WorkflowStepRuntimeOptions`, which are minor adjustments to existing functionality and do not introduce new behavior that could cause defects.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change removes a redundant validation for `max_retries` and adds `retry_exceptions` to `WorkflowStepRuntimeOptions`, which are minor adjustments to existing functionality and do not introduce new behavior that could cause defects.\"}",
+  "response_id": "gen-1790923366-SFqOKuFfDSiHjGQ4Uznm",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 5846,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0006082,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 5846,
+    "completion_tokens": 59,
+    "total_tokens": 5905,
+    "cost": 0.0006082,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0006082,
+      "upstream_inference_prompt_cost": 0.0005846,
+      "upstream_inference_completions_cost": 2.36e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.812,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T06:42:47+00:00",
+  "run_id": "20261002T063748Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

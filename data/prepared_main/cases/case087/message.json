@@ -1,0 +1,5 @@
+{
+  "commit": "d314d19e59a082f47949ffd7ab45349c4e308217",
+  "chars": 229,
+  "text": "feat: Add the streaming version of the post process forwarder (#40074)\n\nThis is not yet being used, will eventually replace the existing post process forwarder wholesale.\n\nDepends on https://github.com/getsentry/sentry/pull/39502"
+}

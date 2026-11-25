@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "json_to_multi_ndarray",
+      "path": "python/ray/serve/http_adapters.py",
+      "start": 58,
+      "end": 61,
+      "code": "@PublicAPI(stability=\"beta\")\ndef json_to_multi_ndarray(payload: Dict[str, NdArray]) -> Dict[str, np.ndarray]:\n    \"\"\"Accepts a JSON of shape {str_key: NdArray} and converts it to dict of arrays.\"\"\"\n    return {key: json_to_ndarray(arr_obj) for key, arr_obj in payload.items()}",
+      "calls": "json_to_ndarray"
+    },
+    {
+      "name": "test_json_to_ndarray",
+      "path": "python/ray/serve/tests/test_http_adapters.py",
+      "start": 36,
+      "end": 52,
+      "code": "def test_json_to_ndarray():\n    np.testing.assert_equal(\n        json_to_ndarray(NdArray(array=[1, 2], shape=None, dtype=None)),\n        np.array([1, 2]),\n    )\n    np.testing.assert_equal(\n        json_to_ndarray(NdArray(array=[[1], [2]], shape=None, dtype=None)),\n        np.array([[1], [2]]),\n    )\n    np.testing.assert_equal(\n        json_to_ndarray(NdArray(array=[[1], [2]], shape=[1, 2], dtype=None)),\n        np.array([[1, 2]]),\n    )\n    np.testing.assert_equal(\n        json_to_ndarray(NdArray(array=[[1.9], [2.1]], shape=[1, 2], dtype=\"int\")),\n        np.array([[1.9, 2.1]]).astype(\"int\"),\n    )",
+      "calls": "json_to_ndarray"
+    }
+  ]
+}

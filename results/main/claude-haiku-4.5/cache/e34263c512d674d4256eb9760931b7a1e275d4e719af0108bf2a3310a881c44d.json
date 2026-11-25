@@ -1,0 +1,65 @@
+{
+  "cache_key": "e34263c512d674d4256eb9760931b7a1e275d4e719af0108bf2a3310a881c44d",
+  "sample_id": "case015",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The `get_notification_title` method now requires a `provider` parameter, but the existing caller `get_context` does not pass this parameter when calling `description_as_text`, which will cause a runtime error or unexpected behavior.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The `get_notification_title` method now requires a `provider` parameter, but the existing caller `get_context` does not pass this parameter when calling `description_as_text`, which will cause a runtime error or unexpected behavior.\"\n}\n```",
+  "response_id": "gen-1795046569-N2KhhsZelx5aniCS0rUU",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 1561,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001946,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1561,
+    "completion_tokens": 77,
+    "total_tokens": 1638,
+    "cost": 0.001946,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001946,
+      "upstream_inference_prompt_cost": 0.001561,
+      "upstream_inference_completions_cost": 0.000385
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.207,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:02:50+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

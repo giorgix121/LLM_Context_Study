@@ -1,0 +1,11 @@
+[
+  {
+    "name": "OpenUvSensor.async_update",
+    "before": null,
+    "after": {
+      "start": 134,
+      "end": 140,
+      "code": "    async def async_update(self) -> None:\n        \"\"\"Update the entity.\n\n        Only used by the generic entity update service.\n        \"\"\"\n        await self.openuv.async_update_uv_index_data()\n        self.async_update_state()"
+    }
+  }
+]

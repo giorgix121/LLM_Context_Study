@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "LearnerThread.run",
+      "path": "rllib/algorithms/dqn/learner_thread.py",
+      "start": 37,
+      "end": 42,
+      "code": "    def run(self):\n        # Switch on eager mode if configured.\n        if self.local_worker.policy_config.get(\"framework\") in [\"tf2\", \"tfe\"]:\n            tf1.enable_eager_execution()\n        while not self.stopped:\n            self.step()",
+      "calls": "LearnerThread.step"
+    }
+  ]
+}

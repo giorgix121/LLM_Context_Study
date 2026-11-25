@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191087-hRRtw0gCuS0mxiLo8LOU",
+    "object": "chat.completion",
+    "created": 1795191087,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at this diff, I need to analyze the change in the `sort=False` branch of `recode_for_groupby`.\n\n**Key difference:**\n\nOld code:\n```python\ncat = c.unique()\ntake_codes = cat.codes[cat.codes != -1]\nif cat.ordered:\n    take_codes = np.sort(take_codes)\ncat = cat.set_categories(cat.categories.take(take_codes))\ncat = cat.add_categories(c.categories[~c.categories.isin(cat.categories)])\nreturn c.reorder_categories(cat.categories), None\n```\n\nNew code:\n```python\nall_codes = np.arange(c.categories.nunique(), dtype=np.int8)\nunique_notnan_codes = unique1d(c.codes[c.codes != -1])\nif c.ordered:\n    unique_notnan_codes = np.sort(unique_notnan_codes)\nif len(all_codes) > len(unique_notnan_codes):\n    missing_codes = np.setdiff1d(",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3844,
+      "completion_tokens": 256,
+      "total_tokens": 4100,
+      "cost": 0.015372,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.015372,
+        "upstream_inference_prompt_cost": 0.011532,
+        "upstream_inference_completions_cost": 0.00384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1790923145-0lGR7rUfvSH8IQDq9qut",
+    "object": "chat.completion",
+    "created": 1790923145,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change introduces a new `expand_context` parameter to the `ProjectSummarySerializer` which is conditionally added if `options` are present in the request GET parameters, potentially altering how project data is serialized and affecting downstream consumers if not handled correctly.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4861,
+      "completion_tokens": 73,
+      "total_tokens": 4934,
+      "cost": 0.0005153,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0005153,
+        "upstream_inference_prompt_cost": 0.0004861,
+        "upstream_inference_completions_cost": 2.92e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

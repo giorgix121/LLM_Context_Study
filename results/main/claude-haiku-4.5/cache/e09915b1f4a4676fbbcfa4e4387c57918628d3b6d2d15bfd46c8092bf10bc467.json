@@ -1,0 +1,65 @@
+{
+  "cache_key": "e09915b1f4a4676fbbcfa4e4387c57918628d3b6d2d15bfd46c8092bf10bc467",
+  "sample_id": "case130",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "Sorting dictionary items before hashing ensures deterministic hash values regardless of dictionary iteration order, which is a bug fix that improves consistency without breaking existing functionality.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"Sorting dictionary items before hashing ensures deterministic hash values regardless of dictionary iteration order, which is a bug fix that improves consistency without breaking existing functionality.\"\n}\n```",
+  "response_id": "gen-1795047123-iQ9krs7E6QALWMwwPXX7",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 259,
+  "completion_tokens": 62,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000569,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 259,
+    "completion_tokens": 62,
+    "total_tokens": 321,
+    "cost": 0.000569,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000569,
+      "upstream_inference_prompt_cost": 0.000259,
+      "upstream_inference_completions_cost": 0.00031
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.041,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:12:04+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

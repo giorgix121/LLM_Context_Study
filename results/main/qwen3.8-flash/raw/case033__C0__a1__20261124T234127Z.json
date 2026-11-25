@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563978-DSW3pjKC2dc6bJCZ4uux",
+    "object": "chat.completion",
+    "created": 1795563978,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a new 'queue' parameter to task dispatching logic, and if the receiving worker or Celery configuration does not support dynamic queue routing via apply_async kwargs as expected, tasks may fail to execute or be routed incorrectly.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5277,
+      "completion_tokens": 61,
+      "total_tokens": 5338,
+      "cost": 0.00082022,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00082022,
+        "upstream_inference_prompt_cost": 0.00079155,
+        "upstream_inference_completions_cost": 2.867e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

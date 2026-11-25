@@ -1,0 +1,5 @@
+{
+  "commit": "26d69ceada7f4ad1632e70df6414348170e85574",
+  "chars": 377,
+  "text": "[CLI] add support for listing apps (#13987)\n\n* add support for listing apps\n\n* update changelog with correct PR number\n\n* add tests for pagination\n\n* fix wrong mock on test_cli\n\n* ensure all enum values are accounted for\n\n* make AppManager and AppList protected, add limit to pagination calls\n\n* add restarting transition /w tests\n\n* add state transition not yet run with tests"
+}

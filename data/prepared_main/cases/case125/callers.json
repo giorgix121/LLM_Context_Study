@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "async_get_config_entry_diagnostics",
+      "path": "homeassistant/components/mqtt/diagnostics.py",
+      "start": 25,
+      "end": 29,
+      "code": "async def async_get_config_entry_diagnostics(\n    hass: HomeAssistant, entry: ConfigEntry\n) -> dict[str, Any]:\n    \"\"\"Return diagnostics for a config entry.\"\"\"\n    return _async_get_diagnostics(hass, entry)",
+      "calls": "_async_get_diagnostics"
+    },
+    {
+      "name": "async_get_device_diagnostics",
+      "path": "homeassistant/components/mqtt/diagnostics.py",
+      "start": 32,
+      "end": 36,
+      "code": "async def async_get_device_diagnostics(\n    hass: HomeAssistant, entry: ConfigEntry, device: DeviceEntry\n) -> dict[str, Any]:\n    \"\"\"Return diagnostics for a device entry.\"\"\"\n    return _async_get_diagnostics(hass, entry, device)",
+      "calls": "_async_get_diagnostics"
+    }
+  ]
+}

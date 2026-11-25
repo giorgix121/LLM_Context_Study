@@ -1,0 +1,65 @@
+{
+  "cache_key": "4a10d4e46c17739d4b567936ac73c5df584d1c7e3f95a2eba5f280f92c126370",
+  "sample_id": "case094",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The introduction of the `process_commit_context` task and its integration into the post-processing pipeline may lead to unexpected behavior if the new commit context fetching logic has bugs or if the task is not properly handled under various error conditions.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The introduction of the `process_commit_context` task and its integration into the post-processing pipeline may lead to unexpected behavior if the new commit context fetching logic has bugs or if the task is not properly handled under various error conditions.\"}",
+  "response_id": "gen-1795563578-MCsmQAeNA2qKHeaoAGbN",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 7752,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0007992,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 7752,
+    "completion_tokens": 60,
+    "total_tokens": 7812,
+    "cost": 0.0007992,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0007992,
+      "upstream_inference_prompt_cost": 0.0007752,
+      "upstream_inference_completions_cost": 2.4e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.496,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:39:38+00:00",
+  "run_id": "20261124T233752Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

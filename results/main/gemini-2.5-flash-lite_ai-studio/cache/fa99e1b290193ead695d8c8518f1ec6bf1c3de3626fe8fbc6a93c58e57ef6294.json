@@ -1,0 +1,65 @@
+{
+  "cache_key": "fa99e1b290193ead695d8c8518f1ec6bf1c3de3626fe8fbc6a93c58e57ef6294",
+  "sample_id": "case116",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change introduces a recursive call to `connect` within the `connect` function, which could lead to infinite recursion if the `disconnect()` call does not properly reset the connection state.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a recursive call to `connect` within the `connect` function, which could lead to infinite recursion if the `disconnect()` call does not properly reset the connection state.\"}",
+  "response_id": "gen-1795048228-GFq6E5BacCTehS58mdrV",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 4712,
+  "completion_tokens": 49,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0004908,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 4712,
+    "completion_tokens": 49,
+    "total_tokens": 4761,
+    "cost": 0.0004908,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0004908,
+      "upstream_inference_prompt_cost": 0.0004712,
+      "upstream_inference_completions_cost": 1.96e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.427,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:30:28+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

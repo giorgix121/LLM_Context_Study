@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192491-oOtqXbZAersARhEVA26h",
+    "object": "chat.completion",
+    "created": 1795192491,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The old code caught `AttributeError` to handle cases where `scope.span` itself might raise an attribute error or where the span attributes don't exist, but the new code only checks `scope.span is not None`, which won't protect against cases where `scope.span` exists but lacks `span_id` or `trace_id` attributes, potentially raising an unhandled `AttributeError`.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1267,
+      "completion_tokens": 102,
+      "total_tokens": 1369,
+      "cost": 0.005331,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005331,
+        "upstream_inference_prompt_cost": 0.003801,
+        "upstream_inference_completions_cost": 0.00153
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

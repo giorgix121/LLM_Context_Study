@@ -1,0 +1,65 @@
+{
+  "cache_key": "f7a0c0956b2758977a8468b77969e72edc762d13b525dbb66c6abfef98f97ab0",
+  "sample_id": "case110",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change replaces `which srun` with `command -v srun` and adds a try-except block for `FileNotFoundError`, which is a more robust way to check for the existence of the `srun` command and handles cases where `which` might not be available or `srun` is not in the PATH.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change replaces `which srun` with `command -v srun` and adds a try-except block for `FileNotFoundError`, which is a more robust way to check for the existence of the `srun` command and handles cases where `which` might not be available or `srun` is not in the PATH.\"\n}\n```",
+  "response_id": "gen-1790928230-ovh25GPcCCIwgrVb2Xwl",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 4549,
+  "completion_tokens": 93,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0004921,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 4549,
+    "completion_tokens": 93,
+    "total_tokens": 4642,
+    "cost": 0.0004921,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0004921,
+      "upstream_inference_prompt_cost": 0.0004549,
+      "upstream_inference_completions_cost": 3.72e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.209,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T08:03:51+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

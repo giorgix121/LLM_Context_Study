@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189241-8P8VLeHR7mQn17HczsGt",
+    "object": "chat.completion",
+    "created": 1795189241,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "length",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a potential AttributeError or TypeError when `environment` is not an instance of `SLURMEnvironment` because the code attempts to access `environment.requeue_signal` in the conditional expression without ensuring `environment` supports that attribute, although it falls back to SIGUSR1 if the isinstance check fails, but more critically, if `environment` is None (which can happen if no cluster environment is set), accessing `.requeue_signal` via the ternary operator logic might be safe due to short-circuiting, BUT the real risk is that `signal.SIGUSR1` might not exist on some platforms where `_is_on_windows()` returns False (e.g., macOS/BSD variants sometimes lack USR1 or have different availability, though usually present), however the primary defect is likely that `environment` could be `None` and while the ternary checks `isinstance(environment, SLURMEnvironment)`, if it's false it uses `signal.SIGUSR1`. Wait, looking closer: `sigusr = environment.requeue_signal if isinstance(environment, SLURMEnvironment) else signal.SIGUSR1`. If `environment` is None, `isinstance(None, SLURMEnvironment)` is",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2700,
+      "completion_tokens": 256,
+      "total_tokens": 2956,
+      "cost": 0.00052532,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00052532,
+        "upstream_inference_prompt_cost": 0.000405,
+        "upstream_inference_completions_cost": 0.00012032
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

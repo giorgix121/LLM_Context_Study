@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189136-EDMCqunHmi1VUq9VkX0m",
+    "object": "chat.completion",
+    "created": 1795189136,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change unconditionally sets `bs = len(dataset)` for non-webcam sources, which may incorrectly calculate batch size if `LoadImages` returns a dataset where length does not represent the intended batch dimension (typically 1), potentially causing errors in model warmup or video writer initialization.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3910,
+      "completion_tokens": 71,
+      "total_tokens": 3981,
+      "cost": 0.00061987,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00061987,
+        "upstream_inference_prompt_cost": 0.0005865,
+        "upstream_inference_completions_cost": 3.337e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

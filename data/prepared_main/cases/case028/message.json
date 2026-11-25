@@ -1,0 +1,5 @@
+{
+  "commit": "a21780dbeac42de6e4ab153ed29cd48b41d7f521",
+  "chars": 134,
+  "text": "Subaru: Legacy 2020-22 support (#25313)\n\n* Subaru: Legacy 2020 support\n\n* clean that up\n\n* force for now\n\n* update years\n\n* test route"
+}

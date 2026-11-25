@@ -1,0 +1,5 @@
+{
+  "commit": "0f94d81b7adffa9da5c4632fb5979b27695bbb53",
+  "chars": 459,
+  "text": "GM camera ACC: reduce LKAS faults on startup (#26039)\n\n* GM camera ACC: no faults on start up 2.0\n\nAnd by 2.0 I mean we don't need to wait for blocked msg support to be merged first to merge this without regressing accidental single blocked msg count handling.\n\n* Send the camera counter + 1\n\n* Keep updating the first counter until we get a message on the bus\n\n* Only update right before sending so sent_lka_steering_cmd is updated first\n\n* Update ref_commit"
+}

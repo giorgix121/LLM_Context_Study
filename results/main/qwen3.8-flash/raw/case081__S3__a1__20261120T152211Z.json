@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189982-dbUCD2b5fy9qvaf08jrQ",
+    "object": "chat.completion",
+    "created": 1795189982,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n\"label\": \"RISKY\",\n\"explanation\": \"The change introduces a call to `optimizer._clear_cache()`, which is a private method of the external `fairscale` library; if this method does not exist in the installed version or has different semantics, it will cause an AttributeError or unexpected behavior.\"\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4556,
+      "completion_tokens": 69,
+      "total_tokens": 4625,
+      "cost": 0.000304182,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000304182,
+        "upstream_inference_prompt_cost": 0.000271752,
+        "upstream_inference_completions_cost": 3.243e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

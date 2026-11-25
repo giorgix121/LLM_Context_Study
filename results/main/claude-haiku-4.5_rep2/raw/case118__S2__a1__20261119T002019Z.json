@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795047762-GSHhKN8Fk8ww0dKe1L97",
+    "object": "chat.completion",
+    "created": 1795047762,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change swaps the device name and model fields, using `api.smile_model` (which may not exist or could be None) instead of the formatted string, and `api.smile_name` for the name instead of `entry.title`, which could break device identification and display in Home Assistant if these API attributes don't exist or have unexpected values.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3016,
+      "completion_tokens": 102,
+      "total_tokens": 3118,
+      "cost": 0.003526,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003526,
+        "upstream_inference_prompt_cost": 0.003016,
+        "upstream_inference_completions_cost": 0.00051
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

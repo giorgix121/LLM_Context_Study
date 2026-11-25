@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1790923271-n3mzyED7m1LrQJaevOkQ",
+    "object": "chat.completion",
+    "created": 1790923271,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "RISKY: The change introduces a new `async_update` method to the `OpenUvSensor` class. This method calls `self.openuv.async_update_uv_index_data()` and `self.async_update_state()`. While this seems like a standard update mechanism, it's being added to a class that already inherits from `OpenUvEntity` which likely has its own update logic. Introducing a new `async_update` method that calls other update methods without clear context on how it interacts with existing update mechanisms could lead to unexpected behavior or race conditions if not handled carefully.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 679492,
+      "completion_tokens": 128,
+      "total_tokens": 679620,
+      "cost": 0.0680004,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0680004,
+        "upstream_inference_prompt_cost": 0.0679492,
+        "upstream_inference_completions_cost": 5.12e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

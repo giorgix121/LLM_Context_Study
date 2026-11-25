@@ -1,0 +1,65 @@
+{
+  "cache_key": "557d08b33431b390a87d8cc6f37aae0dc9895c572e9a4975b8dc55a523d64fc1",
+  "sample_id": "case024",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change only converts a deprecation warning from a hard error (raising an exception) to a soft warning, meaning code that previously crashed when passing `minibatch_buffer_size` will now continue executing, which is a deliberate backward-compatibility relaxation rather than a functional defect.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change only converts a deprecation warning from a hard error (raising an exception) to a soft warning, meaning code that previously crashed when passing `minibatch_buffer_size` will now continue executing, which is a deliberate backward-compatibility relaxation rather than a functional defect.\"}",
+  "response_id": "gen-1795192038-9DilfltFtXVhx8ZjHQdr",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2561,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.008868,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2561,
+    "completion_tokens": 79,
+    "total_tokens": 2640,
+    "cost": 0.008868,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.008868,
+      "upstream_inference_prompt_cost": 0.007683,
+      "upstream_inference_completions_cost": 0.001185
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.763,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:27:21+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

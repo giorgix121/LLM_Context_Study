@@ -1,0 +1,5 @@
+{
+  "commit": "d0ac1073a0f48f4d1c0dac62a8a8c1ddf1078a38",
+  "chars": 197,
+  "text": "Allow entries with same user_key for Pushover (#77904)\n\n* Allow entries with same user_key for Pushover\n\n* remove unique_id completely\n\n* Abort reauth if entered api_key already exists\nUpdate tests"
+}

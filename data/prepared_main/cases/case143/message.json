@@ -1,0 +1,5 @@
+{
+  "commit": "1c4547bbb73ef399d2cd3c9445a210819f0ccc18",
+  "chars": 224,
+  "text": "fix(metric-layer): Allow environment filtering (#40470)\n\n- This handles a bug where environment wasn't being allowed as a filter\nin the qb transformer\n- Also raise an error so its less transparent when a filter isn't\nallowed"
+}

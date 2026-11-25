@@ -1,0 +1,65 @@
+{
+  "cache_key": "5d9f624216cbf46a209b52d2b5cc33d902db2897561aaac35b94cec122700c73",
+  "sample_id": "case142",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit changes GPS socket selection logic from file-based detection to a parameter-based system, but the parameter may not be initialized before use in locationd.cc, causing potential null/undefined behavior if UbloxAvailable is not set.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The commit changes GPS socket selection logic from file-based detection to a parameter-based system, but the parameter may not be initialized before use in locationd.cc, causing potential null/undefined behavior if UbloxAvailable is not set.\"\n}\n```",
+  "response_id": "gen-1795564281-NLVK4SeAyC7OMBdpEtXV",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 2135,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00252,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2135,
+    "completion_tokens": 77,
+    "total_tokens": 2212,
+    "cost": 0.00252,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00252,
+      "upstream_inference_prompt_cost": 0.002135,
+      "upstream_inference_completions_cost": 0.000385
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.48,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:51:22+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

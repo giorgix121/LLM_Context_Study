@@ -1,0 +1,17 @@
+{
+  "commit": "ec69f7dd5e93f837dbb216b58a54600769b801d1",
+  "files_in_commit": 2,
+  "target_index": 0,
+  "target_status": "modified",
+  "chars": 2806,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "tests/sentry/api/endpoints/test_group_attachments.py",
+      "status": "modified",
+      "additions": 39,
+      "deletions": 6,
+      "patch": "@@ -8,15 +8,15 @@\n \n @region_silo_test\n class GroupEventAttachmentsTest(APITestCase):\n-    def create_attachment(self, type=None):\n+    def create_attachment(self, type=None, event_id=None):\n         if type is None:\n             type = \"event.attachment\"\n \n         self.file = File.objects.create(name=\"hello.png\", type=type)\n         self.file.putfile(BytesIO(b\"File contents here\"))\n \n         self.attachment = EventAttachment.objects.create(\n-            event_id=self.event.event_id,\n+            event_id=event_id or self.event.event_id,\n             project_id=self.event.project_id,\n             group_id=self.group.id,\n             file_id=self.file.id,\n@@ -26,12 +26,17 @@ def create_attachment(self, type=None):\n \n         return self.attachment\n \n-    def path(self, types=None):\n+    def path(self, types=None, event_ids=None):\n         path = f\"/api/0/issues/{self.group.id}/attachments/\"\n \n-        query = [(\"types\", t) for t in types or ()]\n-        if query:\n-            path += \"?\" + urlencode(query)\n+        typesQuery = [(\"types\", t) for t in types or ()]\n+        eventIdQuery = [(\"event_id\", id) for id in event_ids or ()]\n+        if typesQuery and eventIdQuery:\n+            path += \"?\" + urlencode(typesQuery) + \"&\" + urlencode(eventIdQuery)\n+        elif typesQuery:\n+            path += \"?\" + urlencode(typesQuery)\n+        elif eventIdQuery:\n+            path += \"?\" + urlencode(eventIdQuery)\n \n         return path\n \n@@ -68,3 +73,31 @@ def test_without_feature(self):\n             response = self.client.get(self.path())\n \n         assert response.status_code == 404, response.content\n+\n+    def test_event_id_filter(self):\n+        self.login_as(user=self.user)\n+        attachment = self.create_attachment()\n+        self.create_attachment(event_id=\"b\" * 32)\n+\n+        with self.feature(\"organizations:event-attachments\"):\n+            response = self.client.get(self.path(event_ids=[attachment.event_id]))\n+\n+        assert response.status_code == 200, response.content\n+        assert len(response.data) == 1\n+        assert response.data[0][\"event_id\"] == attachment.event_id\n+\n+    def test_multi_event_id_filter(self):\n+        self.login_as(user=self.user)\n+        attachment = self.create_attachment()\n+        attachment2 = self.create_attachment(event_id=\"b\" * 32)\n+        self.create_attachment(event_id=\"c\" * 32)\n+\n+        with self.feature(\"organizations:event-attachments\"):\n+            response = self.client.get(\n+                self.path(event_ids=[attachment.event_id, attachment2.event_id])\n+            )\n+\n+        assert response.status_code == 200, response.content\n+        assert len(response.data) == 2\n+        assert response.data[0][\"event_id\"] == attachment2.event_id\n+        assert response.data[1][\"event_id\"] == attachment.event_id"
+    }
+  ]
+}

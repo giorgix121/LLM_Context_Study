@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "train_func",
+      "path": "doc/source/ray-air/doc_code/tf_starter.py",
+      "start": 39,
+      "end": 69,
+      "code": "def train_func(config: dict):\n    batch_size = config.get(\"batch_size\", 64)\n    epochs = config.get(\"epochs\", 3)\n\n    strategy = tf.distribute.MultiWorkerMirroredStrategy()\n    with strategy.scope():\n        # Model building/compiling need to be within `strategy.scope()`.\n        multi_worker_model = build_model()\n        multi_worker_model.compile(\n            optimizer=tf.keras.optimizers.SGD(learning_rate=config.get(\"lr\", 1e-3)),\n            loss=tf.keras.losses.mean_squared_error,\n            metrics=[tf.keras.metrics.mean_squared_error],\n        )\n\n    dataset = session.get_dataset_shard(\"train\")\n\n    results = []\n    for _ in range(epochs):\n        tf_dataset = prepare_dataset_shard(\n            dataset.to_tf(\n                label_column=\"y\",\n                output_signature=(\n                    tf.TensorSpec(shape=(None, 1), dtype=tf.float32),\n                    tf.TensorSpec(shape=(None), dtype=tf.float32),\n                ),\n                batch_size=batch_size,\n            )\n        )\n        history = multi_worker_model.fit(tf_dataset, callbacks=[Callback()])\n        results.append(history.history)\n    return results",
+      "calls": "build_model"
+    }
+  ]
+}

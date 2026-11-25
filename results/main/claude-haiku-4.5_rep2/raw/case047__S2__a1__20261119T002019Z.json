@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795047916-VBnTo0ws3qftNe8VwLUx",
+    "object": "chat.completion",
+    "created": 1795047916,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change renames `self._parsed` to `self._ibeacon_advertisement` in the `_async_seen` method, but the parent class `IBeaconEntity` likely still uses `self._parsed`, creating an inconsistency that could break functionality if the parent class or other code depends on the `_parsed` attribute.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2298,
+      "completion_tokens": 100,
+      "total_tokens": 2398,
+      "cost": 0.002798,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002798,
+        "upstream_inference_prompt_cost": 0.002298,
+        "upstream_inference_completions_cost": 0.0005
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

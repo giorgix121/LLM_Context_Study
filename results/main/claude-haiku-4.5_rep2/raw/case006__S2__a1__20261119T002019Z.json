@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795047961-F2mPaR8UTFWCrCokQlcL",
+    "object": "chat.completion",
+    "created": 1795047961,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The removal of max_retries validation and allow_inplace parameter, combined with the addition of retry_exceptions parameter, changes the runtime behavior without ensuring the WorkflowStepRuntimeOptions class can handle these changes or that retry_exceptions is properly initialized elsewhere.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4375,
+      "completion_tokens": 82,
+      "total_tokens": 4457,
+      "cost": 0.004785,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004785,
+        "upstream_inference_prompt_cost": 0.004375,
+        "upstream_inference_completions_cost": 0.00041
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

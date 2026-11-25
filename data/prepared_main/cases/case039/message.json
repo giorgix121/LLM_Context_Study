@@ -1,0 +1,5 @@
+{
+  "commit": "2582195a786d17cc681f060abf8556ce70c217af",
+  "chars": 56,
+  "text": "chore(u2f): Construct credentials in once place (#37878)"
+}

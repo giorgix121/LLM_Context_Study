@@ -1,0 +1,65 @@
+{
+  "cache_key": "3167fa3d523d0842249fbdcaf1d9b7755cdd8804b5a4e8ad26aba637d9324a4d",
+  "sample_id": "case028",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "This change expands the conditions for a specific car configuration to include another model, which is a common and safe practice for code consolidation.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"This change expands the conditions for a specific car configuration to include another model, which is a common and safe practice for code consolidation.\"}",
+  "response_id": "gen-1790927378-FL4fVktTX22ma4Xh3j6J",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 318,
+  "completion_tokens": 40,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 4.78e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 318,
+    "completion_tokens": 40,
+    "total_tokens": 358,
+    "cost": 4.78e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.78e-05,
+      "upstream_inference_prompt_cost": 3.18e-05,
+      "upstream_inference_completions_cost": 1.6e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.49,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T07:49:38+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,198 @@
+[run] model google/gemini-2.5-flash-lite via OpenRouter, provider {'only': ['google-vertex'], 'allow_fallbacks': False, 'require_parameters': True}, settings {'temperature': 0, 'max_tokens': 256, 'stream': False, 'reasoning': {'enabled': False}}
+[run] provider endpoint: Google (google/gemini-2.5-flash-lite), status=0, price $0.10/M input, $0.40/M output
+[run] pre-run cost estimate (chars/3 tokens + 100 output tokens; worst case chars/2 + 256 output):
+strategy  requests  mean_prompt_chars  est_input_tokens_total  est_cost_usd  worst_case_usd
+      S0        30               1338                   13392        0.0025          0.0051
+      S1        30               5140                   51406        0.0063          0.0108
+      S2        30              13252                  132533        0.0145          0.0230
+      S3        30               8502                   85024        0.0097          0.0158
+      S4        30               7139                   71397        0.0083          0.0138
+      S5        30            2495358                24953584        2.4966          3.7461
+[run] estimated total $2.5379; worst case $3.8145 (x4 with all retries: $15.2581); budget $8.00
+[run] 180 predictions planned; 0 cached; 180 pending
+[run] key accepted; account usage before run: 1245.593705038 credits; limit_remaining: None
+[run] preflight ok: provider=Google model=google/gemini-2.5-flash-lite reasoning_tokens=0 cost=$0.000001
+  [ 1/180] case29/S1: ok             label=RISKY in=1129 out=81 cost=$0.000145 0.842s
+  [ 2/180] case09/S5: ok             label=RISKY in=632734 out=59 cost=$0.063297 13.66s
+  [ 3/180] case03/S3: ok             label=NON-RISKY in=774 out=45 cost=$0.000095 0.502s
+  [ 4/180] case08/S0: ok             label=NON-RISKY in=288 out=52 cost=$0.000050 0.555s
+  [ 5/180] case03/S1: ok             label=NON-RISKY in=741 out=44 cost=$0.000092 0.55s
+  [ 6/180] case07/S0: ok             label=NON-RISKY in=219 out=45 cost=$0.000040 0.9s
+  [ 7/180] case11/S0: ok             label=NON-RISKY in=238 out=36 cost=$0.000038 0.573s
+  [ 8/180] case21/S3: ok             label=RISKY in=352 out=47 cost=$0.000054 0.645s
+  [ 9/180] case11/S1: ok             label=NON-RISKY in=1239 out=46 cost=$0.000142 1.041s
+  [10/180] case04/S1: ok             label=NON-RISKY in=757 out=48 cost=$0.000095 0.538s
+  [11/180] case11/S5: ok             label=NON-RISKY in=660873 out=52 cost=$0.066108 10.927s
+  [12/180] case06/S0: ok             label=NON-RISKY in=614 out=57 cost=$0.000084 0.591s
+  [13/180] case25/S5: ok             label=RISKY in=658678 out=60 cost=$0.065892 11.396s
+  [14/180] case01/S2: ok             label=RISKY in=4978 out=44 cost=$0.000515 0.669s
+  [15/180] case20/S4: ok             label=NON-RISKY in=3283 out=57 cost=$0.000351 0.618s
+  [16/180] case22/S1: ok             label=NON-RISKY in=1485 out=63 cost=$0.000174 0.624s
+  [17/180] case20/S5: ok             label=RISKY in=642943 out=90 cost=$0.064330 11.687s
+  [18/180] case27/S4: ok             label=NON-RISKY in=3293 out=63 cost=$0.000354 0.639s
+  [19/180] case29/S2: ok             label=NON-RISKY in=3073 out=84 cost=$0.000341 0.69s
+  [20/180] case12/S0: ok             label=NON-RISKY in=1073 out=48 cost=$0.000127 0.593s
+  [21/180] case16/S5: ok             label=RISKY in=654270 out=94 cost=$0.065465 11.034s
+  [22/180] case30/S0: ok             label=RISKY in=439 out=59 cost=$0.000068 0.637s
+  [23/180] case05/S1: ok             label=RISKY in=813 out=41 cost=$0.000098 0.495s
+  [24/180] case16/S4: ok             label=RISKY in=2921 out=89 cost=$0.000328 0.761s
+  [25/180] case21/S1: ok             label=RISKY in=319 out=51 cost=$0.000052 0.771s
+  [26/180] case25/S0: ok             label=RISKY in=308 out=35 cost=$0.000045 0.498s
+  [27/180] case30/S1: ok             label=RISKY in=1995 out=76 cost=$0.000230 0.656s
+  [28/180] case13/S2: ok             label=RISKY in=5212 out=70 cost=$0.000549 1.302s
+  [29/180] case24/S4: ok             label=NON-RISKY in=306 out=41 cost=$0.000047 0.517s
+  [30/180] case25/S2: ok             label=RISKY in=4735 out=48 cost=$0.000493 0.731s
+  [31/180] case03/S2: ok             label=NON-RISKY in=3451 out=55 cost=$0.000367 0.614s
+  [32/180] case09/S4: ok             label=RISKY in=4861 out=73 cost=$0.000515 0.764s
+  [33/180] case28/S0: ok             label=NON-RISKY in=262 out=58 cost=$0.000049 0.543s
+  [34/180] case18/S3: ok             label=RISKY in=672 out=40 cost=$0.000083 0.902s
+  [35/180] case08/S2: ok             label=NON-RISKY in=2570 out=66 cost=$0.000283 0.651s
+  [36/180] case17/S3: ok             label=NON-RISKY in=1061 out=58 cost=$0.000129 0.6s
+  [37/180] case12/S3: ok             label=NON-RISKY in=10794 out=50 cost=$0.001099 0.9s
+  [38/180] case14/S2: ok             label=RISKY in=3603 out=45 cost=$0.000378 0.709s
+  [39/180] case26/S5: ok             label=RISKY in=678679 out=65 cost=$0.067894 11.102s
+  [40/180] case01/S0: ok             label=RISKY in=663 out=63 cost=$0.000092 0.686s
+  [41/180] case20/S2: ok             label=NON-RISKY in=4116 out=66 cost=$0.000438 0.669s
+  [42/180] case03/S4: ok             label=NON-RISKY in=774 out=42 cost=$0.000094 0.445s
+  [43/180] case23/S5: ok             label=NON-RISKY in=663039 out=43 cost=$0.066321 10.726s
+  [44/180] case22/S0: ok             label=NON-RISKY in=551 out=45 cost=$0.000073 0.539s
+  [45/180] case17/S5: ok             label=RISKY in=652961 out=84 cost=$0.065330 10.695s
+  [46/180] case11/S4: ok             label=NON-RISKY in=2544 out=35 cost=$0.000268 0.602s
+  [47/180] case24/S2: ok             label=NON-RISKY in=277 out=41 cost=$0.000044 0.605s
+  [48/180] case14/S5: ok             label=RISKY in=631801 out=71 cost=$0.063209 10.588s
+  [49/180] case07/S2: ok             label=NON-RISKY in=720 out=46 cost=$0.000090 0.55s
+  [50/180] case22/S5: ok             label=NON-RISKY in=678848 out=48 cost=$0.067904 10.689s
+  [51/180] case08/S1: ok             label=NON-RISKY in=628 out=50 cost=$0.000083 0.64s
+  [52/180] case13/S1: ok             label=NON-RISKY in=884 out=73 cost=$0.000118 0.704s
+  [53/180] case21/S2: ok             label=RISKY in=327 out=46 cost=$0.000051 1.016s
+  [54/180] case13/S4: ok             label=NON-RISKY in=917 out=58 cost=$0.000115 0.681s
+  [55/180] case18/S0: ok             label=NON-RISKY in=288 out=45 cost=$0.000047 0.954s
+  [56/180] case27/S0: ok             label=NON-RISKY in=272 out=54 cost=$0.000049 0.533s
+  [57/180] case25/S1: ok             label=RISKY in=831 out=58 cost=$0.000106 0.534s
+  [58/180] case01/S3: ok             label=NON-RISKY in=4559 out=78 cost=$0.000487 0.822s
+  [59/180] case24/S3: ok             label=NON-RISKY in=306 out=41 cost=$0.000047 0.885s
+  case01/S5: transient_error (Provider returned error); retry 1/3
+  [60/180] case01/S5: ok             label=RISKY in=652234 out=65 cost=$0.006637 6.306s
+  [61/180] case21/S4: ok             label=RISKY in=587 out=50 cost=$0.000079 0.641s
+  [62/180] case06/S2: ok             label=NON-RISKY in=4157 out=59 cost=$0.000439 1.114s
+  [63/180] case14/S1: ok             label=RISKY in=921 out=43 cost=$0.000109 1.055s
+  [64/180] case16/S0: ok             label=RISKY in=700 out=79 cost=$0.000102 1.202s
+  [65/180] case19/S4: ok             label=NON-RISKY in=617 out=49 cost=$0.000081 0.56s
+  [66/180] case27/S1: ok             label=RISKY in=1589 out=64 cost=$0.000185 0.633s
+  [67/180] case10/S0: ok             label=NON-RISKY in=265 out=51 cost=$0.000047 0.544s
+  [68/180] case30/S2: ok             label=RISKY in=6005 out=67 cost=$0.000627 1.296s
+  [69/180] case23/S1: ok             label=NON-RISKY in=1598 out=46 cost=$0.000178 0.97s
+  [70/180] case22/S2: ok             label=NON-RISKY in=2039 out=40 cost=$0.000220 0.635s
+  [71/180] case06/S3: ok             label=NON-RISKY in=4887 out=55 cost=$0.000511 0.765s
+  [72/180] case04/S0: ok             label=NON-RISKY in=200 out=35 cost=$0.000034 1.007s
+  [73/180] case20/S1: ok             label=RISKY in=2760 out=61 cost=$0.000300 1.097s
+  [74/180] case27/S2: ok             label=RISKY in=3998 out=54 cost=$0.000421 0.667s
+  [75/180] case11/S3: ok             label=NON-RISKY in=4678 out=35 cost=$0.000482 0.66s
+  [76/180] case14/S0: ok             label=RISKY in=247 out=46 cost=$0.000043 0.502s
+  [77/180] case18/S1: ok             label=RISKY in=527 out=40 cost=$0.000069 0.502s
+  [78/180] case13/S0: ok             label=RISKY in=367 out=44 cost=$0.000054 0.992s
+  [79/180] case05/S3: ok             label=RISKY in=2022 out=49 cost=$0.000222 1.086s
+  [80/180] case28/S5: invalid_output label=None in=679492 out=128 cost=$0.068000 11.556s
+  [81/180] case22/S4: ok             label=NON-RISKY in=2075 out=54 cost=$0.000229 1.97s
+  [82/180] case09/S3: ok             label=NON-RISKY in=3384 out=51 cost=$0.000359 0.82s
+  [83/180] case26/S3: ok             label=RISKY in=1641 out=66 cost=$0.000190 0.634s
+  [84/180] case01/S4: ok             label=RISKY in=1399 out=81 cost=$0.000172 0.641s
+  [85/180] case21/S0: ok             label=RISKY in=177 out=41 cost=$0.000034 1.033s
+  [86/180] case28/S4: ok             label=NON-RISKY in=516 out=55 cost=$0.000074 0.947s
+  [87/180] case07/S5: ok             label=NON-RISKY in=686854 out=59 cost=$0.068709 11.14s
+  [88/180] case18/S2: ok             label=NON-RISKY in=1008 out=51 cost=$0.000121 0.533s
+  [89/180] case30/S4: ok             label=RISKY in=2991 out=75 cost=$0.000329 0.711s
+  [90/180] case25/S3: ok             label=RISKY in=984 out=43 cost=$0.000116 0.994s
+  [91/180] case24/S0: ok             label=NON-RISKY in=168 out=36 cost=$0.000031 0.487s
+  [92/180] case17/S4: ok             label=NON-RISKY in=1513 out=45 cost=$0.000169 1.012s
+  [93/180] case19/S5: ok             label=NON-RISKY in=659907 out=53 cost=$0.066012 10.868s
+  [94/180] case23/S3: ok             label=NON-RISKY in=3313 out=60 cost=$0.000355 0.635s
+  [95/180] case30/S5: ok             label=RISKY in=678863 out=102 cost=$0.067927 11.012s
+  [96/180] case19/S3: ok             label=NON-RISKY in=474 out=42 cost=$0.000064 0.516s
+  [97/180] case23/S2: ok             label=NON-RISKY in=3236 out=55 cost=$0.000346 0.63s
+  [98/180] case16/S3: ok             label=NON-RISKY in=3168 out=60 cost=$0.000341 0.794s
+  [99/180] case12/S2: ok             label=NON-RISKY in=9289 out=45 cost=$0.000947 0.747s
+  [100/180] case04/S3: ok             label=RISKY in=790 out=43 cost=$0.000096 0.976s
+  [101/180] case27/S5: ok             label=RISKY in=644452 out=65 cost=$0.064471 10.84s
+  [102/180] case13/S5: ok             label=RISKY in=659367 out=68 cost=$0.065964 11.969s
+  [103/180] case02/S3: ok             label=NON-RISKY in=5542 out=69 cost=$0.000582 0.814s
+  [104/180] case14/S4: ok             label=RISKY in=1951 out=46 cost=$0.000214 0.515s
+  [105/180] case25/S4: ok             label=RISKY in=864 out=39 cost=$0.000102 0.488s
+  [106/180] case15/S5: ok             label=RISKY in=641680 out=74 cost=$0.064198 11.974s
+  [107/180] case06/S4: ok             label=NON-RISKY in=5846 out=59 cost=$0.000608 0.812s
+  [108/180] case15/S1: ok             label=RISKY in=1308 out=41 cost=$0.000147 0.95s
+  [109/180] case27/S3: ok             label=RISKY in=3426 out=66 cost=$0.000369 0.574s
+  [110/180] case08/S3: ok             label=NON-RISKY in=1378 out=57 cost=$0.000161 0.977s
+  [111/180] case08/S5: ok             label=NON-RISKY in=659111 out=51 cost=$0.065932 11.497s
+  [112/180] case23/S0: ok             label=NON-RISKY in=274 out=39 cost=$0.000043 0.976s
+  [113/180] case08/S4: ok             label=NON-RISKY in=793 out=51 cost=$0.000100 0.486s
+  [114/180] case18/S4: ok             label=RISKY in=560 out=40 cost=$0.000072 0.509s
+  [115/180] case14/S3: ok             label=RISKY in=1121 out=43 cost=$0.000129 0.604s
+  [116/180] case10/S4: ok             label=NON-RISKY in=1276 out=43 cost=$0.000145 0.514s
+  [117/180] case29/S5: ok             label=RISKY in=643176 out=69 cost=$0.064345 12.396s
+  [118/180] case09/S0: ok             label=NON-RISKY in=307 out=40 cost=$0.000047 0.6s
+  [119/180] case03/S0: ok             label=NON-RISKY in=236 out=37 cost=$0.000038 0.47s
+  [120/180] case19/S2: invalid_output label=None in=4629 out=65 cost=$0.000489 2.057s
+  [121/180] case21/S5: ok             label=NON-RISKY in=660243 out=58 cost=$0.066047 10.577s
+  [122/180] case19/S1: ok             label=NON-RISKY in=441 out=47 cost=$0.000063 0.513s
+  [123/180] case02/S4: ok             label=NON-RISKY in=5275 out=62 cost=$0.000552 0.768s
+  [124/180] case07/S1: ok             label=NON-RISKY in=410 out=40 cost=$0.000057 0.467s
+  [125/180] case17/S2: ok             label=NON-RISKY in=3174 out=49 cost=$0.000337 0.674s
+  [126/180] case05/S5: ok             label=RISKY in=655354 out=52 cost=$0.065556 10.938s
+  [127/180] case15/S0: ok             label=RISKY in=611 out=67 cost=$0.000088 0.649s
+  [128/180] case23/S4: ok             label=NON-RISKY in=2196 out=64 cost=$0.000245 0.607s
+  [129/180] case03/S5: invalid_output label=None in=663200 out=46 cost=$0.066338 10.266s
+  [130/180] case09/S1: ok             label=NON-RISKY in=3351 out=53 cost=$0.000356 0.584s
+  [131/180] case16/S2: ok             label=NON-RISKY in=4192 out=45 cost=$0.000437 0.666s
+  [132/180] case13/S3: ok             label=NON-RISKY in=1285 out=69 cost=$0.000156 0.683s
+  [133/180] case04/S2: ok             label=NON-RISKY in=5403 out=44 cost=$0.000558 0.726s
+  [134/180] case17/S0: ok             label=NON-RISKY in=261 out=57 cost=$0.000049 0.605s
+  [135/180] case06/S1: ok             label=NON-RISKY in=3355 out=70 cost=$0.000363 0.718s
+  [136/180] case20/S3: ok             label=NON-RISKY in=3723 out=64 cost=$0.000398 1.09s
+  [137/180] case02/S5: ok             label=NON-RISKY in=957437 out=67 cost=$0.095770 14.785s
+  [138/180] case12/S1: ok             label=NON-RISKY in=3133 out=37 cost=$0.000328 0.511s
+  [139/180] case15/S4: ok             label=RISKY in=1508 out=47 cost=$0.000170 0.477s
+  [140/180] case16/S1: ok             label=RISKY in=2270 out=103 cost=$0.000268 0.731s
+  [141/180] case05/S0: ok             label=RISKY in=245 out=43 cost=$0.000042 0.925s
+  [142/180] case17/S1: ok             label=NON-RISKY in=1028 out=58 cost=$0.000126 0.501s
+  [143/180] case28/S3: ok             label=NON-RISKY in=433 out=51 cost=$0.000064 0.643s
+  [144/180] case29/S4: ok             label=NON-RISKY in=1609 out=66 cost=$0.000187 0.541s
+  [145/180] case15/S2: ok             label=RISKY in=4520 out=67 cost=$0.000479 1.196s
+  [146/180] case28/S2: ok             label=NON-RISKY in=3969 out=68 cost=$0.000424 0.549s
+  [147/180] case07/S3: ok             label=NON-RISKY in=443 out=40 cost=$0.000060 0.761s
+  [148/180] case26/S2: ok             label=RISKY in=2998 out=87 cost=$0.000335 1.226s
+  [149/180] case15/S3: ok             label=RISKY in=1515 out=50 cost=$0.000171 0.606s
+  [150/180] case29/S0: ok             label=NON-RISKY in=312 out=68 cost=$0.000058 0.653s
+  [151/180] case07/S4: ok             label=NON-RISKY in=443 out=40 cost=$0.000060 0.442s
+  [152/180] case01/S1: ok             label=RISKY in=1366 out=80 cost=$0.000169 0.606s
+  [153/180] case12/S5: ok             label=NON-RISKY in=688372 out=48 cost=$0.068856 13.998s
+  [154/180] case26/S0: ok             label=RISKY in=239 out=70 cost=$0.000052 1.037s
+  [155/180] case20/S0: ok             label=RISKY in=314 out=46 cost=$0.000050 0.723s
+  [156/180] case10/S2: ok             label=NON-RISKY in=1271 out=43 cost=$0.000144 1.089s
+  [157/180] case18/S5: ok             label=NON-RISKY in=671624 out=73 cost=$0.067192 16.183s
+  [158/180] case29/S3: ok             label=NON-RISKY in=1162 out=55 cost=$0.000138 0.595s
+  [159/180] case09/S2: ok             label=NON-RISKY in=4135 out=40 cost=$0.000429 1.111s
+  [160/180] case24/S5: ok             label=NON-RISKY in=643939 out=49 cost=$0.064413 10.88s
+  [161/180] case30/S3: ok             label=NON-RISKY in=2379 out=62 cost=$0.000263 0.614s
+  [162/180] case26/S4: ok             label=RISKY in=2265 out=83 cost=$0.000260 0.614s
+  [163/180] case22/S3: ok             label=NON-RISKY in=1518 out=54 cost=$0.000173 0.571s
+  [164/180] case10/S5: ok             label=NON-RISKY in=678744 out=57 cost=$0.067897 11.835s
+  [165/180] case10/S1: ok             label=NON-RISKY in=925 out=47 cost=$0.000111 0.648s
+  [166/180] case04/S5: ok             label=NON-RISKY in=677582 out=57 cost=$0.067781 11.647s
+  [167/180] case02/S1: ok             label=RISKY in=3378 out=64 cost=$0.000363 0.642s
+  [168/180] case02/S2: ok             label=NON-RISKY in=4758 out=62 cost=$0.000501 0.75s
+  [169/180] case19/S0: ok             label=NON-RISKY in=222 out=47 cost=$0.000041 0.675s
+  [170/180] case26/S1: ok             label=NON-RISKY in=1608 out=57 cost=$0.000184 0.631s
+  [171/180] case04/S4: ok             label=NON-RISKY in=1178 out=42 cost=$0.000135 0.51s
+  [172/180] case24/S1: ok             label=NON-RISKY in=273 out=41 cost=$0.000044 0.469s
+  [173/180] case05/S2: ok             label=RISKY in=3483 out=45 cost=$0.000366 0.625s
+  [174/180] case06/S5: ok             label=RISKY in=672701 out=50 cost=$0.067290 10.741s
+  [175/180] case10/S3: ok             label=NON-RISKY in=958 out=49 cost=$0.000115 0.54s
+  [176/180] case11/S2: ok             label=NON-RISKY in=3359 out=35 cost=$0.000350 0.532s
+  [177/180] case12/S4: ok             label=NON-RISKY in=3166 out=37 cost=$0.000331 0.563s
+  [178/180] case02/S0: ok             label=RISKY in=564 out=66 cost=$0.000083 0.531s
+  [179/180] case05/S4: ok             label=RISKY in=846 out=41 cost=$0.000101 0.942s
+  [180/180] case28/S1: ok             label=NON-RISKY in=400 out=51 cost=$0.000060 0.923s
+[run] completed 180, failed 0, attempts 182; charged (sum of usage.cost) $1.987120; key usage delta 1.9871196999999938
+[run] charges reconciled with the key-level usage counter
+exit=0

@@ -1,0 +1,66 @@
+{
+  "commit": "e2233d328590612b43408638200bbe7812f1d6ef",
+  "files_in_commit": 9,
+  "target_index": 5,
+  "target_status": "modified",
+  "chars": 4221,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "src/sentry/integrations/slack/message_builder/issues.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 6,
+      "patch": "@@ -274,9 +274,7 @@ def __init__(\n         self.link_to_event = link_to_event\n         self.issue_details = issue_details\n         self.notification = (\n-            create_notification_with_properties(\n-                notification, url_format=SLACK_URL_FORMAT, provider=ExternalProviders.SLACK\n-            )\n+            create_notification_with_properties(notification, url_format=SLACK_URL_FORMAT)\n             if notification\n             else None\n         )\n@@ -348,9 +346,7 @@ def __init__(\n         self.link_to_event = link_to_event\n         self.issue_details = issue_details\n         self.notification = (\n-            create_notification_with_properties(\n-                notification, url_format=SLACK_URL_FORMAT, provider=ExternalProviders.SLACK\n-            )\n+            create_notification_with_properties(notification, url_format=SLACK_URL_FORMAT)\n             if notification\n             else None\n         )"
+    },
+    {
+      "path": "src/sentry/integrations/slack/message_builder/notifications/base.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -9,7 +9,6 @@\n     BaseNotification,\n     create_notification_with_properties,\n )\n-from sentry.types.integrations import ExternalProviders\n from sentry.utils import json\n \n \n@@ -22,7 +21,7 @@ def __init__(\n     ) -> None:\n         super().__init__()\n         self.notification = create_notification_with_properties(\n-            notification, url_format=SLACK_URL_FORMAT, provider=ExternalProviders.SLACK\n+            notification, url_format=SLACK_URL_FORMAT\n         )\n         self.context = context\n         self.recipient = recipient"
+    },
+    {
+      "path": "src/sentry/integrations/slack/notifications.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -124,7 +124,7 @@ def send_notification_as_slack(\n         )\n \n     notification_with_properties = create_notification_with_properties(\n-        notification, url_format=SLACK_URL_FORMAT, provider=ExternalProviders.SLACK\n+        notification, url_format=SLACK_URL_FORMAT\n     )\n \n     for recipient, integrations_by_channel in data.items():"
+    },
+    {
+      "path": "src/sentry/notifications/notifications/activity/release.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "patch": "@@ -163,7 +163,8 @@ def get_title_link(self, recipient: Team | User) -> str | None:\n         return None\n \n     def build_notification_footer(self, recipient: Team | User) -> str:\n-        settings_url = self.get_settings_url(recipient)\n+        # notification footer only used for Slack for now\n+        settings_url = self.get_settings_url(recipient, ExternalProviders.SLACK)\n \n         # no environment related to a deploy\n         footer = \"\""
+    },
+    {
+      "path": "src/sentry/notifications/notifications/activity/release_summary.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "patch": "@@ -185,7 +185,8 @@ def get_title_link(self, recipient: Team | User) -> str | None:\n         return None\n \n     def build_notification_footer(self, recipient: Team | User) -> str:\n-        settings_url = self.get_settings_url(recipient)\n+        # notification footer only used for Slack for now\n+        settings_url = self.get_settings_url(recipient, ExternalProviders.SLACK)\n \n         # no environment related to a deploy\n         footer = \"\""
+    },
+    {
+      "path": "src/sentry/notifications/notifications/organization_request/abstract_invite_request.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "patch": "@@ -54,7 +54,9 @@ def get_recipient_context(\n         return context\n \n     def get_message_actions(self, recipient: Team | User) -> Sequence[MessageAction]:\n-        members_url = self.members_url + self.get_sentry_query_params(self.provider, recipient)\n+        members_url = self.members_url + self.get_sentry_query_params(\n+            ExternalProviders.SLACK, recipient\n+        )\n         return [\n             MessageAction(\n                 name=\"Approve\","
+    },
+    {
+      "path": "src/sentry/notifications/notifications/organization_request/base.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "patch": "@@ -11,6 +11,7 @@\n     RoleBasedRecipientStrategy,\n )\n from sentry.notifications.types import NotificationSettingTypes\n+from sentry.types.integrations import ExternalProviders\n \n if TYPE_CHECKING:\n     from sentry.models import Organization, User\n@@ -45,7 +46,7 @@ def build_notification_footer(self, recipient: Team | User) -> str:\n         if isinstance(recipient, Team):\n             raise NotImplementedError\n \n-        settings_url = self.get_settings_url(recipient)\n+        settings_url = self.get_settings_url(recipient, ExternalProviders.SLACK)\n         recipient_role_string = self.role_based_recipient_strategy.get_recipient_role_string(\n             recipient\n         )"
+    },
+    {
+      "path": "tests/sentry/mail/activity/test_release_summary.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -55,7 +55,7 @@ def test_simple(self):\n                 )\n             )\n             release_summary = create_notification_with_properties(\n-                release_summary, url_format=SLACK_URL_FORMAT, provider=ExternalProviders.SLACK\n+                release_summary, url_format=SLACK_URL_FORMAT\n             )\n \n         # user1 is included because they committed"
+    }
+  ]
+}

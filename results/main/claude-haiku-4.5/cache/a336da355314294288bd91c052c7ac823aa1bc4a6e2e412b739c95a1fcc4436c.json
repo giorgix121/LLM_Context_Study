@@ -1,0 +1,65 @@
+{
+  "cache_key": "a336da355314294288bd91c052c7ac823aa1bc4a6e2e412b739c95a1fcc4436c",
+  "sample_id": "case050",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change only removes extra whitespace in the expression `X.shape[0]  + 1` to `X.shape[0] + 1`, which is a style/formatting fix with no functional impact on the code behavior.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change only removes extra whitespace in the expression `X.shape[0]  + 1` to `X.shape[0] + 1`, which is a style/formatting fix with no functional impact on the code behavior.\"\n}\n```",
+  "response_id": "gen-1795047469-Vk8067YknE8dma7cmnqV",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 2085,
+  "completion_tokens": 80,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.002485,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2085,
+    "completion_tokens": 80,
+    "total_tokens": 2165,
+    "cost": 0.002485,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.002485,
+      "upstream_inference_prompt_cost": 0.002085,
+      "upstream_inference_completions_cost": 0.0004
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.254,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:17:51+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189257-8BtmY0yYTrwlu1MpCqNf",
+    "object": "chat.completion",
+    "created": 1795189257,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The walrus operator in the default argument `black_path=(sentinel := object())` creates a new sentinel object every time the function definition is evaluated (which happens once at import), but if this module were reloaded or if the logic relied on identity checks across different execution contexts, it could behave unexpectedly; more critically, using a mutable default-like pattern with an object created via assignment expression in the signature is unconventional and potentially confusing, though technically safe here since it's evaluated once. However, the real risk is that `find_formatters` returns a dict with `black_path` possibly None, and callers might not handle the distinction between 'not provided' and 'explicitly None' correctly if they pass the result directly to `run_formatters`, leading to skipped formatting when black is absent but intended behavior might differ.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3015,
+      "completion_tokens": 179,
+      "total_tokens": 3194,
+      "cost": 0.00053638,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00053638,
+        "upstream_inference_prompt_cost": 0.00045225,
+        "upstream_inference_completions_cost": 8.413e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

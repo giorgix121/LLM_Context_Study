@@ -1,0 +1,65 @@
+{
+  "cache_key": "82bbbfef9e0e4c20dc0dc68d74918896823a8e28b0722b396cbb80a17870a665",
+  "sample_id": "case128",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds optional quality and mode parameters to the brotli.compress function, which are unlikely to introduce functional defects as they are standard options for brotli compression.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds optional quality and mode parameters to the brotli.compress function, which are unlikely to introduce functional defects as they are standard options for brotli compression.\"}",
+  "response_id": "gen-1795048509-ctkU01hupJf5f4nZwtVO",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 1006,
+  "completion_tokens": 49,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0001202,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1006,
+    "completion_tokens": 49,
+    "total_tokens": 1055,
+    "cost": 0.0001202,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001202,
+      "upstream_inference_prompt_cost": 0.0001006,
+      "upstream_inference_completions_cost": 1.96e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.369,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:35:09+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

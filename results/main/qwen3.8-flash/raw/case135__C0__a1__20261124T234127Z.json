@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563708-pJAa4o4F60brmyiyAv3M",
+    "object": "chat.completion",
+    "created": 1795563708,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The initialization of `lka_steering_cmd_counter` from the camera signal occurs inside the steering transmission block, meaning if the first frame does not meet the timing condition (`frame % STEER_STEP == 0`) or loopback update, the counter remains at 0 instead of syncing with the vehicle's expected rolling counter, potentially causing EPS faults.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1560,
+      "completion_tokens": 84,
+      "total_tokens": 1644,
+      "cost": 0.00027348,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00027348,
+        "upstream_inference_prompt_cost": 0.000234,
+        "upstream_inference_completions_cost": 3.948e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

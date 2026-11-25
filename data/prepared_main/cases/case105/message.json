@@ -1,0 +1,5 @@
+{
+  "commit": "081ce2fe4e88ae5f36aa0a6b45fb7048c01947c7",
+  "chars": 321,
+  "text": "Revert \"[Datasets] Arrow 7.0.0+ Support: Use Arrow IPC format for pickling Arrow data to circumvent slice view buffer truncation bug. (#29055)\" (#29138)\n\nThis reverts commit c1d62d4.\n\nThis is breaking the Windows build: https://buildkite.com/ray-project/oss-ci-build-branch/builds/365#0183ada0-8558-4502-9298-7e0bed873e23"
+}

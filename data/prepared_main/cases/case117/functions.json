@@ -1,0 +1,28 @@
+[
+  {
+    "name": "get_region_to_control_producer",
+    "before": {
+      "start": 57,
+      "end": 73,
+      "code": "def get_region_to_control_producer() -> KafkaProducer:\n    \"\"\"\n    Creates, if necessary, an arroyo.KafkaProducer client configured for region to control communication and returns\n    it, caching it for future calls.  Installs an exit handler to close the worker thread processes.\n    \"\"\"\n    global _publisher\n    if _publisher is None:\n        config = settings.KAFKA_TOPICS.get(settings.KAFKA_REGION_TO_CONTROL)\n        _publisher = KafkaProducer(\n            kafka_config.get_kafka_producer_cluster_options(config[\"cluster\"])\n        )\n\n        @atexit.register\n        def exit_handler():\n            _publisher.close()\n\n    return _publisher"
+    },
+    "after": {
+      "start": 57,
+      "end": 74,
+      "code": "def get_region_to_control_producer() -> KafkaProducer:\n    \"\"\"\n    Creates, if necessary, an arroyo.KafkaProducer client configured for region to control communication and returns\n    it, caching it for future calls.  Installs an exit handler to close the worker thread processes.\n    \"\"\"\n    global _publisher\n    if _publisher is None:\n        config = settings.KAFKA_TOPICS.get(settings.KAFKA_REGION_TO_CONTROL)\n        _publisher = KafkaProducer(\n            kafka_config.get_kafka_producer_cluster_options(config[\"cluster\"])\n        )\n\n        @atexit.register\n        def exit_handler():\n            if _publisher is not None:\n                _publisher.close()\n\n    return _publisher"
+    }
+  },
+  {
+    "name": "_should_produce_to_kafka",
+    "before": {
+      "start": 88,
+      "end": 96,
+      "code": "def _should_produce_to_kafka():\n    from sentry import options\n\n    mode = SiloMode.get_current_mode()\n    is_region = mode == SiloMode.REGION\n    is_mono_with_producer = mode == SiloMode.MONOLITH and options.get(\n        \"hc.region-to-control.monolith-publish\"\n    )\n    return is_region or is_mono_with_producer"
+    },
+    "after": {
+      "start": 89,
+      "end": 91,
+      "code": "def _should_produce_to_kafka():\n    mode = SiloMode.get_current_mode()\n    return mode == SiloMode.REGION"
+    }
+  }
+]

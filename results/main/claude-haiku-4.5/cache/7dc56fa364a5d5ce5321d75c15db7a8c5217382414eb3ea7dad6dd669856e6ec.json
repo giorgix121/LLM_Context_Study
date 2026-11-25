@@ -1,0 +1,65 @@
+{
+  "cache_key": "7dc56fa364a5d5ce5321d75c15db7a8c5217382414eb3ea7dad6dd669856e6ec",
+  "sample_id": "case107",
+  "strategy": "N2",
+  "status": "invalid_output",
+  "predicted_label": null,
+  "explanation": null,
+  "validation_error": "not valid JSON (Expecting value)",
+  "fenced_json": false,
+  "raw_content": "Looking at the diff for `django/db/backends/mysql/schema.py`, I need to analyze the changes:\n\n1. **Method rename and refactoring**: The method `_delete_composed_index` is being refactored. A new method `_create_missing_fk_index` is extracted with the core logic.\n\n2. **Key changes**:\n   - A new method `_create_missing_fk_index` is created that takes `model` and keyword-only argument `fields`\n   - The docstring is updated to clarify the purpose\n   - The original `_delete_composed_index` now calls `_create_missing_fk_index` before calling `super()._delete_composed_index()`\n\n3. **Potential issues**:\n   - The new `_create_missing_fk_index` method is called with `fields=fields` (keyword argument)\n   - The method signature uses `*` to enforce keyword-only arguments for `fields`\n   - The logic that was previously inline in `_delete_composed_index` is now extracted\n\n4. **Critical observation**: The original code had the",
+  "response_id": "gen-1795047194-UGOA9FlfMtA9V0SWvuzC",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "length",
+  "prompt_tokens": 4739,
+  "completion_tokens": 256,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.006019,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 4739,
+    "completion_tokens": 256,
+    "total_tokens": 4995,
+    "cost": 0.006019,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.006019,
+      "upstream_inference_prompt_cost": 0.004739,
+      "upstream_inference_completions_cost": 0.00128
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.946,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:13:17+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

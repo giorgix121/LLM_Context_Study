@@ -1,0 +1,8 @@
+{
+ "fix_sha": "first 12 characters of the linked fix commit the verdict rests on",
+ "fix_is_bugfix": "yes | no | unclear: that commit repairs a functional defect (not a refactor, rename, feature change, style, typing, documentation, test-only or dependency change)",
+ "defect_in_sampled_file": "yes | no | unclear: the repaired defect is in the code this commit added to the sampled file (a wrong line, or something that code plainly left out); no if the fix only moves, renames, reformats or refactors those lines, changes them for a feature or a later requirement, repairs a defect in another file or in older code, or touches the file only incidentally",
+ "verdict": "in_file | not_in_file | unclear: in_file only if both are yes; not_in_file if either is clearly no",
+ "decidable_from": "diff | file | external | na: for in_file only, what a reviewer would have needed at commit time to see the defect",
+ "rationale": "one sentence"
+}

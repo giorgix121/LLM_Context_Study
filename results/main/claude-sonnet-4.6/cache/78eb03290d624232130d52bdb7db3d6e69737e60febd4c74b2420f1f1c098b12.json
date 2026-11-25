@@ -1,0 +1,65 @@
+{
+  "cache_key": "78eb03290d624232130d52bdb7db3d6e69737e60febd4c74b2420f1f1c098b12",
+  "sample_id": "case126",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The GraphQL query interpolates `name`, `owner`, `ref`, and `path` directly into the query string without quoting them as GraphQL string literals, so the query will be syntactically invalid for any normal input (e.g., `repository(name: my-repo, owner: myorg)` instead of `repository(name: \"my-repo\", owner: \"myorg\")`), and it also opens a GraphQL injection vulnerability.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The GraphQL query interpolates `name`, `owner`, `ref`, and `path` directly into the query string without quoting them as GraphQL string literals, so the query will be syntactically invalid for any normal input (e.g., `repository(name: my-repo, owner: myorg)` instead of `repository(name: \\\"my-repo\\\", owner: \\\"myorg\\\")`), and it also opens a GraphQL injection vulnerability.\"}",
+  "response_id": "gen-1795190984-J9iSYXTyNkgSLuNp5gmZ",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 5732,
+  "completion_tokens": 114,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.018906,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 5732,
+    "completion_tokens": 114,
+    "total_tokens": 5846,
+    "cost": 0.018906,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.018906,
+      "upstream_inference_prompt_cost": 0.017196,
+      "upstream_inference_completions_cost": 0.00171
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.481,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:09:47+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

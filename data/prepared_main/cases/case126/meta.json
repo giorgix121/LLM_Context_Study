@@ -1,0 +1,4 @@
+{
+  "sample_id": "case126",
+  "path": "src/sentry/integrations/github/client.py"
+}

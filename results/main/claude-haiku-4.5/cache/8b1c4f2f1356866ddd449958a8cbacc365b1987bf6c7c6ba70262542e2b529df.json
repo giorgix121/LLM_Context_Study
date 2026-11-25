@@ -1,0 +1,65 @@
+{
+  "cache_key": "8b1c4f2f1356866ddd449958a8cbacc365b1987bf6c7c6ba70262542e2b529df",
+  "sample_id": "case042",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change modifies the TensorFlow model's input layer from `input_shape=(1,)` to `input_shape=()` and adds a `Flatten()` layer, which alters the expected input tensor shape and could cause dimension mismatch errors if the data preprocessing pipeline doesn't provide the expected scalar input format.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change modifies the TensorFlow model's input layer from `input_shape=(1,)` to `input_shape=()` and adds a `Flatten()` layer, which alters the expected input tensor shape and could cause dimension mismatch errors if the data preprocessing pipeline doesn't provide the expected scalar input format.\"\n}\n```",
+  "response_id": "gen-1795564311-ppqJ8lAulH1pT0YBtRwO",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 11787,
+  "completion_tokens": 97,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.012272,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 11787,
+    "completion_tokens": 97,
+    "total_tokens": 11884,
+    "cost": 0.012272,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.012272,
+      "upstream_inference_prompt_cost": 0.011787,
+      "upstream_inference_completions_cost": 0.000485
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.687,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:51:53+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

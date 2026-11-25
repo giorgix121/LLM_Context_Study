@@ -1,0 +1,65 @@
+{
+  "cache_key": "10ae8823322cade300ad64caf0b9ae19f1929f7d4e09b4fd8f722dfd8195efbd",
+  "sample_id": "case118",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The device name is changed from `entry.title` (the user-configured config entry title) to `api.smile_name` (the API-reported name), which could silently rename existing devices in the device registry for users who have customized their entry title, and `api.smile_model` may be None or differ from the previously stored `f\"Smile {api.smile_name}\"`, potentially causing unexpected device registry updates or mismatches.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The device name is changed from `entry.title` (the user-configured config entry title) to `api.smile_name` (the API-reported name), which could silently rename existing devices in the device registry for users who have customized their entry title, and `api.smile_model` may be None or differ from the previously stored `f\\\"Smile {api.smile_name}\\\"`, potentially causing unexpected device registry updates or mismatches.\"}",
+  "response_id": "gen-1795193653-WsSUHo6h6GAetlzJloVv",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2634,
+  "completion_tokens": 114,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.009612,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2634,
+    "completion_tokens": 114,
+    "total_tokens": 2748,
+    "cost": 0.009612,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.009612,
+      "upstream_inference_prompt_cost": 0.007902,
+      "upstream_inference_completions_cost": 0.00171
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 4.005,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:54:17+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565130-0iskDeKJOJGgiOfidflc",
+    "object": "chat.completion",
+    "created": 1795565130,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The parameter rename from `service_type` to `search_target` in `SsdpSearchListener` aligns with the async-upnp-client 0.32.0 API change, but if the library version is not exactly 0.32.0 or the parameter name differs, the Yeelight SSDP scanner will fail to initialize its search listener, breaking device discovery.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8904,
+      "completion_tokens": 103,
+      "total_tokens": 9007,
+      "cost": 0.028257,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.028257,
+        "upstream_inference_prompt_cost": 0.026712,
+        "upstream_inference_completions_cost": 0.001545
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

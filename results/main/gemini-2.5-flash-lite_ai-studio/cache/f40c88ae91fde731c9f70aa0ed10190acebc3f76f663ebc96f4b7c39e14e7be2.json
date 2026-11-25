@@ -1,0 +1,65 @@
+{
+  "cache_key": "f40c88ae91fde731c9f70aa0ed10190acebc3f76f663ebc96f4b7c39e14e7be2",
+  "sample_id": "case092",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "A new method `get_resolution_info` is added to fetch data from the Supervisor resolution center, which is a read-only operation and unlikely to introduce functional defects.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"A new method `get_resolution_info` is added to fetch data from the Supervisor resolution center, which is a read-only operation and unlikely to introduce functional defects.\"}",
+  "response_id": "gen-1795048194-xuOLWxNw8bPv5rNqFcRC",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 394,
+  "completion_tokens": 49,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 5.9e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 394,
+    "completion_tokens": 49,
+    "total_tokens": 443,
+    "cost": 5.9e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.9e-05,
+      "upstream_inference_prompt_cost": 3.94e-05,
+      "upstream_inference_completions_cost": 1.96e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.354,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:29:54+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

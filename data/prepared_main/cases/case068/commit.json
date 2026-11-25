@@ -1,0 +1,17 @@
+{
+  "commit": "29ab130d8f77d5fa4fef3bfd30536517b0fc66ce",
+  "files_in_commit": 2,
+  "target_index": 0,
+  "target_status": "modified",
+  "chars": 419,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "tests/sentry/ingest/billing_metrics_consumer/test_billing_metrics_consumer_kafka.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -109,7 +109,7 @@ def generate_kafka_message(bucket: MetricsBucket) -> Message[KafkaPayload]:\n                     reason=None,\n                     timestamp=datetime(1970, 1, 2, 10, 17, 36),\n                     event_id=None,\n-                    category=DataCategory.TRANSACTION_PROCESSED,\n+                    category=DataCategory.TRANSACTION,\n                     quantity=3,\n                 )\n             ]"
+    }
+  ]
+}

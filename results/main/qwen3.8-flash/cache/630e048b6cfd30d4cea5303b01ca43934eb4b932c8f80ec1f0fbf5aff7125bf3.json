@@ -1,0 +1,65 @@
+{
+  "cache_key": "630e048b6cfd30d4cea5303b01ca43934eb4b932c8f80ec1f0fbf5aff7125bf3",
+  "sample_id": "case067",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The removal of the manual Accept-Encoding header forwarding is likely safe because standard HTTP clients and proxies handle content negotiation automatically, and explicitly setting this header can often cause issues with double-encoding or mismatched expectations.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The removal of the manual Accept-Encoding header forwarding is likely safe because standard HTTP clients and proxies handle content negotiation automatically, and explicitly setting this header can often cause issues with double-encoding or mismatched expectations.\"}",
+  "response_id": "gen-1795188410-vF3UulTsZ0oXKLl666v7",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 3012,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00047812,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3012,
+    "completion_tokens": 56,
+    "total_tokens": 3068,
+    "cost": 0.00047812,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00047812,
+      "upstream_inference_prompt_cost": 0.0004518,
+      "upstream_inference_completions_cost": 2.632e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.821,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:26:52+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

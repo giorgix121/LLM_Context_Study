@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "CSVLogger.save",
+      "path": "src/pytorch_lightning/loggers/csv_logs.py",
+      "start": 204,
+      "end": 207,
+      "code": "    @rank_zero_only\n    def save(self) -> None:\n        super().save()\n        self.experiment.save()",
+      "called_by": "CSVLogger.finalize"
+    }
+  ]
+}

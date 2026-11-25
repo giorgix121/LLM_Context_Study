@@ -1,0 +1,38 @@
+{
+  "found": 4,
+  "included": 4,
+  "functions": [
+    {
+      "name": "Trainer._pre_training_routine",
+      "path": "src/pytorch_lightning/trainer/trainer.py",
+      "start": 1254,
+      "end": 1268,
+      "code": "    def _pre_training_routine(self):\n        # wait for all to join if on distributed\n        self.strategy.barrier(\"setup_training\")\n\n        # register signals\n        self._signal_connector.register_signal_handlers()\n\n        # --------------------------\n        # Pre-train\n        # --------------------------\n        self._call_callback_hooks(\"on_pretrain_routine_start\")\n        self._call_lightning_module_hook(\"on_pretrain_routine_start\")\n\n        self._call_callback_hooks(\"on_pretrain_routine_end\")\n        self._call_lightning_module_hook(\"on_pretrain_routine_end\")",
+      "calls": "SignalConnector.register_signal_handlers"
+    },
+    {
+      "name": "test_signal_handlers_restored_in_teardown",
+      "path": "tests/tests_pytorch/trainer/connectors/test_signal_connector.py",
+      "start": 31,
+      "end": 43,
+      "code": "@RunIf(skip_windows=True)\n@mock.patch.dict(os.environ, {\"PL_FAULT_TOLERANT_TRAINING\": \"1\"})\ndef test_signal_handlers_restored_in_teardown():\n    \"\"\"Test that the SignalConnector restores the previously configured handler on teardown.\"\"\"\n    assert signal.getsignal(signal.SIGTERM) is signal.SIG_DFL\n\n    trainer = Trainer(plugins=SLURMEnvironment())\n    connector = SignalConnector(trainer)\n    connector.register_signal_handlers()\n\n    assert signal.getsignal(signal.SIGTERM) is not signal.SIG_DFL\n    connector.teardown()\n    assert signal.getsignal(signal.SIGTERM) is signal.SIG_DFL",
+      "calls": "SignalConnector.register_signal_handlers"
+    },
+    {
+      "name": "test_auto_requeue_custom_signal_flag",
+      "path": "tests/tests_pytorch/trainer/connectors/test_signal_connector.py",
+      "start": 80,
+      "end": 100,
+      "code": "@RunIf(skip_windows=True)\n@pytest.mark.parametrize(\"auto_requeue\", (True, False))\n@pytest.mark.parametrize(\"requeue_signal\", [signal.SIGUSR1, signal.SIGUSR2, signal.SIGHUP] if not _IS_WINDOWS else [])\ndef test_auto_requeue_custom_signal_flag(auto_requeue, requeue_signal):\n    trainer = Trainer(plugins=[SLURMEnvironment(auto_requeue=auto_requeue, requeue_signal=requeue_signal)])\n    connector = SignalConnector(trainer)\n    connector.register_signal_handlers()\n\n    if auto_requeue:\n        sigterm_handlers = signal.getsignal(signal.SIGTERM).signal_handlers\n        assert len(sigterm_handlers) == 1\n        assert sigterm_handlers[0].__qualname__ == \"SignalConnector.sigterm_handler_fn\"\n\n        sigusr_handlers = signal.getsignal(requeue_signal).signal_handlers\n        assert len(sigusr_handlers) == 1\n        assert sigusr_handlers[0].__qualname__ == \"SignalConnector.slurm_sigusr_handler_fn\"\n    else:\n        assert signal.getsignal(signal.SIGTERM) is signal.SIG_DFL\n        assert signal.getsignal(requeue_signal) is signal.SIG_DFL\n\n    connector.teardown()",
+      "calls": "SignalConnector.register_signal_handlers"
+    },
+    {
+      "name": "_registering_signals",
+      "path": "tests/tests_pytorch/trainer/connectors/test_signal_connector.py",
+      "start": 103,
+      "end": 105,
+      "code": "def _registering_signals():\n    trainer = Trainer()\n    trainer._signal_connector.register_signal_handlers()",
+      "calls": "SignalConnector.register_signal_handlers"
+    }
+  ]
+}

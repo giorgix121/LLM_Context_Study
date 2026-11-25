@@ -1,0 +1,65 @@
+{
+  "cache_key": "d6b2feff41ecf24c51dfbc29b858f8537d42c8c1a1ce862470c7914fe2e62c2f",
+  "sample_id": "case050",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "This change only removes extra whitespace before the `+` operator, which is a formatting fix that does not affect the functional behavior of the code.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"This change only removes extra whitespace before the `+` operator, which is a formatting fix that does not affect the functional behavior of the code.\"\n}\n```",
+  "response_id": "gen-1795187927-rT421eEGxnLWZI7MmiVY",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 410,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00071,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 410,
+    "completion_tokens": 60,
+    "total_tokens": 470,
+    "cost": 0.00071,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00071,
+      "upstream_inference_prompt_cost": 0.00041,
+      "upstream_inference_completions_cost": 0.0003
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.997,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:18:48+00:00",
+  "run_id": "20261120T151736Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

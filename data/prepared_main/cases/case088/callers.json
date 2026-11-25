@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "async_setup_entry",
+      "path": "homeassistant/components/braviatv/__init__.py",
+      "start": 20,
+      "end": 48,
+      "code": "async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:\n    \"\"\"Set up a config entry.\"\"\"\n    host = config_entry.data[CONF_HOST]\n    mac = config_entry.data[CONF_MAC]\n    pin = config_entry.data[CONF_PIN]\n    use_psk = config_entry.data.get(CONF_USE_PSK, False)\n    ignored_sources = config_entry.options.get(CONF_IGNORED_SOURCES, [])\n\n    session = async_create_clientsession(\n        hass, cookie_jar=CookieJar(unsafe=True, quote_cookie=False)\n    )\n    client = BraviaTV(host, mac, session=session)\n    coordinator = BraviaTVCoordinator(\n        hass=hass,\n        client=client,\n        pin=pin,\n        use_psk=use_psk,\n        ignored_sources=ignored_sources,\n    )\n    config_entry.async_on_unload(config_entry.add_update_listener(update_listener))\n\n    await coordinator.async_config_entry_first_refresh()\n\n    hass.data.setdefault(DOMAIN, {})\n    hass.data[DOMAIN][config_entry.entry_id] = coordinator\n\n    await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)\n\n    return True",
+      "calls": "BraviaTVCoordinator.__init__"
+    }
+  ]
+}

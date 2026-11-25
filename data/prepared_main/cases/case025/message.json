@@ -1,0 +1,5 @@
+{
+  "commit": "07effca2b5a9faeae21e016f7b9950b659ff5616",
+  "chars": 219,
+  "text": "ref(notifications): Get title link based on provider (#37074)\n\n* Modify `get_title_link` to accept `provider` as an argument.\n* Move it from `integrations.slack.message_builder.issues` to `integrations.message_builder`."
+}

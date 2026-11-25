@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795190486-fN4pc4yIQCMgkNqePrnL",
+    "object": "chat.completion",
+    "created": 1795190486,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The function signature adds a new parameter `use_metrics_layer` with a default value, but the call to the internal query function now passes both `has_metrics` and `use_metrics_layer` as positional arguments; if the callee's signature does not match this exact order or count, it will cause a TypeError or incorrect argument mapping.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 267,
+      "completion_tokens": 80,
+      "total_tokens": 347,
+      "cost": 7.765e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 7.765e-05,
+        "upstream_inference_prompt_cost": 4.005e-05,
+        "upstream_inference_completions_cost": 3.76e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

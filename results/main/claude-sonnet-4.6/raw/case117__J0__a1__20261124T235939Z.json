@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564795-jY9BKHsEssm3XPQMDA67",
+    "object": "chat.completion",
+    "created": 1795564795,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The `DelegatedBySiloMode.__getattr__` method calls `self.close()` before constructing a new singleton, which clears all existing singletons including ones for other silo modes, potentially causing unexpected re-initialization and data loss for concurrent or nested service accesses.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8935,
+      "completion_tokens": 79,
+      "total_tokens": 9014,
+      "cost": 0.02799,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.02799,
+        "upstream_inference_prompt_cost": 0.026805,
+        "upstream_inference_completions_cost": 0.001185
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

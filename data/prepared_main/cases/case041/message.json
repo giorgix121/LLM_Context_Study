@@ -1,0 +1,5 @@
+{
+  "commit": "f6b1051132bdf5be897867ca0f376c58e48cc1a4",
+  "chars": 301,
+  "text": "fix(mep): Don't get CM for CLS (#38961)\n\n- This fixes a bug where we went to the custom measurement map for cls\ncause it wasn't a known measurement\n- This also catches failures of the map to avoid this hard breaking\nqueries in the future, but still throws an exception so we know if\nthere's other gaps"
+}

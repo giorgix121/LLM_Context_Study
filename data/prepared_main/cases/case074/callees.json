@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "Pool.__init__",
+      "path": "src/poetry/repositories/pool.py",
+      "start": 16,
+      "end": 35,
+      "code": "    def __init__(\n        self,\n        repositories: list[Repository] | None = None,\n        ignore_repository_names: bool = False,\n    ) -> None:\n        super().__init__(\"poetry-pool\")\n\n        if repositories is None:\n            repositories = []\n\n        self._lookup: dict[str, int] = {}\n        self._repositories: list[Repository] = []\n        self._default = False\n        self._has_primary_repositories = False\n        self._secondary_start_idx: int | None = None\n\n        for repository in repositories:\n            self.add_repository(repository)\n\n        self._ignore_repository_names = ignore_repository_names",
+      "called_by": "Poetry.__init__"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "f514c03b4820390678e9cd2b6c2449428eb4a4132283cef7315c93c3ff4b93f0",
+  "sample_id": "case095",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Setting `self.preemptible = False` as a plain instance attribute in `__post_init__` means it will not be included in `asdict()` (used by `to_dict()`), but it also bypasses the dataclass field mechanism, so any code that serializes or copies the dataclass may silently drop or mishandle this attribute, and future uses of `preemptible` could behave inconsistently.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Setting `self.preemptible = False` as a plain instance attribute in `__post_init__` means it will not be included in `asdict()` (used by `to_dict()`), but it also bypasses the dataclass field mechanism, so any code that serializes or copies the dataclass may silently drop or mishandle this attribute, and future uses of `preemptible` could behave inconsistently.\"}",
+  "response_id": "gen-1795565287-WbaYHN4MZnmOAerMrhRa",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 5120,
+  "completion_tokens": 112,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.01704,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 5120,
+    "completion_tokens": 112,
+    "total_tokens": 5232,
+    "cost": 0.01704,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.01704,
+      "upstream_inference_prompt_cost": 0.01536,
+      "upstream_inference_completions_cost": 0.00168
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.872,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-25T00:08:11+00:00",
+  "run_id": "20261124T235939Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

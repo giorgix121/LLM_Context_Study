@@ -1,0 +1,65 @@
+{
+  "cache_key": "c75baa599085b5cee34b5f057c1ef978b2468d7dfdb5703d78dd0f99a1489f99",
+  "sample_id": "case034",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit removes specific PID lateral tuning parameters for Mazda vehicles and relies on a generic torque tune configuration, which may alter steering behavior unexpectedly if the new method does not provide equivalent control characteristics.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The commit removes specific PID lateral tuning parameters for Mazda vehicles and relies on a generic torque tune configuration, which may alter steering behavior unexpectedly if the new method does not provide equivalent control characteristics.\"}",
+  "response_id": "gen-1795564034-z5zsUUCur6ecLtD7B1Th",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 973,
+  "completion_tokens": 51,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00016992,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 973,
+    "completion_tokens": 51,
+    "total_tokens": 1024,
+    "cost": 0.00016992,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00016992,
+      "upstream_inference_prompt_cost": 0.00014595,
+      "upstream_inference_completions_cost": 2.397e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.16,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:47:15+00:00",
+  "run_id": "20261124T234127Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

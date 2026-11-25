@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "ClientConfigView.get",
+      "path": "src/sentry/web/api.py",
+      "start": 15,
+      "end": 16,
+      "code": "    def get(self, request: Request) -> Response:\n        return HttpResponse(json.dumps(get_client_config(request)), content_type=\"application/json\")",
+      "calls": "get_client_config"
+    },
+    {
+      "name": "get_react_config",
+      "path": "src/sentry/templatetags/sentry_react.py",
+      "start": 9,
+      "end": 13,
+      "code": "@register.simple_tag(takes_context=True)\ndef get_react_config(context):\n    context = get_client_config(context.get(\"request\", None))\n\n    return json.dumps_htmlsafe(context)",
+      "calls": "get_client_config"
+    },
+    {
+      "name": "test_project_key_service",
+      "path": "tests/sentry/services/test_project_key_service.py",
+      "start": 10,
+      "end": 19,
+      "code": "@pytest.mark.django_db\ndef test_project_key_service():\n    organization = Factories.create_organization(name=\"test-org\")\n    project = Factories.create_project(organization=organization)\n    project_key = Factories.create_project_key(project)\n    assert project_key.dsn_public\n\n    with override_settings(SENTRY_PROJECT=project.id):\n        with use_real_service(project_key_service, SiloMode.CONTROL):\n            assert get_client_config()[\"dsn\"] == project_key.dsn_public",
+      "calls": "get_client_config"
+    }
+  ]
+}

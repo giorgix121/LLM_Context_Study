@@ -1,0 +1,65 @@
+{
+  "cache_key": "ef4696a96434ca58510d579f9b36851ae212f5ba2b8bdb8580f2fb9a7858421b",
+  "sample_id": "case084",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Calling `await switchbot.get_device(address)` as a fallback may return a device object that bypasses the `connectable` requirement, potentially allowing a non-connectable device to be used where a connectable one is needed, and it also introduces an unknown async call on the Home Assistant event loop without any timeout or error handling.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Calling `await switchbot.get_device(address)` as a fallback may return a device object that bypasses the `connectable` requirement, potentially allowing a non-connectable device to be used where a connectable one is needed, and it also introduces an unknown async call on the Home Assistant event loop without any timeout or error handling.\"}",
+  "response_id": "gen-1795192179-Z7NatuGmEK7NKsMrYotZ",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1788,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.006699,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1788,
+    "completion_tokens": 89,
+    "total_tokens": 1877,
+    "cost": 0.006699,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.006699,
+      "upstream_inference_prompt_cost": 0.005364,
+      "upstream_inference_completions_cost": 0.001335
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.208,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:29:43+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

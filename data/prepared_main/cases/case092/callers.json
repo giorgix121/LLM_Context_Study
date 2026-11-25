@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "SupervisorRepairs.update",
+      "path": "homeassistant/components/hassio/repairs.py",
+      "start": 108,
+      "end": 112,
+      "code": "    async def update(self) -> None:\n        \"\"\"Update repairs from Supervisor resolution center.\"\"\"\n        data = await self._client.get_resolution_info()\n        self.unhealthy_reasons = set(data[ATTR_UNHEALTHY])\n        self.unsupported_reasons = set(data[ATTR_UNSUPPORTED])",
+      "calls": "HassIO.get_resolution_info"
+    }
+  ]
+}

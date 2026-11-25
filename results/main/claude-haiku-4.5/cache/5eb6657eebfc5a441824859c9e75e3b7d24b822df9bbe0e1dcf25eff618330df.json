@@ -1,0 +1,65 @@
+{
+  "cache_key": "5eb6657eebfc5a441824859c9e75e3b7d24b822df9bbe0e1dcf25eff618330df",
+  "sample_id": "case062",
+  "strategy": "S3",
+  "status": "invalid_output",
+  "predicted_label": null,
+  "explanation": null,
+  "validation_error": "not valid JSON (Expecting ',' delimiter)",
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The code calls `item.pop(\"isArchived\")` without checking if the key exists, which will raise a KeyError if 'isArchived' is missing from the item dictionary.\"\n}\n```",
+  "response_id": "gen-1795047482-dVYi4ERv1jA4AWHRz6bU",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 1316,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001651,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1316,
+    "completion_tokens": 67,
+    "total_tokens": 1383,
+    "cost": 0.001651,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001651,
+      "upstream_inference_prompt_cost": 0.001316,
+      "upstream_inference_completions_cost": 0.000335
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.1,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:18:03+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

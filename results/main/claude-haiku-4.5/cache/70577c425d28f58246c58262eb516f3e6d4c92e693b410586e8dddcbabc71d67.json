@@ -1,0 +1,66 @@
+{
+  "cache_key": "70577c425d28f58246c58262eb516f3e6d4c92e693b410586e8dddcbabc71d67",
+  "sample_id": "case22",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The diff renames the parameter `parsed` to `ibeacon_advertisement` but also changes the instance variable assignment from `self._parsed` to `self._ibeacon_advertisement`, which may break code that depends on the `_parsed` attribute if the parent class or other methods reference it.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The diff renames the parameter `parsed` to `ibeacon_advertisement` but also changes the instance variable assignment from `self._parsed` to `self._ibeacon_advertisement`, which may break code that depends on the `_parsed` attribute if the parent class or other methods reference it.\"\n}\n```",
+  "response_id": "gen-1790920224-2F0Ep39wfigcqeTOIMSM",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 622,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001072,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 622,
+    "completion_tokens": 90,
+    "total_tokens": 712,
+    "cost": 0.001072,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001072,
+      "upstream_inference_prompt_cost": 0.000622,
+      "upstream_inference_completions_cost": 0.00045
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.311,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T05:50:26+00:00",
+  "run_id": "20261002T054951Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  },
+  "reused_from": "results/claude-haiku-4.5/cache/70577c425d28f58246c58262eb516f3e6d4c92e693b410586e8dddcbabc71d67.json"
+}

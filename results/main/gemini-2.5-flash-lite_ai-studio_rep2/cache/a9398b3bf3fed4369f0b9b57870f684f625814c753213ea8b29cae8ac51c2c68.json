@@ -1,0 +1,65 @@
+{
+  "cache_key": "a9398b3bf3fed4369f0b9b57870f684f625814c753213ea8b29cae8ac51c2c68",
+  "sample_id": "case084",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change introduces a new asynchronous call `await switchbot.get_device(address)` which could potentially raise an exception or block, impacting the device discovery and setup process.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a new asynchronous call `await switchbot.get_device(address)` which could potentially raise an exception or block, impacting the device discovery and setup process.\"}",
+  "response_id": "gen-1795048717-YTEvQc5rn5EfF8CyMBvh",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 3000,
+  "completion_tokens": 47,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0003188,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3000,
+    "completion_tokens": 47,
+    "total_tokens": 3047,
+    "cost": 0.0003188,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003188,
+      "upstream_inference_prompt_cost": 0.0003,
+      "upstream_inference_completions_cost": 1.88e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.547,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:38:37+00:00",
+  "run_id": "20261119T003650Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

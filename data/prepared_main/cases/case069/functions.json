@@ -1,0 +1,15 @@
+[
+  {
+    "name": "json_to_ndarray",
+    "before": {
+      "start": 44,
+      "end": 52,
+      "code": "@PublicAPI(stability=\"beta\")\ndef json_to_ndarray(payload: NdArray) -> np.ndarray:\n    \"\"\"Accepts an NdArray JSON from an HTTP body and converts it to a numpy array.\"\"\"\n    arr = np.array(payload.array)\n    if payload.shape:\n        arr = arr.reshape(*payload.shape)\n    if payload.dtype:\n        arr = arr.astype(payload.dtype)\n    return arr"
+    },
+    "after": {
+      "start": 44,
+      "end": 55,
+      "code": "@PublicAPI(stability=\"beta\")\ndef json_to_ndarray(payload: NdArray) -> np.ndarray:\n    \"\"\"Accepts an NdArray JSON from an HTTP body and converts it to a numpy array.\n\n    .. autopydantic_model:: ray.serve.http_adapters.NdArray\n    \"\"\"\n    arr = np.array(payload.array)\n    if payload.shape:\n        arr = arr.reshape(*payload.shape)\n    if payload.dtype:\n        arr = arr.astype(payload.dtype)\n    return arr"
+    }
+  }
+]

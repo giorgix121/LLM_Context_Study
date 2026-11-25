@@ -1,0 +1,65 @@
+{
+  "cache_key": "d8915b98b0e74f2711a1d6c5adebe0bac98b2b65fc8b0a5a6c42a25fe5cf4220",
+  "sample_id": "case134",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "A new default parameter 'GsmMetered' is added to the manager initialization, which is unlikely to cause a functional defect as it's a configuration setting.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"A new default parameter 'GsmMetered' is added to the manager initialization, which is unlikely to cause a functional defect as it's a configuration setting.\"}",
+  "response_id": "gen-1795048732-e0XKHj24DqlVfI0pKr6b",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 214,
+  "completion_tokens": 47,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 4.02e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 214,
+    "completion_tokens": 47,
+    "total_tokens": 261,
+    "cost": 4.02e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.02e-05,
+      "upstream_inference_prompt_cost": 2.14e-05,
+      "upstream_inference_completions_cost": 1.88e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.382,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:38:53+00:00",
+  "run_id": "20261119T003650Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "Solver._progress",
+      "path": "src/poetry/puzzle/solver.py",
+      "start": 106,
+      "end": 120,
+      "code": "    @contextmanager\n    def _progress(self) -> Iterator[None]:\n        if not self._io.output.is_decorated() or self._provider.is_debugging():\n            self._io.write_line(\"Resolving dependencies...\")\n            yield\n        else:\n            indicator = Indicator(\n                self._io, \"{message}{context}<debug>({elapsed:2s})</debug>\"\n            )\n\n            with indicator.auto(\n                \"<info>Resolving dependencies...</info>\",\n                \"<info>Resolving dependencies...</info>\",\n            ):\n                yield",
+      "called_by": "Solver.solve"
+    },
+    {
+      "name": "Solver._solve",
+      "path": "src/poetry/puzzle/solver.py",
+      "start": 152,
+      "end": 191,
+      "code": "    def _solve(self) -> tuple[list[Package], list[int]]:\n        if self._provider._overrides:\n            self._overrides.append(self._provider._overrides)\n\n        try:\n            result = resolve_version(self._package, self._provider)\n\n            packages = result.packages\n        except OverrideNeeded as e:\n            return self._solve_in_compatibility_mode(e.overrides)\n        except SolveFailure as e:\n            raise SolverProblemError(e)\n\n        combined_nodes = depth_first_search(PackageNode(self._package, packages))\n        results = dict(aggregate_package_nodes(nodes) for nodes in combined_nodes)\n\n        # Merging feature packages with base packages\n        final_packages = []\n        depths = []\n        for package in packages:\n            if package.features:\n                for _package in packages:\n                    if (\n                        not _package.features\n                        and _package.name == package.name\n                        and _package.version == package.version\n                    ):\n                        for dep in package.requires:\n                            # Prevent adding base package as a dependency to itself\n                            if _package.name == dep.name:\n                                continue\n\n                            if dep not in _package.requires:\n                                _package.add_dependency(dep)\n            else:\n                final_packages.append(package)\n                depths.append(results[package])\n\n        # Return the packages in their original order with associated depths\n        return final_packages, depths",
+      "called_by": "Solver.solve"
+    },
+    {
+      "name": "Transaction.__init__",
+      "path": "src/poetry/puzzle/transaction.py",
+      "start": 13,
+      "end": 27,
+      "code": "    def __init__(\n        self,\n        current_packages: list[Package],\n        result_packages: list[tuple[Package, int]],\n        installed_packages: list[Package] | None = None,\n        root_package: Package | None = None,\n    ) -> None:\n        self._current_packages = current_packages\n        self._result_packages = result_packages\n\n        if installed_packages is None:\n            installed_packages = []\n\n        self._installed_packages = installed_packages\n        self._root_package = root_package",
+      "called_by": "Solver.solve"
+    }
+  ]
+}

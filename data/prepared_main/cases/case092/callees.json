@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "HassIO.send_command",
+      "path": "homeassistant/components/hassio/handler.py",
+      "start": 238,
+      "end": 276,
+      "code": "    async def send_command(\n        self,\n        command,\n        method=\"post\",\n        payload=None,\n        timeout=10,\n        return_text=False,\n    ):\n        \"\"\"Send API command to Hass.io.\n\n        This method is a coroutine.\n        \"\"\"\n        try:\n            request = await self.websession.request(\n                method,\n                f\"http://{self._ip}{command}\",\n                json=payload,\n                headers={\n                    aiohttp.hdrs.AUTHORIZATION: f\"Bearer {os.environ.get('SUPERVISOR_TOKEN', '')}\"\n                },\n                timeout=aiohttp.ClientTimeout(total=timeout),\n            )\n\n            if request.status not in (HTTPStatus.OK, HTTPStatus.BAD_REQUEST):\n                _LOGGER.error(\"%s return code %d\", command, request.status)\n                raise HassioAPIError()\n\n            if return_text:\n                return await request.text(encoding=\"utf-8\")\n\n            return await request.json()\n\n        except asyncio.TimeoutError:\n            _LOGGER.error(\"Timeout on %s request\", command)\n\n        except aiohttp.ClientError as err:\n            _LOGGER.error(\"Client error on %s request %s\", command, err)\n\n        raise HassioAPIError()",
+      "called_by": "HassIO.get_resolution_info"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1790928322-7NDKgrUvsygrCDOS8Lac",
+    "object": "chat.completion",
+    "created": 1790928322,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"label\": \"RISKY\", \"explanation\": \"The `initialize_pigeon` function's return type was changed from `None` to `bool`, and its return value is now used to set the `UbloxAvailable` parameter, indicating a change in how the availability of the Ublox GPS module is tracked and potentially used by other parts of the system.\"}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 949135,
+      "completion_tokens": 81,
+      "total_tokens": 949216,
+      "cost": 0.0949459,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0949459,
+        "upstream_inference_prompt_cost": 0.0949135,
+        "upstream_inference_completions_cost": 3.24e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

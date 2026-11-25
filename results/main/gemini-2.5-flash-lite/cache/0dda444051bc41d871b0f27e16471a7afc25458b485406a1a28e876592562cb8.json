@@ -1,0 +1,65 @@
+{
+  "cache_key": "0dda444051bc41d871b0f27e16471a7afc25458b485406a1a28e876592562cb8",
+  "sample_id": "case123",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The `get_blame_for_file` method now requires a `lineno` argument, but it is not provided in the call to `client.get_blame_for_file`, which could lead to a TypeError.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The `get_blame_for_file` method now requires a `lineno` argument, but it is not provided in the call to `client.get_blame_for_file`, which could lead to a TypeError.\"\n}\n```",
+  "response_id": "gen-1790928527-AWFDoGLaPndq5LIc1Aek",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 841,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0001129,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 841,
+    "completion_tokens": 72,
+    "total_tokens": 913,
+    "cost": 0.0001129,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001129,
+      "upstream_inference_prompt_cost": 8.41e-05,
+      "upstream_inference_completions_cost": 2.88e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.618,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T08:08:48+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

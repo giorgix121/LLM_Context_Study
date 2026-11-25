@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795188484-4AMIV3EmrJrlWQ0V9wqk",
+    "object": "chat.completion",
+    "created": 1795188484,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change moves `self.weights_updated = True` and queue size updates inside the `if ma_batch is not None:` block, meaning these critical state flags are no longer updated when the batch is empty/None, potentially causing synchronization issues or stale weight states in the learner thread.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1185,
+      "completion_tokens": 70,
+      "total_tokens": 1255,
+      "cost": 7.3434e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 7.3434e-05,
+        "upstream_inference_prompt_cost": 4.0534e-05,
+        "upstream_inference_completions_cost": 3.29e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

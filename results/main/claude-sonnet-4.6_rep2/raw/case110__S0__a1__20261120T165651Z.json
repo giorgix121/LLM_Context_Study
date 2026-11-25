@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795194467-Ct7Ek3bOFynXl402reb7",
+    "object": "chat.completion",
+    "created": 1795194467,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Replacing `which` (an external binary) with `command -v` (a shell built-in) and passing it directly to `subprocess.call` without `shell=True` will cause a `FileNotFoundError` on systems where `command` is not an executable in PATH, silently setting `srun_exists = False` and suppressing the srun warning even when srun is present.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 301,
+      "completion_tokens": 102,
+      "total_tokens": 403,
+      "cost": 0.002433,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002433,
+        "upstream_inference_prompt_cost": 0.000903,
+        "upstream_inference_completions_cost": 0.00153
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

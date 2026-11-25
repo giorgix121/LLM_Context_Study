@@ -1,0 +1,15 @@
+[
+  {
+    "name": "ApiGatewayMiddleware.process_view",
+    "before": {
+      "start": 20,
+      "end": 25,
+      "code": "    def process_view(\n        self, request: Request, view_func, view_args, view_kwargs\n    ) -> HttpResponseBase | None:\n        proxy_response = proxy_request_if_needed(request, view_kwargs)\n        if proxy_response is not None:\n            return proxy_response"
+    },
+    "after": {
+      "start": 20,
+      "end": 25,
+      "code": "    def process_view(\n        self, request: Request, view_func, view_args, view_kwargs\n    ) -> HttpResponseBase | None:\n        proxy_response = proxy_request_if_needed(request, view_func, view_kwargs)\n        if proxy_response is not None:\n            return proxy_response"
+    }
+  }
+]

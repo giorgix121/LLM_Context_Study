@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191869-EVy8Tzcv2VFCa0S32VTg",
+    "object": "chat.completion",
+    "created": 1795191869,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new logic initializes `lka_steering_cmd_counter` from `camera_lka_steering_cmd_counter + 1` only on the first STEER_STEP frame where no loopback has been seen, but if `sent_lka_steering_cmd` remains False across multiple STEER_STEP frames before any loopback arrives, the counter is re-initialized each time using the latest camera value rather than incrementing, potentially causing non-monotonic counter values and triggering GM EPS faults.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 826,
+      "completion_tokens": 132,
+      "total_tokens": 958,
+      "cost": 0.004458,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004458,
+        "upstream_inference_prompt_cost": 0.002478,
+        "upstream_inference_completions_cost": 0.00198
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

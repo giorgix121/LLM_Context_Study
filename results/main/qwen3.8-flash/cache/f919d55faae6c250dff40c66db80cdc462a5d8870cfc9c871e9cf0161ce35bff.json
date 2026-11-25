@@ -1,0 +1,65 @@
+{
+  "cache_key": "f919d55faae6c250dff40c66db80cdc462a5d8870cfc9c871e9cf0161ce35bff",
+  "sample_id": "case066",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit introduces a new pre-commit hook that flags any usage of `category=DeprecationWarning` or `category=PendingDeprecationWarning`, but the diff shows several files (e.g., in `airflow/providers/`) still using these categories, which would cause the CI pipeline to fail.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The commit introduces a new pre-commit hook that flags any usage of `category=DeprecationWarning` or `category=PendingDeprecationWarning`, but the diff shows several files (e.g., in `airflow/providers/`) still using these categories, which would cause the CI pipeline to fail.\"}",
+  "response_id": "gen-1795563912-8Hqc14IYablkYnoEdgFV",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 75883,
+  "completion_tokens": 76,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.01141817,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 75883,
+    "completion_tokens": 76,
+    "total_tokens": 75959,
+    "cost": 0.01141817,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.01141817,
+      "upstream_inference_prompt_cost": 0.01138245,
+      "upstream_inference_completions_cost": 3.572e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 5.98,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:45:18+00:00",
+  "run_id": "20261124T234127Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

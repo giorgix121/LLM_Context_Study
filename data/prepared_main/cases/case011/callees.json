@@ -1,0 +1,38 @@
+{
+  "found": 4,
+  "included": 4,
+  "functions": [
+    {
+      "name": "SchemaExtractor.get_table_schema",
+      "path": "localstack/services/dynamodb/utils.py",
+      "start": 69,
+      "end": 77,
+      "code": "    @classmethod\n    def get_table_schema(cls, table_name):\n        key = f\"{aws_stack.get_region()}/{table_name}\"\n        schema = SCHEMA_CACHE.get(key)\n        if not schema:\n            ddb_client = aws_stack.connect_to_service(\"dynamodb\")\n            schema = ddb_client.describe_table(TableName=table_name)\n            SCHEMA_CACHE[key] = schema\n        return schema",
+      "called_by": "ItemFinder.find_existing_item"
+    },
+    {
+      "name": "ValidationException.__init__",
+      "path": "localstack/services/dynamodb/provider.py",
+      "start": 261,
+      "end": 262,
+      "code": "    def __init__(self, message: str):\n        super().__init__(code=\"ValidationException\", status_code=400, message=message)",
+      "called_by": "ItemFinder.find_existing_item"
+    },
+    {
+      "name": "connect_to_service",
+      "path": "localstack/utils/aws/aws_stack.py",
+      "start": 280,
+      "end": 358,
+      "code": "def connect_to_service(\n    service_name,\n    client=True,\n    env=None,\n    region_name=None,\n    endpoint_url=None,\n    config: botocore.config.Config = None,\n    verify=False,\n    cache=True,\n    internal=True,\n    *args,\n    **kwargs,\n):\n    \"\"\"\n    Generic method to obtain an AWS service client using boto3, based on environment, region, or custom endpoint_url.\n    \"\"\"\n    # determine context and create cache key\n    region_name = region_name or get_region()\n    env = get_environment(env, region_name=region_name)\n    region = env.region if env.region != REGION_LOCAL else region_name\n    key_elements = [service_name, client, env, region, endpoint_url, config, internal, kwargs]\n    cache_key = \"/\".join([str(k) for k in key_elements])\n\n    # check cache first (most calls will be served from cache)\n    if cache and cache_key in BOTO_CLIENTS_CACHE:\n        return BOTO_CLIENTS_CACHE[cache_key]\n\n    with BOTO_CLIENT_CREATE_LOCK:\n        # check cache again within lock context to avoid race conditions\n        if cache and cache_key in BOTO_CLIENTS_CACHE:\n            return BOTO_CLIENTS_CACHE[cache_key]\n\n        # determine endpoint_url if it is not set explicitly\n        if not endpoint_url:\n            if is_local_env(env):\n                endpoint_url = get_local_service_url(service_name)\n                verify = False\n            backend_env_name = \"%s_BACKEND\" % service_name.upper()\n            backend_url = os.environ.get(backend_env_name, \"\").strip()\n            if backend_url:\n                endpoint_url = backend_url\n\n        # configure S3 path/host style addressing\n        if service_name == \"s3\":\n            if re.match(r\"https?://localhost(:[0-9]+)?\", endpoint_url):\n                endpoint_url = endpoint_url.replace(\"://localhost\", \"://%s\" % get_s3_hostname())\n\n        # create boto client or resource from potentially cached session\n        boto_session = get_boto3_session(cache=cache)\n        boto_config = config or botocore.client.Config()\n        boto_factory = boto_session.client if client else boto_session.resource\n\n        # To, prevent error \"Connection pool is full, discarding connection ...\",\n        # set the environment variable MAX_POOL_CONNECTIONS. Default is 150.\n        boto_config.max_pool_connections = MAX_POOL_CONNECTIONS\n\n        new_client = boto_factory(\n            service_name,\n            region_name=region,\n            endpoint_url=endpoint_url,\n            verify=verify,\n            config=boto_config,\n            **kwargs,\n        )\n\n        # We set a custom header in all internal calls which help LocalStack\n        # identify requests as such\n        if client and internal:\n\n            def _add_internal_header(request, **kwargs):\n                request.headers.add_header(HEADER_LOCALSTACK_ACCOUNT_ID, get_aws_account_id())\n\n            event_system = new_client.meta.events\n            event_system.register_first(\"before-sign.*.*\", _add_internal_header)\n\n        if cache:\n            BOTO_CLIENTS_CACHE[cache_key] = new_client\n\n        return new_client",
+      "called_by": "ItemFinder.find_existing_item"
+    },
+    {
+      "name": "dynamodb_get_item_raw",
+      "path": "localstack/utils/aws/aws_stack.py",
+      "start": 910,
+      "end": 921,
+      "code": "def dynamodb_get_item_raw(request):\n    headers = mock_aws_request_headers()\n    headers[\"X-Amz-Target\"] = \"DynamoDB_20120810.GetItem\"\n    new_item = make_http_request(\n        url=config.service_url(\"dynamodb\"),\n        method=\"POST\",\n        data=json.dumps(request),\n        headers=headers,\n    )\n    new_item = new_item.text\n    new_item = new_item and json.loads(new_item)\n    return new_item",
+      "called_by": "ItemFinder.find_existing_item"
+    }
+  ]
+}

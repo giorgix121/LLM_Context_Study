@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564961-q2KqItO6cvC80M3nd7yS",
+    "object": "chat.completion",
+    "created": 1795564961,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The commit adds Subaru Legacy 2020-22 support by reusing the well-tested Outback Gen2 code path, DBC, and tuning parameters, with no logic changes to existing vehicles beyond replacing the STEER_THRESHOLD dict with an equivalent inline conditional.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3624,
+      "completion_tokens": 80,
+      "total_tokens": 3704,
+      "cost": 0.012072,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.012072,
+        "upstream_inference_prompt_cost": 0.010872,
+        "upstream_inference_completions_cost": 0.0012
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

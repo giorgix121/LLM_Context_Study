@@ -1,0 +1,65 @@
+{
+  "cache_key": "ee654bd92688d84ec997766ba646a75a1ebd325ac737ebc42bb97b5acf9a27d8",
+  "sample_id": "case144",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The new function simply reads a Django settings attribute with a consistent pattern matching existing code, introducing no complex logic or side effects.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The new function simply reads a Django settings attribute with a consistent pattern matching existing code, introducing no complex logic or side effects.\"\n}\n```",
+  "response_id": "gen-1795047426-rRWam6iwlKi2hcQ8T051",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 220,
+  "completion_tokens": 55,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000495,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 220,
+    "completion_tokens": 55,
+    "total_tokens": 275,
+    "cost": 0.000495,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000495,
+      "upstream_inference_prompt_cost": 0.00022,
+      "upstream_inference_completions_cost": 0.000275
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.948,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:17:07+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

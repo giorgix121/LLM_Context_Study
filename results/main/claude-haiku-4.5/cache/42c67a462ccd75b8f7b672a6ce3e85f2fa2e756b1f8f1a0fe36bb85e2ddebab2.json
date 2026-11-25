@@ -1,0 +1,65 @@
+{
+  "cache_key": "42c67a462ccd75b8f7b672a6ce3e85f2fa2e756b1f8f1a0fe36bb85e2ddebab2",
+  "sample_id": "case002",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a new optional parameter `num_pandas` with a default value of 1 to two functions, and threads this parameter through the call chain, which maintains backward compatibility and allows callers to optionally specify the number of pandas without breaking existing code.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change adds a new optional parameter `num_pandas` with a default value of 1 to two functions, and threads this parameter through the call chain, which maintains backward compatibility and allows callers to optionally specify the number of pandas without breaking existing code.\"\n}\n```",
+  "response_id": "gen-1795187891-k7ejOO6Z2GNDOlP9cVY7",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 885,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001305,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 885,
+    "completion_tokens": 84,
+    "total_tokens": 969,
+    "cost": 0.001305,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001305,
+      "upstream_inference_prompt_cost": 0.000885,
+      "upstream_inference_completions_cost": 0.00042
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.202,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:18:12+00:00",
+  "run_id": "20261120T151736Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

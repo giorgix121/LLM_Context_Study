@@ -1,0 +1,38 @@
+{
+  "found": 4,
+  "included": 4,
+  "functions": [
+    {
+      "name": "bluetooth_callback_matcher",
+      "path": "homeassistant/components/yalexs_ble/util.py",
+      "start": 24,
+      "end": 36,
+      "code": "def bluetooth_callback_matcher(\n    local_name: str, address: str\n) -> BluetoothCallbackMatcher:\n    \"\"\"Return a BluetoothCallbackMatcher for the given local_name and address.\"\"\"\n    # On MacOS, coreblueooth uses UUIDs for addresses so we must\n    # have a unique local_name to match since the system\n    # hides the address from us.\n    if local_name_is_unique(local_name) and platform.system() == \"Darwin\":\n        return BluetoothCallbackMatcher({LOCAL_NAME: local_name})\n    # On every other platform we actually get the mac address\n    # which is needed for the older August locks that use the\n    # older version of the underlying protocol.\n    return BluetoothCallbackMatcher({ADDRESS: address})",
+      "called_by": "async_setup_entry"
+    },
+    {
+      "name": "async_find_existing_service_info",
+      "path": "homeassistant/components/yalexs_ble/util.py",
+      "start": 39,
+      "end": 51,
+      "code": "@callback\ndef async_find_existing_service_info(\n    hass: HomeAssistant, local_name: str, address: str\n) -> BluetoothServiceInfoBleak | None:\n    \"\"\"Return the service info for the given local_name and address.\"\"\"\n    has_unique_local_name = local_name_is_unique(local_name)\n    for service_info in async_discovered_service_info(hass):\n        device = service_info.device\n        if (\n            has_unique_local_name and device.name == local_name\n        ) or device.address == address:\n            return service_info\n    return None",
+      "called_by": "async_setup_entry"
+    },
+    {
+      "name": "async_register_callback",
+      "path": "homeassistant/components/bluetooth/__init__.py",
+      "start": 154,
+      "end": 170,
+      "code": "@hass_callback\ndef async_register_callback(\n    hass: HomeAssistant,\n    callback: BluetoothCallback,\n    match_dict: BluetoothCallbackMatcher | None,\n    mode: BluetoothScanningMode,\n) -> Callable[[], None]:\n    \"\"\"Register to receive a callback on bluetooth change.\n\n    mode is currently not used as we only support active scanning.\n    Passive scanning will be available in the future. The flag\n    is required to be present to avoid a future breaking change\n    when we support passive scanning.\n\n    Returns a callback that can be used to cancel the registration.\n    \"\"\"\n    return _get_manager(hass).async_register_callback(callback, match_dict)",
+      "called_by": "async_setup_entry"
+    },
+    {
+      "name": "async_track_unavailable",
+      "path": "homeassistant/components/bluetooth/__init__.py",
+      "start": 201,
+      "end": 212,
+      "code": "@hass_callback\ndef async_track_unavailable(\n    hass: HomeAssistant,\n    callback: Callable[[BluetoothServiceInfoBleak], None],\n    address: str,\n    connectable: bool = True,\n) -> Callable[[], None]:\n    \"\"\"Register to receive a callback when an address is unavailable.\n\n    Returns a callback that can be used to cancel the registration.\n    \"\"\"\n    return _get_manager(hass).async_track_unavailable(callback, address, connectable)",
+      "called_by": "async_setup_entry"
+    }
+  ]
+}

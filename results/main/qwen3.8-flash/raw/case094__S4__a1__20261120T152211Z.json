@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795188771-EMEJ2spqdkS83R8WbK2W",
+    "object": "chat.completion",
+    "created": 1795188771,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "length",
+        "message": {
+          "role": "assistant",
+          "content": "The provided code snippet appears to be a malformed or corrupted Python file, likely resulting from an improper merge conflict resolution or a copy-paste error involving GraphQL queries and Python class definitions.\n\nHere is a breakdown of the issues:\n\n1.  **Syntax Errors**: The code contains raw GraphQL query strings mixed with Python syntax in a way that is not valid. For example, `def get_blame(...)` is followed by what looks like a GraphQL query string but without proper quoting or assignment, and then abruptly ends with `return results` inside a context that doesn't make sense syntactically.\n2.  **Incomplete/Corrupted Structure**: The file starts with a fragment of a function (`def get_blame...`) that seems to be cut off or merged incorrectly. There are multiple `def` statements nested inside what should be a single method body or class definition, which is invalid Python.\n3.  **Logical Inconsistency**: The code attempts to define methods like `get_blame`, `get_blame_for_file`, and `get_blame` in a way that conflicts with standard Python class/method structures. It also references undefined variables like `self`, `repo`, `path`, `ref`, etc., in contexts where they are not properly",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 851,
+      "completion_tokens": 256,
+      "total_tokens": 1107,
+      "cost": 0.00024797,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00024797,
+        "upstream_inference_prompt_cost": 0.00012765,
+        "upstream_inference_completions_cost": 0.00012032
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795194189-Eicx6mdornElXLfjmtOB",
+    "object": "chat.completion",
+    "created": 1795194189,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"When `args` is an empty list (falsy but not None), the condition `if args` would incorrectly fall through to `env.execute(self._path)` instead of running `subprocess.run` with no extra args; additionally, for unknown shells on Windows, silently falling back to `env.execute` with potentially missing activation features may cause unexpected behavior.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 401,
+      "completion_tokens": 95,
+      "total_tokens": 496,
+      "cost": 0.002628,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002628,
+        "upstream_inference_prompt_cost": 0.001203,
+        "upstream_inference_completions_cost": 0.001425
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

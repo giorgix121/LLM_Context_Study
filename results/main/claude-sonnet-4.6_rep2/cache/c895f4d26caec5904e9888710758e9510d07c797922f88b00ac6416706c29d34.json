@@ -1,0 +1,65 @@
+{
+  "cache_key": "c895f4d26caec5904e9888710758e9510d07c797922f88b00ac6416706c29d34",
+  "sample_id": "case114",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change replaces `hasattr(device, 'voltage')` with `isinstance(device.voltage, int)` and adds a similar check for `device.power`, which more precisely guards against non-integer (e.g., None) values before comparison, reducing the risk of TypeError while preserving the same unavailability-detection logic.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change replaces `hasattr(device, 'voltage')` with `isinstance(device.voltage, int)` and adds a similar check for `device.power`, which more precisely guards against non-integer (e.g., None) values before comparison, reducing the risk of TypeError while preserving the same unavailability-detection logic.\"}",
+  "response_id": "gen-1795194118-p9yHKUTuUWg6rThVaIT9",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1605,
+  "completion_tokens": 92,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.006195,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1605,
+    "completion_tokens": 92,
+    "total_tokens": 1697,
+    "cost": 0.006195,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.006195,
+      "upstream_inference_prompt_cost": 0.004815,
+      "upstream_inference_completions_cost": 0.00138
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.879,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T17:02:01+00:00",
+  "run_id": "20261120T165651Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

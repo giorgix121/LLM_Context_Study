@@ -1,0 +1,5 @@
+{
+  "commit": "481e2eefd4d434b42a6f1bbdcc98499a4aac2328",
+  "chars": 69,
+  "text": "fix(profiling): Fix connection leak in vroom connection pool (#39658)"
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "f24b3a2aceb5c9cfe73c20252a5db4fd63187470d9229151264448cc1edb4317",
+  "sample_id": "case098",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The refactored `_flatten_dict` no longer converts `None` values to the string `\"None\"`, changing the behavior for `None` values passed to loggers (e.g., WandB, MLflow) which may not handle raw `None` in config updates the same way as the string representation.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The refactored `_flatten_dict` no longer converts `None` values to the string `\\\"None\\\"`, changing the behavior for `None` values passed to loggers (e.g., WandB, MLflow) which may not handle raw `None` in config updates the same way as the string representation.\"}",
+  "response_id": "gen-1795565053-LA3HqyJKZYBj0Bop4m9T",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 10014,
+  "completion_tokens": 84,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.031302,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 10014,
+    "completion_tokens": 84,
+    "total_tokens": 10098,
+    "cost": 0.031302,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.031302,
+      "upstream_inference_prompt_cost": 0.030042,
+      "upstream_inference_completions_cost": 0.00126
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.712,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-25T00:04:16+00:00",
+  "run_id": "20261124T235939Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

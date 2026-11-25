@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564894-FB1I9l8gZK5uMr5E0Oz8",
+    "object": "chat.completion",
+    "created": 1795564894,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Removing `preload_content=False` from the urllib3 request means the response body is now fully buffered in memory, and switching from `StreamingHttpResponse` to `HttpResponse` with `profiling_response.data` could cause issues with large profiles (e.g., raw profiles) consuming excessive memory or returning empty/incorrect content if the response object behaves differently without preload disabled.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1676,
+      "completion_tokens": 102,
+      "total_tokens": 1778,
+      "cost": 0.006558,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006558,
+        "upstream_inference_prompt_cost": 0.005028,
+        "upstream_inference_completions_cost": 0.00153
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

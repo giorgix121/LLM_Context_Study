@@ -1,0 +1,65 @@
+{
+  "cache_key": "5f3420b732a304d7e02e2dafe87c289dff48a931a0ce10c02d91149981ac7039",
+  "sample_id": "case042",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The old `_array_to_tensor` implementations automatically unsqueezed 1-D tensors to (batch_size, 1) before passing them to the model, but the new `_arrays_to_tensors` implementations remove this automatic unsqueeze, meaning any existing model that relied on that behavior (and wasn't updated in this commit) will receive incorrectly shaped tensors and likely fail or produce wrong results.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The old `_array_to_tensor` implementations automatically unsqueezed 1-D tensors to (batch_size, 1) before passing them to the model, but the new `_arrays_to_tensors` implementations remove this automatic unsqueeze, meaning any existing model that relied on that behavior (and wasn't updated in this commit) will receive incorrectly shaped tensors and likely fail or produce wrong results.\"}",
+  "response_id": "gen-1795565314-FHiPxy5uxcoXLNU1DHLv",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 11771,
+  "completion_tokens": 108,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.036933,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 11771,
+    "completion_tokens": 108,
+    "total_tokens": 11879,
+    "cost": 0.036933,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.036933,
+      "upstream_inference_prompt_cost": 0.035313,
+      "upstream_inference_completions_cost": 0.00162
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.533,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-25T00:08:37+00:00",
+  "run_id": "20261124T235939Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189321-Pj7ZC9pE7wKry3hrVSmV",
+    "object": "chat.completion",
+    "created": 1795189321,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change adds a new 'has_metrics' key to the query_details dictionary, which is passed as **kwargs to dataset.timeseries_query; if that method does not accept this parameter, it will raise a TypeError.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2503,
+      "completion_tokens": 57,
+      "total_tokens": 2560,
+      "cost": 0.000127808,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 2048,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000127808,
+        "upstream_inference_prompt_cost": 0.000101018,
+        "upstream_inference_completions_cost": 2.679e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

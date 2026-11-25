@@ -1,0 +1,65 @@
+{
+  "cache_key": "5a4e55c9f348acf0f17aa3b630ecf703d08f83c2284d7e220f50e183dcbd4b3a",
+  "sample_id": "case121",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit removes the `currentTab` and `isEventRoute` props from route definitions in `routes.tsx`, but `groupDetails.tsx` still attempts to derive `currentTab` by matching `routes[routes.length - 1].path` against `TabPaths`, which may fail if the matched route path includes dynamic segments (like `:eventId`) or differs slightly from the static `TabPaths` values, potentially causing incorrect tab highlighting or navigation logic.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The commit removes the `currentTab` and `isEventRoute` props from route definitions in `routes.tsx`, but `groupDetails.tsx` still attempts to derive `currentTab` by matching `routes[routes.length - 1].path` against `TabPaths`, which may fail if the matched route path includes dynamic segments (like `:eventId`) or differs slightly from the static `TabPaths` values, potentially causing incorrect tab highlighting or navigation logic.\"}",
+  "response_id": "gen-1795563771-LLbOtZ0cGANZPGLq7L6z",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 7374,
+  "completion_tokens": 109,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00115733,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 7374,
+    "completion_tokens": 109,
+    "total_tokens": 7483,
+    "cost": 0.00115733,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00115733,
+      "upstream_inference_prompt_cost": 0.0011061,
+      "upstream_inference_completions_cost": 5.123e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.068,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:42:53+00:00",
+  "run_id": "20261124T234127Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,11 @@
+[
+  {
+    "name": "is_saas",
+    "before": null,
+    "after": {
+      "start": 57,
+      "end": 60,
+      "code": "def is_saas():\n    from django.conf import settings\n\n    return settings.SENTRY_IS_SAAS"
+    }
+  }
+]

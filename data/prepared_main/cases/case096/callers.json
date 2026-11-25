@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "PythonRequirementSolutionProvider.get_solutions",
+      "path": "src/poetry/mixology/solutions/providers/python_requirement_solution_provider.py",
+      "start": 31,
+      "end": 36,
+      "code": "    def get_solutions(self, exception: SolverProblemError) -> list[Solution]:\n        from poetry.mixology.solutions.solutions.python_requirement_solution import (\n            PythonRequirementSolution,\n        )\n\n        return [PythonRequirementSolution(exception)]",
+      "calls": "PythonRequirementSolution.__init__"
+    },
+    {
+      "name": "test_it_provides_the_correct_solution",
+      "path": "tests/mixology/solutions/solutions/test_python_requirement_solution.py",
+      "start": 13,
+      "end": 37,
+      "code": "def test_it_provides_the_correct_solution():\n    from poetry.mixology.solutions.solutions import PythonRequirementSolution\n\n    incompatibility = Incompatibility(\n        [Term(Dependency(\"foo\", \"^1.0\"), True)], PythonCause(\"^3.5\", \">=3.6\")\n    )\n    exception = SolverProblemError(SolveFailure(incompatibility))\n    solution = PythonRequirementSolution(exception)\n\n    title = \"Check your dependencies Python requirement.\"\n    description = \"\"\"\\\nThe Python requirement can be specified via the `python` or `markers` properties\n\nFor foo, a possible solution would be to set the `python` property to \">=3.6,<4.0\"\\\n\"\"\"\n    links = [\n        \"https://python-poetry.org/docs/dependency-specification/#python-restricted-dependencies\",  # noqa: E501\n        \"https://python-poetry.org/docs/dependency-specification/#using-environment-markers\",  # noqa: E501\n    ]\n\n    assert title == solution.solution_title\n    assert (\n        description == BufferedIO().remove_format(solution.solution_description).strip()\n    )\n    assert links == solution.documentation_links",
+      "calls": "PythonRequirementSolution.__init__"
+    }
+  ]
+}

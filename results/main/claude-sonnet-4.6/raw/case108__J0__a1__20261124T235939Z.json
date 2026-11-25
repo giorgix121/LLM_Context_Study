@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564786-WSp5GSmWnmZsWvir0T34",
+    "object": "chat.completion",
+    "created": 1795564786,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The lookup in `get_or_create_persisted_build` switches from filtering on `app_id` (integer) to `app_id_str`, but existing rows created before the backfill migration may have `app_id_str` set to the default `'0'` rather than the real app ID string, causing those builds to not be found and duplicate records to be created instead.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2390,
+      "completion_tokens": 102,
+      "total_tokens": 2492,
+      "cost": 0.0087,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0087,
+        "upstream_inference_prompt_cost": 0.00717,
+        "upstream_inference_completions_cost": 0.00153
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

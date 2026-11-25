@@ -1,0 +1,16 @@
+{
+  "run_id": "20261119T001958Z",
+  "finished_at": "2026-11-19T00:20:18+00:00",
+  "halt_reason": "preflight failed: protocol_violation HTTP 200 served by provider 'Google AI Studio'",
+  "completed": 0,
+  "failed": 0,
+  "attempts": 1,
+  "charged_usd_reported": 1.6e-06,
+  "attempts_with_unknown_cost": 0,
+  "key_usage_before": 1273.560173383,
+  "key_usage_after": 1273.560174983,
+  "key_usage_delta": 1.6000001323845936e-06,
+  "reconciled": true,
+  "tolerance_usd": 0.002,
+  "budget_cap_usd": 16.0
+}

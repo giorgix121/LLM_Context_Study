@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795046808-FSh6xGE6ASMJc01KqEWQ",
+    "object": "chat.completion",
+    "created": 1795046808,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The diff adds `org_id` as a new required parameter to `indexer.reverse_resolve()` calls, but without seeing the method signature or how `org_id` is obtained in this context, this change could fail if `org_id` is undefined or if the method signature doesn't actually accept this parameter.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5186,
+      "completion_tokens": 95,
+      "total_tokens": 5281,
+      "cost": 0.005661,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005661,
+        "upstream_inference_prompt_cost": 0.005186,
+        "upstream_inference_completions_cost": 0.000475
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

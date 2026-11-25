@@ -1,0 +1,65 @@
+{
+  "cache_key": "ac932993bd9e54f87632275d6b44b191ecbf706360f4a0ca4c9f887bfb6b89f0",
+  "sample_id": "case066",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change replaces `PendingDeprecationWarning` with `DeprecationWarning` in a provider's secrets backend, but the broader commit introduces a new `RemovedInAirflow3Warning` class for core deprecations and systematically replaces deprecation warnings throughout the codebase, creating inconsistency where this provider file uses the standard library's `DeprecationWarning` instead of the new custom class like core code does.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change replaces `PendingDeprecationWarning` with `DeprecationWarning` in a provider's secrets backend, but the broader commit introduces a new `RemovedInAirflow3Warning` class for core deprecations and systematically replaces deprecation warnings throughout the codebase, creating inconsistency where this provider file uses the standard library's `DeprecationWarning` instead of the new custom class like core code does.\"}",
+  "response_id": "gen-1795564542-ZEpw7lnZwImxMWqFlqaT",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 74890,
+  "completion_tokens": 115,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.075465,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 74890,
+    "completion_tokens": 115,
+    "total_tokens": 75005,
+    "cost": 0.075465,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.075465,
+      "upstream_inference_prompt_cost": 0.07489,
+      "upstream_inference_completions_cost": 0.000575
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.079,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:55:45+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

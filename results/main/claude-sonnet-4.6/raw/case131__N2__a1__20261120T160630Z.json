@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192845-9FTJtnelg1koqA8eIbls",
+    "object": "chat.completion",
+    "created": 1795192845,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The condition `if args:` is falsy when `args` is an empty list `[]`, but here `args` is set to `None` for the unrecognized shell case, which is correct; however, for powershell/pwsh or cmd, `args` could theoretically be an empty list and silently fall through to `env.execute(self._path)` instead of running the shell with its args — more critically, `env.execute(self._path)` uses `self._path` (the private attribute) rather than `self.path` (the property), which may differ and cause an AttributeError or incorrect path resolution.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2570,
+      "completion_tokens": 157,
+      "total_tokens": 2727,
+      "cost": 0.010065,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.010065,
+        "upstream_inference_prompt_cost": 0.00771,
+        "upstream_inference_completions_cost": 0.002355
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

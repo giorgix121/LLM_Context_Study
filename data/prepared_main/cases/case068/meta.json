@@ -1,0 +1,4 @@
+{
+  "sample_id": "case068",
+  "path": "src/sentry/ingest/billing_metrics_consumer.py"
+}

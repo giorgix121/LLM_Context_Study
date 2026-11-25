@@ -1,0 +1,15 @@
+[
+  {
+    "name": "BaseZhaEntity.name",
+    "before": {
+      "start": 66,
+      "end": 69,
+      "code": "    @property\n    def name(self) -> str:\n        \"\"\"Return Entity's default name.\"\"\"\n        return self._name"
+    },
+    "after": {
+      "start": 66,
+      "end": 71,
+      "code": "    @property\n    def name(self) -> str:\n        \"\"\"Return Entity's default name.\"\"\"\n        if hasattr(self, \"_attr_name\") and self._attr_name is not None:\n            return self._attr_name\n        return self._name"
+    }
+  }
+]

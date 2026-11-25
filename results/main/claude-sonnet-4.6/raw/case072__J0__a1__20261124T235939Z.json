@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565258-ErW6YYGZhiWyCxKspg3k",
+    "object": "chat.completion",
+    "created": 1795565258,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new `_alter_column_collation_sql` in PostgreSQL's schema editor appends a USING clause based on type changes, but it constructs the SQL from `self.sql_alter_column_collate` without resetting `self.sql_alter_column_type` (which may have been mutated by a prior `_alter_column_type_sql` call), and the `%(type)s` placeholder in the collation SQL refers to the column type rather than the cast target, potentially producing malformed SQL when both a collation change and a type change occur simultaneously.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2498,
+      "completion_tokens": 144,
+      "total_tokens": 2642,
+      "cost": 0.009654,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.009654,
+        "upstream_inference_prompt_cost": 0.007494,
+        "upstream_inference_completions_cost": 0.00216
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

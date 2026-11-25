@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564406-k4q9E2MMotAC6r6EqSQ2",
+    "object": "chat.completion",
+    "created": 1795564406,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The commit changes `run_formatters()` to accept a `black_path` parameter but uses a sentinel default value with walrus operator in the function signature, which is unconventional and could cause the function to behave unexpectedly if called without the parameter or with `None` explicitly passed.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1196,
+      "completion_tokens": 90,
+      "total_tokens": 1286,
+      "cost": 0.001646,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.001646,
+        "upstream_inference_prompt_cost": 0.001196,
+        "upstream_inference_completions_cost": 0.00045
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

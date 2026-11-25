@@ -1,0 +1,65 @@
+{
+  "cache_key": "e71b34b3fff7f82b36f1bef379ae308629d448348a45084370468e660ac63aff",
+  "sample_id": "case064",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The changes only add type hints to method signatures without modifying any functional logic or behavior.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The changes only add type hints to method signatures without modifying any functional logic or behavior.\"\n}\n```",
+  "response_id": "gen-1795047461-4evA0icDfA65ZyQLbwLg",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 787,
+  "completion_tokens": 48,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001027,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 787,
+    "completion_tokens": 48,
+    "total_tokens": 835,
+    "cost": 0.001027,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001027,
+      "upstream_inference_prompt_cost": 0.000787,
+      "upstream_inference_completions_cost": 0.00024
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.893,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:17:42+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

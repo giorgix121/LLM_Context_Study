@@ -1,0 +1,311 @@
+{
+  "created_at": "2026-10-02T06:36:55+00:00",
+  "cases": [
+    {
+      "sample_id": "case01",
+      "repo": "getsentry/sentry",
+      "py_files": 4052,
+      "py_chars": 21030033,
+      "callers_found": 6,
+      "callers_included": 6,
+      "callees_found": 0,
+      "callees_included": 0
+    },
+    {
+      "sample_id": "case02",
+      "repo": "commaai/openpilot",
+      "py_files": 470,
+      "py_chars": 2328605,
+      "callers_found": 2,
+      "callers_included": 2,
+      "callees_found": 9,
+      "callees_included": 9
+    },
+    {
+      "sample_id": "case03",
+      "repo": "Lightning-AI/lightning",
+      "py_files": 837,
+      "py_chars": 5123216,
+      "callers_found": 0,
+      "callers_included": 0,
+      "callees_found": 0,
+      "callees_included": 0
+    },
+    {
+      "sample_id": "case04",
+      "repo": "home-assistant/core",
+      "py_files": 8962,
+      "py_chars": 51746228,
+      "callers_found": 0,
+      "callers_included": 0,
+      "callees_found": 2,
+      "callees_included": 2
+    },
+    {
+      "sample_id": "case05",
+      "repo": "Lightning-AI/lightning",
+      "py_files": 850,
+      "py_chars": 5266715,
+      "callers_found": 4,
+      "callers_included": 4,
+      "callees_found": 0,
+      "callees_included": 0
+    },
+    {
+      "sample_id": "case06",
+      "repo": "ray-project/ray",
+      "py_files": 2553,
+      "py_chars": 18230382,
+      "callers_found": 3,
+      "callers_included": 3,
+      "callees_found": 11,
+      "callees_included": 11
+    },
+    {
+      "sample_id": "case07",
+      "repo": "ray-project/ray",
+      "py_files": 2590,
+      "py_chars": 18732461,
+      "callers_found": 0,
+      "callers_included": 0,
+      "callees_found": 0,
+      "callees_included": 0
+    },
+    {
+      "sample_id": "case08",
+      "repo": "Lightning-AI/lightning",
+      "py_files": 1001,
+      "py_chars": 5744557,
+      "callers_found": 3,
+      "callers_included": 3,
+      "callees_found": 1,
+      "callees_included": 1
+    },
+    {
+      "sample_id": "case09",
+      "repo": "getsentry/sentry",
+      "py_files": 4089,
+      "py_chars": 21348518,
+      "callers_found": 0,
+      "callers_included": 0,
+      "callees_found": 5,
+      "callees_included": 5
+    },
+    {
+      "sample_id": "case10",
+      "repo": "home-assistant/core",
+      "py_files": 8890,
+      "py_chars": 51238238,
+      "callers_found": 0,
+      "callers_included": 0,
+      "callees_found": 1,
+      "callees_included": 1
+    },
+    {
+      "sample_id": "case11",
+      "repo": "localstack/localstack",
+      "py_files": 620,
+      "py_chars": 7335474,
+      "callers_found": 6,
+      "callers_included": 6,
+      "callees_found": 4,
+      "callees_included": 4
+    },
+    {
+      "sample_id": "case12",
+      "repo": "home-assistant/core",
+      "py_files": 8890,
+      "py_chars": 51249869,
+      "callers_found": 30,
+      "callers_included": 30,
+      "callees_found": 0,
+      "callees_included": 0
+    },
+    {
+      "sample_id": "case13",
+      "repo": "Lightning-AI/lightning",
+      "py_files": 1016,
+      "py_chars": 5805312,
+      "callers_found": 2,
+      "callers_included": 2,
+      "callees_found": 0,
+      "callees_included": 0
+    },
+    {
+      "sample_id": "case14",
+      "repo": "getsentry/sentry",
+      "py_files": 3920,
+      "py_chars": 19775801,
+      "callers_found": 1,
+      "callers_included": 1,
+      "callees_found": 1,
+      "callees_included": 1
+    },
+    {
+      "sample_id": "case15",
+      "repo": "getsentry/sentry",
+      "py_files": 3952,
+      "py_chars": 20005980,
+      "callers_found": 1,
+      "callers_included": 1,
+      "callees_found": 2,
+      "callees_included": 2
+    },
+    {
+      "sample_id": "case16",
+      "repo": "Lightning-AI/lightning",
+      "py_files": 968,
+      "py_chars": 5489506,
+      "callers_found": 4,
+      "callers_included": 4,
+      "callees_found": 6,
+      "callees_included": 6
+    },
+    {
+      "sample_id": "case17",
+      "repo": "apache/airflow",
+      "py_files": 1913,
+      "py_chars": 11101739,
+      "callers_found": 0,
+      "callers_included": 0,
+      "callees_found": 2,
+      "callees_included": 2
+    },
+    {
+      "sample_id": "case18",
+      "repo": "ray-project/ray",
+      "py_files": 2640,
+      "py_chars": 19233473,
+      "callers_found": 1,
+      "callers_included": 1,
+      "callees_found": 0,
+      "callees_included": 0
+    },
+    {
+      "sample_id": "case19",
+      "repo": "Lightning-AI/lightning",
+      "py_files": 989,
+      "py_chars": 5672199,
+      "callers_found": 0,
+      "callers_included": 0,
+      "callees_found": 1,
+      "callees_included": 1
+    },
+    {
+      "sample_id": "case20",
+      "repo": "getsentry/sentry",
+      "py_files": 4138,
+      "py_chars": 21776501,
+      "callers_found": 3,
+      "callers_included": 3,
+      "callees_found": 6,
+      "callees_included": 6
+    },
+    {
+      "sample_id": "case21",
+      "repo": "localstack/localstack",
+      "py_files": 627,
+      "py_chars": 7360900,
+      "callers_found": 0,
+      "callers_included": 0,
+      "callees_found": 1,
+      "callees_included": 1
+    },
+    {
+      "sample_id": "case22",
+      "repo": "home-assistant/core",
+      "py_files": 8850,
+      "py_chars": 50955418,
+      "callers_found": 0,
+      "callers_included": 0,
+      "callees_found": 3,
+      "callees_included": 3
+    },
+    {
+      "sample_id": "case23",
+      "repo": "Lightning-AI/lightning",
+      "py_files": 967,
+      "py_chars": 5483157,
+      "callers_found": 2,
+      "callers_included": 2,
+      "callees_found": 4,
+      "callees_included": 4
+    },
+    {
+      "sample_id": "case24",
+      "repo": "getsentry/sentry",
+      "py_files": 4047,
+      "py_chars": 20818045,
+      "callers_found": 0,
+      "callers_included": 0,
+      "callees_found": 0,
+      "callees_included": 0
+    },
+    {
+      "sample_id": "case25",
+      "repo": "Lightning-AI/lightning",
+      "py_files": 1024,
+      "py_chars": 5867693,
+      "callers_found": 1,
+      "callers_included": 1,
+      "callees_found": 0,
+      "callees_included": 0
+    },
+    {
+      "sample_id": "case26",
+      "repo": "home-assistant/core",
+      "py_files": 8804,
+      "py_chars": 50641287,
+      "callers_found": 0,
+      "callers_included": 0,
+      "callees_found": 3,
+      "callees_included": 3
+    },
+    {
+      "sample_id": "case27",
+      "repo": "getsentry/sentry",
+      "py_files": 4139,
+      "py_chars": 21747378,
+      "callers_found": 1,
+      "callers_included": 1,
+      "callees_found": 2,
+      "callees_included": 2
+    },
+    {
+      "sample_id": "case28",
+      "repo": "home-assistant/core",
+      "py_files": 8811,
+      "py_chars": 50721909,
+      "callers_found": 0,
+      "callers_included": 0,
+      "callees_found": 1,
+      "callees_included": 1
+    },
+    {
+      "sample_id": "case29",
+      "repo": "getsentry/sentry",
+      "py_files": 4126,
+      "py_chars": 21660287,
+      "callers_found": 0,
+      "callers_included": 0,
+      "callees_found": 3,
+      "callees_included": 3
+    },
+    {
+      "sample_id": "case30",
+      "repo": "home-assistant/core",
+      "py_files": 8848,
+      "py_chars": 50933643,
+      "callers_found": 1,
+      "callers_included": 1,
+      "callees_found": 4,
+      "callees_included": 4
+    }
+  ],
+  "cases_with_no_callers": 13,
+  "cases_with_no_callees": 9,
+  "caps": {
+    "functions": 30,
+    "chars": 120000
+  }
+}

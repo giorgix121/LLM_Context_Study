@@ -1,0 +1,65 @@
+{
+  "cache_key": "b4da313f433781f42f1379402d296a6dea11fa636447c0442d5ad6e53887ec7e",
+  "sample_id": "case080",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "A mapped sensor that is actually in reschedule mode but has no TaskReschedule record yet will now incorrectly pass the dependency (yielding 'The task is mapped and not in reschedule mode') instead of correctly passing with the standard 'no reschedule request' reason, but more critically, a mapped non-sensor task will now proceed past the initial check and hit the TaskReschedule query unnecessarily, and if a mapped sensor IS in reschedule mode with a future reschedule_date it will correctly fail—however the logic conflates 'mapped' with 'might be a reschedule sensor', potentially allowing mapped tasks that are genuinely in UP_FOR_RESCHEDULE state with no DB record to pass when they shouldn't.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"A mapped sensor that is actually in reschedule mode but has no TaskReschedule record yet will now incorrectly pass the dependency (yielding 'The task is mapped and not in reschedule mode') instead of correctly passing with the standard 'no reschedule request' reason, but more critically, a mapped non-sensor task will now proceed past the initial check and hit the TaskReschedule query unnecessarily, and if a mapped sensor IS in reschedule mode with a future reschedule_date it will correctly fail—however the logic conflates 'mapped' with 'might be a reschedule sensor', potentially allowing mapped tasks that are genuinely in UP_FOR_RESCHEDULE state with no DB record to pass when they shouldn't.\"}",
+  "response_id": "gen-1795191616-inxj8I3Md2n3NcL7QdqJ",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2399,
+  "completion_tokens": 181,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.009912,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2399,
+    "completion_tokens": 181,
+    "total_tokens": 2580,
+    "cost": 0.009912,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.009912,
+      "upstream_inference_prompt_cost": 0.007197,
+      "upstream_inference_completions_cost": 0.002715
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 5.401,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:20:21+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

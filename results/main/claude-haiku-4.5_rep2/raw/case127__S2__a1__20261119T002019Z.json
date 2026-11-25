@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795047935-touuV70Y3GM4Z6gmkVQ0",
+    "object": "chat.completion",
+    "created": 1795047935,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The refactored code changes the return statement from `c.reorder_categories(cat.categories)` to `Categorical(c, c.unique().categories.take(take_codes))`, which constructs a new Categorical with different semantics - passing `c` as the first argument to Categorical constructor (which expects codes) rather than reordering the original categorical's categories, potentially causing incorrect code-to-category mappings.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2874,
+      "completion_tokens": 121,
+      "total_tokens": 2995,
+      "cost": 0.003479,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003479,
+        "upstream_inference_prompt_cost": 0.002874,
+        "upstream_inference_completions_cost": 0.000605
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

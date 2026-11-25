@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "SwitchbotDataUpdateCoordinator.__init__",
+      "path": "homeassistant/components/switchbot/coordinator.py",
+      "start": 38,
+      "end": 63,
+      "code": "    def __init__(\n        self,\n        hass: HomeAssistant,\n        logger: logging.Logger,\n        ble_device: BLEDevice,\n        device: switchbot.SwitchbotDevice,\n        base_unique_id: str,\n        device_name: str,\n        connectable: bool,\n        model: str,\n    ) -> None:\n        \"\"\"Initialize global switchbot data updater.\"\"\"\n        super().__init__(\n            hass,\n            logger,\n            ble_device.address,\n            bluetooth.BluetoothScanningMode.ACTIVE,\n            connectable,\n        )\n        self.ble_device = ble_device\n        self.device = device\n        self.data: dict[str, Any] = {}\n        self.device_name = device_name\n        self.base_unique_id = base_unique_id\n        self.model = model\n        self._ready_event = asyncio.Event()",
+      "called_by": "async_setup_entry"
+    },
+    {
+      "name": "async_ble_device_from_address",
+      "path": "homeassistant/components/bluetooth/__init__.py",
+      "start": 106,
+      "end": 113,
+      "code": "@hass_callback\ndef async_ble_device_from_address(\n    hass: HomeAssistant, address: str, connectable: bool = True\n) -> BLEDevice | None:\n    \"\"\"Return BLEDevice for an address if its present.\"\"\"\n    if DATA_MANAGER not in hass.data:\n        return None\n    return _get_manager(hass).async_ble_device_from_address(address, connectable)",
+      "called_by": "async_setup_entry"
+    },
+    {
+      "name": "format_mac",
+      "path": "homeassistant/helpers/device_registry.py",
+      "start": 127,
+      "end": 144,
+      "code": "def format_mac(mac: str) -> str:\n    \"\"\"Format the mac address string for entry into dev reg.\"\"\"\n    to_test = mac\n\n    if len(to_test) == 17 and to_test.count(\":\") == 5:\n        return to_test.lower()\n\n    if len(to_test) == 17 and to_test.count(\"-\") == 5:\n        to_test = to_test.replace(\"-\", \"\")\n    elif len(to_test) == 14 and to_test.count(\".\") == 2:\n        to_test = to_test.replace(\".\", \"\")\n\n    if len(to_test) == 12:\n        # no : included\n        return \":\".join(to_test.lower()[i : i + 2] for i in range(0, 12, 2))\n\n    # Not sure how formatted, return original\n    return mac",
+      "called_by": "async_setup_entry"
+    }
+  ]
+}

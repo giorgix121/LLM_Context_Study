@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "get_public_name_from_mri",
+      "path": "src/sentry/snuba/metrics/naming_layer/mapping.py",
+      "start": 57,
+      "end": 69,
+      "code": "def get_public_name_from_mri(internal_name: Union[TransactionMRI, SessionMRI, str]) -> str:\n    \"\"\"Returns the public name from a MRI if it has a mapping to a public metric name, otherwise raise an exception\"\"\"\n    if not len(MRI_TO_NAME):\n        create_name_mapping_layers()\n\n    if isinstance(internal_name, Enum):\n        internal_name = internal_name.value\n    assert isinstance(internal_name, str)\n\n    try:\n        return MRI_TO_NAME[internal_name]\n    except KeyError:\n        raise InvalidParams(f\"Unable to find a mri reverse mapping for '{internal_name}'.\")",
+      "called_by": "get_operation_with_public_name"
+    }
+  ]
+}

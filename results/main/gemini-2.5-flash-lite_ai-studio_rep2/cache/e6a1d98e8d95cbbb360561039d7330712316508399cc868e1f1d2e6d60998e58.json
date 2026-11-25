@@ -1,0 +1,65 @@
+{
+  "cache_key": "e6a1d98e8d95cbbb360561039d7330712316508399cc868e1f1d2e6d60998e58",
+  "sample_id": "case085",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "A new optional parameter `use_metrics_layer` has been added to the `query` function, which does not alter existing behavior when not explicitly used.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"A new optional parameter `use_metrics_layer` has been added to the `query` function, which does not alter existing behavior when not explicitly used.\"}",
+  "response_id": "gen-1795048709-9svQJw0gm1J7CAXjqRO4",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 274,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 4.58e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 274,
+    "completion_tokens": 46,
+    "total_tokens": 320,
+    "cost": 4.58e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.58e-05,
+      "upstream_inference_prompt_cost": 2.74e-05,
+      "upstream_inference_completions_cost": 1.84e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.496,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:38:30+00:00",
+  "run_id": "20261119T003650Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

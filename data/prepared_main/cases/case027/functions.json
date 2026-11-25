@@ -1,0 +1,15 @@
+[
+  {
+    "name": "PairedSensorBinarySensor._async_update_from_latest_data",
+    "before": {
+      "start": 138,
+      "end": 144,
+      "code": "    @callback\n    def _async_update_from_latest_data(self) -> None:\n        \"\"\"Update the entity.\"\"\"\n        if self.entity_description.key == SENSOR_KIND_LEAK_DETECTED:\n            self._attr_is_on = self.coordinator.data[\"wet\"]\n        elif self.entity_description.key == SENSOR_KIND_MOVED:\n            self._attr_is_on = self.coordinator.data[\"moved\"]"
+    },
+    "after": {
+      "start": 138,
+      "end": 144,
+      "code": "    @callback\n    def _async_update_from_latest_data(self) -> None:\n        \"\"\"Update the entity's underlying data.\"\"\"\n        if self.entity_description.key == SENSOR_KIND_LEAK_DETECTED:\n            self._attr_is_on = self.coordinator.data[\"wet\"]\n        elif self.entity_description.key == SENSOR_KIND_MOVED:\n            self._attr_is_on = self.coordinator.data[\"moved\"]"
+    }
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "cache_key": "2b142e835ca2fe4e6785c7155c53272715f59e3e43f5d2a90ffd61723ea742ec",
+  "sample_id": "case092",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The new method follows the established pattern of other similar methods in the class (like `get_discovery_info`), uses the same `@api_data` decorator and `send_command` pattern, and simply adds a new API endpoint without modifying existing functionality.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The new method follows the established pattern of other similar methods in the class (like `get_discovery_info`), uses the same `@api_data` decorator and `send_command` pattern, and simply adds a new API endpoint without modifying existing functionality.\"\n}\n```",
+  "response_id": "gen-1795046811-gEzZyy2ZQJyXSxiomhVJ",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 419,
+  "completion_tokens": 85,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000844,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 419,
+    "completion_tokens": 85,
+    "total_tokens": 504,
+    "cost": 0.000844,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000844,
+      "upstream_inference_prompt_cost": 0.000419,
+      "upstream_inference_completions_cost": 0.000425
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.096,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:06:52+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

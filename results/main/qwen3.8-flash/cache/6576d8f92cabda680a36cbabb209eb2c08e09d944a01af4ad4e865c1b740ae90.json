@@ -1,0 +1,65 @@
+{
+  "cache_key": "6576d8f92cabda680a36cbabb209eb2c08e09d944a01af4ad4e865c1b740ae90",
+  "sample_id": "case092",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The commit introduces a new SupervisorRepairs feature to monitor system health and create repair issues, with corresponding API endpoints, constants, and comprehensive test coverage added.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The commit introduces a new SupervisorRepairs feature to monitor system health and create repair issues, with corresponding API endpoints, constants, and comprehensive test coverage added.\"}",
+  "response_id": "gen-1795564181-M1Q0W5gMWxDci6FpPuLo",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 9741,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00148277,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 9741,
+    "completion_tokens": 46,
+    "total_tokens": 9787,
+    "cost": 0.00148277,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00148277,
+      "upstream_inference_prompt_cost": 0.00146115,
+      "upstream_inference_completions_cost": 2.162e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.918,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:49:42+00:00",
+  "run_id": "20261124T234127Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

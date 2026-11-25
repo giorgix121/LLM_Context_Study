@@ -1,0 +1,65 @@
+{
+  "cache_key": "a406177cc069642d116720936ba19e7f20f6268843d8beac23115f230cec21e0",
+  "sample_id": "case140",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The removal of `get_user_bias_by_id` could break any existing callers of that method not captured in the provided context, and the new `get_enabled_user_biases` replaces a per-bias lookup pattern with a set of active bias IDs, which changes the interface in a way that may silently drop functionality if other code still depends on the removed method.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The removal of `get_user_bias_by_id` could break any existing callers of that method not captured in the provided context, and the new `get_enabled_user_biases` replaces a per-bias lookup pattern with a set of active bias IDs, which changes the interface in a way that may silently drop functionality if other code still depends on the removed method.\"}",
+  "response_id": "gen-1795193276-rZq6pSU7BWdKWQgfLaAR",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1157,
+  "completion_tokens": 99,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.004956,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1157,
+    "completion_tokens": 99,
+    "total_tokens": 1256,
+    "cost": 0.004956,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.004956,
+      "upstream_inference_prompt_cost": 0.003471,
+      "upstream_inference_completions_cost": 0.001485
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.392,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:47:59+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

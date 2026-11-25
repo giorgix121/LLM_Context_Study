@@ -1,0 +1,24 @@
+{
+  "commit": "b25d5a75f2c89aace5cae342f3fe29dfdd46e401",
+  "files_in_commit": 3,
+  "target_index": 0,
+  "target_status": "modified",
+  "chars": 954,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "detect.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -99,10 +99,9 @@ def run(\n     if webcam:\n         view_img = check_imshow()\n         dataset = LoadStreams(source, img_size=imgsz, stride=stride, auto=pt, vid_stride=vid_stride)\n-        bs = len(dataset)  # batch_size\n     else:\n         dataset = LoadImages(source, img_size=imgsz, stride=stride, auto=pt, vid_stride=vid_stride)\n-        bs = 1  # batch_size\n+    bs = len(dataset)  # batch_size\n     vid_path, vid_writer = [None] * bs, [None] * bs\n \n     # Run inference"
+    },
+    {
+      "path": "segment/predict.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -101,10 +101,9 @@ def run(\n     if webcam:\n         view_img = check_imshow()\n         dataset = LoadStreams(source, img_size=imgsz, stride=stride, auto=pt, vid_stride=vid_stride)\n-        bs = len(dataset)  # batch_size\n     else:\n         dataset = LoadImages(source, img_size=imgsz, stride=stride, auto=pt, vid_stride=vid_stride)\n-        bs = 1  # batch_size\n+    bs = len(dataset)  # batch_size\n     vid_path, vid_writer = [None] * bs, [None] * bs\n \n     # Run inference"
+    }
+  ]
+}

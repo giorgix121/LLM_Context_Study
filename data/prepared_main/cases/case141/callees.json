@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "DiscoverSavedQueriesEndpoint.has_feature",
+      "path": "src/sentry/discover/endpoints/discover_saved_queries.py",
+      "start": 21,
+      "end": 24,
+      "code": "    def has_feature(self, organization, request):\n        return features.has(\n            \"organizations:discover\", organization, actor=request.user\n        ) or features.has(\"organizations:discover-query\", organization, actor=request.user)",
+      "called_by": "DiscoverSavedQueriesEndpoint.get"
+    },
+    {
+      "name": "GenericOffsetPaginator.__init__",
+      "path": "src/sentry/api/paginator.py",
+      "start": 476,
+      "end": 477,
+      "code": "    def __init__(self, data_fn):\n        self.data_fn = data_fn",
+      "called_by": "DiscoverSavedQueriesEndpoint.get"
+    },
+    {
+      "name": "tokenize_query",
+      "path": "src/sentry/search/utils.py",
+      "start": 469,
+      "end": 509,
+      "code": "def tokenize_query(query):\n    \"\"\"\n    Tokenizes a standard Sentry search query.\n\n    Example:\n    >>> query = 'is:resolved foo bar tag:value'\n    >>> tokenize_query(query)\n    {\n        'is': ['resolved'],\n        'query': ['foo', 'bar'],\n        'tag': ['value'],\n    }\n\n    Has a companion implementation in static/app/utils/tokenizeSearch.tsx\n    \"\"\"\n    result = defaultdict(list)\n    query_params = defaultdict(list)\n    tokens = split_query_into_tokens(query)\n    for token in tokens:\n        if token.upper() in [\"OR\", \"AND\"] or token.strip(\"()\") == \"\":\n            continue\n\n        state = \"query\"\n        for idx, char in enumerate(token):\n            next_char = token[idx + 1] if idx < len(token) - 1 else None\n            if idx == 0 and char in ('\"', \"'\", \":\"):\n                break\n            if char == \":\":\n                if next_char in (\":\", \" \"):\n                    state = \"query\"\n                else:\n                    state = \"tags\"\n                break\n        query_params[state].append(token)\n\n    if \"query\" in query_params:\n        result[\"query\"] = [format_query(query) for query in query_params[\"query\"]]\n    for tag in query_params[\"tags\"]:\n        key, value = format_tag(tag)\n        result[key].append(value)\n    return dict(result)",
+      "called_by": "DiscoverSavedQueriesEndpoint.get"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1790928528-Y68pLKfcKpUeuVSMN7XM",
+    "object": "chat.completion",
+    "created": 1790928528,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"label\": \"RISKY\", \"explanation\": \"The change removes explicit PID tuning parameters for the CX5, CX5_2022, CX9, CX9_2021, MAZDA3, and MAZDA6 models, relying instead on a generic call to CarInterfaceBase.configure_torque_tune, which might lead to suboptimal or unexpected lateral control behavior if the default torque tune is not appropriate for these vehicles.\"}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 903726,
+      "completion_tokens": 99,
+      "total_tokens": 903825,
+      "cost": 0.0904122,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0904122,
+        "upstream_inference_prompt_cost": 0.0903726,
+        "upstream_inference_completions_cost": 3.96e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

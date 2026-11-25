@@ -1,0 +1,94 @@
+{
+  "found": 11,
+  "included": 11,
+  "functions": [
+    {
+      "name": "get_module",
+      "path": "python/ray/workflow/workflow_state_from_dag.py",
+      "start": 23,
+      "end": 24,
+      "code": "def get_module(f):\n    return f.__module__ if hasattr(f, \"__module__\") else \"__anonymous_module__\"",
+      "called_by": "workflow_state_from_dag"
+    },
+    {
+      "name": "get_qualname",
+      "path": "python/ray/workflow/workflow_state_from_dag.py",
+      "start": 27,
+      "end": 28,
+      "code": "def get_qualname(f):\n    return f.__qualname__ if hasattr(f, \"__qualname__\") else \"__anonymous_func__\"",
+      "called_by": "workflow_state_from_dag"
+    },
+    {
+      "name": "slugify",
+      "path": "python/ray/workflow/workflow_state_from_dag.py",
+      "start": 31,
+      "end": 48,
+      "code": "def slugify(value: str, allow_unicode=False) -> str:\n    \"\"\"Adopted from\n    https://github.com/django/django/blob/master/django/utils/text.py\n    Convert to ASCII if 'allow_unicode' is False. Convert spaces or repeated\n    dashes to single dashes. Remove characters that aren't alphanumerics,\n    underscores, dots or hyphens. Also strip leading and\n    trailing whitespace.\n    \"\"\"\n    if allow_unicode:\n        value = unicodedata.normalize(\"NFKC\", value)\n    else:\n        value = (\n            unicodedata.normalize(\"NFKD\", value)\n            .encode(\"ascii\", \"ignore\")\n            .decode(\"ascii\")\n        )\n    value = re.sub(r\"[^\\w.\\-]\", \"\", value).strip()\n    return re.sub(r\"[-\\s]+\", \"-\", value)",
+      "called_by": "workflow_state_from_dag"
+    },
+    {
+      "name": "validate_user_metadata",
+      "path": "python/ray/workflow/common.py",
+      "start": 36,
+      "end": 46,
+      "code": "def validate_user_metadata(metadata):\n    if metadata is not None:\n        if not isinstance(metadata, dict):\n            raise ValueError(\"metadata must be a dict.\")\n        try:\n            json.dumps(metadata)\n        except TypeError as e:\n            raise ValueError(\n                \"metadata must be JSON serializable, instead, \"\n                \"we got 'TypeError: {}'\".format(e)\n            )",
+      "called_by": "workflow_state_from_dag"
+    },
+    {
+      "name": "workflow_args_serialization_context",
+      "path": "python/ray/workflow/serialization_context.py",
+      "start": 12,
+      "end": 64,
+      "code": "@contextlib.contextmanager\ndef workflow_args_serialization_context(workflow_refs: List[WorkflowRef]) -> None:\n    \"\"\"\n    This serialization context reduces workflow input arguments to three\n    parts:\n\n    1. A workflow input placeholder. It is an object without 'Workflow' and\n       'ObjectRef' object. They are replaced with integer indices. During\n       deserialization, we can refill the placeholder with a list of\n       'Workflow' and a list of 'ObjectRef'. This provides us great\n       flexibility, for example, during recovery we can plug an alternative\n       list of 'Workflow' and 'ObjectRef', since we lose the original ones.\n    2. A list of 'Workflow'. There is no duplication in it.\n    3. A list of 'ObjectRef'. There is no duplication in it.\n\n    We do not allow duplication because in the arguments duplicated workflows\n    and object refs are shared by reference. So when deserialized, we also\n    want them to be shared by reference. See\n    \"tests/test_object_deref.py:deref_shared\" as an example.\n\n    The deduplication works like this:\n        Inputs: [A B A B C C A]\n        Output List: [A B C]\n        Index in placeholder: [0 1 0 1 2 2 0]\n\n    Args:\n        workflow_refs: Output list of workflows or references to workflows.\n    \"\"\"\n    deduplicator: Dict[WorkflowRef, int] = {}\n\n    def serializer(w):\n        if w in deduplicator:\n            return deduplicator[w]\n        if isinstance(w, WorkflowRef):\n            # The ref should be resolved by the workflow management actor\n            # when treated as the input of a workflow, so we remove the ref here.\n            w.ref = None\n        i = len(workflow_refs)\n        workflow_refs.append(w)\n        deduplicator[w] = i\n        return i\n\n    register_serializer(\n        WorkflowRef,\n        serializer=serializer,\n        deserializer=_resolve_workflow_refs,\n    )\n\n    try:\n        yield\n    finally:\n        # we do not want to serialize Workflow objects in other places.\n        deregister_serializer(WorkflowRef)",
+      "called_by": "workflow_state_from_dag"
+    },
+    {
+      "name": "get_management_actor",
+      "path": "python/ray/workflow/workflow_access.py",
+      "start": 331,
+      "end": 334,
+      "code": "def get_management_actor() -> \"ActorHandle\":\n    return ray.get_actor(\n        common.MANAGEMENT_ACTOR_NAME, namespace=common.MANAGEMENT_ACTOR_NAMESPACE\n    )",
+      "called_by": "workflow_state_from_dag"
+    },
+    {
+      "name": "get_workflow_step_context",
+      "path": "python/ray/workflow/workflow_context.py",
+      "start": 52,
+      "end": 53,
+      "code": "def get_workflow_step_context() -> Optional[WorkflowStepContext]:\n    return _context",
+      "called_by": "workflow_state_from_dag"
+    },
+    {
+      "name": "extract_signature",
+      "path": "python/ray/_private/signature.py",
+      "start": 57,
+      "end": 78,
+      "code": "def extract_signature(func, ignore_first=False):\n    \"\"\"Extract the function signature from the function.\n\n    Args:\n        func: The function whose signature should be extracted.\n        ignore_first: True if the first argument should be ignored. This should\n            be used when func is a method of a class.\n\n    Returns:\n        List of Parameter objects representing the function signature.\n    \"\"\"\n    signature_parameters = list(get_signature(func).parameters.values())\n\n    if ignore_first:\n        if len(signature_parameters) == 0:\n            raise ValueError(\n                \"Methods must take a 'self' argument, but the \"\n                f\"method '{func.__name__}' does not have one.\"\n            )\n        signature_parameters = signature_parameters[1:]\n\n    return signature_parameters",
+      "called_by": "workflow_state_from_dag"
+    },
+    {
+      "name": "flatten_args",
+      "path": "python/ray/_private/signature.py",
+      "start": 81,
+      "end": 121,
+      "code": "def flatten_args(signature_parameters: list, args, kwargs):\n    \"\"\"Validates the arguments against the signature and flattens them.\n\n    The flat list representation is a serializable format for arguments.\n    Since the flatbuffer representation of function arguments is a list, we\n    combine both keyword arguments and positional arguments. We represent\n    this with two entries per argument value - [DUMMY_TYPE, x] for positional\n    arguments and [KEY, VALUE] for keyword arguments. See the below example.\n    See `recover_args` for logic restoring the flat list back to args/kwargs.\n\n    Args:\n        signature_parameters: The list of Parameter objects\n            representing the function signature, obtained from\n            `extract_signature`.\n        args: The non-keyword arguments passed into the function.\n        kwargs: The keyword arguments passed into the function.\n\n    Returns:\n        List of args and kwargs. Non-keyword arguments are prefixed\n            by internal enum DUMMY_TYPE.\n\n    Raises:\n        TypeError: Raised if arguments do not fit in the function signature.\n\n    Example:\n        >>> flatten_args([1, 2, 3], {\"a\": 4})\n        [None, 1, None, 2, None, 3, \"a\", 4]\n    \"\"\"\n\n    reconstructed_signature = inspect.Signature(parameters=signature_parameters)\n    try:\n        reconstructed_signature.bind(*args, **kwargs)\n    except TypeError as exc:  # capture a friendlier stacktrace\n        raise TypeError(str(exc)) from None\n    list_args = []\n    for arg in args:\n        list_args += [DUMMY_TYPE, arg]\n\n    for keyword, arg in kwargs.items():\n        list_args += [keyword, arg]\n    return list_args",
+      "called_by": "workflow_state_from_dag"
+    },
+    {
+      "name": "get",
+      "path": "python/ray/_private/worker.py",
+      "start": 2150,
+      "end": 2154,
+      "code": "@overload\ndef get(\n    object_refs: \"Sequence[ObjectRef[Any]]\", *, timeout: Optional[float] = None\n) -> List[Any]:\n    ...",
+      "called_by": "workflow_state_from_dag"
+    },
+    {
+      "name": "put",
+      "path": "python/ray/_private/worker.py",
+      "start": 2263,
+      "end": 2311,
+      "code": "@PublicAPI\n@client_mode_hook(auto_init=True)\ndef put(\n    value: Any, *, _owner: Optional[\"ray.actor.ActorHandle\"] = None\n) -> \"ray.ObjectRef\":\n    \"\"\"Store an object in the object store.\n\n    The object may not be evicted while a reference to the returned ID exists.\n\n    Args:\n        value: The Python object to be stored.\n        _owner: The actor that should own this object. This allows creating\n            objects with lifetimes decoupled from that of the creating process.\n            Note that the owner actor must be passed a reference to the object\n            prior to the object creator exiting, otherwise the reference will\n            still be lost.\n\n    Returns:\n        The object ref assigned to this value.\n    \"\"\"\n    worker = global_worker\n    worker.check_connected()\n\n    if _owner is None:\n        serialize_owner_address = None\n    elif isinstance(_owner, ray.actor.ActorHandle):\n        # Ensure `ray._private.state.state.global_state_accessor` is not None\n        ray._private.state.state._check_connected()\n        owner_address = gcs_utils.ActorTableData.FromString(\n            ray._private.state.state.global_state_accessor.get_actor_info(\n                _owner._actor_id\n            )\n        ).address\n        if len(owner_address.worker_id) == 0:\n            raise RuntimeError(f\"{_owner} is not alive, it's worker_id is empty!\")\n        serialize_owner_address = owner_address.SerializeToString()\n    else:\n        raise TypeError(f\"Expect an `ray.actor.ActorHandle`, but got: {type(_owner)}\")\n\n    with profiling.profile(\"ray.put\"):\n        try:\n            object_ref = worker.put_object(value, owner_address=serialize_owner_address)\n        except ObjectStoreFullError:\n            logger.info(\n                \"Put failed since the value was either too large or the \"\n                \"store was full of pinned objects.\"\n            )\n            raise\n        return object_ref",
+      "called_by": "workflow_state_from_dag"
+    }
+  ]
+}

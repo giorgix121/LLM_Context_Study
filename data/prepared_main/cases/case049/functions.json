@@ -1,0 +1,15 @@
+[
+  {
+    "name": "proxy_request",
+    "before": {
+      "start": 37,
+      "end": 58,
+      "code": "def proxy_request(request: Request, org_slug: str) -> StreamingHttpResponse:\n    \"\"\"Take a django request object and proxy it to a remote location given an org_slug\"\"\"\n    from sentry.types.region import get_region_for_organization\n\n    target_url = get_region_for_organization(None).to_url(request.path)\n\n    # TODO: use requests session for connection pooling capabilities\n    query_params = getattr(request, request.method, None)\n    request_args = {\n        \"headers\": request.headers,\n        \"params\": dict(query_params) if query_params is not None else None,\n        \"data\": getattr(request, \"body\", None),\n        \"stream\": True,\n        \"timeout\": settings.GATEWAY_PROXY_TIMEOUT,\n    }\n    try:\n        resp: ExternalResponse = external_request(request.method, target_url, **request_args)\n    except Timeout:\n        # remote silo timeout. Use DRF timeout instead\n        raise RequestTimeout()\n\n    return _parse_response(resp)"
+    },
+    "after": {
+      "start": 37,
+      "end": 59,
+      "code": "def proxy_request(request: Request, org_slug: str) -> StreamingHttpResponse:\n    \"\"\"Take a django request object and proxy it to a remote location given an org_slug\"\"\"\n    from sentry.types.region import get_region_for_organization\n\n    target_url = get_region_for_organization(None).to_url(request.path)\n\n    # TODO: use requests session for connection pooling capabilities\n    query_params = getattr(request, request.method, None)\n    request_args = {\n        \"headers\": request.headers,\n        \"params\": dict(query_params) if query_params is not None else None,\n        \"files\": getattr(request, \"FILES\", None),\n        \"data\": getattr(request, \"body\", None) if not getattr(request, \"FILES\", None) else None,\n        \"stream\": True,\n        \"timeout\": settings.GATEWAY_PROXY_TIMEOUT,\n    }\n    try:\n        resp: ExternalResponse = external_request(request.method, url=target_url, **request_args)\n    except Timeout:\n        # remote silo timeout. Use DRF timeout instead\n        raise RequestTimeout()\n\n    return _parse_response(resp)"
+    }
+  }
+]

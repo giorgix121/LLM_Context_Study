@@ -1,0 +1,46 @@
+{
+  "found": 5,
+  "included": 5,
+  "functions": [
+    {
+      "name": "set_power",
+      "path": "selfdrive/sensord/pigeond.py",
+      "start": 28,
+      "end": 35,
+      "code": "def set_power(enabled: bool) -> None:\n  gpio_init(GPIO.UBLOX_SAFEBOOT_N, True)\n  gpio_init(GPIO.UBLOX_PWR_EN, True)\n  gpio_init(GPIO.UBLOX_RST_N, True)\n\n  gpio_set(GPIO.UBLOX_SAFEBOOT_N, True)\n  gpio_set(GPIO.UBLOX_PWR_EN, enabled)\n  gpio_set(GPIO.UBLOX_RST_N, enabled)",
+      "called_by": "main"
+    },
+    {
+      "name": "add_ubx_checksum",
+      "path": "selfdrive/sensord/pigeond.py",
+      "start": 38,
+      "end": 43,
+      "code": "def add_ubx_checksum(msg: bytes) -> bytes:\n  A = B = 0\n  for b in msg[2:]:\n    A = (A + b) % 256\n    B = (B + A) % 256\n  return msg + bytes([A, B])",
+      "called_by": "initialize_pigeon"
+    },
+    {
+      "name": "get_assistnow_messages",
+      "path": "selfdrive/sensord/pigeond.py",
+      "start": 45,
+      "end": 63,
+      "code": "def get_assistnow_messages(token: bytes) -> List[bytes]:\n  # make request\n  # TODO: implement adding the last known location\n  r = requests.get(\"https://online-live2.services.u-blox.com/GetOnlineData.ashx\", params=urllib.parse.urlencode({\n    'token': token,\n    'gnss': 'gps,glo',\n    'datatype': 'eph,alm,aux',\n  }, safe=':,'), timeout=5)\n  assert r.status_code == 200, \"Got invalid status code\"\n  dat = r.content\n\n  # split up messages\n  msgs = []\n  while len(dat) > 0:\n    assert dat[:2] == b\"\\xB5\\x62\"\n    msg_len = 6 + (dat[5] << 8 | dat[4]) + 2\n    msgs.append(dat[:msg_len])\n    dat = dat[msg_len:]\n  return msgs",
+      "called_by": "initialize_pigeon"
+    },
+    {
+      "name": "TTYPigeon.__init__",
+      "path": "selfdrive/sensord/pigeond.py",
+      "start": 67,
+      "end": 68,
+      "code": "  def __init__(self):\n    self.tty = serial.VTIMESerial(UBLOX_TTY, baudrate=9600, timeout=0)",
+      "called_by": "main"
+    },
+    {
+      "name": "deinitialize_and_exit",
+      "path": "selfdrive/sensord/pigeond.py",
+      "start": 206,
+      "end": 225,
+      "code": "def deinitialize_and_exit(pigeon: Optional[TTYPigeon]):\n  cloudlog.warning(\"Storing almanac in ublox flash\")\n\n  if pigeon is not None:\n    # controlled GNSS stop\n    pigeon.send(b\"\\xB5\\x62\\x06\\x04\\x04\\x00\\x00\\x00\\x08\\x00\\x16\\x74\")\n\n    # store almanac in flash\n    pigeon.send(b\"\\xB5\\x62\\x09\\x14\\x04\\x00\\x00\\x00\\x00\\x00\\x21\\xEC\")\n    try:\n      if pigeon.wait_for_ack(ack=UBLOX_SOS_ACK, nack=UBLOX_SOS_NACK):\n        cloudlog.warning(\"Done storing almanac\")\n      else:\n        cloudlog.error(\"Error storing almanac\")\n    except TimeoutError:\n      pass\n\n  # turn off power and exit cleanly\n  set_power(False)\n  sys.exit(0)",
+      "called_by": "main"
+    }
+  ]
+}

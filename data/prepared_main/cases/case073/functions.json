@@ -1,0 +1,15 @@
+[
+  {
+    "name": "BaseClimaCellWeatherEntity.extra_state_attributes",
+    "before": {
+      "start": 148,
+      "end": 161,
+      "code": "    @property\n    def extra_state_attributes(self) -> Mapping[str, Any] | None:\n        \"\"\"Return additional state attributes.\"\"\"\n        wind_gust = self.wind_gust\n        wind_gust = round(\n            speed_convert(self.wind_gust, SPEED_MILES_PER_HOUR, self._wind_speed_unit),\n            4,\n        )\n        cloud_cover = self.cloud_cover\n        return {\n            ATTR_CLOUD_COVER: cloud_cover,\n            ATTR_WIND_GUST: wind_gust,\n            ATTR_PRECIPITATION_TYPE: self.precipitation_type,\n        }"
+    },
+    "after": {
+      "start": 148,
+      "end": 160,
+      "code": "    @property\n    def extra_state_attributes(self) -> Mapping[str, Any] | None:\n        \"\"\"Return additional state attributes.\"\"\"\n        cloud_cover = self.cloud_cover\n        attrs = {\n            ATTR_CLOUD_COVER: cloud_cover,\n            ATTR_PRECIPITATION_TYPE: self.precipitation_type,\n        }\n        if (wind_gust := self.wind_gust) is not None:\n            attrs[ATTR_WIND_GUST] = round(\n                speed_convert(wind_gust, SPEED_MILES_PER_HOUR, self._wind_speed_unit), 4\n            )\n        return attrs"
+    }
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "cache_key": "ebcadacad1e52f31e67e5301ca68e8c12b26a914d30c6f1edf438afff3b0cea7",
+  "sample_id": "case097",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The min/max mireds arguments are swapped after conversion to Kelvin (max_mireds becomes min_kelvin and min_mireds becomes max_kelvin), which inverts the color temperature range passed to `color_temperature_to_rgbww` and will produce incorrect RGBWW color values.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The min/max mireds arguments are swapped after conversion to Kelvin (max_mireds becomes min_kelvin and min_mireds becomes max_kelvin), which inverts the color temperature range passed to `color_temperature_to_rgbww` and will produce incorrect RGBWW color values.\"}",
+  "response_id": "gen-1795193063-8iXjv8TQRaS31k6Tsngi",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2117,
+  "completion_tokens": 86,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.007641,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2117,
+    "completion_tokens": 86,
+    "total_tokens": 2203,
+    "cost": 0.007641,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.007641,
+      "upstream_inference_prompt_cost": 0.006351,
+      "upstream_inference_completions_cost": 0.00129
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.584,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:44:25+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

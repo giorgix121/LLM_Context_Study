@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192055-WMntuSeKCfDOTxlI653v",
+    "object": "chat.completion",
+    "created": 1795192055,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"When `environment` is not a `SLURMEnvironment`, the code still evaluates `environment.requeue_signal` inside the `not self._is_on_windows()` block, which will raise an `AttributeError` since a generic cluster environment has no `requeue_signal` attribute; the conditional correctly uses `isinstance` but the ternary's else branch falls back to `signal.SIGUSR1` only when the environment is not SLURM, yet `environment` may be `None` or another type that lacks `requeue_signal`, and the unconditional `assert sigusr is not None` could also fail if `requeue_signal` is `None`.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 758,
+      "completion_tokens": 167,
+      "total_tokens": 925,
+      "cost": 0.004779,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004779,
+        "upstream_inference_prompt_cost": 0.002274,
+        "upstream_inference_completions_cost": 0.002505
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "commit": "ac369f5570d0a492d08ac9c2ba6622e451d7e131",
+  "files_in_commit": 8,
+  "target_index": 1,
+  "target_status": "modified",
+  "chars": 5199,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "src/pytorch_lightning/CHANGELOG.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "patch": "@@ -67,6 +67,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).\n - Fixed MPS device being unrecognized ([#13992](https://github.com/Lightning-AI/lightning/pull/13992))\n \n \n+- Fixed incorrect `precision=\"mixed\"` being used with `DeepSpeedStrategy` and `IPUStrategy` ([#14041](https://github.com/Lightning-AI/lightning/pull/14041))\n+\n+\n - Fixed dtype inference during gradient norm computation ([#14051](https://github.com/Lightning-AI/lightning/pull/14051))\n \n "
+    },
+    {
+      "path": "src/pytorch_lightning/plugins/precision/ipu.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "patch": "@@ -19,6 +19,7 @@\n import pytorch_lightning as pl\n from pytorch_lightning.plugins.precision.precision_plugin import PrecisionPlugin\n from pytorch_lightning.utilities import GradClipAlgorithmType\n+from pytorch_lightning.utilities.enums import PrecisionType\n from pytorch_lightning.utilities.exceptions import MisconfigurationException\n from pytorch_lightning.utilities.model_helpers import is_overridden\n from pytorch_lightning.utilities.warnings import WarningCache\n@@ -35,7 +36,7 @@ class IPUPrecisionPlugin(PrecisionPlugin):\n     \"\"\"\n \n     def __init__(self, precision: int) -> None:\n-        supported_precision_values = (16, 32)\n+        supported_precision_values = (PrecisionType.HALF, PrecisionType.FLOAT)\n         if precision not in supported_precision_values:\n             raise ValueError(\n                 f\"`Trainer(accelerator='ipu', precision={precision!r})` is not supported.\""
+    },
+    {
+      "path": "src/pytorch_lightning/strategies/deepspeed.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -696,7 +696,7 @@ def _auto_select_batch_size(self) -> int:\n \n     def _format_precision_config(self) -> None:\n         assert isinstance(self.config, dict)\n-        if self.precision_plugin.precision in (PrecisionType.HALF, PrecisionType.MIXED):\n+        if self.precision_plugin.precision == PrecisionType.HALF:\n             if \"fp16\" not in self.config and self.precision_plugin.amp_type == AMPType.NATIVE:\n                 # FP16 is a DeepSpeed standalone AMP implementation\n                 rank_zero_info(\"Enabling DeepSpeed FP16.\")"
+    },
+    {
+      "path": "src/pytorch_lightning/strategies/ipu.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -58,7 +58,7 @@ def __init__(\n         self.precision = precision\n \n     def forward(self, *inputs: Any, **kwargs: Any) -> Any:\n-        if self.precision in (PrecisionType.MIXED, PrecisionType.HALF):\n+        if self.precision == PrecisionType.HALF:\n             inputs = self._move_float_tensors_to_half(inputs)\n \n         return super().forward(*inputs, **kwargs)"
+    },
+    {
+      "path": "src/pytorch_lightning/strategies/utils.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -24,7 +24,7 @@ def on_colab_kaggle() -> bool:\n \n def _fp_to_half(tensor: torch.Tensor, precision: PrecisionType) -> torch.Tensor:\n     if torch.is_floating_point(tensor):\n-        if precision in (PrecisionType.MIXED, PrecisionType.HALF):\n+        if precision == PrecisionType.HALF:\n             return tensor.half()\n         if precision == PrecisionType.BFLOAT:\n             return tensor.bfloat16()"
+    },
+    {
+      "path": "tests/tests_pytorch/accelerators/test_ipu.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -185,7 +185,7 @@ def test_optimization(tmpdir):\n \n \n @RunIf(ipu=True)\n-def test_mixed_precision(tmpdir):\n+def test_half_precision(tmpdir):\n     class TestCallback(Callback):\n         def setup(self, trainer: Trainer, pl_module: LightningModule, stage: Optional[str] = None) -> None:\n             assert trainer.strategy.model.precision == 16"
+    },
+    {
+      "path": "tests/tests_pytorch/strategies/test_deepspeed_strategy.py",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 7,
+      "patch": "@@ -171,12 +171,11 @@ def test_deepspeed_strategy_env(tmpdir, monkeypatch, deepspeed_config):\n \n @RunIf(deepspeed=True)\n @mock.patch(\"pytorch_lightning.utilities.device_parser.num_cuda_devices\", return_value=1)\n-@pytest.mark.parametrize(\"precision\", [16, \"mixed\"])\n @pytest.mark.parametrize(\n     \"amp_backend\",\n     [\"native\", pytest.param(\"apex\", marks=RunIf(amp_apex=True))],\n )\n-def test_deepspeed_precision_choice(_, amp_backend, precision, tmpdir):\n+def test_deepspeed_precision_choice(_, amp_backend, tmpdir):\n     \"\"\"Test to ensure precision plugin is also correctly chosen.\n \n     DeepSpeed handles precision via Custom DeepSpeedPrecisionPlugin\n@@ -188,16 +187,16 @@ def test_deepspeed_precision_choice(_, amp_backend, precision, tmpdir):\n         accelerator=\"gpu\",\n         strategy=\"deepspeed\",\n         amp_backend=amp_backend,\n-        precision=precision,\n+        precision=16,\n     )\n \n     assert isinstance(trainer.strategy, DeepSpeedStrategy)\n     assert isinstance(trainer.strategy.precision_plugin, DeepSpeedPrecisionPlugin)\n-    assert trainer.strategy.precision_plugin.precision == precision\n+    assert trainer.strategy.precision_plugin.precision == 16\n \n \n @RunIf(deepspeed=True)\n-def test_deepspeed_with_invalid_config_path(tmpdir):\n+def test_deepspeed_with_invalid_config_path():\n     \"\"\"Test to ensure if we pass an invalid config path we throw an exception.\"\"\"\n \n     with pytest.raises(\n@@ -218,7 +217,7 @@ def test_deepspeed_with_env_path(tmpdir, monkeypatch, deepspeed_config):\n \n \n @RunIf(deepspeed=True)\n-def test_deepspeed_defaults(tmpdir):\n+def test_deepspeed_defaults():\n     \"\"\"Ensure that defaults are correctly set as a config for DeepSpeed if no arguments are passed.\"\"\"\n     strategy = DeepSpeedStrategy()\n     assert strategy.config is not None\n@@ -663,7 +662,7 @@ def training_step(self, batch, batch_idx):\n \n \n @RunIf(min_cuda_gpus=2, standalone=True, deepspeed=True)\n-def test_deepspeed_multigpu_stage_3(tmpdir, deepspeed_config):\n+def test_deepspeed_multigpu_stage_3(tmpdir):\n     \"\"\"Test to ensure ZeRO Stage 3 works with a parallel model.\"\"\"\n     model = ModelParallelBoringModel()\n     trainer = Trainer("
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "7bd31731f45b99153e45d886da01081c4cf4e0f3c90f354f764ad815d822078b",
+  "sample_id": "case076",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Removing the `not _TORCH_GREATER_EQUAL_1_13` guard means the NVML-based patch is now applied on PyTorch ≥ 1.13, where `torch.cuda.is_available` may already use NVML internally or have changed internals, potentially causing infinite recursion or incorrect behavior that the original guard was specifically meant to prevent.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Removing the `not _TORCH_GREATER_EQUAL_1_13` guard means the NVML-based patch is now applied on PyTorch ≥ 1.13, where `torch.cuda.is_available` may already use NVML internally or have changed internals, potentially causing infinite recursion or incorrect behavior that the original guard was specifically meant to prevent.\"}",
+  "response_id": "gen-1795191942-BR20mVG39dZX9Vabp1LD",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 346,
+  "completion_tokens": 101,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.002553,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 346,
+    "completion_tokens": 101,
+    "total_tokens": 447,
+    "cost": 0.002553,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.002553,
+      "upstream_inference_prompt_cost": 0.001038,
+      "upstream_inference_completions_cost": 0.001515
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.087,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:25:45+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

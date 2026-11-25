@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795193870-rarTEQxIx6a3YpeiuoVi",
+    "object": "chat.completion",
+    "created": 1795193870,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The min/max mireds arguments are swapped when converting to Kelvin — since mireds and Kelvin are inversely related, `min_mireds` corresponds to the maximum Kelvin and `max_mireds` to the minimum Kelvin, so passing `color_temperature_mired_to_kelvin(self.max_mireds)` as the warm (low Kelvin) bound and `color_temperature_mired_to_kelvin(self.min_mireds)` as the cool (high Kelvin) bound likely inverts the warm/cool channel mapping in `color_temperature_to_rgbww`.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 347,
+      "completion_tokens": 159,
+      "total_tokens": 506,
+      "cost": 0.003426,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003426,
+        "upstream_inference_prompt_cost": 0.001041,
+        "upstream_inference_completions_cost": 0.002385
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

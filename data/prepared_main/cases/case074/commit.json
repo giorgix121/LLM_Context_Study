@@ -1,0 +1,45 @@
+{
+  "commit": "6ae844bc67701e6c5fbb0ebe566dfef13ed69069",
+  "files_in_commit": 6,
+  "target_index": 4,
+  "target_status": "modified",
+  "chars": 2894,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "src/poetry/console/application.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "patch": "@@ -327,6 +327,7 @@ def configure_installer_for_command(command: InstallerCommand, io: IO) -> None:\n             poetry.locker,\n             poetry.pool,\n             poetry.config,\n+            disable_cache=poetry.disable_cache,\n         )\n         installer.use_executor(poetry.config.get(\"experimental.new-installer\", False))\n         command.set_installer(installer)"
+    },
+    {
+      "path": "src/poetry/factory.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "patch": "@@ -92,6 +92,7 @@ def create_poetry(\n             base_poetry.package,\n             locker,\n             config,\n+            disable_cache,\n         )\n \n         # Configuring sources"
+    },
+    {
+      "path": "src/poetry/installation/executor.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "patch": "@@ -53,13 +53,16 @@ def __init__(\n         config: Config,\n         io: IO,\n         parallel: bool | None = None,\n+        disable_cache: bool = False,\n     ) -> None:\n         self._env = env\n         self._io = io\n         self._dry_run = False\n         self._enabled = True\n         self._verbose = False\n-        self._authenticator = Authenticator(config, self._io)\n+        self._authenticator = Authenticator(\n+            config, self._io, disable_cache=disable_cache\n+        )\n         self._chef = Chef(config, self._env)\n         self._chooser = Chooser(pool, self._env, config)\n "
+    },
+    {
+      "path": "src/poetry/installation/installer.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "patch": "@@ -43,6 +43,7 @@ def __init__(\n         config: Config,\n         installed: Repository | None = None,\n         executor: Executor | None = None,\n+        disable_cache: bool = False,\n     ) -> None:\n         self._io = io\n         self._env = env\n@@ -65,7 +66,9 @@ def __init__(\n         self._extras: list[str] = []\n \n         if executor is None:\n-            executor = Executor(self._env, self._pool, config, self._io)\n+            executor = Executor(\n+                self._env, self._pool, config, self._io, disable_cache=disable_cache\n+            )\n \n         self._executor = executor\n         self._use_executor = False"
+    },
+    {
+      "path": "tests/console/test_application.py",
+      "status": "modified",
+      "additions": 24,
+      "deletions": 0,
+      "patch": "@@ -11,6 +11,7 @@\n from poetry.console.application import Application\n from poetry.console.commands.command import Command\n from poetry.plugins.application_plugin import ApplicationPlugin\n+from poetry.utils.authenticator import Authenticator\n from tests.helpers import mock_metadata_entry_points\n \n \n@@ -99,3 +100,26 @@ def test_application_verify_source_cache_flag(disable_cache: bool):\n \n     for repo in app.poetry.pool.repositories:\n         assert repo._disable_cache == disable_cache\n+\n+\n+@pytest.mark.parametrize(\"disable_cache\", [True, False])\n+def test_application_verify_cache_flag_at_install(\n+    mocker: MockerFixture, disable_cache: bool\n+) -> None:\n+    app = Application()\n+\n+    tester = ApplicationTester(app)\n+    command = \"install --dry-run\"\n+\n+    if disable_cache:\n+        command = f\"{command} --no-cache\"\n+\n+    spy = mocker.spy(Authenticator, \"__init__\")\n+\n+    tester.execute(command)\n+\n+    assert spy.call_count == 2\n+    for call in spy.mock_calls:\n+        (name, args, kwargs) = call\n+        assert \"disable_cache\" in kwargs\n+        assert disable_cache is kwargs[\"disable_cache\"]"
+    }
+  ]
+}

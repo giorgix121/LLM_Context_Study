@@ -1,0 +1,30 @@
+{
+  "found": 3,
+  "included": 3,
+  "functions": [
+    {
+      "name": "DDPStrategy.__init__",
+      "path": "src/lightning_lite/strategies/ddp.py",
+      "start": 41,
+      "end": 62,
+      "code": "    def __init__(\n        self,\n        accelerator: Optional[Accelerator] = None,\n        parallel_devices: Optional[List[torch.device]] = None,\n        cluster_environment: Optional[ClusterEnvironment] = None,\n        checkpoint_io: Optional[CheckpointIO] = None,\n        precision: Optional[Precision] = None,\n        process_group_backend: Optional[str] = None,\n        timeout: Optional[timedelta] = default_pg_timeout,\n        **kwargs: Any,\n    ) -> None:\n        super().__init__(\n            accelerator=accelerator,\n            parallel_devices=parallel_devices,\n            cluster_environment=cluster_environment,\n            checkpoint_io=checkpoint_io,\n            precision=precision,\n        )\n        self._num_nodes = 1\n        self._process_group_backend: Optional[str] = process_group_backend\n        self._timeout: Optional[timedelta] = timeout\n        self._ddp_kwargs = kwargs",
+      "calls": "ParallelStrategy.__init__"
+    },
+    {
+      "name": "DDPSpawnStrategy.__init__",
+      "path": "src/lightning_lite/strategies/ddp_spawn.py",
+      "start": 49,
+      "end": 73,
+      "code": "    def __init__(\n        self,\n        accelerator: Optional[Accelerator] = None,\n        parallel_devices: Optional[List[torch.device]] = None,\n        cluster_environment: Optional[ClusterEnvironment] = None,\n        checkpoint_io: Optional[CheckpointIO] = None,\n        precision: Optional[Precision] = None,\n        process_group_backend: Optional[str] = None,\n        timeout: Optional[timedelta] = default_pg_timeout,\n        start_method: Literal[\"spawn\", \"fork\", \"forkserver\"] = \"spawn\",\n        **kwargs: Any,\n    ):\n        super().__init__(\n            accelerator=accelerator,\n            parallel_devices=parallel_devices,\n            cluster_environment=cluster_environment,\n            checkpoint_io=checkpoint_io,\n            precision=precision,\n        )\n        self._num_nodes = 1\n        self._process_group_backend: Optional[str] = process_group_backend\n        self._timeout: Optional[timedelta] = timeout\n        self._start_method = start_method\n        self._ddp_kwargs = kwargs\n        self._local_rank = 0",
+      "calls": "ParallelStrategy.__init__"
+    },
+    {
+      "name": "DataParallelStrategy.__init__",
+      "path": "src/lightning_lite/strategies/dp.py",
+      "start": 33,
+      "end": 46,
+      "code": "    def __init__(\n        self,\n        accelerator: Optional[Accelerator] = None,\n        parallel_devices: Optional[List[torch.device]] = None,\n        checkpoint_io: Optional[CheckpointIO] = None,\n        precision: Optional[Precision] = None,\n    ):\n        super().__init__(\n            accelerator=accelerator,\n            parallel_devices=parallel_devices,\n            cluster_environment=None,\n            checkpoint_io=checkpoint_io,\n            precision=precision,\n        )",
+      "calls": "ParallelStrategy.__init__"
+    }
+  ]
+}

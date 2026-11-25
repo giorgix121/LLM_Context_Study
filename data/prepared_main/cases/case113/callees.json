@@ -1,0 +1,102 @@
+{
+  "found": 12,
+  "included": 12,
+  "functions": [
+    {
+      "name": "websocket_command",
+      "path": "homeassistant/components/websocket_api/decorators.py",
+      "start": 127,
+      "end": 140,
+      "code": "def websocket_command(\n    schema: dict[vol.Marker, Any],\n) -> Callable[[const.WebSocketCommandHandler], const.WebSocketCommandHandler]:\n    \"\"\"Tag a function as a websocket command.\"\"\"\n    command = schema[\"type\"]\n\n    def decorate(func: const.WebSocketCommandHandler) -> const.WebSocketCommandHandler:\n        \"\"\"Decorate ws command function.\"\"\"\n        # pylint: disable=protected-access\n        func._ws_schema = messages.BASE_COMMAND_MESSAGE_SCHEMA.extend(schema)  # type: ignore[attr-defined]\n        func._ws_command = command  # type: ignore[attr-defined]\n        return func\n\n    return decorate",
+      "called_by": "websocket_breakpoint_set"
+    },
+    {
+      "name": "result_message",
+      "path": "homeassistant/components/websocket_api/messages.py",
+      "start": 50,
+      "end": 52,
+      "code": "def result_message(iden: int, result: Any = None) -> dict[str, Any]:\n    \"\"\"Return a success result message.\"\"\"\n    return {\"id\": iden, \"type\": const.TYPE_RESULT, \"success\": True, \"result\": result}",
+      "called_by": "websocket_subscribe_breakpoint_events"
+    },
+    {
+      "name": "event_message",
+      "path": "homeassistant/components/websocket_api/messages.py",
+      "start": 65,
+      "end": 67,
+      "code": "def event_message(iden: JSON_TYPE | int, event: Any) -> dict[str, Any]:\n    \"\"\"Return an event message.\"\"\"\n    return {\"id\": iden, \"type\": \"event\", \"event\": event}",
+      "called_by": "websocket_subscribe_breakpoint_events"
+    },
+    {
+      "name": "async_dispatcher_connect",
+      "path": "homeassistant/helpers/dispatcher.py",
+      "start": 33,
+      "end": 56,
+      "code": "@callback\n@bind_hass\ndef async_dispatcher_connect(\n    hass: HomeAssistant, signal: str, target: Callable[..., Any]\n) -> Callable[[], None]:\n    \"\"\"Connect a callable function to a signal.\n\n    This method must be run in the event loop.\n    \"\"\"\n    if DATA_DISPATCHER not in hass.data:\n        hass.data[DATA_DISPATCHER] = {}\n    hass.data[DATA_DISPATCHER].setdefault(signal, {})[target] = None\n\n    @callback\n    def async_remove_dispatcher() -> None:\n        \"\"\"Remove signal listener.\"\"\"\n        try:\n            del hass.data[DATA_DISPATCHER][signal][target]\n        except (KeyError, ValueError):\n            # KeyError is key target listener did not exist\n            # ValueError if listener did not exist within signal\n            _LOGGER.warning(\"Unable to remove unknown dispatcher %s\", target)\n\n    return async_remove_dispatcher",
+      "called_by": "websocket_subscribe_breakpoint_events"
+    },
+    {
+      "name": "async_dispatcher_send",
+      "path": "homeassistant/helpers/dispatcher.py",
+      "start": 82,
+      "end": 106,
+      "code": "@callback\n@bind_hass\ndef async_dispatcher_send(hass: HomeAssistant, signal: str, *args: Any) -> None:\n    \"\"\"Send signal and data.\n\n    This method must be run in the event loop.\n    \"\"\"\n    target_list: dict[\n        Callable[..., Any], HassJob[..., None | Coroutine[Any, Any, None]] | None\n    ] = hass.data.get(DATA_DISPATCHER, {}).get(signal, {})\n\n    run: list[HassJob[..., None | Coroutine[Any, Any, None]]] = []\n    for target, job in target_list.items():\n        if job is None:\n            job = _generate_job(signal, target)\n            target_list[target] = job\n\n        # Run the jobs all at the end\n        # to ensure no jobs add more dispatchers\n        # which can result in the target_list\n        # changing size during iteration\n        run.append(job)\n\n    for job in run:\n        hass.async_run_hass_job(job, *args)",
+      "called_by": "websocket_subscribe_breakpoint_events"
+    },
+    {
+      "name": "breakpoint_clear",
+      "path": "homeassistant/helpers/script.py",
+      "start": 1732,
+      "end": 1739,
+      "code": "@callback\ndef breakpoint_clear(hass, key, run_id, node):\n    \"\"\"Clear a breakpoint.\"\"\"\n    run_id = run_id or RUN_ID_ANY\n    breakpoints = hass.data[DATA_SCRIPT_BREAKPOINTS]\n    if key not in breakpoints or run_id not in breakpoints[key]:\n        return\n    breakpoints[key][run_id].discard(node)",
+      "called_by": "websocket_breakpoint_clear"
+    },
+    {
+      "name": "breakpoint_clear_all",
+      "path": "homeassistant/helpers/script.py",
+      "start": 1742,
+      "end": 1745,
+      "code": "@callback\ndef breakpoint_clear_all(hass: HomeAssistant) -> None:\n    \"\"\"Clear all breakpoints.\"\"\"\n    hass.data[DATA_SCRIPT_BREAKPOINTS] = {}",
+      "called_by": "websocket_subscribe_breakpoint_events"
+    },
+    {
+      "name": "breakpoint_set",
+      "path": "homeassistant/helpers/script.py",
+      "start": 1748,
+      "end": 1757,
+      "code": "@callback\ndef breakpoint_set(hass, key, run_id, node):\n    \"\"\"Set a breakpoint.\"\"\"\n    run_id = run_id or RUN_ID_ANY\n    breakpoints = hass.data[DATA_SCRIPT_BREAKPOINTS]\n    if key not in breakpoints:\n        breakpoints[key] = {}\n    if run_id not in breakpoints[key]:\n        breakpoints[key][run_id] = set()\n    breakpoints[key][run_id].add(node)",
+      "called_by": "websocket_breakpoint_set"
+    },
+    {
+      "name": "breakpoint_list",
+      "path": "homeassistant/helpers/script.py",
+      "start": 1760,
+      "end": 1770,
+      "code": "@callback\ndef breakpoint_list(hass: HomeAssistant) -> list[dict[str, Any]]:\n    \"\"\"List breakpoints.\"\"\"\n    breakpoints = hass.data[DATA_SCRIPT_BREAKPOINTS]\n\n    return [\n        {\"key\": key, \"run_id\": run_id, \"node\": node}\n        for key in breakpoints\n        for run_id in breakpoints[key]\n        for node in breakpoints[key][run_id]\n    ]",
+      "called_by": "websocket_breakpoint_list"
+    },
+    {
+      "name": "debug_continue",
+      "path": "homeassistant/helpers/script.py",
+      "start": 1773,
+      "end": 1780,
+      "code": "@callback\ndef debug_continue(hass, key, run_id):\n    \"\"\"Continue execution of a halted script.\"\"\"\n    # Clear any wildcard breakpoint\n    breakpoint_clear(hass, key, run_id, NODE_ANY)\n\n    signal = SCRIPT_DEBUG_CONTINUE_STOP.format(key, run_id)\n    async_dispatcher_send(hass, signal, \"continue\")",
+      "called_by": "websocket_debug_continue"
+    },
+    {
+      "name": "debug_step",
+      "path": "homeassistant/helpers/script.py",
+      "start": 1783,
+      "end": 1790,
+      "code": "@callback\ndef debug_step(hass, key, run_id):\n    \"\"\"Single step a halted script.\"\"\"\n    # Set a wildcard breakpoint\n    breakpoint_set(hass, key, run_id, NODE_ANY)\n\n    signal = SCRIPT_DEBUG_CONTINUE_STOP.format(key, run_id)\n    async_dispatcher_send(hass, signal, \"continue\")",
+      "called_by": "websocket_debug_step"
+    },
+    {
+      "name": "debug_stop",
+      "path": "homeassistant/helpers/script.py",
+      "start": 1793,
+      "end": 1797,
+      "code": "@callback\ndef debug_stop(hass, key, run_id):\n    \"\"\"Stop execution of a running or halted script.\"\"\"\n    signal = SCRIPT_DEBUG_CONTINUE_STOP.format(key, run_id)\n    async_dispatcher_send(hass, signal, \"stop\")",
+      "called_by": "websocket_debug_stop"
+    }
+  ]
+}

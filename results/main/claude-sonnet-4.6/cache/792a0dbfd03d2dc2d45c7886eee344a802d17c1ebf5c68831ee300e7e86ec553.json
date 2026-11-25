@@ -1,0 +1,65 @@
+{
+  "cache_key": "792a0dbfd03d2dc2d45c7886eee344a802d17c1ebf5c68831ee300e7e86ec553",
+  "sample_id": "case080",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The serialization logic change inverts the condition for including deps (`!=` instead of `is`), which could cause mapped sensors to always serialize their deps (including ReadyToRescheduleDep) even when they match the default, potentially altering deserialization behavior for mapped operators broadly.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The serialization logic change inverts the condition for including deps (`!=` instead of `is`), which could cause mapped sensors to always serialize their deps (including ReadyToRescheduleDep) even when they match the default, potentially altering deserialization behavior for mapped operators broadly.\"}",
+  "response_id": "gen-1795565452-dkUUffhpukAtTTALlGVW",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 6414,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.020397,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 6414,
+    "completion_tokens": 77,
+    "total_tokens": 6491,
+    "cost": 0.020397,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.020397,
+      "upstream_inference_prompt_cost": 0.019242,
+      "upstream_inference_completions_cost": 0.001155
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.728,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-25T00:10:55+00:00",
+  "run_id": "20261124T235939Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

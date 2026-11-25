@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564666-gy4Fs73uPSSJa2bVf93F",
+    "object": "chat.completion",
+    "created": 1795564666,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The code has a logic error where `expand_context` is checked with `if expand_context:` but should check if the 'options' key exists, and the `get_options` method will fail with AttributeError when `self.expand_context` is None since it calls `.get()` on a potentially None value.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4221,
+      "completion_tokens": 98,
+      "total_tokens": 4319,
+      "cost": 0.004711,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004711,
+        "upstream_inference_prompt_cost": 0.004221,
+        "upstream_inference_completions_cost": 0.00049
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

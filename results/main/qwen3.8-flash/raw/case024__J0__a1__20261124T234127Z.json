@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564221-HHMrnOmUpodpSh5lavrS",
+    "object": "chat.completion",
+    "created": 1795564221,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The commit introduces a functional defect in `rllib/utils/replay_buffers/utils.py` where the validation logic for prioritized replay incorrectly checks `config['multiagent']['replay_mode']` instead of the updated `config['replay_buffer_config']['replay_mode']`, potentially bypassing critical error checks or causing KeyErrors.\"\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 22378,
+      "completion_tokens": 86,
+      "total_tokens": 22464,
+      "cost": 0.00339712,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00339712,
+        "upstream_inference_prompt_cost": 0.0033567,
+        "upstream_inference_completions_cost": 4.042e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

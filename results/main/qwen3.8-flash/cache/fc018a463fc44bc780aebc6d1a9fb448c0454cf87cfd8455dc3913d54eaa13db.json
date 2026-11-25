@@ -1,0 +1,65 @@
+{
+  "cache_key": "fc018a463fc44bc780aebc6d1a9fb448c0454cf87cfd8455dc3913d54eaa13db",
+  "sample_id": "case104",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The check `number == \"\"` may incorrectly match numeric zero (e.g., `0`, `0.0`, or `Decimal(0)`) due to Python's equality semantics, causing valid numbers to be returned as empty strings instead of being formatted.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The check `number == \\\"\\\"` may incorrectly match numeric zero (e.g., `0`, `0.0`, or `Decimal(0)`) due to Python's equality semantics, causing valid numbers to be returned as empty strings instead of being formatted.\"}",
+  "response_id": "gen-1795189622-XdJAPtIrFJZQImgdkx2T",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 2118,
+  "completion_tokens": 67,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00034919,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2118,
+    "completion_tokens": 67,
+    "total_tokens": 2185,
+    "cost": 0.00034919,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00034919,
+      "upstream_inference_prompt_cost": 0.0003177,
+      "upstream_inference_completions_cost": 3.149e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.821,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:47:03+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

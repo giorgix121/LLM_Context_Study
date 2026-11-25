@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565385-E9VNlVdOsDM0guJsmcoO",
+    "object": "chat.completion",
+    "created": 1795565385,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The `_async_update_rssi` method now calls `ibeacon_advertisement.update_rssi(service_info.rssi)` to mutate the stored advertisement object in-place rather than re-parsing, which means if `update_rssi` is a new API in ibeacon_ble==0.7.0 and behaves unexpectedly, or if the same object is referenced elsewhere, it could cause incorrect state or errors; additionally, the RSSI comparison changed from checking against the stored RSSI to `ibeacon_advertisement.rssi`, but after `update_rssi` is called the stored value is updated, so subsequent periodic checks will always see matching RSSI and never dispatch updates until the next real advertisement.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7086,
+      "completion_tokens": 180,
+      "total_tokens": 7266,
+      "cost": 0.023958,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.023958,
+        "upstream_inference_prompt_cost": 0.021258,
+        "upstream_inference_completions_cost": 0.0027
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

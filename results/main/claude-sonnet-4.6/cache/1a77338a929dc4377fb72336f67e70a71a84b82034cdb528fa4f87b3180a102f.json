@@ -1,0 +1,65 @@
+{
+  "cache_key": "1a77338a929dc4377fb72336f67e70a71a84b82034cdb528fa4f87b3180a102f",
+  "sample_id": "case049",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "When FILES is non-empty, the raw `request.body` is suppressed and `request.FILES` (a Django MultiValueDict) is passed as `files`, but the `requests` library expects `files` to be a dict of `(filename, fileobj)` tuples, not a Django FILES dict, and passing `files={}` (an empty dict, which is falsy but still passed) alongside `headers` that already contain a multipart Content-Type could corrupt or misroute the proxied request.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"When FILES is non-empty, the raw `request.body` is suppressed and `request.FILES` (a Django MultiValueDict) is passed as `files`, but the `requests` library expects `files` to be a dict of `(filename, fileobj)` tuples, not a Django FILES dict, and passing `files={}` (an empty dict, which is falsy but still passed) alongside `headers` that already contain a multipart Content-Type could corrupt or misroute the proxied request.\"}",
+  "response_id": "gen-1795190796-gbmILoFIV0z4bHXup8uo",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1574,
+  "completion_tokens": 128,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.006642,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1574,
+    "completion_tokens": 128,
+    "total_tokens": 1702,
+    "cost": 0.006642,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.006642,
+      "upstream_inference_prompt_cost": 0.004722,
+      "upstream_inference_completions_cost": 0.00192
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 4.447,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:06:40+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

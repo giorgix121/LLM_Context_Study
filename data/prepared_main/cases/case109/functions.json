@@ -1,0 +1,15 @@
+[
+  {
+    "name": "__getattr__",
+    "before": {
+      "start": 43,
+      "end": 60,
+      "code": "def __getattr__(name: str):\n    import inspect\n    import warnings\n\n    from pandas.util._exceptions import find_stack_level\n\n    if name == \"CategoricalBlock\":\n        warnings.warn(\n            \"CategoricalBlock is deprecated and will be removed in a future version. \"\n            \"Use ExtensionBlock instead.\",\n            DeprecationWarning,\n            stacklevel=find_stack_level(inspect.currentframe()),\n        )\n        from pandas.core.internals.blocks import CategoricalBlock\n\n        return CategoricalBlock\n\n    raise AttributeError(f\"module 'pandas.core.internals' has no attribute '{name}'\")"
+    },
+    "after": {
+      "start": 43,
+      "end": 59,
+      "code": "def __getattr__(name: str):\n    import warnings\n\n    from pandas.util._exceptions import find_stack_level\n\n    if name == \"CategoricalBlock\":\n        warnings.warn(\n            \"CategoricalBlock is deprecated and will be removed in a future version. \"\n            \"Use ExtensionBlock instead.\",\n            DeprecationWarning,\n            stacklevel=find_stack_level(),\n        )\n        from pandas.core.internals.blocks import CategoricalBlock\n\n        return CategoricalBlock\n\n    raise AttributeError(f\"module 'pandas.core.internals' has no attribute '{name}'\")"
+    }
+  }
+]

@@ -1,0 +1,15 @@
+[
+  {
+    "name": "CloudCompute.__post_init__",
+    "before": {
+      "start": 78,
+      "end": 85,
+      "code": "    def __post_init__(self) -> None:\n        _verify_mount_root_dirs_are_unique(self.mounts)\n\n        self.name = self.name.lower()\n\n        # All `default` CloudCompute are identified in the same way.\n        if self._internal_id is None:\n            self._internal_id = \"default\" if self.name == \"default\" else uuid4().hex[:7]"
+    },
+    "after": {
+      "start": 78,
+      "end": 88,
+      "code": "    def __post_init__(self) -> None:\n        _verify_mount_root_dirs_are_unique(self.mounts)\n\n        self.name = self.name.lower()\n\n        # All `default` CloudCompute are identified in the same way.\n        if self._internal_id is None:\n            self._internal_id = \"default\" if self.name == \"default\" else uuid4().hex[:7]\n\n        # Internal arguments for now.\n        self.preemptible = False"
+    }
+  }
+]

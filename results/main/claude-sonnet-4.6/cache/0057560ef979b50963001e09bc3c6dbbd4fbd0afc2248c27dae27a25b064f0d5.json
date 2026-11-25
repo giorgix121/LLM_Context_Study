@@ -1,0 +1,65 @@
+{
+  "cache_key": "0057560ef979b50963001e09bc3c6dbbd4fbd0afc2248c27dae27a25b064f0d5",
+  "sample_id": "case116",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change introduces unbounded recursion: if the user is already connected to a different app, `disconnect()` is called and then `connect()` calls itself recursively, which could loop indefinitely if `disconnect()` doesn't properly clear the connection state before `connect()` re-evaluates the same condition.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces unbounded recursion: if the user is already connected to a different app, `disconnect()` is called and then `connect()` calls itself recursively, which could loop indefinitely if `disconnect()` doesn't properly clear the connection state before `connect()` re-evaluates the same condition.\"}",
+  "response_id": "gen-1795193038-63dLvPjq8pXFLTxZvhmi",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 341,
+  "completion_tokens": 82,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.002253,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 341,
+    "completion_tokens": 82,
+    "total_tokens": 423,
+    "cost": 0.002253,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.002253,
+      "upstream_inference_prompt_cost": 0.001023,
+      "upstream_inference_completions_cost": 0.00123
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.286,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:44:00+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

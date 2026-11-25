@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "OpenUvEntity.async_update_state",
+      "path": "homeassistant/components/openuv/__init__.py",
+      "start": 364,
+      "end": 368,
+      "code": "    @callback\n    def async_update_state(self) -> None:\n        \"\"\"Update the state.\"\"\"\n        self.update_from_latest_data()\n        self.async_write_ha_state()",
+      "called_by": "OpenUvSensor.async_update"
+    }
+  ]
+}

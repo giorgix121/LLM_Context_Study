@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "Entity.async_will_remove_from_hass",
+      "path": "homeassistant/helpers/entity.py",
+      "start": 818,
+      "end": 822,
+      "code": "    async def async_will_remove_from_hass(self) -> None:\n        \"\"\"Run when entity will be removed from hass.\n\n        To be extended by integrations.\n        \"\"\"",
+      "called_by": "MotionBatterySensor.async_will_remove_from_hass"
+    },
+    {
+      "name": "CoordinatorEntity.async_added_to_hass",
+      "path": "homeassistant/helpers/update_coordinator.py",
+      "start": 336,
+      "end": 343,
+      "code": "    async def async_added_to_hass(self) -> None:\n        \"\"\"When entity is added to hass.\"\"\"\n        await super().async_added_to_hass()\n        self.async_on_remove(\n            self.coordinator.async_add_listener(\n                self._handle_coordinator_update, self.coordinator_context\n            )\n        )",
+      "called_by": "MotionBatterySensor.async_added_to_hass"
+    }
+  ]
+}

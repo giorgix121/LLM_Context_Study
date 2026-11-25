@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189926-qn87a8fT8zvel4MKyOJ9",
+    "object": "chat.completion",
+    "created": 1795189926,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change introduces a new boolean return value for initialize_pigeon and updates the caller to store it in Params, but if initialization fails (returning False), the main loop continues to execute pigeon.receive() on an uninitialized device, which may cause runtime errors or undefined behavior since the previous code implicitly assumed success or handled failure differently.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5033,
+      "completion_tokens": 80,
+      "total_tokens": 5113,
+      "cost": 0.000243686,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 4096,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000243686,
+        "upstream_inference_prompt_cost": 0.000206086,
+        "upstream_inference_completions_cost": 3.76e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

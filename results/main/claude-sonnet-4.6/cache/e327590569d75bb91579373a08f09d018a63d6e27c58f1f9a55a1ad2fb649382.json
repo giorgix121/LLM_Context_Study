@@ -1,0 +1,65 @@
+{
+  "cache_key": "e327590569d75bb91579373a08f09d018a63d6e27c58f1f9a55a1ad2fb649382",
+  "sample_id": "case144",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The new `is_saas()` function accesses `settings.SENTRY_IS_SAAS` without any try/except fallback, so if `SENTRY_IS_SAAS` is not defined in the Django settings it will raise an `AttributeError` at runtime, unlike the similar `is_self_hosted()` function which handles missing attributes gracefully.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The new `is_saas()` function accesses `settings.SENTRY_IS_SAAS` without any try/except fallback, so if `SENTRY_IS_SAAS` is not defined in the Django settings it will raise an `AttributeError` at runtime, unlike the similar `is_self_hosted()` function which handles missing attributes gracefully.\"}",
+  "response_id": "gen-1795193401-RHnOHfbVuKeGUSYvuMIY",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 318,
+  "completion_tokens": 100,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.002454,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 318,
+    "completion_tokens": 100,
+    "total_tokens": 418,
+    "cost": 0.002454,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.002454,
+      "upstream_inference_prompt_cost": 0.000954,
+      "upstream_inference_completions_cost": 0.0015
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.663,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:50:04+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

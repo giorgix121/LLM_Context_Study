@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565344-3grCaT9FcFD3CYbxVoEd",
+    "object": "chat.completion",
+    "created": 1795565344,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at this diff carefully:\n\nThe new code uses `np.arange(c.categories.nunique(), dtype=np.int8)` to generate `all_codes`. The issue is using `np.int8` which has a maximum value of 127. If a categorical has more than 128 categories, the codes would overflow silently, causing incorrect behavior.\n\nCategorical codes in pandas are stored as `int8` only when there are fewer than 128 categories, but can be `int16`, `int32`, etc. for larger numbers of categories. However, `c.codes` dtype is determined by pandas based on the number of categories. The `all_codes` array here is explicitly cast to `np.int8`, which would overflow for categoricals with 128+ categories, leading to incorrect `setdiff1d` results and wrong category ordering.\n\n{\"label\": \"RISKY\", \"explanation\": \"Using `dtype=np.int8` for `all_codes` will cause integer overflow for categoricals with more than 127 categories, potentially producing incorrect category reordering.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 883,
+      "completion_tokens": 243,
+      "total_tokens": 1126,
+      "cost": 0.006294,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006294,
+        "upstream_inference_prompt_cost": 0.002649,
+        "upstream_inference_completions_cost": 0.003645
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

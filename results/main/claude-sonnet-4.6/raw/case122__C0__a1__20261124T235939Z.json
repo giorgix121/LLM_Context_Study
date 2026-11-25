@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565010-sUj8Ss0hOJKyMM4H96fn",
+    "object": "chat.completion",
+    "created": 1795565010,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The `setup_environment` method in the PL `Accelerator` base class now calls `self.setup_device(root_device)` after emitting a deprecation warning, but the old `CPUAccelerator.setup_environment` called `super().setup_environment(root_device)` first (which did nothing) before its validation; now `setup_environment` is removed from `CPUAccelerator` and the base class delegates to `setup_device`, which is correct—however, `strategy.py` was changed to call `setup_device` directly, bypassing the deprecation path entirely, so any external subclasses that only override `setup_environment` (not `setup_device`) will silently skip device validation when called via the strategy.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 16172,
+      "completion_tokens": 183,
+      "total_tokens": 16355,
+      "cost": 0.051261,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.051261,
+        "upstream_inference_prompt_cost": 0.048516,
+        "upstream_inference_completions_cost": 0.002745
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

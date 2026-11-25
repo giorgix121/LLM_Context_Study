@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192713-YcdyyI78BspsuSsA1ll8",
+    "object": "chat.completion",
+    "created": 1795192713,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "I need to check if `mac_or_serial` is a property defined on `ONVIFBaseEntity`. The diff replaces `self.device.info.mac or self.device.info.serial_number` with `self.mac_or_serial`. If `mac_or_serial` is not defined on the base class, this would cause an `AttributeError`. The callee shown for `ONVIFBaseEntity.__init__` only sets `self.device`, and there's no evidence that `mac_or_serial` is a property on the base class.\n\n{\"label\": \"RISKY\", \"explanation\": \"The change references `self.mac_or_serial` which may not be defined as a property on `ONVIFBaseEntity`, potentially causing an `AttributeError` at runtime if the base class doesn't expose this attribute.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1046,
+      "completion_tokens": 193,
+      "total_tokens": 1239,
+      "cost": 0.006033,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006033,
+        "upstream_inference_prompt_cost": 0.003138,
+        "upstream_inference_completions_cost": 0.002895
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

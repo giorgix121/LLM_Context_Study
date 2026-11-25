@@ -1,0 +1,15 @@
+{
+  "target_chars": 337,
+  "chars": 336,
+  "files": [
+    {
+      "path": "airflow/providers/google/suite/transfers/sql_to_sheets.py",
+      "chars": 241,
+      "truncated": true
+    }
+  ],
+  "text": "<file path=\"airflow/providers/google/suite/transfers/sql_to_sheets.py\" truncated=\"yes\">\n# Licensed to the Apache Software Foundation (ASF) under one\n# or more contributor license agreements.  See the NOTICE file\n# distributed with this work for additional information\n# regarding copyright ownership.  The ASF licenses this file\n</file>",
+  "donor_sample_id": "case101",
+  "donor_repo": "apache/airflow",
+  "donor_commit": "9a6fc73aba75a03b0dd6c700f0f8932f6a474ff7"
+}

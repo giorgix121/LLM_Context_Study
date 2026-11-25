@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563839-ts1dcdwyEH8pM0eQ20UX",
+    "object": "chat.completion",
+    "created": 1795563839,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The `delete` method in `ReplayRecordingSegment` was modified to call `super().delete()` after attempting to delete the associated file, which means if the file deletion fails (e.g., due to a database error or missing file), the segment record remains in the database but the exception is swallowed or handled incorrectly depending on context, potentially leading to orphaned records or inconsistent state; additionally, the new `_archive_replay` task publishes a Kafka message with hardcoded retention days and assumes specific payload structures that might not align with consumer expectations.\"\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2819,
+      "completion_tokens": 129,
+      "total_tokens": 2948,
+      "cost": 0.00048348,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00048348,
+        "upstream_inference_prompt_cost": 0.00042285,
+        "upstream_inference_completions_cost": 6.063e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

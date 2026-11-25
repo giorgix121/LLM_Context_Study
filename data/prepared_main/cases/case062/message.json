@@ -1,0 +1,5 @@
+{
+  "commit": "b652a50b86bdd2da8b70d7d6f120308c07db905a",
+  "chars": 602,
+  "text": "feat(replays): Add delete method for the replay details resource (#39078)\n\nDeletes a replay's recording segments. A replay has a one to many\nrelationships with its segments. The segment data is stored in blob\nstorage and has to be removed. Due to the I/O requirements we perform\nthe operation asynchronously to provide fast API responses and to give\nourselves good retry semantics.\n\ncloses https://github.com/getsentry/replay-backend/issues/136\n\ndepends https://github.com/getsentry/snuba/pull/3180\ndepends https://github.com/getsentry/snuba/pull/3181\n\nCo-authored-by: Josh Ferge <josh.ferge@sentry.io>"
+}

@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "Strategy.__init__",
+      "path": "src/lightning_lite/strategies/strategy.py",
+      "start": 43,
+      "end": 52,
+      "code": "    def __init__(\n        self,\n        accelerator: Optional[Accelerator] = None,\n        checkpoint_io: Optional[CheckpointIO] = None,\n        precision: Optional[Precision] = None,\n    ) -> None:\n        self._accelerator: Optional[Accelerator] = accelerator\n        self._checkpoint_io: Optional[CheckpointIO] = checkpoint_io\n        self._precision: Optional[Precision] = precision\n        self._launcher: Optional[_Launcher] = None",
+      "called_by": "ParallelStrategy.__init__"
+    }
+  ]
+}

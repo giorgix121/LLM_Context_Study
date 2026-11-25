@@ -1,0 +1,65 @@
+{
+  "cache_key": "552aaddcfeefd13cb0cb1e76564f225b559be953a18d439a219395a8cc0dc0ae",
+  "sample_id": "case102",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change replaces a method call `self.get_active_organization(request)` (which takes the request as an argument to determine the active organization) with a property access `self.active_organization` that may not be initialized or may reflect a different/stale organization context, potentially causing incorrect behavior or AttributeError if the property isn't set before `get()` is called.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change replaces a method call `self.get_active_organization(request)` (which takes the request as an argument to determine the active organization) with a property access `self.active_organization` that may not be initialized or may reflect a different/stale organization context, potentially causing incorrect behavior or AttributeError if the property isn't set before `get()` is called.\"}",
+  "response_id": "gen-1795192805-TpL6j8pBfsKqQx4uKSr3",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 793,
+  "completion_tokens": 98,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.003849,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 793,
+    "completion_tokens": 98,
+    "total_tokens": 891,
+    "cost": 0.003849,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003849,
+      "upstream_inference_prompt_cost": 0.002379,
+      "upstream_inference_completions_cost": 0.00147
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.843,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:40:08+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

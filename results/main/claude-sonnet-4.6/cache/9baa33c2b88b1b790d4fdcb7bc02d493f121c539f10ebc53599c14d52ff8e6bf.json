@@ -1,0 +1,65 @@
+{
+  "cache_key": "9baa33c2b88b1b790d4fdcb7bc02d493f121c539f10ebc53599c14d52ff8e6bf",
+  "sample_id": "case064",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The changes are purely type annotation additions (adding return type hints like `-> bool` and `-> None`) with no modifications to logic or behavior.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The changes are purely type annotation additions (adding return type hints like `-> bool` and `-> None`) with no modifications to logic or behavior.\"}",
+  "response_id": "gen-1795565226-xmQzD3Tnlnd54S2Y6k0w",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 9750,
+  "completion_tokens": 49,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.029985,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 9750,
+    "completion_tokens": 49,
+    "total_tokens": 9799,
+    "cost": 0.029985,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.029985,
+      "upstream_inference_prompt_cost": 0.02925,
+      "upstream_inference_completions_cost": 0.000735
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.231,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-25T00:07:08+00:00",
+  "run_id": "20261124T235939Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

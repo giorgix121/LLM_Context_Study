@@ -1,0 +1,65 @@
+{
+  "cache_key": "e2e61252bcd56a1a54487108d2b7fc97428242c0723343a4fb12d7a8c205577e",
+  "sample_id": "case042",
+  "strategy": "N2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change updates the model input shape from (1,) to () and adds a Flatten layer to expand scalar inputs to the expected (batch_size, 1) shape, which is a valid documentation/example fix with no functional defect introduced.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change updates the model input shape from (1,) to () and adds a Flatten layer to expand scalar inputs to the expected (batch_size, 1) shape, which is a valid documentation/example fix with no functional defect introduced.\"}",
+  "response_id": "gen-1795192494-WOs6R9f3YBYJ40kMuUID",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2546,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.008703,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2546,
+    "completion_tokens": 71,
+    "total_tokens": 2617,
+    "cost": 0.008703,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.008703,
+      "upstream_inference_prompt_cost": 0.007638,
+      "upstream_inference_completions_cost": 0.001065
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.799,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:34:57+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

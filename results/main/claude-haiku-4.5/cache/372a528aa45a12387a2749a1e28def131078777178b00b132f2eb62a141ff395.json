@@ -1,0 +1,65 @@
+{
+  "cache_key": "372a528aa45a12387a2749a1e28def131078777178b00b132f2eb62a141ff395",
+  "sample_id": "case024",
+  "strategy": "S3",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Changing `error=True` to `error=False` in the deprecation warning downgrades a hard error to a soft warning, allowing code using the deprecated `minibatch_buffer_size` parameter to continue executing instead of failing, which may mask migration issues for users still relying on this deprecated parameter.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"Changing `error=True` to `error=False` in the deprecation warning downgrades a hard error to a soft warning, allowing code using the deprecated `minibatch_buffer_size` parameter to continue executing instead of failing, which may mask migration issues for users still relying on this deprecated parameter.\"\n}\n```",
+  "response_id": "gen-1795047553-1CxrYR2JSTuNJH6D12UU",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 2593,
+  "completion_tokens": 93,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.003058,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2593,
+    "completion_tokens": 93,
+    "total_tokens": 2686,
+    "cost": 0.003058,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003058,
+      "upstream_inference_prompt_cost": 0.002593,
+      "upstream_inference_completions_cost": 0.000465
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.46,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:19:15+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

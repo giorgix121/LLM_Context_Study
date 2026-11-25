@@ -1,0 +1,65 @@
+{
+  "cache_key": "b4859c3b7a2f1d26ee0a1a85d80fcc85741806d9b568a7481c12f6851aa7ee30",
+  "sample_id": "case136",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The new duplicate segment detection logic queries the database and returns early, but this check occurs after decompression and processing of the segment data, potentially causing race conditions where multiple concurrent messages process the same segment before the database check completes.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The new duplicate segment detection logic queries the database and returns early, but this check occurs after decompression and processing of the segment data, potentially causing race conditions where multiple concurrent messages process the same segment before the database check completes.\"\n}\n```",
+  "response_id": "gen-1795564715-KR4FDGXgur5F5ljMlqNR",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 708,
+  "completion_tokens": 74,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001078,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 708,
+    "completion_tokens": 74,
+    "total_tokens": 782,
+    "cost": 0.001078,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001078,
+      "upstream_inference_prompt_cost": 0.000708,
+      "upstream_inference_completions_cost": 0.00037
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.349,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:58:37+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

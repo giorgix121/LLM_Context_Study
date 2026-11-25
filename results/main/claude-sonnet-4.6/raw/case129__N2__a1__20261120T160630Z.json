@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795190965-v66tBZlmLQ2bRIPkQOIT",
+    "object": "chat.completion",
+    "created": 1795190965,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Adding `movflags=frag_keyframe` and `min_frag_duration` to the MP4 container options changes the recording from a standard MP4 to a fragmented MP4, which may cause compatibility issues with existing playback or post-processing code that expects a non-fragmented file, and passing `min_segment_duration` (likely in seconds or milliseconds) directly as `min_frag_duration` without verifying the expected unit (microseconds for libavformat) could produce incorrect fragmentation behavior.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4479,
+      "completion_tokens": 131,
+      "total_tokens": 4610,
+      "cost": 0.015402,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.015402,
+        "upstream_inference_prompt_cost": 0.013437,
+        "upstream_inference_completions_cost": 0.001965
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

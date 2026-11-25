@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "async_setup_entry",
+      "path": "homeassistant/components/onvif/button.py",
+      "start": 13,
+      "end": 20,
+      "code": "async def async_setup_entry(\n    hass: HomeAssistant,\n    config_entry: ConfigEntry,\n    async_add_entities: AddEntitiesCallback,\n) -> None:\n    \"\"\"Set up ONVIF button based on a config entry.\"\"\"\n    device = hass.data[DOMAIN][config_entry.unique_id]\n    async_add_entities([RebootButton(device), SetSystemDateAndTimeButton(device)])",
+      "calls": "RebootButton.__init__"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "commit": "ed0e849d52ba58520867b57ce94d6999b81f5e66",
+  "chars": 154,
+  "text": "feat(hybrid-cloud): Add logic on when to proxy (#39945)\n\nRequest should only be proxied when the endpoint's silo limit doesn't match the current silo mode"
+}

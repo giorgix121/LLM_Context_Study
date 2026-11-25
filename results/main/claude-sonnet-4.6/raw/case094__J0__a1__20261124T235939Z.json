@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565240-W8o2koVjI5RQD3WIS2ZZ",
+    "object": "chat.completion",
+    "created": 1795565240,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"In `process_commit_context`, the date filter logic is inverted: `to_be_deleted` uses `date_added__gte` (newer than cutoff) when it should delete old entries (`date_added__lte`), and `current_owners` uses `date_added__lte` (older than cutoff) when it should find recent ones, causing incorrect deletion of new owners and retention of stale ones.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8226,
+      "completion_tokens": 110,
+      "total_tokens": 8336,
+      "cost": 0.026328,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.026328,
+        "upstream_inference_prompt_cost": 0.024678,
+        "upstream_inference_completions_cost": 0.00165
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

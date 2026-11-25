@@ -1,0 +1,38 @@
+{
+  "found": 4,
+  "included": 4,
+  "functions": [
+    {
+      "name": "async_dispatcher_connect",
+      "path": "homeassistant/helpers/dispatcher.py",
+      "start": 33,
+      "end": 56,
+      "code": "@callback\n@bind_hass\ndef async_dispatcher_connect(\n    hass: HomeAssistant, signal: str, target: Callable[..., Any]\n) -> Callable[[], None]:\n    \"\"\"Connect a callable function to a signal.\n\n    This method must be run in the event loop.\n    \"\"\"\n    if DATA_DISPATCHER not in hass.data:\n        hass.data[DATA_DISPATCHER] = {}\n    hass.data[DATA_DISPATCHER].setdefault(signal, {})[target] = None\n\n    @callback\n    def async_remove_dispatcher() -> None:\n        \"\"\"Remove signal listener.\"\"\"\n        try:\n            del hass.data[DATA_DISPATCHER][signal][target]\n        except (KeyError, ValueError):\n            # KeyError is key target listener did not exist\n            # ValueError if listener did not exist within signal\n            _LOGGER.warning(\"Unable to remove unknown dispatcher %s\", target)\n\n    return async_remove_dispatcher",
+      "called_by": "GPSLoggerEntity.async_added_to_hass"
+    },
+    {
+      "name": "Entity.async_added_to_hass",
+      "path": "homeassistant/helpers/entity.py",
+      "start": 812,
+      "end": 816,
+      "code": "    async def async_added_to_hass(self) -> None:\n        \"\"\"Run when entity about to be added to hass.\n\n        To be extended by integrations.\n        \"\"\"",
+      "called_by": "GPSLoggerEntity.async_added_to_hass"
+    },
+    {
+      "name": "Entity.async_will_remove_from_hass",
+      "path": "homeassistant/helpers/entity.py",
+      "start": 818,
+      "end": 822,
+      "code": "    async def async_will_remove_from_hass(self) -> None:\n        \"\"\"Run when entity will be removed from hass.\n\n        To be extended by integrations.\n        \"\"\"",
+      "called_by": "GPSLoggerEntity.async_will_remove_from_hass"
+    },
+    {
+      "name": "RestoreEntity.async_get_last_state",
+      "path": "homeassistant/helpers/restore_state.py",
+      "start": 313,
+      "end": 317,
+      "code": "    async def async_get_last_state(self) -> State | None:\n        \"\"\"Get the entity state from the previous run.\"\"\"\n        if (stored_state := await self._async_get_restored_data()) is None:\n            return None\n        return stored_state.state",
+      "called_by": "GPSLoggerEntity.async_added_to_hass"
+    }
+  ]
+}

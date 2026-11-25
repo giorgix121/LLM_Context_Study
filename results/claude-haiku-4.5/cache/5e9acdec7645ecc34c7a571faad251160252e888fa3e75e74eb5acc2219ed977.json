@@ -1,0 +1,65 @@
+{
+  "cache_key": "5e9acdec7645ecc34c7a571faad251160252e888fa3e75e74eb5acc2219ed977",
+  "sample_id": "case29",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The function `_get_task_kwargs_and_dispatch` now declares return type `-> None` but still contains `return None` statement, creating a type inconsistency that could mask actual return values and cause issues with callers expecting proper None handling.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The function `_get_task_kwargs_and_dispatch` now declares return type `-> None` but still contains `return None` statement, creating a type inconsistency that could mask actual return values and cause issues with callers expecting proper None handling.\"\n}\n```",
+  "response_id": "gen-1790920279-o7a2fLM1D0PrdfPl2ir1",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 3179,
+  "completion_tokens": 81,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.003584,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3179,
+    "completion_tokens": 81,
+    "total_tokens": 3260,
+    "cost": 0.003584,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.003584,
+      "upstream_inference_prompt_cost": 0.003179,
+      "upstream_inference_completions_cost": 0.000405
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.463,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T05:51:21+00:00",
+  "run_id": "20261002T054951Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

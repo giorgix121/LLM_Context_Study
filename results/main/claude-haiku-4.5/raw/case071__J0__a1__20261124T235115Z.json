@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564684-lvxXED5IFURnHUrusZBj",
+    "object": "chat.completion",
+    "created": 1795564684,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The `_resolve_component_status` method has a logic flaw: when `enable` is provided, it computes `to_disable` as all pipes not in `enable`, then checks if this differs from the provided `disable` list, but this check will incorrectly raise an error even when `disable` and `enable` are semantically consistent (e.g., `enable=['a','b']` with `disable=['c','d']` when pipeline is `['a','b','c','d']` should be valid but will fail the equality check).\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5466,
+      "completion_tokens": 149,
+      "total_tokens": 5615,
+      "cost": 0.006211,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006211,
+        "upstream_inference_prompt_cost": 0.005466,
+        "upstream_inference_completions_cost": 0.000745
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

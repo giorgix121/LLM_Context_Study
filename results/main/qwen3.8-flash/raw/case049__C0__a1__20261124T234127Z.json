@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564162-wZMVN5ayQNWqKYrNoA0z",
+    "object": "chat.completion",
+    "created": 1795564162,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The change conditionally sets 'data' to None when files are present, which may break proxying of non-multipart requests that rely on the body being passed explicitly if the 'files' attribute exists but is empty or not intended for multipart handling.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1214,
+      "completion_tokens": 64,
+      "total_tokens": 1278,
+      "cost": 0.00021218,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00021218,
+        "upstream_inference_prompt_cost": 0.0001821,
+        "upstream_inference_completions_cost": 3.008e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

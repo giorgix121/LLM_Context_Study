@@ -1,0 +1,108 @@
+{
+  "commit": "0f792eb92eb28f19a07dbd823e62df64c28b833c",
+  "files_in_commit": 15,
+  "target_index": 3,
+  "target_status": "modified",
+  "chars": 13781,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "homeassistant/components/caldav/calendar.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "patch": "@@ -135,11 +135,13 @@ def event(self) -> CalendarEvent | None:\n         \"\"\"Return the next upcoming event.\"\"\"\n         return self._event\n \n-    async def async_get_events(self, hass, start_date, end_date):\n+    async def async_get_events(\n+        self, hass: HomeAssistant, start_date: datetime, end_date: datetime\n+    ) -> list[CalendarEvent]:\n         \"\"\"Get all events in a specific time frame.\"\"\"\n         return await self.data.async_get_events(hass, start_date, end_date)\n \n-    def update(self):\n+    def update(self) -> None:\n         \"\"\"Update event data.\"\"\"\n         self.data.update()\n         self._event = self.data.event"
+    },
+    {
+      "path": "homeassistant/components/channels/media_player.py",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 9,
+      "patch": "@@ -1,6 +1,8 @@\n \"\"\"Support for interfacing with an instance of getchannels.com.\"\"\"\n from __future__ import annotations\n \n+from typing import Any\n+\n from pychannels import Channels\n import voluptuous as vol\n \n@@ -167,7 +169,7 @@ def state(self):\n \n         return None\n \n-    def update(self):\n+    def update(self) -> None:\n         \"\"\"Retrieve latest state.\"\"\"\n         self.update_favorite_channels()\n         self.update_state(self.client.status())\n@@ -211,47 +213,47 @@ def media_title(self):\n \n         return None\n \n-    def mute_volume(self, mute):\n+    def mute_volume(self, mute: bool) -> None:\n         \"\"\"Mute (true) or unmute (false) player.\"\"\"\n         if mute != self.muted:\n             response = self.client.toggle_muted()\n             self.update_state(response)\n \n-    def media_stop(self):\n+    def media_stop(self) -> None:\n         \"\"\"Send media_stop command to player.\"\"\"\n         self.status = \"stopped\"\n         response = self.client.stop()\n         self.update_state(response)\n \n-    def media_play(self):\n+    def media_play(self) -> None:\n         \"\"\"Send media_play command to player.\"\"\"\n         response = self.client.resume()\n         self.update_state(response)\n \n-    def media_pause(self):\n+    def media_pause(self) -> None:\n         \"\"\"Send media_pause command to player.\"\"\"\n         response = self.client.pause()\n         self.update_state(response)\n \n-    def media_next_track(self):\n+    def media_next_track(self) -> None:\n         \"\"\"Seek ahead.\"\"\"\n         response = self.client.skip_forward()\n         self.update_state(response)\n \n-    def media_previous_track(self):\n+    def media_previous_track(self) -> None:\n         \"\"\"Seek back.\"\"\"\n         response = self.client.skip_backward()\n         self.update_state(response)\n \n-    def select_source(self, source):\n+    def select_source(self, source: str) -> None:\n         \"\"\"Select a channel to tune to.\"\"\"\n         for channel in self.favorite_channels:\n             if channel[\"name\"] == source:\n                 response = self.client.play_channel(channel[\"number\"])\n                 self.update_state(response)\n                 break\n \n-    def play_media(self, media_type, media_id, **kwargs):\n+    def play_media(self, media_type: str, media_id: str, **kwargs: Any) -> None:\n         \"\"\"Send the play_media command to the player.\"\"\"\n         if media_type == MEDIA_TYPE_CHANNEL:\n             response = self.client.play_channel(media_id)"
+    },
+    {
+      "path": "homeassistant/components/citybikes/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -284,7 +284,7 @@ def __init__(self, network, station_id, entity_id):\n         self._station_id = station_id\n         self.entity_id = entity_id\n \n-    async def async_update(self):\n+    async def async_update(self) -> None:\n         \"\"\"Update station state.\"\"\"\n         for station in self._network.stations:\n             if station[ATTR_ID] == self._station_id:"
+    },
+    {
+      "path": "homeassistant/components/cloud/binary_sensor.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "patch": "@@ -56,7 +56,7 @@ def available(self) -> bool:\n         \"\"\"Return True if entity is available.\"\"\"\n         return self.cloud.remote.certificate is not None\n \n-    async def async_added_to_hass(self):\n+    async def async_added_to_hass(self) -> None:\n         \"\"\"Register update dispatcher.\"\"\"\n \n         async def async_state_update(data):\n@@ -68,7 +68,7 @@ async def async_state_update(data):\n             self.hass, DISPATCHER_REMOTE_UPDATE, async_state_update\n         )\n \n-    async def async_will_remove_from_hass(self):\n+    async def async_will_remove_from_hass(self) -> None:\n         \"\"\"Register update dispatcher.\"\"\"\n         if self._unsub_dispatcher is not None:\n             self._unsub_dispatcher()"
+    },
+    {
+      "path": "homeassistant/components/cmus/media_player.py",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 13,
+      "patch": "@@ -2,6 +2,7 @@\n from __future__ import annotations\n \n import logging\n+from typing import Any\n \n from pycmus import exceptions, remote\n import voluptuous as vol\n@@ -115,7 +116,7 @@ def __init__(self, device, name, server):\n         self._attr_name = name or auto_name\n         self.status = {}\n \n-    def update(self):\n+    def update(self) -> None:\n         \"\"\"Get the latest data and update the state.\"\"\"\n         try:\n             status = self._remote.cmus.get_status_dict()\n@@ -150,19 +151,19 @@ def update(self):\n \n         _LOGGER.warning(\"Received no status from cmus\")\n \n-    def turn_off(self):\n+    def turn_off(self) -> None:\n         \"\"\"Service to send the CMUS the command to stop playing.\"\"\"\n         self._remote.cmus.player_stop()\n \n-    def turn_on(self):\n+    def turn_on(self) -> None:\n         \"\"\"Service to send the CMUS the command to start playing.\"\"\"\n         self._remote.cmus.player_play()\n \n-    def set_volume_level(self, volume):\n+    def set_volume_level(self, volume: float) -> None:\n         \"\"\"Set volume level, range 0..1.\"\"\"\n         self._remote.cmus.set_volume(int(volume * 100))\n \n-    def volume_up(self):\n+    def volume_up(self) -> None:\n         \"\"\"Set the volume up.\"\"\"\n         left = self.status[\"set\"].get(\"vol_left\")\n         right = self.status[\"set\"].get(\"vol_right\")\n@@ -174,7 +175,7 @@ def volume_up(self):\n         if current_volume <= 100:\n             self._remote.cmus.set_volume(int(current_volume) + 5)\n \n-    def volume_down(self):\n+    def volume_down(self) -> None:\n         \"\"\"Set the volume down.\"\"\"\n         left = self.status[\"set\"].get(\"vol_left\")\n         right = self.status[\"set\"].get(\"vol_right\")\n@@ -186,7 +187,7 @@ def volume_down(self):\n         if current_volume <= 100:\n             self._remote.cmus.set_volume(int(current_volume) - 5)\n \n-    def play_media(self, media_type, media_id, **kwargs):\n+    def play_media(self, media_type: str, media_id: str, **kwargs: Any) -> None:\n         \"\"\"Send the play command.\"\"\"\n         if media_type in [MEDIA_TYPE_MUSIC, MEDIA_TYPE_PLAYLIST]:\n             self._remote.cmus.player_play_file(media_id)\n@@ -198,26 +199,26 @@ def play_media(self, media_type, media_id, **kwargs):\n                 MEDIA_TYPE_PLAYLIST,\n             )\n \n-    def media_pause(self):\n+    def media_pause(self) -> None:\n         \"\"\"Send the pause command.\"\"\"\n         self._remote.cmus.player_pause()\n \n-    def media_next_track(self):\n+    def media_next_track(self) -> None:\n         \"\"\"Send next track command.\"\"\"\n         self._remote.cmus.player_next()\n \n-    def media_previous_track(self):\n+    def media_previous_track(self) -> None:\n         \"\"\"Send next track command.\"\"\"\n         self._remote.cmus.player_prev()\n \n-    def media_seek(self, position):\n+    def media_seek(self, position: float) -> None:\n         \"\"\"Send seek command.\"\"\"\n         self._remote.cmus.seek(position)\n \n-    def media_play(self):\n+    def media_play(self) -> None:\n         \"\"\"Send the play command.\"\"\"\n         self._remote.cmus.player_play()\n \n-    def media_stop(self):\n+    def media_stop(self) -> None:\n         \"\"\"Send the stop command.\"\"\"\n         self._remote.cmus.stop()"
+    },
+    {
+      "path": "homeassistant/components/coinbase/sensor.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "patch": "@@ -161,7 +161,7 @@ def extra_state_attributes(self):\n             ATTR_NATIVE_BALANCE: f\"{self._native_balance} {self._native_currency}\",\n         }\n \n-    def update(self):\n+    def update(self) -> None:\n         \"\"\"Get the latest state of the sensor.\"\"\"\n         self._coinbase_data.update()\n         for account in self._coinbase_data.accounts:\n@@ -233,7 +233,7 @@ def extra_state_attributes(self):\n         \"\"\"Return the state attributes of the sensor.\"\"\"\n         return {ATTR_ATTRIBUTION: ATTRIBUTION}\n \n-    def update(self):\n+    def update(self) -> None:\n         \"\"\"Get the latest state of the sensor.\"\"\"\n         self._coinbase_data.update()\n         self._state = round("
+    },
+    {
+      "path": "homeassistant/components/comed_hourly_pricing/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -101,7 +101,7 @@ def __init__(self, websession, offset, name, description: SensorEntityDescriptio\n             self._attr_name = name\n         self.offset = offset\n \n-    async def async_update(self):\n+    async def async_update(self) -> None:\n         \"\"\"Get the ComEd Hourly Pricing data from the web service.\"\"\"\n         try:\n             sensor_type = self.entity_description.key"
+    },
+    {
+      "path": "homeassistant/components/command_line/switch.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "patch": "@@ -172,13 +172,13 @@ def update(self) -> None:\n                 payload = self._value_template.render_with_possible_json_value(payload)\n             self._attr_is_on = payload.lower() == \"true\"\n \n-    def turn_on(self, **kwargs) -> None:\n+    def turn_on(self, **kwargs: Any) -> None:\n         \"\"\"Turn the device on.\"\"\"\n         if self._switch(self._command_on) and not self._command_state:\n             self._attr_is_on = True\n             self.schedule_update_ha_state()\n \n-    def turn_off(self, **kwargs) -> None:\n+    def turn_off(self, **kwargs: Any) -> None:\n         \"\"\"Turn the device off.\"\"\"\n         if self._switch(self._command_off) and not self._command_state:\n             self._attr_is_on = False"
+    },
+    {
+      "path": "homeassistant/components/compensation/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -90,7 +90,7 @@ def __init__(\n         self._unique_id = unique_id\n         self._name = name\n \n-    async def async_added_to_hass(self):\n+    async def async_added_to_hass(self) -> None:\n         \"\"\"Handle added to Hass.\"\"\"\n         self.async_on_remove(\n             async_track_state_change_event("
+    },
+    {
+      "path": "homeassistant/components/concord232/binary_sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -133,7 +133,7 @@ def is_on(self):\n         # True means \"faulted\" or \"open\" or \"abnormal state\"\n         return bool(self._zone[\"state\"] != \"Normal\")\n \n-    def update(self):\n+    def update(self) -> None:\n         \"\"\"Get updated stats from API.\"\"\"\n         last_update = dt_util.utcnow() - self._client.last_zone_update\n         _LOGGER.debug(\"Zone: %s \", self._zone)"
+    },
+    {
+      "path": "homeassistant/components/coolmaster/climate.py",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 6,
+      "patch": "@@ -1,5 +1,6 @@\n \"\"\"CoolMasterNet platform to control of CoolMasterNet Climate Devices.\"\"\"\n import logging\n+from typing import Any\n \n from homeassistant.components.climate import ClimateEntity\n from homeassistant.components.climate.const import ClimateEntityFeature, HVACMode\n@@ -93,7 +94,7 @@ def name(self):\n         return self.unique_id\n \n     @property\n-    def temperature_unit(self):\n+    def temperature_unit(self) -> str:\n         \"\"\"Return the unit of measurement.\"\"\"\n         if self._unit.temperature_unit == \"celsius\":\n             return TEMP_CELSIUS\n@@ -134,20 +135,20 @@ def fan_modes(self):\n         \"\"\"Return the list of available fan modes.\"\"\"\n         return FAN_MODES\n \n-    async def async_set_temperature(self, **kwargs):\n+    async def async_set_temperature(self, **kwargs: Any) -> None:\n         \"\"\"Set new target temperatures.\"\"\"\n         if (temp := kwargs.get(ATTR_TEMPERATURE)) is not None:\n             _LOGGER.debug(\"Setting temp of %s to %s\", self.unique_id, str(temp))\n             self._unit = await self._unit.set_thermostat(temp)\n             self.async_write_ha_state()\n \n-    async def async_set_fan_mode(self, fan_mode):\n+    async def async_set_fan_mode(self, fan_mode: str) -> None:\n         \"\"\"Set new fan mode.\"\"\"\n         _LOGGER.debug(\"Setting fan mode of %s to %s\", self.unique_id, fan_mode)\n         self._unit = await self._unit.set_fan_speed(fan_mode)\n         self.async_write_ha_state()\n \n-    async def async_set_hvac_mode(self, hvac_mode):\n+    async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:\n         \"\"\"Set new operation mode.\"\"\"\n         _LOGGER.debug(\"Setting operation mode of %s to %s\", self.unique_id, hvac_mode)\n \n@@ -157,13 +158,13 @@ async def async_set_hvac_mode(self, hvac_mode):\n             self._unit = await self._unit.set_mode(HA_STATE_TO_CM[hvac_mode])\n             await self.async_turn_on()\n \n-    async def async_turn_on(self):\n+    async def async_turn_on(self) -> None:\n         \"\"\"Turn on.\"\"\"\n         _LOGGER.debug(\"Turning %s on\", self.unique_id)\n         self._unit = await self._unit.turn_on()\n         self.async_write_ha_state()\n \n-    async def async_turn_off(self):\n+    async def async_turn_off(self) -> None:\n         \"\"\"Turn off.\"\"\"\n         _LOGGER.debug(\"Turning %s off\", self.unique_id)\n         self._unit = await self._unit.turn_off()"
+    },
+    {
+      "path": "homeassistant/components/coronavirus/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -53,7 +53,7 @@ def __init__(self, coordinator, country, info_type):\n         self.info_type = info_type\n \n     @property\n-    def available(self):\n+    def available(self) -> bool:\n         \"\"\"Return if sensor is available.\"\"\"\n         return self.coordinator.last_update_success and (\n             self.country in self.coordinator.data or self.country == OPTION_WORLDWIDE"
+    },
+    {
+      "path": "homeassistant/components/cups/sensor.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "patch": "@@ -157,7 +157,7 @@ def extra_state_attributes(self):\n             ATTR_PRINTER_URI_SUPPORTED: self._printer[\"printer-uri-supported\"],\n         }\n \n-    def update(self):\n+    def update(self) -> None:\n         \"\"\"Get the latest data and updates the states.\"\"\"\n         self.data.update()\n         self._printer = self.data.printers.get(self._name)\n@@ -234,7 +234,7 @@ def extra_state_attributes(self):\n \n         return state_attributes\n \n-    def update(self):\n+    def update(self) -> None:\n         \"\"\"Fetch new state data for the sensor.\"\"\"\n         self.data.update()\n         self._attributes = self.data.attributes.get(self._name)\n@@ -309,7 +309,7 @@ def extra_state_attributes(self):\n             ATTR_PRINTER_NAME: printer_name,\n         }\n \n-    def update(self):\n+    def update(self) -> None:\n         \"\"\"Update the state of the sensor.\"\"\"\n         # Data fetching is done by CupsSensor/IPPSensor\n         self._attributes = self.data.attributes"
+    },
+    {
+      "path": "homeassistant/components/currencylayer/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -99,7 +99,7 @@ def extra_state_attributes(self):\n         \"\"\"Return the state attributes of the sensor.\"\"\"\n         return {ATTR_ATTRIBUTION: ATTRIBUTION}\n \n-    def update(self):\n+    def update(self) -> None:\n         \"\"\"Update current date.\"\"\"\n         self.rest.update()\n         if (value := self.rest.data) is not None:"
+    }
+  ]
+}

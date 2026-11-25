@@ -1,0 +1,65 @@
+{
+  "cache_key": "408658126589970f9028487aeb1fff41442ae0988d08275f72157abf3a6ec44c",
+  "sample_id": "case065",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Removing the frame-based logic that sets LKAS_PROBLEM to 1 during startup (first 200 frames) may cause the car's HUD to display incorrect LKAS status or affect the radar/LKAS initialization sequence on Bosch radarless Honda vehicles.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"Removing the frame-based logic that sets LKAS_PROBLEM to 1 during startup (first 200 frames) may cause the car's HUD to display incorrect LKAS status or affect the radar/LKAS initialization sequence on Bosch radarless Honda vehicles.\"\n}\n```",
+  "response_id": "gen-1795564492-cEZdaYkFmCyQRGkfMgf7",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 838,
+  "completion_tokens": 89,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.001283,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 838,
+    "completion_tokens": 89,
+    "total_tokens": 927,
+    "cost": 0.001283,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.001283,
+      "upstream_inference_prompt_cost": 0.000838,
+      "upstream_inference_completions_cost": 0.000445
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.418,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:54:53+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

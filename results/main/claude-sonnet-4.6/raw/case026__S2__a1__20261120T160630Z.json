@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191555-1x0gm8yCBTgbTGeJZEpV",
+    "object": "chat.completion",
+    "created": 1795191555,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Calling `connection_pool.disconnect()` after `ping()` in `validate()` forcibly closes all pooled connections, which could disrupt concurrent requests that are actively using those connections or cause unnecessary reconnection overhead in production if `validate()` is called at startup while the pool is already serving traffic.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2427,
+      "completion_tokens": 81,
+      "total_tokens": 2508,
+      "cost": 0.008496,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.008496,
+        "upstream_inference_prompt_cost": 0.007281,
+        "upstream_inference_completions_cost": 0.001215
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

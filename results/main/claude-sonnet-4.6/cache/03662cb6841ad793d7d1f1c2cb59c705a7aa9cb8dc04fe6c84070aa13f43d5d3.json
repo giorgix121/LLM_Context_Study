@@ -1,0 +1,65 @@
+{
+  "cache_key": "03662cb6841ad793d7d1f1c2cb59c705a7aa9cb8dc04fe6c84070aa13f43d5d3",
+  "sample_id": "case034",
+  "strategy": "N2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The diff replaces per-car PID lateral tuning (with specific kp, ki, kf values) with a generic torque tune via `configure_torque_tune`, which changes the control algorithm and parameters for all Mazda vehicles and could degrade steering performance or safety.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The diff replaces per-car PID lateral tuning (with specific kp, ki, kf values) with a generic torque tune via `configure_torque_tune`, which changes the control algorithm and parameters for all Mazda vehicles and could degrade steering performance or safety.\"}",
+  "response_id": "gen-1795191586-gEjV1mWLEk7ezIQfPtaE",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 3000,
+  "completion_tokens": 77,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.010155,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3000,
+    "completion_tokens": 77,
+    "total_tokens": 3077,
+    "cost": 0.010155,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.010155,
+      "upstream_inference_prompt_cost": 0.009,
+      "upstream_inference_completions_cost": 0.001155
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.125,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:19:49+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

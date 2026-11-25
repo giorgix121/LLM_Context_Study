@@ -1,0 +1,65 @@
+{
+  "cache_key": "c415ff2d384af242d5f84177741b56cd535979920365be69728637cb71a158b4",
+  "sample_id": "case115",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The update to `async-upnp-client==0.32.0` introduces a new `Server` class and associated logic to the `ssdp` component, which could lead to unexpected behavior or regressions in network discovery and device interaction.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The update to `async-upnp-client==0.32.0` introduces a new `Server` class and associated logic to the `ssdp` component, which could lead to unexpected behavior or regressions in network discovery and device interaction.\"\n}\n```",
+  "response_id": "gen-1795563634-nil5ERisWF7GsFkvoaaa",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 8111,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0008399,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 8111,
+    "completion_tokens": 72,
+    "total_tokens": 8183,
+    "cost": 0.0008399,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0008399,
+      "upstream_inference_prompt_cost": 0.0008111,
+      "upstream_inference_completions_cost": 2.88e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.596,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:40:35+00:00",
+  "run_id": "20261124T233752Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

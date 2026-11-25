@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "PublicAPI",
+      "path": "python/ray/util/annotations.py",
+      "start": 1,
+      "end": 56,
+      "code": "def PublicAPI(*args, **kwargs):\n    \"\"\"Annotation for documenting public APIs.\n\n    Public APIs are classes and methods exposed to end users of Ray.\n\n    If ``stability=\"alpha\"``, the API can be used by advanced users who are\n    tolerant to and expect breaking changes.\n\n    If ``stability=\"beta\"``, the API is still public and can be used by early\n    users, but are subject to change.\n\n    If ``stability=\"stable\"``, the APIs will remain backwards compatible across\n    minor Ray releases (e.g., Ray 1.4 -> 1.8).\n\n    For a full definition of the stability levels, please refer to the\n    :ref:`Ray API Stability definitions <api-stability>`.\n\n    Args:\n        stability: One of {\"stable\", \"beta\", \"alpha\"}.\n\n    Examples:\n        >>> from ray.util.annotations import PublicAPI\n        >>> @PublicAPI\n        ... def func(x):\n        ...     return x\n\n        >>> @PublicAPI(stability=\"beta\")\n        ... def func(y):\n        ...     return y\n    \"\"\"\n    if len(args) == 1 and len(kwargs) == 0 and callable(args[0]):\n        return PublicAPI(stability=\"stable\")(args[0])\n\n    if \"stability\" in kwargs:\n        stability = kwargs[\"stability\"]\n        assert stability in [\"stable\", \"beta\", \"alpha\"], stability\n    elif kwargs:\n        raise ValueError(\"Unknown kwargs: {}\".format(kwargs.keys()))\n    else:\n        stability = \"stable\"\n\n    def wrap(obj):\n        if not obj.__doc__:\n            obj.__doc__ = \"\"\n        if stability in [\"alpha\", \"beta\"]:\n            obj.__doc__ += (\n                f\"\\n    PublicAPI ({stability}): This API is in {stability} \"\n                \"and may change before becoming stable.\"\n            )\n        else:\n            obj.__doc__ += \"\\n    PublicAPI: This API is stable across Ray releases.\"\n\n        _mark_annotated(obj)\n        return obj\n\n    return wrap",
+      "called_by": "json_to_ndarray"
+    }
+  ]
+}

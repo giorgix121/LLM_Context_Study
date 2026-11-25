@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795189656-Pfsu87T1RJm6ERpxw92o",
+    "object": "chat.completion",
+    "created": 1795189656,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Removing the explicit `torch.cuda.set_device` call in `module_to_device` may cause CUDA operations to target the wrong device in spawned subprocesses if the device context is not correctly initialized elsewhere, leading to runtime errors or incorrect behavior.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4555,
+      "completion_tokens": 61,
+      "total_tokens": 4616,
+      "cost": 0.00071192,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00071192,
+        "upstream_inference_prompt_cost": 0.00068325,
+        "upstream_inference_completions_cost": 2.867e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

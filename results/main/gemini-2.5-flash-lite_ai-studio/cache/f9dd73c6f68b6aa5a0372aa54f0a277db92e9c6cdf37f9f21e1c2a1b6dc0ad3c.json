@@ -1,0 +1,65 @@
+{
+  "cache_key": "f9dd73c6f68b6aa5a0372aa54f0a277db92e9c6cdf37f9f21e1c2a1b6dc0ad3c",
+  "sample_id": "case127",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The refactoring optimizes the handling of categorical data in groupby operations by directly manipulating codes, which is a performance improvement and maintains existing functionality.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The refactoring optimizes the handling of categorical data in groupby operations by directly manipulating codes, which is a performance improvement and maintains existing functionality.\"}",
+  "response_id": "gen-1795187736-LznlIeSrbNZYjVaQQ5Je",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 694,
+  "completion_tokens": 41,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 8.58e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 694,
+    "completion_tokens": 41,
+    "total_tokens": 735,
+    "cost": 8.58e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.58e-05,
+      "upstream_inference_prompt_cost": 6.94e-05,
+      "upstream_inference_completions_cost": 1.64e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.415,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:15:36+00:00",
+  "run_id": "20261120T151513Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "7df0cb50fdd1962aaaa8bdff54dd13bddc2be6c3f72b2f806fb5a11b6d72427d",
+  "sample_id": "case15",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The `get_notification_title` method now requires a `provider` parameter that was previously optional, which could break existing callers that don't pass this argument.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The `get_notification_title` method now requires a `provider` parameter that was previously optional, which could break existing callers that don't pass this argument.\"\n}\n```",
+  "response_id": "gen-1790920195-JXNAIsDjnuHCyY5r7X51",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 647,
+  "completion_tokens": 61,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000952,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 647,
+    "completion_tokens": 61,
+    "total_tokens": 708,
+    "cost": 0.000952,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000952,
+      "upstream_inference_prompt_cost": 0.000647,
+      "upstream_inference_completions_cost": 0.000305
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.92,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T05:49:56+00:00",
+  "run_id": "20261002T054951Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

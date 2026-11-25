@@ -1,0 +1,65 @@
+{
+  "cache_key": "e874511612316b2deb1e8438d6d3dd84b5859b61faa32f8572ade49b73611845",
+  "sample_id": "case125",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The change accesses `hass.data[DATA_MQTT].client` to get the MQTT instance, but `client` could be `None` (as evidenced by the `assert mqtt_data.client is not None` guard in `is_connected`), which would cause an `AttributeError` when calling `mqtt_instance.conf` if the client hasn't been initialized yet.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The change accesses `hass.data[DATA_MQTT].client` to get the MQTT instance, but `client` could be `None` (as evidenced by the `assert mqtt_data.client is not None` guard in `is_connected`), which would cause an `AttributeError` when calling `mqtt_instance.conf` if the client hasn't been initialized yet.\"}",
+  "response_id": "gen-1795192660-JN3jQZ2EEq7TTXds3CHe",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2369,
+  "completion_tokens": 101,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.008622,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2369,
+    "completion_tokens": 101,
+    "total_tokens": 2470,
+    "cost": 0.008622,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.008622,
+      "upstream_inference_prompt_cost": 0.007107,
+      "upstream_inference_completions_cost": 0.001515
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.666,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:37:42+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

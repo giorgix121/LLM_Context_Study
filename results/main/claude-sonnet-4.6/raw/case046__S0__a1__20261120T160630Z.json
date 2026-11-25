@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191986-jQfMYpTxd704tsL0br43",
+    "object": "chat.completion",
+    "created": 1795191986,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "I need to evaluate whether replacing `self.device.info.mac or self.device.info.serial_number` with `self.mac_or_serial` introduces a functional defect.\n\nThe key question is whether `self.mac_or_serial` (a property on `ONVIFBaseEntity`) produces the same value as `self.device.info.mac or self.device.info.serial_number`.\n\nIf `mac_or_serial` is a property defined in the base class that returns the same expression, this is a safe refactor. However, if `mac_or_serial` has different logic (e.g., different fallback behavior, normalization, or formatting), the unique_id would change, causing existing entities to lose their identity in Home Assistant (breaking entity registry entries).\n\nWithout seeing the base class definition, the risk depends on whether `mac_or_serial` exactly mirrors the original expression. Given this is a refactoring to use a shared property (likely introduced to centralize this logic), and assuming the property was added consistently, this is likely safe. However, if the property normalizes MAC addresses (e.g., lowercasing or removing colons)",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 455,
+      "completion_tokens": 256,
+      "total_tokens": 711,
+      "cost": 0.005205,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005205,
+        "upstream_inference_prompt_cost": 0.001365,
+        "upstream_inference_completions_cost": 0.00384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

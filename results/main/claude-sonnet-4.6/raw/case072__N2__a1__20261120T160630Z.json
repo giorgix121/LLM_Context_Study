@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192738-EAxXVb6txAKB7CJCE9Wa",
+    "object": "chat.completion",
+    "created": 1795192738,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The new `_alter_column_collation_sql` method appends a USING cast clause (e.g., `USING column::type`) to the collation-change SQL, but the `sql_alter_column_collate` template likely doesn't include `%(column)s` and `%(type)s` placeholders in the right positions for a USING clause, and mixing collation changes with type casts in a single ALTER COLUMN statement may produce invalid SQL or unintended behavior when only the collation is changing.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8559,
+      "completion_tokens": 132,
+      "total_tokens": 8691,
+      "cost": 0.027657,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.027657,
+        "upstream_inference_prompt_cost": 0.025677,
+        "upstream_inference_completions_cost": 0.00198
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

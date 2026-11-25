@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "DDPSpawnStrategy._set_world_ranks",
+      "path": "src/lightning_lite/strategies/ddp_spawn.py",
+      "start": 199,
+      "end": 204,
+      "code": "    def _set_world_ranks(self) -> None:\n        if self.cluster_environment is None:\n            return\n        self.cluster_environment.set_global_rank(self.node_rank * self.num_processes + self.local_rank)\n        self.cluster_environment.set_world_size(self.num_nodes * self.num_processes)\n        rank_zero_only.rank = self.cluster_environment.global_rank()",
+      "called_by": "XLAStrategy.setup_environment"
+    }
+  ]
+}

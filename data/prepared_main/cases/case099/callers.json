@@ -1,0 +1,22 @@
+{
+  "found": 2,
+  "included": 2,
+  "functions": [
+    {
+      "name": "DDPSpawnStrategy._setup_distributed",
+      "path": "src/lightning_lite/strategies/ddp_spawn.py",
+      "start": 183,
+      "end": 194,
+      "code": "    def _setup_distributed(self) -> None:\n        self._set_world_ranks()\n        rank_zero_only.rank = self.global_rank\n        self._process_group_backend = self._get_process_group_backend()\n        assert self.cluster_environment is not None\n        init_dist_connection(\n            self.cluster_environment,\n            self._process_group_backend,\n            self.global_rank,\n            self.world_size,\n            timeout=self._timeout,\n        )",
+      "calls": "DDPSpawnStrategy._set_world_ranks"
+    },
+    {
+      "name": "XLAStrategy.setup_environment",
+      "path": "src/lightning_lite/strategies/xla.py",
+      "start": 98,
+      "end": 101,
+      "code": "    def setup_environment(self) -> None:\n        self._launched = True\n        self._set_world_ranks()\n        rank_zero_only.rank = self.global_rank",
+      "calls": "DDPSpawnStrategy._set_world_ranks"
+    }
+  ]
+}

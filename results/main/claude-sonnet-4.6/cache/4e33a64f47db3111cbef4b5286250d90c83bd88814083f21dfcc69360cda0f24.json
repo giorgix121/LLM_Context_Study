@@ -1,0 +1,65 @@
+{
+  "cache_key": "4e33a64f47db3111cbef4b5286250d90c83bd88814083f21dfcc69360cda0f24",
+  "sample_id": "case114",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "In `value_electric_current`, when `device.voltage` is an integer but equals 0, a division-by-zero error will occur since the guard only checks `isinstance(device.voltage, int)` without verifying it is non-zero.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"In `value_electric_current`, when `device.voltage` is an integer but equals 0, a division-by-zero error will occur since the guard only checks `isinstance(device.voltage, int)` without verifying it is non-zero.\"}",
+  "response_id": "gen-1795565064-fC7roDitcMn4v4tzUt75",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2593,
+  "completion_tokens": 71,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.008844,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2593,
+    "completion_tokens": 71,
+    "total_tokens": 2664,
+    "cost": 0.008844,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.008844,
+      "upstream_inference_prompt_cost": 0.007779,
+      "upstream_inference_completions_cost": 0.001065
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.239,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-25T00:04:27+00:00",
+  "run_id": "20261124T235939Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

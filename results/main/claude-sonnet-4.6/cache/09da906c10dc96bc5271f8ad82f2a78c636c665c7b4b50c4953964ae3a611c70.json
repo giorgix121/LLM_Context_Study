@@ -1,0 +1,65 @@
+{
+  "cache_key": "09da906c10dc96bc5271f8ad82f2a78c636c665c7b4b50c4953964ae3a611c70",
+  "sample_id": "case001",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The `global_tags` context manager now uses `old_len = len(stack) - 1` (off-by-one: should be `len(stack) - 1` before appending, but `_add_global_tags` appends first and returns the stack, so `old_len` equals the index of the just-appended item rather than the pre-existing length), meaning `del stack[old_len:]` will delete the tag just added by `global_tags` itself plus any subsequently added tags, which is correct only if no tags existed before—but if nested, it could delete too many or too few entries.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The `global_tags` context manager now uses `old_len = len(stack) - 1` (off-by-one: should be `len(stack) - 1` before appending, but `_add_global_tags` appends first and returns the stack, so `old_len` equals the index of the just-appended item rather than the pre-existing length), meaning `del stack[old_len:]` will delete the tag just added by `global_tags` itself plus any subsequently added tags, which is correct only if no tags existed before—but if nested, it could delete too many or too few entries.\"}",
+  "response_id": "gen-1795564823-80BTivIYBiP9TE1K9Avl",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 3187,
+  "completion_tokens": 155,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.011886,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 3187,
+    "completion_tokens": 155,
+    "total_tokens": 3342,
+    "cost": 0.011886,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.011886,
+      "upstream_inference_prompt_cost": 0.009561,
+      "upstream_inference_completions_cost": 0.002325
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 4.304,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-25T00:00:27+00:00",
+  "run_id": "20261124T235939Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

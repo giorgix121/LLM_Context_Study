@@ -1,0 +1,65 @@
+{
+  "cache_key": "4edf45bf56951067c73f00fc5799405441711d71b470385854bd74caf505485b",
+  "sample_id": "case028",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The Legacy is mapped to Outback's tuning parameters (mass, wheelbase, centerToFront, lateral tuning) without verifying these values are appropriate for the Legacy's actual dimensions and dynamics, which could result in poor or unsafe lateral control.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The Legacy is mapped to Outback's tuning parameters (mass, wheelbase, centerToFront, lateral tuning) without verifying these values are appropriate for the Legacy's actual dimensions and dynamics, which could result in poor or unsafe lateral control.\"}",
+  "response_id": "gen-1795191109-JX36oWxL5e8UpEE3p5Me",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 405,
+  "completion_tokens": 69,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00225,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 405,
+    "completion_tokens": 69,
+    "total_tokens": 474,
+    "cost": 0.00225,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00225,
+      "upstream_inference_prompt_cost": 0.001215,
+      "upstream_inference_completions_cost": 0.001035
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.484,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:11:52+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

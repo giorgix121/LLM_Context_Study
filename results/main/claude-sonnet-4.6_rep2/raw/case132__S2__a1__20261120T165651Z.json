@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795194008-zO3to54O6mo7NVFDPvnt",
+    "object": "chat.completion",
+    "created": 1795194008,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"When `operation` is `None`, the function now returns the raw `metric_mri` string instead of calling `get_public_name_from_mri(metric_mri)`, which changes the return value from a public/human-readable metric name to an internal MRI, breaking callers that expect the public name.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2188,
+      "completion_tokens": 87,
+      "total_tokens": 2275,
+      "cost": 0.007869,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007869,
+        "upstream_inference_prompt_cost": 0.006564,
+        "upstream_inference_completions_cost": 0.001305
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

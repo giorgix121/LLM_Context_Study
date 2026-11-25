@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564472-8jgPqq2xc7c6IbThLe9A",
+    "object": "chat.completion",
+    "created": 1795564472,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The `_set_world_ranks` method signature changed from accepting `process_idx: int = 0` parameter to accepting no parameters, but the method still uses `self.local_rank` which was previously set from `process_idx`, creating a potential logic error if callers still pass arguments or if `self.local_rank` is not properly initialized elsewhere.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 10568,
+      "completion_tokens": 105,
+      "total_tokens": 10673,
+      "cost": 0.011093,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.011093,
+        "upstream_inference_prompt_cost": 0.010568,
+        "upstream_inference_completions_cost": 0.000525
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

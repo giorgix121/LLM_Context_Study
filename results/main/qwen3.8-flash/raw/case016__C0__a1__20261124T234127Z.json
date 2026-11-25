@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563889-2NmS6LGmaqGyBLCyeLWm",
+    "object": "chat.completion",
+    "created": 1795563889,
+    "model": "qwen/qwen3.8-flash",
+    "provider": "Alibaba",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The code assumes `environment` is not None when checking `isinstance(environment, SLURMEnvironment)` to determine the signal, but if `environment` is None (e.g., non-cluster training), the subsequent line `sigusr = environment.requeue_signal ...` will raise an AttributeError because it attempts to access an attribute on None before the isinstance check short-circuits or handles the None case properly in the ternary operator logic.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1864,
+      "completion_tokens": 102,
+      "total_tokens": 1966,
+      "cost": 0.00032754,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00032754,
+        "upstream_inference_prompt_cost": 0.0002796,
+        "upstream_inference_completions_cost": 4.794e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "DynamicSamplingFeatureMultiplexer.get_user_biases",
+      "path": "src/sentry/dynamic_sampling/feature_multiplexer.py",
+      "start": 49,
+      "end": 61,
+      "code": "    @staticmethod\n    def get_user_biases(user_set_biases: Optional[List[Bias]]) -> List[Bias]:\n        if user_set_biases is None:\n            return DEFAULT_BIASES\n\n        id_to_user_bias = {bias[\"id\"]: bias for bias in user_set_biases}\n        returned_biases = []\n        for bias in DEFAULT_BIASES:\n            if bias[\"id\"] in id_to_user_bias:\n                returned_biases.append(id_to_user_bias[bias[\"id\"]])\n            else:\n                returned_biases.append(bias)\n        return returned_biases",
+      "called_by": "DynamicSamplingFeatureMultiplexer.get_enabled_user_biases"
+    }
+  ]
+}

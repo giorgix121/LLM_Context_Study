@@ -1,0 +1,5 @@
+{
+  "commit": "bc4f265d484ce51065001579851002538bbeee45",
+  "chars": 341,
+  "text": "feat(hybrid-cloud): Add a test for file upload (#39931)\n\nThis just ensures that the file body is in the request body that's being\nproxied\n\nI'm kinda at an impasse here because I need to see what's coming into\nthe django view from the proxied request. Parsing the raw request object\nis strange because I can't seem to extract the input buffer"
+}

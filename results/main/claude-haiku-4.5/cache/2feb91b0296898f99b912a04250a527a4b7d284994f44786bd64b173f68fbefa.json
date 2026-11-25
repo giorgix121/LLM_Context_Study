@@ -1,0 +1,65 @@
+{
+  "cache_key": "2feb91b0296898f99b912a04250a527a4b7d284994f44786bd64b173f68fbefa",
+  "sample_id": "case112",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change replaces exception logging with debug-level logging and includes the exception details, which is appropriate for expected validation errors and improves debugging without affecting functional behavior.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change replaces exception logging with debug-level logging and includes the exception details, which is appropriate for expected validation errors and improves debugging without affecting functional behavior.\"\n}\n```",
+  "response_id": "gen-1795047078-opdpm2AKfjSeCGWgwkYz",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 263,
+  "completion_tokens": 63,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000578,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 263,
+    "completion_tokens": 63,
+    "total_tokens": 326,
+    "cost": 0.000578,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000578,
+      "upstream_inference_prompt_cost": 0.000263,
+      "upstream_inference_completions_cost": 0.000315
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.197,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:11:20+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

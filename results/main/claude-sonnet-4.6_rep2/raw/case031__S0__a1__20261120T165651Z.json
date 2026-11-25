@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795194087-KlR5zlq2ec26G86COog6",
+    "object": "chat.completion",
+    "created": 1795194087,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The original code caught `AttributeError` to handle cases where `scope.span` is `None` (accessing `.span_id` on `None` raises `AttributeError`), but the new code only checks `scope.span is not None` before accessing its attributes — however, if `sentry_sdk.configure_scope()` itself raises an unexpected exception or `scope` is not a context manager, the error will now propagate instead of being silently handled, though the main risk is that the refactor is functionally equivalent only if `scope.span` being `None` was the sole source of `AttributeError`, which appears to be the case here, making this change low-risk but slightly less defensive.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 347,
+      "completion_tokens": 170,
+      "total_tokens": 517,
+      "cost": 0.003591,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003591,
+        "upstream_inference_prompt_cost": 0.001041,
+        "upstream_inference_completions_cost": 0.00255
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

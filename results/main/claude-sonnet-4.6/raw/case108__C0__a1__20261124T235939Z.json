@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565541-Oqyo2ceI3UsJJhnDcEeH",
+    "object": "chat.completion",
+    "created": 1795565541,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change migrates the lookup key from the legacy integer `app_id` field to the string `app_id_str` field, which was backfilled in the preceding migration (0328), and makes `app_id` nullable in a safe, coordinated schema migration sequence.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2407,
+      "completion_tokens": 79,
+      "total_tokens": 2486,
+      "cost": 0.008406,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.008406,
+        "upstream_inference_prompt_cost": 0.007221,
+        "upstream_inference_completions_cost": 0.001185
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

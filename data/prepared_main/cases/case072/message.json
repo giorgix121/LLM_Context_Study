@@ -1,0 +1,5 @@
+{
+  "commit": "ab1955a05e369337c3eaad1a2d34de346932179d",
+  "chars": 85,
+  "text": "Fixed #33881 -- Added support for database collations to ArrayField(Char/TextFields)."
+}

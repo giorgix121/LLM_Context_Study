@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "get_vital_data_for_org",
+      "path": "src/sentry/api/endpoints/organization_vitals_overview.py",
+      "start": 89,
+      "end": 97,
+      "code": "def get_vital_data_for_org(organization: Organization, projects: Sequence[Project]):\n    # cache is unique to an org\n    cache_key = f\"organization-vitals-overview:{organization.id}\"\n    cache_value = cache.get(cache_key)\n    # cache miss, lookup and store value\n    if cache_value is None:\n        cache_value = get_vital_data_for_org_no_cache(organization, projects)\n        cache.set(cache_key, cache_value, ONE_DAY)\n    return cache_value",
+      "calls": "get_vital_data_for_org_no_cache"
+    }
+  ]
+}

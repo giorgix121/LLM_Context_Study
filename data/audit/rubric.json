@@ -1,0 +1,8 @@
+{
+ "fix_found": "yes | no: a later commit removes or changes a blamed line",
+ "fix_is_bugfix": "yes | no | unclear: that commit repairs a functional defect (not a refactor, feature change, style or dependency update)",
+ "introduced_by_change": "yes | no | unclear: the repaired defect was introduced by this change's lines (not pre-existing, not a line the change only touched cosmetically)",
+ "decidable_from": "diff | file | external | na: what a reviewer would need to see the defect at commit time: the diff alone, the file or repository, or knowledge outside the code (requirements, external APIs, runtime data, later decisions); na if the label is not correct",
+ "verdict": "correct | wrong | unclear: the change really introduced a functional defect",
+ "rationale": "one sentence"
+}

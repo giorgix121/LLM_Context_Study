@@ -1,0 +1,66 @@
+{
+  "cache_key": "361bbcb57436ecba58b0fc02ccf7c5f86c0b526c4d7db5564c4fd81e8800f151",
+  "sample_id": "case27",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a new optional parameter with a default value and passes it through to a downstream function call, which is a straightforward parameter propagation that maintains backward compatibility.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The change adds a new optional parameter with a default value and passes it through to a downstream function call, which is a straightforward parameter propagation that maintains backward compatibility.\"\n}\n```",
+  "response_id": "gen-1790920261-OURXvobgSLTqpiMmcacs",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 299,
+  "completion_tokens": 64,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.000619,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 299,
+    "completion_tokens": 64,
+    "total_tokens": 363,
+    "cost": 0.000619,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000619,
+      "upstream_inference_prompt_cost": 0.000299,
+      "upstream_inference_completions_cost": 0.00032
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.139,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T05:51:02+00:00",
+  "run_id": "20261002T054951Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  },
+  "reused_from": "results/claude-haiku-4.5/cache/361bbcb57436ecba58b0fc02ccf7c5f86c0b526c4d7db5564c4fd81e8800f151.json"
+}

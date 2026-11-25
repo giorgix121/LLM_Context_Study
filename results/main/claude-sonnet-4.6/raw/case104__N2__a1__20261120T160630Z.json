@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191917-pnYvjJPakHtbXwludQLx",
+    "object": "chat.completion",
+    "created": 1795191917,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Calling `mark_safe(\\\"\\\")` on an empty string bypasses the normal formatting pipeline and marks the value as safe HTML, which could mask unexpected inputs and is inconsistent with how other edge-case values (like None or non-numeric types) are handled, potentially causing silent failures or XSS concerns if the caller passes an empty string unexpectedly.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2326,
+      "completion_tokens": 92,
+      "total_tokens": 2418,
+      "cost": 0.008358,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.008358,
+        "upstream_inference_prompt_cost": 0.006978,
+        "upstream_inference_completions_cost": 0.00138
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

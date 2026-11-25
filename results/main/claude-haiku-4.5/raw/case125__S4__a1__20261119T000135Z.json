@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795047070-Qe1e87ZI1dKxZVVz5eBf",
+    "object": "chat.completion",
+    "created": 1795047070,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The change assumes `hass.data[DATA_MQTT]` has a `.client` attribute, but based on the `is_connected` function which retrieves `mqtt_data: MqttData = hass.data[DATA_MQTT]` and then accesses `mqtt_data.client`, the original code should have been accessing the MqttData object directly, not its client attribute—this change inverts the data structure access and will cause an AttributeError if the stored object doesn't have a `.client` attribute.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2368,
+      "completion_tokens": 142,
+      "total_tokens": 2510,
+      "cost": 0.003078,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003078,
+        "upstream_inference_prompt_cost": 0.002368,
+        "upstream_inference_completions_cost": 0.00071
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

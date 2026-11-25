@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795563510-fOMywwnwDlWS52VO3rMW",
+    "object": "chat.completion",
+    "created": 1795563510,
+    "model": "google/gemini-2.5-flash-lite",
+    "provider": "Google AI Studio",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"label\": \"NON-RISKY\", \"explanation\": \"The changes in LearnerThread and ApexDQN primarily involve refactoring how sample batches are handled and passed between threads, including the addition of a `del ma_batch` and `del replay_sample_batches` to explicitly free memory, which should not introduce functional defects.\"}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1308,
+      "completion_tokens": 76,
+      "total_tokens": 1384,
+      "cost": 0.0001612,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001612,
+        "upstream_inference_prompt_cost": 0.0001308,
+        "upstream_inference_completions_cost": 3.04e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

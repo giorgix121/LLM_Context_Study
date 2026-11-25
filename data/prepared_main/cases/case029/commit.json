@@ -1,0 +1,73 @@
+{
+  "commit": "c1aff5c96d67399d7ace245b0d9706e82d12d648",
+  "files_in_commit": 10,
+  "target_index": 7,
+  "target_status": "modified",
+  "chars": 4166,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": ".flake8",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "patch": "@@ -17,6 +17,10 @@ extend-ignore =\n     ANN101,\n     # ANN102: Missing type annotation for cls in classmethod\n     ANN102,\n+    # PIE781: assign-and-return\n+    PIE781,\n+    # PIE798 no-unnecessary-class: Consider using a module for namespacing instead\n+    PIE798,\n per-file-ignores =\n     # TC002: Move third-party import '...' into a type-checking block\n     __init__.py:TC002,"
+    },
+    {
+      "path": ".pre-commit-config.yaml",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "patch": "@@ -43,6 +43,7 @@ repos:\n           - flake8-typing-imports==1.12.0\n           - flake8-use-fstring==1.4\n           - pep8-naming==0.13.1\n+          - flake8-pie==0.16.0\n \n   - repo: https://github.com/asottile/pyupgrade\n     rev: v2.37.3"
+    },
+    {
+      "path": "src/poetry/console/logging/io_handler.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -26,5 +26,5 @@ def emit(self, record: LogRecord) -> None:\n                 self._io.write_error_line(msg)\n             else:\n                 self._io.write_line(msg)\n-        except Exception:\n+        except Exception:  # noqa: PIE786\n             self.handleError(record)"
+    },
+    {
+      "path": "src/poetry/inspection/info.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "patch": "@@ -206,8 +206,10 @@ def to_package(\n             except ValueError:\n                 # Likely unable to parse constraint so we skip it\n                 logger.debug(\n-                    f\"Invalid constraint ({req}) found in\"\n-                    f\" {package.name}-{package.version} dependencies, skipping\",\n+                    \"Invalid constraint (%s) found in %s-%s dependencies, skipping\",\n+                    req,\n+                    package.name,\n+                    package.version,\n                 )\n                 continue\n "
+    },
+    {
+      "path": "src/poetry/installation/executor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -264,7 +264,7 @@ def _execute_operation(self, operation: Operation) -> None:\n             # error to be picked up by the error handler.\n             if result == -2:\n                 raise KeyboardInterrupt\n-        except Exception as e:\n+        except Exception as e:  # noqa: PIE786\n             try:\n                 from cleo.ui.exception_trace import ExceptionTrace\n "
+    },
+    {
+      "path": "src/poetry/plugins/plugin_manager.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -71,7 +71,7 @@ def activate(self, *args: Any, **kwargs: Any) -> None:\n             plugin.activate(*args, **kwargs)\n \n     def _load_plugin_entry_point(self, ep: metadata.EntryPoint) -> None:\n-        logger.debug(f\"Loading the {ep.name} plugin\")  # type: ignore[attr-defined]\n+        logger.debug(\"Loading the %s plugin\", ep.name)  # type: ignore[attr-defined]\n \n         plugin = ep.load()  # type: ignore[no-untyped-call]\n "
+    },
+    {
+      "path": "src/poetry/publishing/publisher.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "patch": "@@ -57,14 +57,14 @@ def publish(\n             # Check if we have a token first\n             token = self._authenticator.get_pypi_token(repository_name)\n             if token:\n-                logger.debug(f\"Found an API token for {repository_name}.\")\n+                logger.debug(\"Found an API token for %s.\", repository_name)\n                 username = \"__token__\"\n                 password = token\n             else:\n                 auth = self._authenticator.get_http_auth(repository_name)\n                 if auth:\n                     logger.debug(\n-                        f\"Found authentication information for {repository_name}.\"\n+                        \"Found authentication information for %s.\", repository_name\n                     )\n                     username = auth.username\n                     password = auth.password"
+    },
+    {
+      "path": "src/poetry/utils/authenticator.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "patch": "@@ -258,7 +258,7 @@ def request(\n             if not is_last_attempt:\n                 attempt += 1\n                 delay = 0.5 * attempt\n-                logger.debug(f\"Retrying HTTP request in {delay} seconds.\")\n+                logger.debug(\"Retrying HTTP request in %s seconds.\", delay)\n                 time.sleep(delay)\n                 continue\n "
+    },
+    {
+      "path": "src/poetry/utils/password_manager.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "patch": "@@ -109,8 +109,8 @@ def get_entry_name(self, name: str) -> str:\n     def _check(self) -> None:\n         try:\n             import keyring\n-        except Exception as e:\n-            logger.debug(f\"An error occurred while importing keyring: {e!s}\")\n+        except ImportError as e:\n+            logger.debug(\"An error occurred while importing keyring: %s\", e)\n             self._is_available = False\n \n             return\n@@ -134,7 +134,7 @@ def _check(self) -> None:\n                     and \"plaintext\" not in b.name.lower()\n                     for b in backends\n                 )\n-            except Exception:\n+            except ImportError:\n                 self._is_available = False\n \n         if not self._is_available:"
+    }
+  ]
+}

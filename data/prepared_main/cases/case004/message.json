@@ -1,0 +1,5 @@
+{
+  "commit": "a8f1cc0d330372f60e50954b7cf049fcf9a18762",
+  "chars": 62,
+  "text": "Remove unneeded guards from (async_)add_entities call (#80471)"
+}

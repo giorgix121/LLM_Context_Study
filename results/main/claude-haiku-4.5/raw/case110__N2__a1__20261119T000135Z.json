@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795047562-io2WOgSVgw783rSlNlkD",
+    "object": "chat.completion",
+    "created": 1795047562,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at the diff, I need to analyze the change made to the SLURM environment plugin:\n\n**What changed:**\n1. The command to check if `srun` exists was changed from `[\"which\", \"srun\"]` to `[\"command\", \"-v\", \"srun\"]`\n2. A try-except block was added to catch `FileNotFoundError`\n\n**Analysis:**\n\nThe change attempts to improve cross-platform compatibility by using `command -v` instead of `which`. However, there's a critical issue:\n\n1. **`command -v` is a shell builtin**, not an executable. It cannot be called directly via `subprocess.call()` without a shell. The code uses `subprocess.call([\"command\", \"-v\", \"srun\"])` which tries to execute `command` as a standalone program, not as a shell builtin.\n\n2. **On most systems**, there is no executable named `command` in the PATH, so this will raise `FileNotFoundError` (or `FileNotFoundError` won't be raised, but the subprocess will fail to find the command).\n\n3. **The except clause catches `FileNotFoundError`",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5039,
+      "completion_tokens": 256,
+      "total_tokens": 5295,
+      "cost": 0.006319,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006319,
+        "upstream_inference_prompt_cost": 0.005039,
+        "upstream_inference_completions_cost": 0.00128
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

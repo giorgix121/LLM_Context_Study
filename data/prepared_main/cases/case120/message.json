@@ -1,0 +1,5 @@
+{
+  "commit": "1e4e6f8d5c93fe88fc5a093ec352b08aeb25d923",
+  "chars": 348,
+  "text": "feat(eventstream): Add consumer strategy for post process forwarder (#39502)\n\nProcessing steps for the Arroyo version of the post process forwarder. This is close to equivalent to what the non-Arroyo post process forwarder consumer is doing today. It's not yet being used. The consumer and update to the CLI entrypoint will be added as a follow up."
+}

@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "_extract_command_from_openapi",
+      "path": "src/lightning_app/utilities/cli_helpers.py",
+      "start": 85,
+      "end": 87,
+      "code": "def _extract_command_from_openapi(openapi_resp: Dict) -> Dict[str, Dict[str, str]]:\n    command_paths = [p for p in openapi_resp[\"paths\"] if p.startswith(\"/command/\")]\n    return {p.replace(\"/command/\", \"\"): _get_metadata_from_openapi(openapi_resp[\"paths\"], p) for p in command_paths}",
+      "calls": "_get_metadata_from_openapi"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564464-sWLbVI3pN6LjhkoKONRs",
+    "object": "chat.completion",
+    "created": 1795564464,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"Adding 'movflags': 'frag_keyframe' changes the MP4 container format to fragmented mode, which may cause compatibility issues with players or systems expecting standard MP4 files, and the 'min_frag_duration' parameter could affect segment timing in unexpected ways.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 306,
+      "completion_tokens": 90,
+      "total_tokens": 396,
+      "cost": 0.000756,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000756,
+        "upstream_inference_prompt_cost": 0.000306,
+        "upstream_inference_completions_cost": 0.00045
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

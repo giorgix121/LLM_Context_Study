@@ -1,0 +1,65 @@
+{
+  "cache_key": "4b18712b28844025bb9425bbf49f27797e143f22ccf4884aa6124428acc206f3",
+  "sample_id": "case120",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The type hint for the `value` parameter in `get_task_kwargs_for_message` was changed from `str` to `bytes`, which could break existing code that passes string values to this function without proper encoding.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The type hint for the `value` parameter in `get_task_kwargs_for_message` was changed from `str` to `bytes`, which could break existing code that passes string values to this function without proper encoding.\"}",
+  "response_id": "gen-1795048708-h6XlDptHMBlIy9p07qUE",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 230,
+  "completion_tokens": 59,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 4.66e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 230,
+    "completion_tokens": 59,
+    "total_tokens": 289,
+    "cost": 4.66e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.66e-05,
+      "upstream_inference_prompt_cost": 2.3e-05,
+      "upstream_inference_completions_cost": 2.36e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.494,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:38:29+00:00",
+  "run_id": "20261119T003650Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

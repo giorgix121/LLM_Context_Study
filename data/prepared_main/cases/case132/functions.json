@@ -1,0 +1,15 @@
+[
+  {
+    "name": "get_operation_with_public_name",
+    "before": {
+      "start": 72,
+      "end": 75,
+      "code": "def get_operation_with_public_name(operation: Optional[str], metric_mri: str) -> str:\n    if operation is None:\n        return get_public_name_from_mri(metric_mri)\n    return f\"{operation}({get_public_name_from_mri(metric_mri)})\""
+    },
+    "after": {
+      "start": 72,
+      "end": 77,
+      "code": "def get_operation_with_public_name(operation: Optional[str], metric_mri: str) -> str:\n    return (\n        f\"{operation}({get_public_name_from_mri(metric_mri)})\"\n        if operation is not None\n        else metric_mri\n    )"
+    }
+  }
+]

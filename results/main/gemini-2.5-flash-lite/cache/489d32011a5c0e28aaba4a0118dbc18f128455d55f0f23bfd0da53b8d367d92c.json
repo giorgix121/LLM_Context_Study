@@ -1,0 +1,65 @@
+{
+  "cache_key": "489d32011a5c0e28aaba4a0118dbc18f128455d55f0f23bfd0da53b8d367d92c",
+  "sample_id": "case089",
+  "strategy": "S4",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The changes only update logger messages to include version information, which does not alter the program's functionality.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"NON-RISKY\",\n  \"explanation\": \"The changes only update logger messages to include version information, which does not alter the program's functionality.\"\n}\n```",
+  "response_id": "gen-1790927780-OAUzRn2BKQAVjdj7A1ip",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 2868,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0003052,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2868,
+    "completion_tokens": 46,
+    "total_tokens": 2914,
+    "cost": 0.0003052,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003052,
+      "upstream_inference_prompt_cost": 0.0002868,
+      "upstream_inference_completions_cost": 1.84e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.544,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T07:56:21+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "0ac6b1b16492c85f7d0f2818647e7859f149c698f7a58e57d02667f9a72ef336",
+  "sample_id": "case124",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The changes alter the project name detection from 'lightning' to 'lightning-app' and directory name from 'lightning' to 'lightning_app', which may cause the function to fail to detect editable installations if the actual package/directory names don't match these new hardcoded values.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The changes alter the project name detection from 'lightning' to 'lightning-app' and directory name from 'lightning' to 'lightning_app', which may cause the function to fail to detect editable installations if the actual package/directory names don't match these new hardcoded values.\"\n}\n```",
+  "response_id": "gen-1795046621-EdtCiSVBJJ4vdILC3rzr",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 2152,
+  "completion_tokens": 90,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.002602,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2152,
+    "completion_tokens": 90,
+    "total_tokens": 2242,
+    "cost": 0.002602,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.002602,
+      "upstream_inference_prompt_cost": 0.002152,
+      "upstream_inference_completions_cost": 0.00045
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.426,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:03:43+00:00",
+  "run_id": "20261119T000135Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

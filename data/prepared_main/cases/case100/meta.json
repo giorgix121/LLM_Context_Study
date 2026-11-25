@@ -1,0 +1,4 @@
+{
+  "sample_id": "case100",
+  "path": "src/sentry/integrations/jira_server/client.py"
+}

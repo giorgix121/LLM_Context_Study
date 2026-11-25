@@ -1,0 +1,65 @@
+{
+  "cache_key": "3aa8d5ba9076ed81edde1d61101fa9d3506be846ce4987326855f83281a21c2f",
+  "sample_id": "case122",
+  "strategy": "C0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The changes refactor the accelerator implementation to use `lightning_lite` and rename `setup_environment` to `setup_device`, which is a non-functional change that improves code organization and maintainability.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The changes refactor the accelerator implementation to use `lightning_lite` and rename `setup_environment` to `setup_device`, which is a non-functional change that improves code organization and maintainability.\"}",
+  "response_id": "gen-1795563516-26GGjdu8ayLhRmU7Tu6O",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 15019,
+  "completion_tokens": 56,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0015243,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 15019,
+    "completion_tokens": 56,
+    "total_tokens": 15075,
+    "cost": 0.0015243,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0015243,
+      "upstream_inference_prompt_cost": 0.0015019,
+      "upstream_inference_completions_cost": 2.24e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.629,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:38:37+00:00",
+  "run_id": "20261124T233752Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

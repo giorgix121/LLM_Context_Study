@@ -1,0 +1,5 @@
+{
+  "commit": "d34b5786858f699ef36da6785464021889eaa672",
+  "chars": 64,
+  "text": "jinja2_native: preserve quotes in strings (#79119)\n\nFixes #79083"
+}

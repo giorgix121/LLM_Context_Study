@@ -1,0 +1,65 @@
+{
+  "cache_key": "f68bc6d9fa8d0fb13c21f7b4450bdabd2471f68d41a2725a719991ff86611d02",
+  "sample_id": "case134",
+  "strategy": "M0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a new default parameter 'GsmMetered' to the initialization list, which is consistent with the commit message describing the addition of a metered cellular toggle and does not alter existing logic or introduce obvious defects.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds a new default parameter 'GsmMetered' to the initialization list, which is consistent with the commit message describing the addition of a metered cellular toggle and does not alter existing logic or introduce obvious defects.\"}",
+  "response_id": "gen-1795188604-CftNLDmgn8w8HKFyHdMv",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 395,
+  "completion_tokens": 60,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 8.745e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 395,
+    "completion_tokens": 60,
+    "total_tokens": 455,
+    "cost": 8.745e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.745e-05,
+      "upstream_inference_prompt_cost": 5.925e-05,
+      "upstream_inference_completions_cost": 2.82e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.597,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:30:05+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

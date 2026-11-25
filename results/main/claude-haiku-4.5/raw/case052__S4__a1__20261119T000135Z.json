@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795046717-7PSlqpcqAHlYDtz5CNcx",
+    "object": "chat.completion",
+    "created": 1795046717,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The removal of the `provider` property and its setter eliminates a runtime validation mechanism that ensured `_provider` was set before use, and changing `get_settings_url()` to require an explicit `provider` parameter could cause runtime errors if other callers of this method are not updated to pass the new required argument.\"\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2420,
+      "completion_tokens": 95,
+      "total_tokens": 2515,
+      "cost": 0.002895,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002895,
+        "upstream_inference_prompt_cost": 0.00242,
+        "upstream_inference_completions_cost": 0.000475
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564305-Q13FWtK6qTlCyWQ8niFz",
+    "object": "chat.completion",
+    "created": 1795564305,
+    "model": "anthropic/claude-haiku-4.5",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at the target file change in `homeassistant/components/homekit/type_lights.py`, I need to analyze whether the modification introduces a functional defect.\n\nThe change modifies a call to `color_temperature_to_rgbww()` by:\n1. Converting `temp` (in mireds) to Kelvin using `color_temperature_mired_to_kelvin(temp)`\n2. Converting `self.max_mireds` to Kelvin using `color_temperature_mired_to_kelvin(self.max_mireds)`\n3. Converting `self.min_mireds` to Kelvin using `color_temperature_mired_to_kelvin(self.min_mireds)`\n\nLooking at the related changes in `homeassistant/util/color.py`, the function signature for `color_temperature_to_rgbww()` changed from:\n```python\ndef color_temperature_to_rgbww(\n    temperature: int, brightness: int, min_mireds: int, max_mireds: int\n)\n```\n\nto:\n```python\ndef",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 17154,
+      "completion_tokens": 256,
+      "total_tokens": 17410,
+      "cost": 0.018434,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.018434,
+        "upstream_inference_prompt_cost": 0.017154,
+        "upstream_inference_completions_cost": 0.00128
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

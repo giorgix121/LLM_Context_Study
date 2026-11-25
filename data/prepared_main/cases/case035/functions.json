@@ -1,0 +1,15 @@
+[
+  {
+    "name": "process_incr",
+    "before": {
+      "start": 35,
+      "end": 42,
+      "code": "@instrumented_task(name=\"sentry.tasks.process_buffer.process_incr\")\ndef process_incr(**kwargs):\n    \"\"\"\n    Processes a buffer event.\n    \"\"\"\n    from sentry import buffer\n\n    buffer.process(**kwargs)"
+    },
+    "after": {
+      "start": 35,
+      "end": 42,
+      "code": "@instrumented_task(name=\"sentry.tasks.process_buffer.process_incr\", queue=\"counters-0\")\ndef process_incr(**kwargs):\n    \"\"\"\n    Processes a buffer event.\n    \"\"\"\n    from sentry import buffer\n\n    buffer.process(**kwargs)"
+    }
+  }
+]

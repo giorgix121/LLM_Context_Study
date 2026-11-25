@@ -1,0 +1,465 @@
+{
+  "commit": "a8f1cc0d330372f60e50954b7cf049fcf9a18762",
+  "files_in_commit": 66,
+  "target_index": 59,
+  "target_status": "modified",
+  "chars": 22387,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "homeassistant/components/aemet/weather.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -84,8 +84,7 @@ async def async_setup_entry(\n         unique_id = f\"{config_entry.unique_id} {mode}\"\n         entities.append(AemetWeather(name, unique_id, weather_coordinator, mode))\n \n-    if entities:\n-        async_add_entities(entities, False)\n+    async_add_entities(entities, False)\n \n \n class AemetWeather(CoordinatorEntity[WeatherUpdateCoordinator], WeatherEntity):"
+    },
+    {
+      "path": "homeassistant/components/asuswrt/device_tracker.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -47,8 +47,7 @@ def add_entities(\n         new_tracked.append(AsusWrtDevice(router, device))\n         tracked.add(mac)\n \n-    if new_tracked:\n-        async_add_entities(new_tracked)\n+    async_add_entities(new_tracked)\n \n \n class AsusWrtDevice(ScannerEntity):"
+    },
+    {
+      "path": "homeassistant/components/bond/button.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -274,8 +274,7 @@ async def async_setup_entry(\n             )\n         entities.extend(device_entities)\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class BondButtonEntity(BondEntity, ButtonEntity):"
+    },
+    {
+      "path": "homeassistant/components/bosch_shc/binary_sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -53,8 +53,7 @@ async def async_setup_entry(\n                 )\n             )\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class ShutterContactSensor(SHCEntity, BinarySensorEntity):"
+    },
+    {
+      "path": "homeassistant/components/bosch_shc/cover.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -36,8 +36,7 @@ async def async_setup_entry(\n             )\n         )\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class ShutterControlCover(SHCEntity, CoverEntity):"
+    },
+    {
+      "path": "homeassistant/components/bosch_shc/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -157,8 +157,7 @@ async def async_setup_entry(\n             )\n         )\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class TemperatureSensor(SHCEntity, SensorEntity):"
+    },
+    {
+      "path": "homeassistant/components/bosch_shc/switch.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -156,8 +156,7 @@ async def async_setup_entry(\n             )\n         )\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class SHCSwitch(SHCEntity, SwitchEntity):"
+    },
+    {
+      "path": "homeassistant/components/daikin/switch.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -50,8 +50,7 @@ async def async_setup_entry(\n         # device supports the streamer, so assume so if it does support\n         # advanced modes.\n         switches.append(DaikinStreamerSwitch(daikin_api))\n-    if switches:\n-        async_add_entities(switches)\n+    async_add_entities(switches)\n \n \n class DaikinZoneSwitch(SwitchEntity):"
+    },
+    {
+      "path": "homeassistant/components/devolo_home_network/device_tracker.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 4,
+      "patch": "@@ -55,8 +55,7 @@ def new_device_callback() -> None:\n                 )\n             )\n             tracked.add(station[MAC_ADDRESS])\n-            if new_entities:\n-                async_add_entities(new_entities)\n+            async_add_entities(new_entities)\n \n     @callback\n     def restore_entities() -> None:\n@@ -82,8 +81,7 @@ def restore_entities() -> None:\n                 )\n                 tracked.add(mac_address)\n \n-        if missing:\n-            async_add_entities(missing)\n+        async_add_entities(missing)\n \n     if device.device and \"wifi1\" in device.device.features:\n         restore_entities()"
+    },
+    {
+      "path": "homeassistant/components/dominos/__init__.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -90,8 +90,7 @@ def setup(hass: HomeAssistant, config: ConfigType) -> bool:\n         order = DominosOrder(order_info, dominos)\n         entities.append(order)\n \n-    if entities:\n-        component.add_entities(entities)\n+    component.add_entities(entities)\n \n     # Return boolean to indicate that initialization was successfully.\n     return True"
+    },
+    {
+      "path": "homeassistant/components/dynalite/dynalitebase.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -31,8 +31,7 @@ def async_add_entities_platform(devices):\n         added_entities = []\n         for device in devices:\n             added_entities.append(entity_from_device(device, bridge))\n-        if added_entities:\n-            async_add_entities(added_entities)\n+        async_add_entities(added_entities)\n \n     bridge.register_add_devices(platform, async_add_entities_platform)\n "
+    },
+    {
+      "path": "homeassistant/components/enocean/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -148,8 +148,7 @@ def setup_platform(\n     elif sensor_type == SENSOR_TYPE_WINDOWHANDLE:\n         entities = [EnOceanWindowHandle(dev_id, dev_name, SENSOR_DESC_WINDOWHANDLE)]\n \n-    if entities:\n-        add_entities(entities)\n+    add_entities(entities)\n \n \n class EnOceanSensor(EnOceanEntity, RestoreEntity, SensorEntity):"
+    },
+    {
+      "path": "homeassistant/components/firmata/binary_sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -40,8 +40,7 @@ async def async_setup_entry(\n         binary_sensor_entity = FirmataBinarySensor(api, config_entry, name, pin)\n         new_entities.append(binary_sensor_entity)\n \n-    if new_entities:\n-        async_add_entities(new_entities)\n+    async_add_entities(new_entities)\n \n \n class FirmataBinarySensor(FirmataPinEntity, BinarySensorEntity):"
+    },
+    {
+      "path": "homeassistant/components/firmata/light.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -46,8 +46,7 @@ async def async_setup_entry(\n         light_entity = FirmataLight(api, config_entry, name, pin)\n         new_entities.append(light_entity)\n \n-    if new_entities:\n-        async_add_entities(new_entities)\n+    async_add_entities(new_entities)\n \n \n class FirmataLight(FirmataPinEntity, LightEntity):"
+    },
+    {
+      "path": "homeassistant/components/firmata/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -40,8 +40,7 @@ async def async_setup_entry(\n         sensor_entity = FirmataSensor(api, config_entry, name, pin)\n         new_entities.append(sensor_entity)\n \n-    if new_entities:\n-        async_add_entities(new_entities)\n+    async_add_entities(new_entities)\n \n \n class FirmataSensor(FirmataPinEntity, SensorEntity):"
+    },
+    {
+      "path": "homeassistant/components/firmata/switch.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -42,8 +42,7 @@ async def async_setup_entry(\n         switch_entity = FirmataSwitch(api, config_entry, name, pin)\n         new_entities.append(switch_entity)\n \n-    if new_entities:\n-        async_add_entities(new_entities)\n+    async_add_entities(new_entities)\n \n \n class FirmataSwitch(FirmataPinEntity, SwitchEntity):"
+    },
+    {
+      "path": "homeassistant/components/flume/binary_sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -122,8 +122,7 @@ async def async_setup_entry(\n             ]\n         )\n \n-    if flume_entity_list:\n-        async_add_entities(flume_entity_list)\n+    async_add_entities(flume_entity_list)\n \n \n class FlumeNotificationBinarySensor(FlumeEntity, BinarySensorEntity):"
+    },
+    {
+      "path": "homeassistant/components/flume/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -120,8 +120,7 @@ async def async_setup_entry(\n             ]\n         )\n \n-    if flume_entity_list:\n-        async_add_entities(flume_entity_list)\n+    async_add_entities(flume_entity_list)\n \n \n class FlumeSensor(FlumeEntity, SensorEntity):"
+    },
+    {
+      "path": "homeassistant/components/flux_led/number.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -89,8 +89,7 @@ async def async_setup_entry(\n             FluxSpeedNumber(coordinator, base_unique_id, f\"{name} Effect Speed\", None)\n         )\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class FluxSpeedNumber("
+    },
+    {
+      "path": "homeassistant/components/flux_led/select.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -81,8 +81,7 @@ async def async_setup_entry(\n     if FLUX_COLOR_MODE_RGBW in device.color_modes:\n         entities.append(FluxWhiteChannelSelect(coordinator.device, entry))\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class FluxConfigAtStartSelect(FluxBaseEntity, SelectEntity):"
+    },
+    {
+      "path": "homeassistant/components/flux_led/switch.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -48,8 +48,7 @@ async def async_setup_entry(\n             FluxMusicSwitch(coordinator, base_unique_id, f\"{name} Music\", \"music\")\n         )\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class FluxSwitch("
+    },
+    {
+      "path": "homeassistant/components/freebox/device_tracker.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -48,8 +48,7 @@ def add_entities(\n         new_tracked.append(FreeboxDevice(router, device))\n         tracked.add(mac)\n \n-    if new_tracked:\n-        async_add_entities(new_tracked, True)\n+    async_add_entities(new_tracked, True)\n \n \n class FreeboxDevice(ScannerEntity):"
+    },
+    {
+      "path": "homeassistant/components/fritz/device_tracker.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -65,8 +65,7 @@ def _async_add_entities(\n         new_tracked.append(FritzBoxTracker(avm_wrapper, device))\n         data_fritz.tracked[avm_wrapper.unique_id].add(mac)\n \n-    if new_tracked:\n-        async_add_entities(new_tracked)\n+    async_add_entities(new_tracked)\n \n \n class FritzBoxTracker(FritzDeviceBase, ScannerEntity):"
+    },
+    {
+      "path": "homeassistant/components/fronius/coordinator.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -104,8 +104,7 @@ def _add_entities_for_unregistered_keys() -> None:\n                         continue\n                     new_entities.append(entity_constructor(self, key, solar_net_id))\n                     self.unregistered_keys[solar_net_id].remove(key)\n-            if new_entities:\n-                async_add_entities(new_entities)\n+            async_add_entities(new_entities)\n \n         _add_entities_for_unregistered_keys()\n         self.solar_net.cleanup_callbacks.append("
+    },
+    {
+      "path": "homeassistant/components/homematicip_cloud/binary_sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -142,8 +142,7 @@ async def async_setup_entry(\n         elif isinstance(group, AsyncSecurityZoneGroup):\n             entities.append(HomematicipSecurityZoneSensorGroup(hap, device=group))\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class HomematicipCloudConnectionSensor(HomematicipGenericEntity, BinarySensorEntity):"
+    },
+    {
+      "path": "homeassistant/components/homematicip_cloud/climate.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -51,8 +51,7 @@ async def async_setup_entry(\n         if isinstance(device, AsyncHeatingGroup):\n             entities.append(HomematicipHeatingGroup(hap, device))\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class HomematicipHeatingGroup(HomematicipGenericEntity, ClimateEntity):"
+    },
+    {
+      "path": "homeassistant/components/homematicip_cloud/cover.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -62,8 +62,7 @@ async def async_setup_entry(\n         if isinstance(group, AsyncExtendedLinkedShutterGroup):\n             entities.append(HomematicipCoverShutterGroup(hap, group))\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class HomematicipBlindModule(HomematicipGenericEntity, CoverEntity):"
+    },
+    {
+      "path": "homeassistant/components/homematicip_cloud/light.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -62,8 +62,7 @@ async def async_setup_entry(\n         ):\n             entities.append(HomematicipDimmer(hap, device))\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class HomematicipLight(HomematicipGenericEntity, LightEntity):"
+    },
+    {
+      "path": "homeassistant/components/homematicip_cloud/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -130,8 +130,7 @@ async def async_setup_entry(\n             entities.append(HomematicpTemperatureExternalSensorCh2(hap, device))\n             entities.append(HomematicpTemperatureExternalSensorDelta(hap, device))\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class HomematicipAccesspointDutyCycle(HomematicipGenericEntity, SensorEntity):"
+    },
+    {
+      "path": "homeassistant/components/homematicip_cloud/switch.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -82,8 +82,7 @@ async def async_setup_entry(\n         if isinstance(group, (AsyncExtendedLinkedSwitchingGroup, AsyncSwitchingGroup)):\n             entities.append(HomematicipGroupSwitch(hap, group))\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class HomematicipMultiSwitch(HomematicipGenericEntity, SwitchEntity):"
+    },
+    {
+      "path": "homeassistant/components/homematicip_cloud/weather.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -64,8 +64,7 @@ async def async_setup_entry(\n \n     entities.append(HomematicipHomeWeather(hap))\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class HomematicipWeatherSensor(HomematicipGenericEntity, WeatherEntity):"
+    },
+    {
+      "path": "homeassistant/components/icloud/device_tracker.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -51,8 +51,7 @@ def add_entities(account: IcloudAccount, async_add_entities, tracked):\n         new_tracked.append(IcloudTrackerEntity(account, device))\n         tracked.add(dev_id)\n \n-    if new_tracked:\n-        async_add_entities(new_tracked, True)\n+    async_add_entities(new_tracked, True)\n \n \n class IcloudTrackerEntity(TrackerEntity):"
+    },
+    {
+      "path": "homeassistant/components/icloud/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -47,8 +47,7 @@ def add_entities(account, async_add_entities, tracked):\n         new_tracked.append(IcloudDeviceBatterySensor(account, device))\n         tracked.add(dev_id)\n \n-    if new_tracked:\n-        async_add_entities(new_tracked, True)\n+    async_add_entities(new_tracked, True)\n \n \n class IcloudDeviceBatterySensor(SensorEntity):"
+    },
+    {
+      "path": "homeassistant/components/insteon/utils.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -392,5 +392,4 @@ def async_add_insteon_entities(\n         groups = get_platform_groups(device, platform)\n         for group in groups:\n             new_entities.append(entity_type(device, group))\n-    if new_entities:\n-        async_add_entities(new_entities)\n+    async_add_entities(new_entities)"
+    },
+    {
+      "path": "homeassistant/components/iotawatt/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -154,8 +154,7 @@ def new_data_received():\n             for key in coordinator.data[\"sensors\"]\n             if key not in created\n         ]\n-        if entities:\n-            async_add_entities(entities)\n+        async_add_entities(entities)\n \n     coordinator.async_add_listener(new_data_received)\n "
+    },
+    {
+      "path": "homeassistant/components/keenetic_ndms2/device_tracker.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 4,
+      "patch": "@@ -64,8 +64,7 @@ def update_from_router():\n                     )\n                 )\n \n-    if restored:\n-        async_add_entities(restored)\n+    async_add_entities(restored)\n \n     async_dispatcher_connect(hass, router.signal_update, update_from_router)\n \n@@ -79,8 +78,7 @@ def update_items(router: KeeneticRouter, async_add_entities, tracked: set[str]):\n             tracked.add(mac)\n             new_tracked.append(KeeneticTracker(device, router))\n \n-    if new_tracked:\n-        async_add_entities(new_tracked)\n+    async_add_entities(new_tracked)\n \n \n class KeeneticTracker(ScannerEntity):"
+    },
+    {
+      "path": "homeassistant/components/life360/device_tracker.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -87,8 +87,7 @@ def process_data(new_members_only: bool = True) -> None:\n                 and not new_members_only\n             ):\n                 new_entities.append(Life360DeviceTracker(coordinator, member_id))\n-        if new_entities:\n-            async_add_entities(new_entities)\n+        async_add_entities(new_entities)\n \n     process_data(new_members_only=False)\n     entry.async_on_unload(coordinator.async_add_listener(process_data))"
+    },
+    {
+      "path": "homeassistant/components/lutron_caseta/button.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -67,8 +67,7 @@ async def async_setup_entry(\n             ),\n         )\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class LutronCasetaButton(LutronCasetaDevice, ButtonEntity):"
+    },
+    {
+      "path": "homeassistant/components/maxcube/binary_sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -28,8 +28,7 @@ def setup_platform(\n             if device.is_windowshutter():\n                 devices.append(MaxCubeShutter(handler, device))\n \n-    if devices:\n-        add_entities(devices)\n+    add_entities(devices)\n \n \n class MaxCubeBinarySensorBase(BinarySensorEntity):"
+    },
+    {
+      "path": "homeassistant/components/maxcube/climate.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -60,8 +60,7 @@ def setup_platform(\n             if device.is_thermostat() or device.is_wallthermostat():\n                 devices.append(MaxCubeClimate(handler, device))\n \n-    if devices:\n-        add_entities(devices)\n+    add_entities(devices)\n \n \n class MaxCubeClimate(ClimateEntity):"
+    },
+    {
+      "path": "homeassistant/components/mikrotik/device_tracker.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -68,8 +68,7 @@ def update_items(\n             tracked[mac] = MikrotikDataUpdateCoordinatorTracker(device, coordinator)\n             new_tracked.append(tracked[mac])\n \n-    if new_tracked:\n-        async_add_entities(new_tracked)\n+    async_add_entities(new_tracked)\n \n \n class MikrotikDataUpdateCoordinatorTracker("
+    },
+    {
+      "path": "homeassistant/components/nederlandse_spoorwegen/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -88,8 +88,7 @@ def setup_platform(\n                 departure.get(CONF_TIME),\n             )\n         )\n-    if sensors:\n-        add_entities(sensors, True)\n+    add_entities(sensors, True)\n \n \n def valid_stations(stations, given_stations):"
+    },
+    {
+      "path": "homeassistant/components/netatmo/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -399,8 +399,7 @@ async def add_public_entities(update: bool = True) -> None:\n         for device_id in entities.values():\n             device_registry.async_remove_device(device_id)\n \n-        if new_entities:\n-            async_add_entities(new_entities)\n+        async_add_entities(new_entities)\n \n     async_dispatcher_connect(\n         hass, f\"signal-{DOMAIN}-public-update-{entry.entry_id}\", add_public_entities"
+    },
+    {
+      "path": "homeassistant/components/netgear/device_tracker.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -39,8 +39,7 @@ def new_device_callback() -> None:\n             new_entities.append(NetgearScannerEntity(coordinator, router, device))\n             tracked.add(mac)\n \n-        if new_entities:\n-            async_add_entities(new_entities)\n+        async_add_entities(new_entities)\n \n     entry.async_on_unload(coordinator.async_add_listener(new_device_callback))\n "
+    },
+    {
+      "path": "homeassistant/components/netgear/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -338,8 +338,7 @@ def new_device_callback() -> None:\n             )\n             tracked.add(mac)\n \n-        if new_entities:\n-            async_add_entities(new_entities)\n+        async_add_entities(new_entities)\n \n     entry.async_on_unload(coordinator.async_add_listener(new_device_callback))\n "
+    },
+    {
+      "path": "homeassistant/components/netgear/switch.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -143,8 +143,7 @@ def new_device_callback() -> None:\n             )\n             tracked.add(mac)\n \n-        if new_entities:\n-            async_add_entities(new_entities)\n+        async_add_entities(new_entities)\n \n     entry.async_on_unload(coordinator.async_add_listener(new_device_callback))\n "
+    },
+    {
+      "path": "homeassistant/components/octoprint/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -71,8 +71,7 @@ def async_add_tool_sensors() -> None:\n                         device_id,\n                     )\n                 )\n-        if new_tools:\n-            async_add_entities(new_tools)\n+        async_add_entities(new_tools)\n \n     config_entry.async_on_unload(coordinator.async_add_listener(async_add_tool_sensors))\n "
+    },
+    {
+      "path": "homeassistant/components/owntracks/device_tracker.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -49,8 +49,7 @@ def _receive_data(dev_id, **data):\n \n     hass.data[OT_DOMAIN][\"context\"].set_async_see(_receive_data)\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class OwnTracksEntity(TrackerEntity, RestoreEntity):"
+    },
+    {
+      "path": "homeassistant/components/plum_lightpad/light.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -42,8 +42,7 @@ def setup_entities(device) -> None:\n             logical_load = plum.get_load(device[\"llid\"])\n             entities.append(PlumLight(load=logical_load))\n \n-        if entities:\n-            async_add_entities(entities)\n+        async_add_entities(entities)\n \n     async def new_load(device):\n         setup_entities(device)"
+    },
+    {
+      "path": "homeassistant/components/ruckus_unleashed/device_tracker.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 4,
+      "patch": "@@ -55,8 +55,7 @@ def add_new_entities(coordinator, async_add_entities, tracked):\n         new_tracked.append(RuckusUnleashedDevice(coordinator, mac, device[API_NAME]))\n         tracked.add(mac)\n \n-    if new_tracked:\n-        async_add_entities(new_tracked)\n+    async_add_entities(new_tracked)\n \n \n @callback\n@@ -77,8 +76,7 @@ def restore_entities(registry, coordinator, entry, async_add_entities, tracked):\n             )\n             tracked.add(entity.unique_id)\n \n-    if missing:\n-        async_add_entities(missing)\n+    async_add_entities(missing)\n \n \n class RuckusUnleashedDevice(CoordinatorEntity, ScannerEntity):"
+    },
+    {
+      "path": "homeassistant/components/tado/binary_sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -90,8 +90,7 @@ async def async_setup_entry(\n             ]\n         )\n \n-    if entities:\n-        async_add_entities(entities, True)\n+    async_add_entities(entities, True)\n \n \n class TadoDeviceBinarySensor(TadoDeviceEntity, BinarySensorEntity):"
+    },
+    {
+      "path": "homeassistant/components/tado/climate.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -104,8 +104,7 @@ async def async_setup_entry(\n         \"set_temp_offset\",\n     )\n \n-    if entities:\n-        async_add_entities(entities, True)\n+    async_add_entities(entities, True)\n \n \n def _generate_entities(tado):"
+    },
+    {
+      "path": "homeassistant/components/tado/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -82,8 +82,7 @@ async def async_setup_entry(\n             ]\n         )\n \n-    if entities:\n-        async_add_entities(entities, True)\n+    async_add_entities(entities, True)\n \n \n class TadoHomeSensor(TadoHomeEntity, SensorEntity):"
+    },
+    {
+      "path": "homeassistant/components/tado/water_heater.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -75,8 +75,7 @@ async def async_setup_entry(\n         \"set_timer\",\n     )\n \n-    if entities:\n-        async_add_entities(entities, True)\n+    async_add_entities(entities, True)\n \n \n def _generate_entities(tado):"
+    },
+    {
+      "path": "homeassistant/components/unifi/device_tracker.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 4,
+      "patch": "@@ -111,8 +111,7 @@ def add_client_entities(controller, async_add_entities, clients):\n \n         trackers.append(UniFiClientTracker(client, controller))\n \n-    if trackers:\n-        async_add_entities(trackers)\n+    async_add_entities(trackers)\n \n \n @callback\n@@ -127,8 +126,7 @@ def add_device_entities(controller, async_add_entities, devices):\n         device = controller.api.devices[mac]\n         trackers.append(UniFiDeviceTracker(device, controller))\n \n-    if trackers:\n-        async_add_entities(trackers)\n+    async_add_entities(trackers)\n \n \n class UniFiClientTracker(UniFiClientBase, ScannerEntity):"
+    },
+    {
+      "path": "homeassistant/components/unifi/sensor.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 4,
+      "patch": "@@ -67,8 +67,7 @@ def add_bandwidth_entities(controller, async_add_entities, clients):\n             client = controller.api.clients[mac]\n             sensors.append(sensor_class(client, controller))\n \n-    if sensors:\n-        async_add_entities(sensors)\n+    async_add_entities(sensors)\n \n \n @callback\n@@ -83,8 +82,7 @@ def add_uptime_entities(controller, async_add_entities, clients):\n         client = controller.api.clients[mac]\n         sensors.append(UniFiUpTimeSensor(client, controller))\n \n-    if sensors:\n-        async_add_entities(sensors)\n+    async_add_entities(sensors)\n \n \n class UniFiBandwidthSensor(UniFiClient, SensorEntity):"
+    },
+    {
+      "path": "homeassistant/components/unifi/switch.py",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 8,
+      "patch": "@@ -124,8 +124,7 @@ def add_block_entities(controller, async_add_entities, clients):\n         client = controller.api.clients[mac]\n         switches.append(UniFiBlockClientSwitch(client, controller))\n \n-    if switches:\n-        async_add_entities(switches)\n+    async_add_entities(switches)\n \n \n @callback\n@@ -175,8 +174,7 @@ def add_poe_entities(controller, async_add_entities, clients, known_poe_clients)\n \n         switches.append(UniFiPOEClientSwitch(client, controller))\n \n-    if switches:\n-        async_add_entities(switches)\n+    async_add_entities(switches)\n \n \n @callback\n@@ -193,8 +191,7 @@ def add_dpi_entities(controller, async_add_entities, dpi_groups):\n \n         switches.append(UniFiDPIRestrictionSwitch(dpi_groups[group], controller))\n \n-    if switches:\n-        async_add_entities(switches)\n+    async_add_entities(switches)\n \n \n @callback\n@@ -213,8 +210,7 @@ def add_outlet_entities(controller, async_add_entities, devices):\n             if outlet.has_relay:\n                 switches.append(UniFiOutletSwitch(device, controller, outlet.index))\n \n-    if switches:\n-        async_add_entities(switches)\n+    async_add_entities(switches)\n \n \n class UniFiPOEClientSwitch(UniFiClient, SwitchEntity, RestoreEntity):"
+    },
+    {
+      "path": "homeassistant/components/unifi/update.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -64,8 +64,7 @@ def add_device_update_entities(controller, async_add_entities, devices):\n         device = controller.api.devices[mac]\n         entities.append(UniFiDeviceUpdateEntity(device, controller))\n \n-    if entities:\n-        async_add_entities(entities)\n+    async_add_entities(entities)\n \n \n class UniFiDeviceUpdateEntity(UniFiBase, UpdateEntity):"
+    },
+    {
+      "path": "homeassistant/components/wemo/light.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -76,8 +76,7 @@ def async_update_lights() -> None:\n                 known_light_ids.add(light_id)\n                 new_lights.append(WemoLight(coordinator, light))\n \n-        if new_lights:\n-            async_add_entities(new_lights)\n+        async_add_entities(new_lights)\n \n     async_update_lights()\n     config_entry.async_on_unload(coordinator.async_add_listener(async_update_lights))"
+    },
+    {
+      "path": "homeassistant/components/wled/number.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -147,5 +147,4 @@ def async_update_segments(\n         for desc in NUMBERS:\n             new_entities.append(WLEDNumber(coordinator, segment_id, desc))\n \n-    if new_entities:\n-        async_add_entities(new_entities)\n+    async_add_entities(new_entities)"
+    },
+    {
+      "path": "homeassistant/components/wled/select.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -195,5 +195,4 @@ def async_update_segments(\n         current_ids.add(segment_id)\n         new_entities.append(WLEDPaletteSelect(coordinator, segment_id))\n \n-    if new_entities:\n-        async_add_entities(new_entities)\n+    async_add_entities(new_entities)"
+    },
+    {
+      "path": "homeassistant/components/wled/switch.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -215,5 +215,4 @@ def async_update_segments(\n         current_ids.add(segment_id)\n         new_entities.append(WLEDReverseSwitch(coordinator, segment_id))\n \n-    if new_entities:\n-        async_add_entities(new_entities)\n+    async_add_entities(new_entities)"
+    },
+    {
+      "path": "homeassistant/components/xbox/binary_sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -62,8 +62,7 @@ def async_update_friends(\n         ]\n         new_entities = new_entities + current[xuid]\n \n-    if new_entities:\n-        async_add_entities(new_entities)\n+    async_add_entities(new_entities)\n \n     # Process deleted favorites, remove them from Home Assistant\n     for xuid in current_ids - new_ids:"
+    },
+    {
+      "path": "homeassistant/components/xbox/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -64,8 +64,7 @@ def async_update_friends(\n         ]\n         new_entities = new_entities + current[xuid]\n \n-    if new_entities:\n-        async_add_entities(new_entities)\n+    async_add_entities(new_entities)\n \n     # Process deleted favorites, remove them from Home Assistant\n     for xuid in current_ids - new_ids:"
+    },
+    {
+      "path": "homeassistant/components/xbox_live/sensor.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 2,
+      "patch": "@@ -60,8 +60,7 @@ def setup_platform(\n             continue\n         entities.append(XboxSensor(api, xuid, gamercard, interval))\n \n-    if entities:\n-        add_entities(entities, True)\n+    add_entities(entities, True)\n \n \n def get_user_gamercard(api, xuid):"
+    }
+  ]
+}

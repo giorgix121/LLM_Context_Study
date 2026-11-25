@@ -1,0 +1,65 @@
+{
+  "cache_key": "044a9caa4e47e922ae7ae3bda8ca62221a1b37e63a53585b832fe63287c8a6db",
+  "sample_id": "case085",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit introduces a new metrics layer feature with incomplete implementation, as evidenced by multiple xfail test markers indicating known failures in core functionality (having clauses, ordering, grouping by transaction), and a TODO comment suggesting the resolve_column_name workaround is temporary, which could cause incorrect query results or crashes when the feature is enabled.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The commit introduces a new metrics layer feature with incomplete implementation, as evidenced by multiple xfail test markers indicating known failures in core functionality (having clauses, ordering, grouping by transaction), and a TODO comment suggesting the resolve_column_name workaround is temporary, which could cause incorrect query results or crashes when the feature is enabled.\"\n}\n```",
+  "response_id": "gen-1795564663-LLkPnVOlIpSomOlZO54q",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-haiku-4.5",
+  "finish_reason": "stop",
+  "prompt_tokens": 11729,
+  "completion_tokens": 98,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.012219,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 11729,
+    "completion_tokens": 98,
+    "total_tokens": 11827,
+    "cost": 0.012219,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.012219,
+      "upstream_inference_prompt_cost": 0.011729,
+      "upstream_inference_completions_cost": 0.00049
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.993,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:57:45+00:00",
+  "run_id": "20261124T235115Z",
+  "model_requested": "anthropic/claude-haiku-4.5",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

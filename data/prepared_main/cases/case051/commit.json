@@ -1,0 +1,59 @@
+{
+  "commit": "30de03dae139fc3b1b7c08b6939e6b694e95d820",
+  "files_in_commit": 8,
+  "target_index": 5,
+  "target_status": "modified",
+  "chars": 8852,
+  "without_patch": 0,
+  "other_files": [
+    {
+      "path": "src/sentry/api/endpoints/organization_events_stats.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 0,
+      "patch": "@@ -82,6 +82,7 @@ def get_features(self, organization: Organization, request: Request) -> Mapping[\n             \"organizations:dashboards-mep\",\n             \"organizations:mep-rollout-flag\",\n             \"organizations:performance-dry-run-mep\",\n+            \"organizations:use-metrics-layer\",\n         ]\n         batch_features = features.batch_has(\n             feature_names,\n@@ -164,6 +165,7 @@ def get(self, request: Request, organization: Organization) -> Response:\n             performance_dry_run_mep = batch_features.get(\n                 \"organizations:performance-dry-run-mep\", False\n             )\n+            use_metrics_layer = batch_features.get(\"organizations:use-metrics-layer\", False)\n \n             use_custom_dataset = use_metrics or use_profiles\n             dataset = self.get_dataset(request) if use_custom_dataset else discover\n@@ -206,6 +208,7 @@ def get_event_stats(\n                 \"comparison_delta\": comparison_delta,\n                 \"allow_metric_aggregates\": allow_metric_aggregates,\n                 \"has_metrics\": use_metrics,\n+                \"use_metrics_layer\": use_metrics_layer,\n             }\n             if not metrics_enhanced and performance_dry_run_mep:\n                 sentry_sdk.set_tag(\"query.mep_compatible\", False)"
+    },
+    {
+      "path": "src/sentry/search/events/builder.py",
+      "status": "modified",
+      "additions": 62,
+      "deletions": 0,
+      "patch": "@@ -2682,6 +2682,7 @@ def __init__(\n         functions_acl: Optional[List[str]] = None,\n         dry_run: Optional[bool] = False,\n         limit: Optional[int] = 10000,\n+        use_metrics_layer: Optional[bool] = False,\n     ):\n         super().__init__(\n             params=params,\n@@ -2692,6 +2693,7 @@ def __init__(\n             auto_fields=False,\n             functions_acl=functions_acl,\n             dry_run=dry_run,\n+            use_metrics_layer=use_metrics_layer,\n         )\n         if self.granularity.granularity > interval:\n             for granularity in METRICS_GRANULARITIES:\n@@ -2774,6 +2776,66 @@ def get_snql_query(self) -> List[Request]:\n         return queries\n \n     def run_query(self, referrer: str, use_cache: bool = False) -> Any:\n+        if self.use_metrics_layer:\n+            from sentry.snuba.metrics.datasource import get_series\n+            from sentry.snuba.metrics.mqb_query_transformer import (\n+                tranform_mqb_query_to_metrics_query,\n+            )\n+\n+            if self.is_performance:\n+                use_case_id = UseCaseKey.PERFORMANCE\n+            else:\n+                use_case_id = UseCaseKey.RELEASE_HEALTH\n+            prefix = \"generic_\" if self.dataset is Dataset.PerformanceMetrics else \"\"\n+\n+            snuba_query = Query(\n+                match=Entity(f\"{prefix}metrics_distributions\", sample=self.sample_rate),\n+                # Metrics doesn't support columns in the select, and instead expects them in the groupby\n+                select=self.aggregates\n+                + [\n+                    # Team key transaction is a special case sigh\n+                    col\n+                    for col in self.columns\n+                    if isinstance(col, Function) and col.function == \"team_key_transaction\"\n+                ],\n+                array_join=self.array_join,\n+                where=self.where,\n+                having=self.having,\n+                groupby=self.groupby,\n+                orderby=[],\n+                granularity=self.granularity,\n+            )\n+            try:\n+                metric_query = tranform_mqb_query_to_metrics_query(snuba_query)\n+                metrics_data = get_series(\n+                    projects=self.projects,\n+                    metrics_query=metric_query,\n+                    use_case_id=use_case_id,\n+                    include_meta=True,\n+                )\n+            except Exception as err:\n+                raise IncompatibleMetricsQuery(err)\n+            metric_layer_result: Any = {\n+                \"data\": [],\n+                \"meta\": metrics_data[\"meta\"],\n+            }\n+            # metric layer adds bucketed time automatically but doesn't remove it\n+            for meta in metric_layer_result[\"meta\"]:\n+                if meta[\"name\"] == \"bucketed_time\":\n+                    meta[\"name\"] = \"time\"\n+            for index, interval in enumerate(metrics_data[\"intervals\"]):\n+                # the metric layer changes the intervals to datetime objects when we want the isoformat\n+                data = {self.time_alias: interval.isoformat()}\n+                # only need the first thing in groups since we don't groupby\n+                for key, value_list in (\n+                    metrics_data.get(\"groups\", [{}])[0].get(\"series\", {}).items()\n+                ):\n+                    data[key] = value_list[index]\n+                metric_layer_result[\"data\"].append(data)\n+                for meta in metric_layer_result[\"meta\"]:\n+                    if meta[\"name\"] not in data:\n+                        data[meta[\"name\"]] = self.get_default_value(meta[\"type\"])\n+            return metric_layer_result\n         queries = self.get_snql_query()\n         if self.dry_run:\n             return {"
+    },
+    {
+      "path": "src/sentry/search/events/datasets/metrics_layer.py",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 24,
+      "patch": "@@ -244,28 +244,7 @@ def function_converter(self) -> Mapping[str, fields.MetricsFunction]:\n                         ],\n                         alias,\n                     ),\n-                ),\n-                fields.MetricsFunction(\n-                    \"sumIf\",\n-                    required_args=[\n-                        fields.ColumnTagArg(\"if_col\"),\n-                        fields.FunctionArg(\"if_val\"),\n-                    ],\n-                    calculated_args=[\n-                        {\n-                            \"name\": \"resolved_val\",\n-                            \"fn\": lambda args: self.resolve_value(args[\"if_val\"]),\n-                        }\n-                    ],\n-                    snql_metric_layer=lambda args, alias: Function(\n-                        \"sumIf\",\n-                        [\n-                            Column(self.resolve_metric(args[\"column\"])),\n-                            Function(\"equals\", [args[\"if_col\"], args[\"resolved_val\"]]),\n-                        ],\n-                        alias,\n-                    ),\n-                    default_result_type=\"integer\",\n+                    result_type_fn=self.reflective_result_type(),\n                 ),\n                 fields.MetricsFunction(\n                     \"percentile\",\n@@ -365,8 +344,8 @@ def function_converter(self) -> Mapping[str, fields.MetricsFunction]:\n                         \"rate\",\n                         [\n                             Column(TransactionMRI.DURATION.value),\n-                            60,\n                             args[\"interval\"],\n+                            60,\n                         ],\n                         alias,\n                     ),\n@@ -379,8 +358,8 @@ def function_converter(self) -> Mapping[str, fields.MetricsFunction]:\n                         \"rate\",\n                         [\n                             Column(TransactionMRI.DURATION.value),\n-                            1,\n                             args[\"interval\"],\n+                            1,\n                         ],\n                         alias,\n                     ),"
+    },
+    {
+      "path": "src/sentry/snuba/discover.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "patch": "@@ -222,6 +222,7 @@ def timeseries_query(\n     functions_acl: Optional[Sequence[str]] = None,\n     allow_metric_aggregates=False,\n     has_metrics=False,\n+    use_metrics_layer=False,\n ):\n     \"\"\"\n     High-level API for doing arbitrary user timeseries queries against events."
+    },
+    {
+      "path": "src/sentry/snuba/metrics_enhanced_performance.py",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "patch": "@@ -114,6 +114,7 @@ def timeseries_query(\n     functions_acl: Optional[List[str]] = None,\n     dry_run: bool = False,\n     has_metrics: bool = True,\n+    use_metrics_layer: bool = False,\n ) -> SnubaTSResult:\n     \"\"\"\n     High-level API for doing arbitrary user timeseries queries against events.\n@@ -137,6 +138,7 @@ def timeseries_query(\n                 comparison_delta,\n                 functions_acl,\n                 dry_run,\n+                use_metrics_layer=use_metrics_layer,\n             )\n         # raise Invalid Queries since the same thing will happen with discover\n         except InvalidSearchQuery as error:"
+    },
+    {
+      "path": "src/sentry/snuba/profiles.py",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "patch": "@@ -59,6 +59,7 @@ def timeseries_query(\n     functions_acl: Optional[List[str]] = None,\n     allow_metric_aggregates: bool = False,\n     has_metrics: bool = False,\n+    use_metrics_layer: bool = False,\n ) -> Any:\n     builder = ProfilesTimeseriesQueryBuilder(\n         dataset=Dataset.Profiles,"
+    },
+    {
+      "path": "tests/snuba/api/endpoints/test_organization_events_stats_mep.py",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 0,
+      "patch": "@@ -624,3 +624,11 @@ def test_multi_series_custom_performance_metric_meta_contains_field_and_unit_dat\n         }\n         assert meta == response.data[\"p99(measurements.custom)\"][\"meta\"]\n         assert meta == response.data[\"p99(measurements.another.custom)\"][\"meta\"]\n+\n+\n+class OrganizationEventsStatsMetricsEnhancedPerformanceEndpointTestWithMetricLayer(\n+    OrganizationEventsStatsMetricsEnhancedPerformanceEndpointTest\n+):\n+    def setUp(self):\n+        super().setUp()\n+        self.features[\"organizations:use-metrics-layer\"] = True"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "commit": "5f3733ea310b53a0a90c660dc94dd6e1ad5755b7",
+  "chars": 387,
+  "text": "Fix mapped sensor with reschedule mode (#25594)\n\nThere are two issues with mapped sensor with `reschedule` mode. First, the reschedule table is being populated with a default map_index of -1 even when the map_index is not -1. Secondly, MappedOperator does not have the `ReadyToReschedule` dependency.\nThis PR is an attempt to fix this\n\nCo-authored-by: Tzu-ping Chung <uranusjr@gmail.com>"
+}

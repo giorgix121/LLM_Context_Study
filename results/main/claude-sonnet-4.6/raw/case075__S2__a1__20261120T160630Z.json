@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191251-j08dH4A4PWUtQ0rAyJ6v",
+    "object": "chat.completion",
+    "created": 1795191251,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change correctly updates the code to use the `as_directory()` context manager on the `Checkpoint` object instead of treating `best_checkpoint` as a raw path string, which aligns with the AIR Checkpoint API used elsewhere in the file.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3536,
+      "completion_tokens": 73,
+      "total_tokens": 3609,
+      "cost": 0.011703,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.011703,
+        "upstream_inference_prompt_cost": 0.010608,
+        "upstream_inference_completions_cost": 0.001095
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

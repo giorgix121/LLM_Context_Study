@@ -1,0 +1,65 @@
+{
+  "cache_key": "253f4b3d2c7051ae77345643a26204c6d5ec453fdb6c3e7b3ee3b130e2db52b4",
+  "sample_id": "case059",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change correctly registers the dispatcher connection for cleanup using entry.async_on_unload, preventing potential resource leaks or duplicate handlers upon integration reload without altering functional behavior.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change correctly registers the dispatcher connection for cleanup using entry.async_on_unload, preventing potential resource leaks or duplicate handlers upon integration reload without altering functional behavior.\"}",
+  "response_id": "gen-1795189874-ZYcTOsGjlopgYBIaSWqm",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 2849,
+  "completion_tokens": 46,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00044897,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2849,
+    "completion_tokens": 46,
+    "total_tokens": 2895,
+    "cost": 0.00044897,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00044897,
+      "upstream_inference_prompt_cost": 0.00042735,
+      "upstream_inference_completions_cost": 2.162e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.867,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:51:16+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "214058b552ee5d28a2638164d2f0e81e4a3ae9d56c08893445c742b16321ab27",
+  "sample_id": "case104",
+  "strategy": "S2",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Marking an empty string as safe with `mark_safe(\"\")` is harmless in itself, but returning early for empty-string input bypasses all formatting logic and could mask upstream bugs where non-numeric empty strings are passed unexpectedly, silently accepting invalid input instead of raising an error.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Marking an empty string as safe with `mark_safe(\\\"\\\")` is harmless in itself, but returning early for empty-string input bypasses all formatting logic and could mask upstream bugs where non-numeric empty strings are passed unexpectedly, silently accepting invalid input instead of raising an error.\"}",
+  "response_id": "gen-1795192777-spHf1poMeBoyf5UKDNGa",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 2437,
+  "completion_tokens": 79,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.008496,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 2437,
+    "completion_tokens": 79,
+    "total_tokens": 2516,
+    "cost": 0.008496,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.008496,
+      "upstream_inference_prompt_cost": 0.007311,
+      "upstream_inference_completions_cost": 0.001185
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.963,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:39:41+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "b77e4d2d979ef7d291e3cdde4140bd31a38819e37584c3236d8004c0a54ae49f",
+  "sample_id": "case027",
+  "strategy": "J0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The commit introduces a new `async_initialize` method that registers signal handlers and teardown logic, but the call to this method is added inside `async_init_coordinator` which is executed via `asyncio.gather`; if any of these initializations fail or if the gather itself raises an exception before completion, the setup might leave partially initialized coordinators with registered listeners that are not properly cleaned up, potentially causing resource leaks or inconsistent state.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The commit introduces a new `async_initialize` method that registers signal handlers and teardown logic, but the call to this method is added inside `async_init_coordinator` which is executed via `asyncio.gather`; if any of these initializations fail or if the gather itself raises an exception before completion, the setup might leave partially initialized coordinators with registered listeners that are not properly cleaned up, potentially causing resource leaks or inconsistent state.\"}",
+  "response_id": "gen-1795564104-CKg5H6XZAWoEhqX0tBdx",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 1772,
+  "completion_tokens": 101,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00031327,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1772,
+    "completion_tokens": 101,
+    "total_tokens": 1873,
+    "cost": 0.00031327,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00031327,
+      "upstream_inference_prompt_cost": 0.0002658,
+      "upstream_inference_completions_cost": 4.747e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 2.125,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-24T23:48:26+00:00",
+  "run_id": "20261124T234127Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

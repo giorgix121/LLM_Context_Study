@@ -1,0 +1,5 @@
+{
+  "commit": "77d4c3eee7c68700c3027e7e3b126b329f15d990",
+  "chars": 154,
+  "text": "PERF: df.groupby(categorical, sort=False) (#48976)\n\n* refactor using codes\n\n* PREF: df.groupby(categorical, sort=False)\n\n* Add pr number\n\n* remove comment"
+}

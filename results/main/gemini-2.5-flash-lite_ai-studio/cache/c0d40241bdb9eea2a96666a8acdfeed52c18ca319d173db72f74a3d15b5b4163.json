@@ -1,0 +1,65 @@
+{
+  "cache_key": "c0d40241bdb9eea2a96666a8acdfeed52c18ca319d173db72f74a3d15b5b4163",
+  "sample_id": "case039",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change refactors existing logic into a new method `credentials` to avoid code duplication, without altering the core functionality.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change refactors existing logic into a new method `credentials` to avoid code duplication, without altering the core functionality.\"}",
+  "response_id": "gen-1795048097-gZpCQxcKolWqkQX7sGhK",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 915,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0001067,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 915,
+    "completion_tokens": 38,
+    "total_tokens": 953,
+    "cost": 0.0001067,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001067,
+      "upstream_inference_prompt_cost": 9.15e-05,
+      "upstream_inference_completions_cost": 1.52e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.467,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:28:18+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

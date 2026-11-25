@@ -1,0 +1,5 @@
+{
+  "commit": "e2233d328590612b43408638200bbe7812f1d6ef",
+  "chars": 148,
+  "text": "Revert \"ref(notifications): Add provider property to notifications (#37165)\" (#37255)\n\nThis reverts commit 67facccae50b59b2a70aee79d23001a20c358308."
+}

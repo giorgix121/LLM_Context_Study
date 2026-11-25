@@ -1,0 +1,5 @@
+{
+  "commit": "cd22be4bbbe35203788448b9c9ceda6b7a4faa2a",
+  "chars": 61,
+  "text": "fix(profiling): Tune compression params to lower CPU (#39672)"
+}

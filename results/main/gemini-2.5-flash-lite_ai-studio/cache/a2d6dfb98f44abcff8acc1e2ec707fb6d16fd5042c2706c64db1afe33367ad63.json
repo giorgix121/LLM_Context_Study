@@ -1,0 +1,65 @@
+{
+  "cache_key": "a2d6dfb98f44abcff8acc1e2ec707fb6d16fd5042c2706c64db1afe33367ad63",
+  "sample_id": "case111",
+  "strategy": "N2",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds a check to ensure that the finalize method does not attempt to save an experiment if it has not been initialized, preventing potential errors in multiprocessing scenarios.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds a check to ensure that the finalize method does not attempt to save an experiment if it has not been initialized, preventing potential errors in multiprocessing scenarios.\"}\n```",
+  "response_id": "gen-1795048452-BgWADYrqZXQiMZY5iiWZ",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 5140,
+  "completion_tokens": 51,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0005344,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 5140,
+    "completion_tokens": 51,
+    "total_tokens": 5191,
+    "cost": 0.0005344,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0005344,
+      "upstream_inference_prompt_cost": 0.000514,
+      "upstream_inference_completions_cost": 2.04e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.493,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:34:13+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "cache_key": "eb6e46c4cf5aca26c402d9724e5c85a3d4da26c8aceeb78465ab391e455bbe9e",
+  "sample_id": "case026",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Disconnecting the connection pool immediately after validation may cause subsequent rate limiting operations to fail or incur unnecessary reconnection overhead if the client is reused.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Disconnecting the connection pool immediately after validation may cause subsequent rate limiting operations to fail or incur unnecessary reconnection overhead if the client is reused.\"}",
+  "response_id": "gen-1795188407-QgWdHLlj9rjV0oPOtXkB",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 194,
+  "completion_tokens": 42,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 4.884e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 194,
+    "completion_tokens": 42,
+    "total_tokens": 236,
+    "cost": 4.884e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.884e-05,
+      "upstream_inference_prompt_cost": 2.91e-05,
+      "upstream_inference_completions_cost": 1.974e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.444,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T15:26:48+00:00",
+  "run_id": "20261120T152211Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

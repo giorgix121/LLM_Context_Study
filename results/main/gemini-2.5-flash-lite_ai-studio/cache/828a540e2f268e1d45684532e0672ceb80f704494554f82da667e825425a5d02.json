@@ -1,0 +1,65 @@
+{
+  "cache_key": "828a540e2f268e1d45684532e0672ceb80f704494554f82da667e825425a5d02",
+  "sample_id": "case023",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "NON-RISKY",
+  "explanation": "The change adds filtering for event IDs to the group attachments endpoint, which is a new feature and not a bug fix.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"NON-RISKY\", \"explanation\": \"The change adds filtering for event IDs to the group attachments endpoint, which is a new feature and not a bug fix.\"}",
+  "response_id": "gen-1795048301-3n6xRs0c4bN5PVqOoe36",
+  "provider": "Google AI Studio",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 261,
+  "completion_tokens": 38,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 4.13e-05,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 261,
+    "completion_tokens": 38,
+    "total_tokens": 299,
+    "cost": 4.13e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.13e-05,
+      "upstream_inference_prompt_cost": 2.61e-05,
+      "upstream_inference_completions_cost": 1.52e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.415,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-19T00:31:41+00:00",
+  "run_id": "20261119T002753Z",
+  "model_requested": "google/gemini-2.5-flash-lite@ai-studio",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-ai-studio"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

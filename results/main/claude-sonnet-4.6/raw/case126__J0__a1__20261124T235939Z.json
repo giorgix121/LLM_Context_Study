@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795565272-yoi2UyiQvpID0QJrMI8G",
+    "object": "chat.completion",
+    "created": 1795565272,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The GraphQL query interpolates `name`, `owner`, `ref`, and `path` values directly into the query string without quoting them as GraphQL string literals (missing surrounding double-quotes), which will produce invalid GraphQL syntax for any real input and could also allow injection if values contain special characters.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1696,
+      "completion_tokens": 79,
+      "total_tokens": 1775,
+      "cost": 0.006273,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006273,
+        "upstream_inference_prompt_cost": 0.005088,
+        "upstream_inference_completions_cost": 0.001185
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

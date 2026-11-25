@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795191783-uz8H4lNzfgdolS5O7apT",
+    "object": "chat.completion",
+    "created": 1795191783,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"Marking an empty string as `mark_safe` is unnecessary and potentially misleading, but more critically, returning early for `number == \\\"\\\"` bypasses all formatting logic (including `decimal_pos` padding), which could silently return an empty safe string instead of raising an error or returning a properly formatted default like `\\\"0.00\\\"`, changing observable behavior for callers that pass empty strings expecting formatted output.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2582,
+      "completion_tokens": 103,
+      "total_tokens": 2685,
+      "cost": 0.009291,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.009291,
+        "upstream_inference_prompt_cost": 0.007746,
+        "upstream_inference_completions_cost": 0.001545
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "commit": "02731efc4cb3f7ee94b0c08aecc10e3a5209dbf4",
+  "chars": 168,
+  "text": "Handle iBeacons that broadcast multiple different uuids (#79011)\n\n* Handle iBeacons that broadcast multiple different uuids\n\n* fix flip-flopping between uuids\n\n* naming"
+}

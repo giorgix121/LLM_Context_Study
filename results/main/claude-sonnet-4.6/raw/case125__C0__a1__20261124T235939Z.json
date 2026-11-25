@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564883-GaiDkQOxjgUVZ5Lx78kk",
+    "object": "chat.completion",
+    "created": 1795564883,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The diagnostics code now accesses `hass.data[DATA_MQTT].client` to get the MQTT instance, but `client` can be `None` (it's typed as `MQTT | None` in `MqttData`), so calling `mqtt_instance.conf` on a `None` client would raise an `AttributeError` if diagnostics are requested before the MQTT client is fully initialized.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 12450,
+      "completion_tokens": 108,
+      "total_tokens": 12558,
+      "cost": 0.03897,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.03897,
+        "upstream_inference_prompt_cost": 0.03735,
+        "upstream_inference_completions_cost": 0.00162
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

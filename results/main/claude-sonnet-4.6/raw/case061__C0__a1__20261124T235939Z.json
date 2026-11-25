@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795564977-1QBwEN9YLkipx9ylSWMm",
+    "object": "chat.completion",
+    "created": 1795564977,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length",
+        "native_finish_reason": "max_tokens",
+        "message": {
+          "role": "assistant",
+          "content": "Looking at the diff in `learner_thread.py`, the three lines were moved inside the `if` block (indented further). Previously, `learner_queue_size.push`, `weights_updated = True`, and `overall_timer.push_units_processed` executed regardless of whether `outqueue.put` succeeded or an exception occurred. Now they only execute within the same `if` block as `outqueue.put`.\n\nThe key question is: what was the original control flow? The lines were at the same indentation level as the `if` block containing `outqueue.put`, meaning they ran after the `if` block unconditionally. Now they only run when the condition is true (i.e., when `prio_dict` is truthy or the condition for `outqueue.put` is met).\n\nThis means if `prio_dict` is falsy/empty, `weights_updated` will never be set to `True` and the queue size/timer won't be updated — potentially causing the learner thread to appear stalled or weights to never be considered updated in certain edge cases.\n\n{\"label\": \"RISKY\", \"explanation\": \"Moving `",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1377,
+      "completion_tokens": 256,
+      "total_tokens": 1633,
+      "cost": 0.007971,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007971,
+        "upstream_inference_prompt_cost": 0.004131,
+        "upstream_inference_completions_cost": 0.00384
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

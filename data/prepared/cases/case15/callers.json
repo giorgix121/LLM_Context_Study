@@ -1,0 +1,14 @@
+{
+  "found": 1,
+  "included": 1,
+  "functions": [
+    {
+      "name": "GroupActivityNotification.get_context",
+      "path": "src/sentry/notifications/notifications/activity/base.py",
+      "start": 107,
+      "end": 118,
+      "code": "    def get_context(self) -> MutableMapping[str, Any]:\n        \"\"\"\n        Context shared by every recipient of this notification. This may contain\n        expensive computation so it should only be called once. Override this\n        method if the notification does not need HTML/text descriptions.\n        \"\"\"\n        description, params, html_params = self.get_description()\n        return {\n            **self.get_base_context(),\n            \"text_description\": self.description_as_text(description, params),\n            \"html_description\": self.description_as_html(description, html_params or params),\n        }",
+      "calls": "GroupActivityNotification.description_as_text"
+    }
+  ]
+}

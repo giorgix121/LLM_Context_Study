@@ -1,0 +1,65 @@
+{
+  "cache_key": "aa93ae018acafa8ede5cb8f74cec96ceb5db9543af7b98c943d6efc0e29c3451",
+  "sample_id": "case052",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "Removing the `provider` property/setter means any existing callers that set or access `self.provider` on notification instances (e.g., message builders that did `notification.provider = ...` and other subclasses calling `self.get_settings_url(recipient)` without the new required `provider` argument) will raise AttributeError or TypeError at runtime.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"Removing the `provider` property/setter means any existing callers that set or access `self.provider` on notification instances (e.g., message builders that did `notification.provider = ...` and other subclasses calling `self.get_settings_url(recipient)` without the new required `provider` argument) will raise AttributeError or TypeError at runtime.\"}",
+  "response_id": "gen-1795190918-ZdE6pehgIvHQ1vdodmgz",
+  "provider": "Anthropic",
+  "model": "anthropic/claude-sonnet-4.6",
+  "finish_reason": "stop",
+  "prompt_tokens": 1964,
+  "completion_tokens": 95,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.007317,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1964,
+    "completion_tokens": 95,
+    "total_tokens": 2059,
+    "cost": 0.007317,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.007317,
+      "upstream_inference_prompt_cost": 0.005892,
+      "upstream_inference_completions_cost": 0.001425
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 3.442,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:08:41+00:00",
+  "run_id": "20261120T160630Z",
+  "model_requested": "anthropic/claude-sonnet-4.6",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "anthropic"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

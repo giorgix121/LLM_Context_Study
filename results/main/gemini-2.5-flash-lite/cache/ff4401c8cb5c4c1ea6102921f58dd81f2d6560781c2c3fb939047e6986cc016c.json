@@ -1,0 +1,65 @@
+{
+  "cache_key": "ff4401c8cb5c4c1ea6102921f58dd81f2d6560781c2c3fb939047e6986cc016c",
+  "sample_id": "case052",
+  "strategy": "S1",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The removal of the `provider` property and setter from `BaseNotification` and the modification of `get_settings_url` to require an explicit `provider` argument, along with its hardcoded use of `ExternalProviders.SLACK` in `ProjectNotification.build_notification_footer`, may lead to incorrect settings URLs being generated if the provider is not Slack or if the notification logic changes.",
+  "validation_error": null,
+  "fenced_json": true,
+  "raw_content": "```json\n{\n  \"label\": \"RISKY\",\n  \"explanation\": \"The removal of the `provider` property and setter from `BaseNotification` and the modification of `get_settings_url` to require an explicit `provider` argument, along with its hardcoded use of `ExternalProviders.SLACK` in `ProjectNotification.build_notification_footer`, may lead to incorrect settings URLs being generated if the provider is not Slack or if the notification logic changes.\"\n}\n```",
+  "response_id": "gen-1790927899-8k87LW62M3R9OLfm0wfk",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "finish_reason": "stop",
+  "prompt_tokens": 1861,
+  "completion_tokens": 104,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.0002277,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 1861,
+    "completion_tokens": 104,
+    "total_tokens": 1965,
+    "cost": 0.0002277,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0002277,
+      "upstream_inference_prompt_cost": 0.0001861,
+      "upstream_inference_completions_cost": 4.16e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 0.869,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-10-02T07:58:20+00:00",
+  "run_id": "20261002T074005Z",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "google-vertex"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "sample_id": "case17",
+  "path": "airflow/providers/snowflake/transfers/s3_to_snowflake.py"
+}

@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795192367-EhJ3Ar4mXe4q3Mpkhrph",
+    "object": "chat.completion",
+    "created": 1795192367,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The added check for `_attr_name` overrides the existing `_name`-based return, but since `_attr_name` is a HA entity base class attribute that defaults to `UNDEFINED` (not `None`), the `is not None` guard may not correctly filter out the unset sentinel value, potentially causing unexpected name changes for ZHA entities.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7543,
+      "completion_tokens": 95,
+      "total_tokens": 7638,
+      "cost": 0.024054,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.024054,
+        "upstream_inference_prompt_cost": 0.022629,
+        "upstream_inference_completions_cost": 0.001425
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

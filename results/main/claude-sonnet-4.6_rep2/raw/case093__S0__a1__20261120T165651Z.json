@@ -1,0 +1,49 @@
+{
+  "http_status": 200,
+  "body": {
+    "id": "gen-1795194337-WmxtWuysbPJ0UxhSOWur",
+    "object": "chat.completion",
+    "created": 1795194337,
+    "model": "anthropic/claude-sonnet-4.6",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\"label\": \"RISKY\", \"explanation\": \"The attribute name changed from the name-mangled `_ModelSiloLimit__silo_limit` (set by Python's double-underscore name mangling on a class named `ModelSiloLimit`) to the plain `silo_limit`, so if the actual attribute stored on `_meta` is still the mangled name, the `hasattr` check will always return `False`, causing already-decorated models to be decorated again and potentially overwriting or duplicating their silo limits.\"}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 292,
+      "completion_tokens": 122,
+      "total_tokens": 414,
+      "cost": 0.002706,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002706,
+        "upstream_inference_prompt_cost": 0.000876,
+        "upstream_inference_completions_cost": 0.00183
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

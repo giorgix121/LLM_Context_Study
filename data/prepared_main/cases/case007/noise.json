@@ -1,0 +1,15 @@
+{
+  "target_chars": 1558,
+  "chars": 1475,
+  "files": [
+    {
+      "path": "classify/predict.py",
+      "chars": 1418,
+      "truncated": true
+    }
+  ],
+  "text": "<file path=\"classify/predict.py\" truncated=\"yes\">\n# YOLOv5 🚀 by Ultralytics, GPL-3.0 license\n\"\"\"\nRun YOLOv5 classification inference on images, videos, directories, globs, YouTube, webcam, streams, etc.\n\nUsage - sources:\n    $ python classify/predict.py --weights yolov5s-cls.pt --source 0                               # webcam\n                                                                   img.jpg                         # image\n                                                                   vid.mp4                         # video\n                                                                   path/                           # directory\n                                                                   'path/*.jpg'                    # glob\n                                                                   'https://youtu.be/Zgi9g1ksQHc'  # YouTube\n                                                                   'rtsp://example.com/media.mp4'  # RTSP, RTMP, HTTP stream\n\nUsage - formats:\n    $ python classify/predict.py --weights yolov5s-cls.pt                 # PyTorch\n                                           yolov5s-cls.torchscript        # TorchScript\n                                           yolov5s-cls.onnx               # ONNX Runtime or OpenCV DNN with --dnn\n                                           yolov5s-cls.xml                # OpenVINO\n                                           yolov5s-cls.engine             # TensorRT\n</file>",
+  "donor_sample_id": "case145",
+  "donor_repo": "ultralytics/yolov5",
+  "donor_commit": "b25d5a75f2c89aace5cae342f3fe29dfdd46e401"
+}

@@ -1,0 +1,5 @@
+{
+  "commit": "e15af7965b42dbe5d97e69f2e9ead24f6ab41874",
+  "chars": 319,
+  "text": "ref(hybrid): Rename customer silo to \"region silo\" (#38638)\n\nIn practice, we found that \"customer\" sounds too much like \"control\" and\nwas easy to confuse with it. \"Region\" here isn't intended to mean\nstrictly a geographic region, but can also mean a region of SaaS service\nin which a single-tenant customer is isolated."
+}

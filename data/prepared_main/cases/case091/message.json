@@ -1,0 +1,5 @@
+{
+  "commit": "27511adbcaf9bed8fc5eb209906c3a6b9784dec0",
+  "chars": 311,
+  "text": "[data] Re-init CSV invalid row handler to solve serialization issue  (#28327)\n\nThis re-sets `pyarrow.csv.ParseOptions.invalid_row_handler` to deal with a deserizalization issue in pyarrow (https://issues.apache.org/jira/browse/ARROW-17641).\n\nSee #28326 for details.\n\nSigned-off-by: Kai Fricke <kai@anyscale.com>"
+}

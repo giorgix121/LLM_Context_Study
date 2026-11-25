@@ -1,0 +1,65 @@
+{
+  "cache_key": "57c9296a4a9b306adc432fc7a7652341ab85527c66032cd7be59891ffc4d0843",
+  "sample_id": "case072",
+  "strategy": "S0",
+  "status": "ok",
+  "predicted_label": "RISKY",
+  "explanation": "The refactoring moves the `sql_alter_column_type` assignment into `_alter_column_type_sql`, but `_alter_column_collation_sql` now calls `_using_sql` which may return a USING clause intended for type changes, potentially causing invalid SQL syntax when altering collations without changing types.",
+  "validation_error": null,
+  "fenced_json": false,
+  "raw_content": "{\"label\": \"RISKY\", \"explanation\": \"The refactoring moves the `sql_alter_column_type` assignment into `_alter_column_type_sql`, but `_alter_column_collation_sql` now calls `_using_sql` which may return a USING clause intended for type changes, potentially causing invalid SQL syntax when altering collations without changing types.\"}",
+  "response_id": "gen-1795190681-4RZ2Hxis6BH447NVg1lg",
+  "provider": "Alibaba",
+  "model": "qwen/qwen3.8-flash",
+  "finish_reason": "stop",
+  "prompt_tokens": 734,
+  "completion_tokens": 72,
+  "cached_tokens": 0,
+  "reasoning_tokens": 0,
+  "cost_usd": 0.00014394,
+  "cost_source": "response usage.cost",
+  "usage": {
+    "prompt_tokens": 734,
+    "completion_tokens": 72,
+    "total_tokens": 806,
+    "cost": 0.00014394,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00014394,
+      "upstream_inference_prompt_cost": 0.0001101,
+      "upstream_inference_completions_cost": 3.384e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "latency_s": 1.68,
+  "attempt_count": 1,
+  "retries": 0,
+  "completed_at": "2026-11-20T16:04:43+00:00",
+  "run_id": "20261120T155553Z",
+  "model_requested": "qwen/qwen3.8-flash",
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "stream": false,
+    "reasoning": {
+      "enabled": false
+    }
+  },
+  "provider_config": {
+    "only": [
+      "alibaba"
+    ],
+    "allow_fallbacks": false,
+    "require_parameters": true
+  }
+}
