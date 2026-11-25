@@ -213,22 +213,4 @@ tokens, latency, mean and total cost, trade-off columns vs. S0, Pareto flag), `c
 (cost on a log scale vs. F1) and `report.md`. Effectiveness is compared on the **paired** set: cases
 with a valid prediction at every level.
 
-## Caveats
-- **Small sample:** this is a small balanced pilot with automatically derived (SZZ-based) labels, small
-  files and function-internal edits. It does not establish a statistical winner, and it does not
-  generalize to natural defect prevalence (about 12% RISKY in this split).
-- **Content and length are confounded across S0–S5.** The N2 control (same length as S2, unrelated
-  code) separates them for S2 only: for Gemini, Sonnet and Qwen, unrelated code moved accuracy as much as the
-  real file did; for Haiku it did not (see the paper, RQ2).
-- **No significant differences, and no consistent direction.** The diff alone was the most accurate level for
-  Gemini and Haiku and the least accurate for Sonnet and Qwen; nothing survives the Holm correction (paper, RQ1).
-- **Qwen is not deterministic at temperature 0:** identical re-runs changed 4–7% of its labels (paper, RQ2).
-- **Gemini runs span two providers.** The main run used Vertex and the follow-ups AI Studio. Provider
-  alone changed 4–11% of the labels, and accuracy by at most 0.02 (paper, RQ2).
-- **The labels describe commits, the prompts files.** For 47 of the 73 RISKY cases the linked fixes remove lines of
-  the commit only in other files (paper, RQ3). Counting only the other 26 as risky, or showing the whole commit and
-  asking about the commit (C0, J0), did not make the models significantly more accurate (paper, RQ4). The models
-  flag those 26 more often than the non-risky files with every prompt that asks about the file (62% vs 39% on S0),
-  less sharply than the lines-added rule does (77% vs 42%), and no longer when asked about the commit (J0: 62% vs 56%).
-- **S5 is usually a slice:** literally the entire repository only fits for the smallest repository.
-  The sampled repositories hold 0.7M–15M tokens of Python, beyond any available context window.
+
